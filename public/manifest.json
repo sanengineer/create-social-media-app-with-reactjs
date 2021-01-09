@@ -1,6 +1,6 @@
 {
-  "short_name": "React",
-  "name": "Create React App Sample",
+  "short_name": "Sosmet",
+  "name": "Best social apps in Mars, let's social and meet up!",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo_sosmet_square_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "logo_sosmet_square_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -23,5 +23,3 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
-
-
