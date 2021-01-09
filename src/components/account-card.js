@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import RB from "../assets/images/user_rachel-bowler.png";
 
 export default class AccountCard extends Component {
   render() {
@@ -8,14 +9,14 @@ export default class AccountCard extends Component {
           <div className="image-profile">
             <img
               className="img-src rounded-circle"
-              src="/assets/images/username_rachel-bowler.png"
+              src={RB}
               alt="Rachel Bowler Picture Profile"
-              width="56"
+              width="40"
             />
           </div>
         </div>
         <div className="username-follow-wrapper justify-content-between">
-          <div className="bio-desc pl-4">
+          <div className="bio-desc pl-2">
             <div className="username">rachelbowler</div>
             <div className="name">Rachel Bowler</div>
           </div>

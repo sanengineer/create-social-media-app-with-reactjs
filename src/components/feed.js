@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import RB from "../assets/images/user_rachel-bowler.png";
 
 export default class Feed extends Component {
   render() {
@@ -10,7 +11,7 @@ export default class Feed extends Component {
               <div className="image-profile">
                 <img
                   className="img-src rounded-circle"
-                  src="/assets/images/username_rachel-bowler.png"
+                  src={RB}
                   alt="Rachel Bowler Picture Profile"
                   width="56"
                 />

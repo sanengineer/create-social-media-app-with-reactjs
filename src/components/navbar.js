@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class NavbarTop extends Component {
+export default class Navbar extends Component {
   render() {
     return (
       <nav className="top-nav navbar navbar-expand-xl navbar-dark fixed-top py-3">
