@@ -1,21 +1,52 @@
 import React, { Component } from "react";
 import Navbar from "../components/navbar";
-import Feed from "../components/feed";
-import AccountCard from "../components/account-card";
+import { Feeds } from "../components/public-feeds";
+import { SuggestedAccounts } from "../components/suggested-accounts";
+
+//Dummy Data
+import UsersDataDummyServices from "../json/feeds_users_public_access";
+import SuggestedUsers from "../json/suggested_users";
 
 export default class Landing extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      usersPublic: [],
+      suggestedUsers: [],
+    };
+  }
+
+  componentDidMount() {
+    this.getUsersPublic();
+    this.getSuggestedUsers();
+  }
+
+  getUsersPublic() {
+    this.setState({
+      usersPublic: UsersDataDummyServices,
+    });
+
+    console.log(UsersDataDummyServices);
+  }
+
+  getSuggestedUsers() {
+    this.setState({
+      suggestedUsers: SuggestedUsers,
+    });
+
+    console.log(SuggestedUsers);
+  }
+
   render() {
+    const { usersPublic, suggestedUsers } = this.state;
     return (
       <div className="landing-page">
         <Navbar></Navbar>
         <div className="section-main container">
           <div className="row">
             <div className="feeds-wrapper col-8 pr-5">
-              <Feed></Feed>
-              <Feed></Feed>
-              <Feed></Feed>
-              <Feed></Feed>
-              <Feed></Feed>
+              <Feeds usersPublic={usersPublic}></Feeds>
             </div>
             <aside className="sidebar-wrapper col-4">
               <div className="sidebar-landing-page-heading h4 pr-5">
@@ -24,11 +55,9 @@ export default class Landing extends Component {
               <div className="sidebar-suggested-account">
                 <div className="h6 my-4">Suggested Account</div>
                 <div>
-                  <AccountCard></AccountCard>
-                  <AccountCard></AccountCard>
-                  <AccountCard></AccountCard>
-                  <AccountCard></AccountCard>
-                  <AccountCard></AccountCard>
+                  <SuggestedAccounts
+                    suggestedUsers={suggestedUsers}
+                  ></SuggestedAccounts>
                 </div>
                 <div className="mt-3">
                   <a href="#" className="more-account-link">
