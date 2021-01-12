@@ -18,6 +18,7 @@ class Dashboard extends Component{
                 <div className="row">
                     <div className="col s12 center-align">
                         <h4>
+                            <p>Hi {this.props.auth.user.email}</p>
                             <b>Yeay! You're logged in,</b> {user.username}
                         </h4>
                         <button 

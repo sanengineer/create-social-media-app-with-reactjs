@@ -5,10 +5,11 @@ import * as actionTypes from './actionTypes';
 require('dotenv').config()
 
 var url = "http://localhost:5000" || `mongodb+srv://${process.env.MONGODB_ATLAS_USERNAME}:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0-rmxc3.mongodb.net/test?retryWrites=true&w=majority`
+var urlHeroku = "https://kerbagungame.herokuapp.com/api/v1"
 
 // Register User
 export const registerUser =  (userData, history) => dispatch => {
-    axios.post(`${url}/user`, userData)
+    axios.post(`${urlHeroku}/register`, userData)
         .then(res => history.push("/login"))
         .catch(err => 
             dispatch({
@@ -19,25 +20,26 @@ export const registerUser =  (userData, history) => dispatch => {
 
 // Login - get user token
 export const loginUser = userData => dispatch => {
-    axios.post(`${url}/user/login`, userData)
+    axios.post(`${urlHeroku}/login`, userData)
         .then(res => {
-            const { token } = res.data;
-            // const { user } = res.data;
-            console.log({token});
-            // console.log({user});
-            //set token to localstorage
-            localStorage.setItem("jwtToken", token)
-            //set token to Auth header
-            setAuthToken(token);
-            const decoded =jwt_decode(token);
+            // const { data } = res;
+            const { user } = res.data;
+
+            console.log('data', res.data.accessToken);
+            // set token to localstorage
+            localStorage.setItem("jwtToken", res.data.accessToken)
+            // set token to Auth header
+            setAuthToken(res.data.accessToken);
+            // const decoded =jwt_decode(user.accessToken);
             //set current user
-            dispatch(setCurrentUser(decoded))
+            dispatch(setCurrentUser(res.data))
         })
-        .catch(err => 
+        .catch(err => {
+            console.log('error ', err)
             dispatch({
                 type: actionTypes.GET_ERRORS,
-                payload: err.response.data
-            }))
+                payload: {"message": "authentication has failed"}
+            })})
 }
 
 //set logged in user

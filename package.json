@@ -16,7 +16,6 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },
-  "homepage": "https://login-using-react.herokuapp.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

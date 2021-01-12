@@ -57,20 +57,10 @@ class Login extends Component  {
             <div className="container">
                 <div className="row" style={{ marginTop: "4rem" }}>
                     <div className="col s8 offset-s2">
-                        <Link to="/" className="btn-flat wafes-effect">
-                            <i className="material-icons left">keyboard_backspace</i>
-                            Back To Home
-                        </Link>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                            <h4>
+                            <h4 style={{textAlign:"center"}}>
                                 <b>Login</b> below
                             </h4>
-                            <p className="grey-text text-darken-1">
-                                Don't have an account?
-                                <Link to="/register">
-                                    Register
-                                </Link>
-                            </p>
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="input-field col s12">
@@ -95,13 +85,21 @@ class Login extends Component  {
                                 <label htmlFor="password">Password</label>
                                 <span className="red-text">{errors.password} </span>
                             </div>
-                            <div className="col s12" style={{ paddingLeft: "11.25px"}}>
+                            <div className="col s12" style={{ textAlign: "center"}}>
                                 <button 
                                 style={{ width: "150px", borderRadius: "3px", letterSpacing:"1.5px", marginTop:"1rem" }}
                                 type="submit"
                                 className=" btn btn-large waves-effect waves-light hoverable blue accent-3" >
                                     Login
                                 </button>
+                                <br></br>
+                                <p style={{textAlign: "center"}} className="grey-text text-darken-1">
+                                    Don't have an account? Let's&nbsp;
+                                    <Link to="/register">
+                                        Create Account
+                                    </Link>
+                                </p>
+
                             </div>
                         </form>
                         
