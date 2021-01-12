@@ -13,8 +13,9 @@ class Register extends Component  {
             username: "",
             email: "",
             password: "",
-            // password2: "",
-            errors: {}
+            password2: "",
+            errors: {},
+            errorPassword : ""
         }
     }
 
@@ -32,6 +33,9 @@ class Register extends Component  {
 
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value })
+        if (this.state.password !== this.state.password2) {
+            this.setState({ errorPassword : "Password's unmatched" })
+        }
     }
 
     onSubmit = e => {
@@ -41,8 +45,8 @@ class Register extends Component  {
             username: this.state.username,
             email: this.state.email,
             password: this.state.password
-            // password2: this.state.password2,
         }
+
         console.log(newUser);
         this.props.registerUser(newUser, this.props.history);
     }
@@ -61,26 +65,17 @@ class Register extends Component  {
             <div className="container">
                 <div className="row">
                     <div className=" col s8 offset-s2">
-                        <Link to="/" className="btn-flat wafes-effect">
-                            <i className="material-icons left">keyboard_backspace</i>
-                            Back To Home
-                        </Link>
                         <div className="col s12" style={{ paddingLeft: "11.25px" }}>
                             <h4>
                                 <b>
-                                    Register
+                                    Register&nbsp;
                                 </b>
                                 below
                             </h4>
-                            <p>
-                                Already have an account?
-                                <Link to="/login">
-                                    Login
-                                </Link>        
-                            </p>
                         </div>
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="input-field col s12">
+                                <label htmlFor="username">Username</label>
                                 <input 
                                 onChange={this.onChange} 
                                 value={this.state.username} 
@@ -89,7 +84,6 @@ class Register extends Component  {
                                 type="text"
                                 className={classnames("", {invalid: errors.username})}
                                 />
-                                <label htmlFor="username">Username</label>
                                 <span className="red-text">{errors.username}</span>
                             </div>
                             <div className="input-field col s12">
@@ -116,13 +110,35 @@ class Register extends Component  {
                                 <label htmlFor="password">Password</label>
                                 <span className="red-text">{errors.password}</span>
                             </div>
-                            <div className="col s12" style={{ paddingLeft: "11.25px"}}>
+                            <div className="input-field col s12">
+                                <input 
+                                onChange={this.onChange} 
+                                value={this.state.password2} 
+                                error={errors.password} 
+                                id="password2" 
+                                type="password"
+                                className={classnames("", {invalid: errors.password})}
+                                />
+                                { ((this.state.password2) && (this.state.password !== this.state.password2)) ?
+                                    <p style={{color: "red"}}>{this.state.errorPassword}</p> :
+                                    <p></p>
+                                }
+                                <label htmlFor="password">Confirm Password</label>
+                                <span className="red-text">{errors.password}</span>
+                            </div>
+                            <div className="col s12" style={{ textAlign: "center" }}>
                                 <button 
-                                style={{ width: "150px", borderRadius: "3px", letterSpacing:"1.5px", marginTop:"1rem" }}
+                                style={{ width: "150px", letterSpacing:"1.5px", marginTop:"1rem" }}
                                 type="submit"
                                 className=" btn btn-large waves-effect waves-light hoverable blue accent-3" >
                                     Sign Up
                                 </button>
+                                <p>
+                                Have an account? Lets'&nbsp; 
+                                <Link to="/login">
+                                     Login!
+                                </Link>        
+                             </p>
                             </div>
                         </form>
                     </div>
