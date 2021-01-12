@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../components/navbar";
 import { Feeds } from "../components/public-feeds";
+import { InfoWeb } from "../components/sidebar-footer";
 import { SuggestedAccounts } from "../components/suggested-accounts";
 
 //Dummy Data
@@ -14,6 +15,20 @@ export default class Landing extends Component {
     this.state = {
       usersPublic: [],
       suggestedUsers: [],
+      linksInfoWeb: [
+        "about",
+        "explore",
+        "hastag",
+        "community-guideline",
+        "privacy-policy",
+        "terms",
+        "careers",
+        "developers",
+        "newsroom",
+        "ads",
+        "investors",
+        "contact",
+      ],
     };
   }
 
@@ -26,20 +41,16 @@ export default class Landing extends Component {
     this.setState({
       usersPublic: UsersDataDummyServices,
     });
-
-    console.log(UsersDataDummyServices);
   }
 
   getSuggestedUsers() {
     this.setState({
       suggestedUsers: SuggestedUsers,
     });
-
-    console.log(SuggestedUsers);
   }
 
   render() {
-    const { usersPublic, suggestedUsers } = this.state;
+    const { usersPublic, suggestedUsers, linksInfoWeb } = this.state;
     return (
       <div className="landing-page">
         <Navbar></Navbar>
@@ -60,7 +71,7 @@ export default class Landing extends Component {
                   ></SuggestedAccounts>
                 </div>
                 <div className="mt-3">
-                  <a href="#" className="more-account-link">
+                  <a href="/more-suggested-users" className="more-account-link">
                     <span className="more-account pr-2">more</span>
                     <svg
                       width="8"
@@ -77,52 +88,7 @@ export default class Landing extends Component {
                   </a>
                 </div>
               </div>
-              <div class="info-web">
-                <div class="about">
-                  <nav class="nav-about">
-                    <ul class="underlist-link">
-                      <li class="list-link">
-                        <a class="link-about" href="/about" target="_blank">
-                          About us
-                        </a>
-                      </li>
-                      <li class="list-link">
-                        <a class="link-contact" href="/contact">
-                          Contact
-                        </a>
-                      </li>
-                      <li class="list-link">
-                        <a class="link-privacy-policy" href="/privacy-policy">
-                          Privacy Policy
-                        </a>
-                      </li>
-                      <li class="list-link">
-                        <a class="link-terms" href="/terms-and-conditions">
-                          Terms
-                        </a>
-                      </li>
-                      <li class="list-link">
-                        <a class="link-archive" href="#">
-                          Archive
-                        </a>
-                      </li>
-                      <li class="list-link">
-                        <a class="link-category" href="#">
-                          Category
-                        </a>
-                      </li>
-                      <li class="list-link">
-                        <a class="link-tags" href="#">
-                          Hastags
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                  <span class="copyright">
-                    © 2019 <a href="/">sosmet.com</a>
-                  </span>
-                </div>
-              </div>
+              <InfoWeb linksInfoWeb={linksInfoWeb}></InfoWeb>
             </aside>
           </div>
         </div>

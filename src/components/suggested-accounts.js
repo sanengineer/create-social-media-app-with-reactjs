@@ -13,20 +13,25 @@ export const SuggestedAccounts = ({ suggestedUsers }) => {
             <img
               className="img-src rounded-circle"
               src={suggestedUser.pict_url}
-              alt="Rachel Bowler Picture Profile"
+              alt={suggestedUser.name + "Picture Profile"}
               width="40"
             />
           </div>
         </div>
         <div className="username-follow-wrapper justify-content-between">
           <div className="bio-desc pl-2">
-            <div className="username">{suggestedUser.username}</div>
-            <div className="name">{suggestedUser.name}</div>
+            <a
+              className="suggested-user-link"
+              href={"/" + suggestedUser.username}
+            >
+              <div className="username">{suggestedUser.username}</div>
+              <div className="name">{suggestedUser.name}</div>
+            </a>
           </div>
           <div className="d-block">
-            <a href="#" className="suggested-account-folow-btn">
+            <button href="#" className="suggested-account-folow-btn btn">
               Follow
-            </a>
+            </button>
           </div>
         </div>
       </div>
