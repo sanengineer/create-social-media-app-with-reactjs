@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authAction";
 import classnames from "classnames";
+import Navbar from "../navbar";
 
 class Register extends Component {
   constructor() {
@@ -61,108 +62,114 @@ class Register extends Component {
     const { errors } = this.state;
     console.log("states", this.state);
     return (
-      <div className="container">
-        <div className="row justify-content-center mt-5">
-          <div className="col-8 col-lg-8 col-md-6 col-sm-4">
-            <div className="text-center">
-              <h4>
-                <b>Register</b> below
-              </h4>
-            </div>
-            <div className="row justify-content-center">
-              <form
-                noValidate
-                onSubmit={this.onSubmit}
-                className="justify-content-center col-5 col-lg-5 col-md-4 col-sm-4 mt-5 mb-5"
-              >
-                <div className="mb-3">
-                  <label class="form-label">Username</label>
-                  <input
-                    onChange={this.onChange}
-                    value={this.state.username}
-                    error={errors.username}
-                    id="username"
-                    type="text"
-                    className={classnames("auth-form-control form-control", {
-                      invalid: errors.username,
-                    })}
-                  />
-                  <span className="red-text">{errors.username}</span>
-                </div>
-                <div className="mb-3">
-                  <label for="email" class="form-label">
-                    Email
-                  </label>
-                  <input
-                    onChange={this.onChange}
-                    value={this.state.email}
-                    error={errors.email}
-                    id="email"
-                    type="text"
-                    className={classnames("auth-form-control form-control", {
-                      invalid: errors.email,
-                    })}
-                  />
-                  <span className="red-text">{errors.email}</span>
-                </div>
-                <div className="mb-3">
-                  <label for="password" class="form-label">
-                    Password
-                  </label>
-                  <input
-                    onChange={this.onChange}
-                    value={this.state.password}
-                    error={errors.password}
-                    id="password"
-                    type="password"
-                    className={classnames("auth-form-control form-control", {
-                      invalid: errors.password,
-                    })}
-                  />
-                  <span className="red-text">{errors.password}</span>
-                </div>
-                <div className="mb-3">
-                  <label for="password2" class="form-label">
-                    Password
-                  </label>
-                  <input
-                    onChange={this.onChange}
-                    value={this.state.password2}
-                    error={errors.password}
-                    id="password2"
-                    type="password"
-                    className={classnames("auth-form-control form-control", {
-                      invalid: errors.password,
-                    })}
-                  />
-                  {this.state.password2 &&
-                  this.state.password !== this.state.password2 ? (
-                    <p
-                      style={{
-                        color: "red",
-                        fontSize: "11px",
-                        paddingTop: "8px",
-                        paddingBottom: "8px",
-                      }}
-                    >
-                      {this.state.errorPassword}
-                    </p>
-                  ) : (
-                    <p></p>
-                  )}
-                  <span className="red-text">{errors.password}</span>
-                </div>
-                <div className="text-center mt-5">
-                  <button type="submit" className="btn btn-purple">
-                    Sign Up
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div className="text-center my-3">
-              <span>
-                Have an account? Let's <Link to="/login">Login!</Link>
-              </span>
+      <div className="register-page">
+        <Navbar></Navbar>
+        <div className="container">
+          <div
+            className="row justify-content-center"
+            style={{ marginTop: "16vh" }}
+          >
+            <div className="col-8 col-lg-8 col-md-6 col-sm-4">
+              <div className="text-center">
+                <h4>
+                  <b>Register</b> below
+                </h4>
+              </div>
+              <div className="row justify-content-center">
+                <form
+                  noValidate
+                  onSubmit={this.onSubmit}
+                  className="justify-content-center col-5 col-lg-5 col-md-4 col-sm-4 mt-5 mb-5"
+                >
+                  <div className="mb-3">
+                    <label class="form-label">Username</label>
+                    <input
+                      onChange={this.onChange}
+                      value={this.state.username}
+                      error={errors.username}
+                      id="username"
+                      type="text"
+                      className={classnames("auth-form-control form-control", {
+                        invalid: errors.username,
+                      })}
+                    />
+                    <span className="red-text">{errors.username}</span>
+                  </div>
+                  <div className="mb-3">
+                    <label for="email" class="form-label">
+                      Email
+                    </label>
+                    <input
+                      onChange={this.onChange}
+                      value={this.state.email}
+                      error={errors.email}
+                      id="email"
+                      type="text"
+                      className={classnames("auth-form-control form-control", {
+                        invalid: errors.email,
+                      })}
+                    />
+                    <span className="red-text">{errors.email}</span>
+                  </div>
+                  <div className="mb-3">
+                    <label for="password" class="form-label">
+                      Password
+                    </label>
+                    <input
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      error={errors.password}
+                      id="password"
+                      type="password"
+                      className={classnames("auth-form-control form-control", {
+                        invalid: errors.password,
+                      })}
+                    />
+                    <span className="red-text">{errors.password}</span>
+                  </div>
+                  <div className="mb-3">
+                    <label for="password2" class="form-label">
+                      Password
+                    </label>
+                    <input
+                      onChange={this.onChange}
+                      value={this.state.password2}
+                      error={errors.password}
+                      id="password2"
+                      type="password"
+                      className={classnames("auth-form-control form-control", {
+                        invalid: errors.password,
+                      })}
+                    />
+                    {this.state.password2 &&
+                    this.state.password !== this.state.password2 ? (
+                      <p
+                        style={{
+                          color: "red",
+                          fontSize: "11px",
+                          paddingTop: "8px",
+                          paddingBottom: "8px",
+                        }}
+                      >
+                        {this.state.errorPassword}
+                      </p>
+                    ) : (
+                      <p></p>
+                    )}
+                    <span className="red-text">{errors.password}</span>
+                  </div>
+                  <div className="text-center mt-5">
+                    <button type="submit" className="btn btn-purple">
+                      Sign Up
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div className="text-center my-3">
+                <span>
+                  Have an account? Let's <Link to="/login">Login!</Link>
+                </span>
+              </div>
             </div>
           </div>
         </div>

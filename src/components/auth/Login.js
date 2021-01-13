@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { loginUser } from "../../actions/authAction";
 import classnames from "classnames";
+import Navbar from "../navbar";
 
 class Login extends Component {
   constructor() {
@@ -52,62 +53,68 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div className="row justify-content-center mt-5">
-          <div className="col-8 col-lg-8 col-md-4 col-sm-4">
-            <div className="col-12">
-              <h4 className="text-center">
-                <b>Login</b> below
-              </h4>
-            </div>
-            <div className="row justify-content-center">
-              <form
-                noValidate
-                onSubmit={this.onSubmit}
-                className="justify-content-center col-5 col-lg-5 col-md-4 col-sm-4 mt-5 mb-5"
-              >
-                <div className="mb-3">
-                  <label class="form-label">Email</label>
-                  <input
-                    onChange={this.onChange}
-                    value={this.state.email}
-                    error={errors.email}
-                    id="email"
-                    type="text"
-                    className={classnames("auth-form-control form-control", {
-                      invalid: errors.email,
-                    })}
-                  />
-                  <span className="red-text">{errors.email} </span>
-                </div>
-                <div className="mb-3">
-                  <label class="form-label">Password</label>
-                  <input
-                    onChange={this.onChange}
-                    value={this.state.password}
-                    error={errors.pasword}
-                    id="password"
-                    type="password"
-                    className={classnames("auth-form-control form-control", {
-                      invalid: errors.password,
-                    })}
-                  />
+      <div className="login-page">
+        <Navbar></Navbar>
+        <div className="container">
+          <div
+            className="row justify-content-center"
+            style={{ marginTop: "16vh" }}
+          >
+            <div className="col-8 col-lg-8 col-md-4 col-sm-4">
+              <div className="col-12">
+                <h4 className="text-center">
+                  <b>Login</b> below
+                </h4>
+              </div>
+              <div className="row justify-content-center">
+                <form
+                  noValidate
+                  onSubmit={this.onSubmit}
+                  className="justify-content-center col-5 col-lg-5 col-md-4 col-sm-4 mt-5 mb-5"
+                >
+                  <div className="mb-3">
+                    <label class="form-label">Email</label>
+                    <input
+                      onChange={this.onChange}
+                      value={this.state.email}
+                      error={errors.email}
+                      id="email"
+                      type="text"
+                      className={classnames("auth-form-control form-control", {
+                        invalid: errors.email,
+                      })}
+                    />
+                    <span className="red-text">{errors.email} </span>
+                  </div>
+                  <div className="mb-3">
+                    <label class="form-label">Password</label>
+                    <input
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      error={errors.pasword}
+                      id="password"
+                      type="password"
+                      className={classnames("auth-form-control form-control", {
+                        invalid: errors.password,
+                      })}
+                    />
 
-                  <span className="red-text">{errors.password} </span>
-                </div>
-                <div className="text-center mt-5">
-                  <button type="submit" className="btn btn-purple">
-                    Login
-                  </button>
-                </div>
-              </form>
-            </div>
+                    <span className="red-text">{errors.password} </span>
+                  </div>
+                  <div className="text-center mt-5">
+                    <button type="submit" className="btn btn-purple">
+                      Login
+                    </button>
+                  </div>
+                </form>
+              </div>
 
-            <div className="text-center my-3">
-              <span>
-                Don't have an account? Let's{" "}
-                <Link to="/register">Create Account</Link>
-              </span>
+              <div className="text-center my-3">
+                <span>
+                  Don't have an account? Let's{" "}
+                  <Link to="/register">Create Account</Link>
+                </span>
+              </div>
             </div>
           </div>
         </div>
