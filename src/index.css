@@ -237,3 +237,11 @@ body {
   color: #9c9c9c;
   text-decoration: none;
 }
+
+/*--Register Login Form--*/
+.auth-form-control {
+  border-right: 1px solid #dddddd !important;
+  border-bottom: 1px solid #dddddd !important;
+  border-left: 1px solid #dddddd !important;
+  border-top: 1px solid #dddddd !important;
+}
