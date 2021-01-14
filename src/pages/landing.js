@@ -3,10 +3,10 @@ import Navbar from "../components/navbar";
 import { Feeds } from "../components/public-feeds";
 import { InfoWeb } from "../components/sidebar-footer";
 import { SuggestedAccounts } from "../components/suggested-accounts";
-
+import UsersServices from "../services/users-service";
 //Dummy Data
-import UsersDataDummyServices from "../json/feeds_users_public_access";
-import SuggestedUsers from "../json/suggested_users";
+// import UsersDataDummyServices from "../json/feeds_users_public_access";
+// import SuggestedUsers from "../json/suggested_users";
 
 export default class Landing extends Component {
   constructor(props) {
@@ -30,6 +30,8 @@ export default class Landing extends Component {
         "contact",
       ],
     };
+
+    // console.log("TEST" + usersPublic);
   }
 
   componentDidMount() {
@@ -38,14 +40,22 @@ export default class Landing extends Component {
   }
 
   getUsersPublic() {
-    this.setState({
-      usersPublic: UsersDataDummyServices,
+    UsersServices.fetchAllUsers().then((response) => {
+      this.setState({
+        usersPublic: response.data,
+      });
+
+      console.log("TEST" + response);
     });
   }
 
   getSuggestedUsers() {
-    this.setState({
-      suggestedUsers: SuggestedUsers,
+    UsersServices.fetchAllUsers().then((response) => {
+      this.setState({
+        suggestedUsers: response.data,
+      });
+
+      console.log("TEST" + response);
     });
   }
 

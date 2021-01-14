@@ -14,8 +14,12 @@ export const Feeds = ({ usersPublic }) => {
                 <div className="image-profile">
                   <img
                     className="img-src rounded-circle"
-                    src={userPublic.pict_url}
-                    alt={userPublic.name + " Profil Picture"}
+                    src={userPublic.avatar}
+                    alt={
+                      userPublic.firstname +
+                      userPublic.lastname +
+                      "Profil Picture"
+                    }
                     width="56"
                   />
                 </div>
@@ -25,7 +29,9 @@ export const Feeds = ({ usersPublic }) => {
                   <div className="username">{userPublic.username}</div>
                 </a>
 
-                <div className="name">{userPublic.name}</div>
+                <div className="name">
+                  {userPublic.firstname + userPublic.lastname}
+                </div>
               </div>
             </div>
             <div className="follow-button-group">
