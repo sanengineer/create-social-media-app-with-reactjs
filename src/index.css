@@ -1,0 +1,239 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.top-nav {
+  border-bottom: 1px solid #dddddd;
+  background-color: #fff;
+}
+
+.login-btn {
+  border: 1px solid #7f37a0 !important;
+  color: #7f37a0 !important;
+  margin-right: 40px;
+}
+
+.login-btn:hover {
+  border: 1px solid #401a52 !important;
+  color: #401a52 !important;
+}
+
+.form-control {
+  background-color: transparent !important;
+  border-right: 1px solid #dddddd;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-top: none !important;
+  padding: 10px;
+}
+
+.search-container {
+  background-color: #f9f9f9;
+  padding: 6px 20px;
+}
+
+.search-container .form-control:focus {
+  box-shadow: unset;
+  border-right: 1px solid #7f37a0;
+}
+
+.signup-btn {
+  background-color: #7f37a0;
+  color: #fff;
+}
+
+.signup-btn:hover {
+  background-color: #572070;
+  color: #fff;
+}
+
+.nav-link {
+  color: #000000 !important;
+}
+
+/**--feed wrapper--**/
+.section-main {
+  margin-top: 100px;
+}
+
+.feeds-wrapper {
+  margin-top: 80px;
+  display: inline-block;
+}
+
+.post-detail-link {
+  color: #000;
+  display: block;
+  background-color: white;
+  padding: 10px 10px;
+  border-bottom: 1px solid #dddddd;
+  z-index: 0;
+  position: relative;
+}
+
+.post-detail-link:hover {
+  color: rgb(26, 26, 26);
+  text-decoration: none;
+  background-color: #d3d3d359;
+  border-radius: 10px;
+  border-bottom: none;
+  margin-top: 10px;
+}
+
+/* .quotes-people-box-list {
+  border-bottom: 1px solid #dddddd;
+ 
+} */
+
+.username {
+  font-weight: bold;
+}
+
+.second-text {
+  margin-top: 20px;
+  margin-bottom: 39px;
+}
+
+.follow-button-group {
+  z-index: 4;
+  position: relative;
+  display: block;
+}
+
+.follow-btn {
+  z-index: 6;
+  position: relative;
+  display: block;
+  border: 1px solid #7f37a0;
+  color: #7f37a0;
+  font-size: 12px;
+}
+
+.follow-btn:hover {
+  border: 1px solid #ad1af1;
+  color: #ad1af1;
+}
+
+/**--sidebar--**/
+.sidebar-wrapper {
+  margin-top: 80px;
+}
+
+.sidebar-suggested-account {
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 30px;
+}
+
+.sidebar-landing-page-heading {
+  line-height: 1.5;
+  font-weight: bold;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.suggested-account-item {
+  display: flex;
+}
+
+.suggested-account-item .username {
+  font-size: 11px;
+}
+
+.suggested-account-item .name {
+  font-size: 11px;
+}
+
+.username-follow-wrapper {
+  width: 100%;
+  display: inline-flex;
+  padding-top: 4px;
+}
+
+.suggested-user-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.suggested-user-link:hover {
+  color: rgba(0, 0, 0, 0.672);
+  text-decoration: none;
+}
+
+.suggested-account-folow-btn {
+  color: #7f37a0;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.suggested-account-folow-btn:hover {
+  color: #a248cc;
+  text-decoration: none;
+}
+
+.more-account {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.more-account-link:hover {
+  text-decoration: none;
+}
+
+.more-account-link path {
+  fill: #7f37a0;
+}
+
+.about {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 10px;
+}
+
+.about .nav-about {
+  margin-bottom: 16px;
+  padding-top: 10px;
+}
+
+.about .nav-about .underlist-link {
+  margin-right: 16px;
+  list-style: none;
+  display: block;
+  padding-left: 0;
+}
+
+.about .nav-about .underlist-link .list-link {
+  margin: 0;
+  display: inline-block;
+  color: #000;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  margin-bottom: 5px;
+}
+
+.about .nav-about .underlist-link .list-link a {
+  text-decoration: none;
+  font-size: 8px;
+  color: #9c9c9c;
+  font-weight: 400;
+  line-height: 13px;
+}
+
+.about .nav-about .underlist-link .list-link:not(:last-child):after {
+  content: "\00B7";
+  margin: 0 0.25em;
+  color: #9c9c9c;
+}
+
+.copyright {
+  color: #9c9c9c;
+  text-decoration: none;
+}
