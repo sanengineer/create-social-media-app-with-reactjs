@@ -18,6 +18,8 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/private-route/PrivateRoute'
 import Dashboard from './components/auth/Dashboard';
+import LatestPost from './components/post/LatestPost';
+import DetailPost from './components/post/DetailPost';
 
 
 
@@ -51,8 +53,11 @@ function App () {
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/register" component={Register}/>
                 <Route exact path ="/login" component={Login}/>
+                <Route exact path="/latest-post" component={LatestPost}/>
+                <Route exact path="/detail-post" component={DetailPost}/>
                 <Switch>
                   <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+                  {/* <PrivateRoute exact path="/latest-post" component={LatestPost}/> */}
                 </Switch>
           </div>
         </Router>
