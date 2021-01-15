@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode"
 import * as actionTypes from './actionTypes';
 require('dotenv').config()
 
-var url = "http://localhost:5000" || `mongodb+srv://${process.env.MONGODB_ATLAS_USERNAME}:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0-rmxc3.mongodb.net/test?retryWrites=true&w=majority`
+var url = "https://sosmetend.herokuapp.com/api/v1" || `mongodb+srv://${process.env.MONGODB_ATLAS_USERNAME}:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0-rmxc3.mongodb.net/test?retryWrites=true&w=majority`
 
 // Register User
 export const registerUser =  (userData, history) => dispatch => {

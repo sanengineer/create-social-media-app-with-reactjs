@@ -32,44 +32,61 @@ class DetailPost extends Component {
         <Container>
           <Row>
             <Col sm={8}>
+              <br></br>
               <Row>
-                <Col sm={10}>
-                  <h3>Latest Post</h3>
-                </Col>
-                <Col sm={2}>
-                  <Button onClick={this.handleShow} variant="outline-dark" size="sm" block>Post</Button>
+                <Col sm={1}><Image width="50px" height="50px" src={userIcon} rounded /></Col>
+                <Col sm={11}>
+                  
+                  <div className="d-flex">
+                      <div>
+                        <p className="mb-0 mr-auto">Username</p>
+                        <p>name</p>
+                      </div>
+                  </div>
+
+                  <div>
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  </div>
+
+                  <div className="d-flex">
+                    <div>
+                      <p className="text-muted">4.20 am - 1 Januari 2021</p>
+                    </div>
+                    <div className="ml-auto">
+                      <p className="mb-0 text-muted">4 Comment - 54 Loved</p>
+                    </div>
+                  </div>
+
+                  <div className="d-flex">
+                    <div>
+                      <Image src={commentIcon}/>
+                    </div>
+                    <div className="ml-5">
+                      <Image src={saveIcon}/>
+                    </div>
+                    <div className="ml-5">
+                      <OverlayTrigger
+                      trigger="click"
+                      placement="bottom"
+                      overlay=
+                          {
+                              <Popover id={`popover-positioned-bottom`}>
+                              <Popover.Title as="h3">{`Popover bottom`}</Popover.Title>
+                              <Popover.Content>
+                                  <strong>Holy guacamole!</strong> Check this info.
+                              </Popover.Content>
+                              </Popover>
+                          }
+                      >
+                          <a href="#"><Image src={shareIcon}/></a>
+                      </OverlayTrigger>
+                    </div>
+                    <div className="ml-5">
+                      <Image src={loveIcon}/>
+                    </div>
+                  </div>
                 </Col>
               </Row>
-              <br></br>
-              <Post />
-              <div className="d-flex">
-                  <div>
-                    <Image src={commentIcon}/>
-                  </div>
-                  <div className="ml-5">
-                    <Image src={saveIcon}/>
-                  </div>
-                  <div className="ml-5">
-                    <OverlayTrigger
-                    trigger="click"
-                    placement="bottom"
-                    overlay=
-                        {
-                            <Popover id={`popover-positioned-bottom`}>
-                            <Popover.Title as="h3">{`Popover bottom`}</Popover.Title>
-                            <Popover.Content>
-                                <strong>Holy guacamole!</strong> Check this info.
-                            </Popover.Content>
-                            </Popover>
-                        }
-                    >
-                        <a href="#"><Image src={shareIcon}/></a>
-                    </OverlayTrigger>
-                  </div>
-                  <div className="ml-5">
-                    <Image src={loveIcon}/>
-                  </div>
-              </div>
             </Col>
             <Col sm={4}>
               <div className="d-flex">

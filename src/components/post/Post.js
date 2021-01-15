@@ -5,7 +5,7 @@ import userIcon from '../../assets/images/user_no-pict.jpg';
 import { Row, Col, Image } from 'react-bootstrap';
 import React from 'react';
 
-function Post() {
+function Post({post, index}) {
   return (
    <>
         <Row>
