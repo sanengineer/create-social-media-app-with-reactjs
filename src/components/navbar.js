@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 export default class Navbar extends Component {
   render() {
@@ -59,14 +60,10 @@ export default class Navbar extends Component {
           <div>
             <ul className="navbar-nav d-lg-flex order-4">
               <li className="...">
-                <a className="login-btn btn text-uppercase" to="/login">
-                  Login
-                </a>
+                <Link className="login-btn btn text-uppercase" to="/login">Login</Link>
               </li>
               <li className="...">
-                <a className="signup-btn btn text-uppercase" to="/signup">
-                  Sign Up
-                </a>
+                <Link className="signup-btn btn text-uppercase" to="/register">Sign Up</Link>
               </li>
             </ul>
           </div>

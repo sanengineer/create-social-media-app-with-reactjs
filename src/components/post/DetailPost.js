@@ -36,7 +36,7 @@ class DetailPost extends Component {
               <Row>
                 <Col sm={1}><Image width="50px" height="50px" src={userIcon} rounded /></Col>
                 <Col sm={11}>
-                  
+
                   <div className="d-flex">
                       <div>
                         <p className="mb-0 mr-auto">Username</p>
