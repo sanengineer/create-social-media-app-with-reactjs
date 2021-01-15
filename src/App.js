@@ -1,15 +1,14 @@
-import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Related to Authentication
-import jwt_decode from 'jwt-decode';
-import setAuthToken from './utils/setAuthToken';
-import { setCurrentUser, logoutUser } from './actions/authAction'
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
+import { setCurrentUser, logoutUser } from "./actions/authAction";
 
 // Related to store
-import { Provider } from 'react-redux';
-import store from './store/store'
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 // Importing components
 import Navbar from './components/layout/Navbar';
@@ -21,26 +20,30 @@ import Dashboard from './components/auth/Dashboard';
 import LatestPost from './components/post/LatestPost';
 import DetailPost from './components/post/DetailPost';
 
+import Landing from "./pages/landing";
 
+//Importing stylesheet
+import "sanstrap/dist/css/sanstrap.css";
+import "./index.css";
 
 // check for token  to keep user login
-if(localStorage.jwtToken){
+if (localStorage.jwtToken) {
   //set auth token header auth
   const token = localStorage.jwtToken;
   setAuthToken(token);
   // Decode token and get user info and exp token info
   const decoded = jwt_decode(token);
   // Set user and isAuthenticated
-  store.dispatch(setCurrentUser(decoded))
+  store.dispatch(setCurrentUser(decoded));
 
   //Check for expired token
   const currentTime = Date.now() / 1000; // to get in milliseconds
-  if(decoded.exp < currentTime) {
+  if (decoded.exp < currentTime) {
     //logout user
-    store.dispatch(logoutUser())
+    store.dispatch(logoutUser());
 
     //Redirect to login
-    window.location.href='./login'
+    window.location.href = "./login";
   }
 }
 

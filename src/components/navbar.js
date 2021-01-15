@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class NavbarTop extends Component {
+export default class Navbar extends Component {
   render() {
     return (
       <nav className="top-nav navbar navbar-expand-xl navbar-dark fixed-top py-3">
@@ -33,7 +33,7 @@ export default class NavbarTop extends Component {
                 <div className="col p-0 input-group">
                   <input
                     type="search"
-                    className="form-control ds-input p-2 f-14"
+                    className="sosmet-search-form form-control ds-input p-2 f-14"
                     placeholder="Search"
                     //value={searchUserBiodataTable}
                     //onChange={this.onChangeSearchFullname}
