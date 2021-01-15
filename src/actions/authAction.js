@@ -67,3 +67,15 @@ export const logoutUser = () => (dispatch) => {
   setAuthToken(false);
   dispatch(setCurrentUser({}));
 };
+
+//fetch suggested
+export const fetchPublicUsers = (suggestedusers) => {
+  axios.get(`${url}/all-profiles`, suggestedusers).then((res) => {
+    // return({
+    //   type: actionTypes.GET_SUGGESTED_USERS,
+    //   payload: res.data,
+    // });
+
+    console.log("TEST REDUX" + res.data);
+  });
+};

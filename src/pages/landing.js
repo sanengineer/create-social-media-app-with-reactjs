@@ -4,17 +4,17 @@ import { Feeds } from "../components/public-feeds";
 import { InfoWeb } from "../components/sidebar-footer";
 import { SuggestedAccounts } from "../components/suggested-accounts";
 import UsersServices from "../services/users-service";
-//Dummy Data
-// import UsersDataDummyServices from "../json/feeds_users_public_access";
-// import SuggestedUsers from "../json/suggested_users";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { fetchPublicUsers } from "../actions/authAction";
 
-export default class Landing extends Component {
+class Landing extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       usersPublic: [],
-      suggestedUsers: [],
+      suggested_Users: [],
       linksInfoWeb: [
         "about",
         "explore",
@@ -40,27 +40,27 @@ export default class Landing extends Component {
   }
 
   getUsersPublic() {
-    UsersServices.fetchAllUsers().then((response) => {
-      this.setState({
-        usersPublic: response.data,
-      });
+    const suggestedusers = {
+      suggested_users: this.state.suggested_Users,
+    };
 
-      console.log("TEST" + response);
-    });
+    console.log("TEST" + suggestedusers);
+
+    this.props.fetchPublicUsers(suggestedusers);
   }
 
-  getSuggestedUsers() {
-    UsersServices.fetchAllUsers().then((response) => {
-      this.setState({
-        suggestedUsers: response.data,
-      });
+  // getSuggestedUsers() {
+  //   UsersServices.fetchAllUsers().then((response) => {
+  //     this.setState({
+  //       suggested_Users: response.data,
+  //     });
 
-      console.log("TEST" + response);
-    });
-  }
+  //     console.log("TEST" + response);
+  //   });
+  // }
 
   render() {
-    const { usersPublic, suggestedUsers, linksInfoWeb } = this.state;
+    const { usersPublic, suggested_Users, linksInfoWeb } = this.state;
     return (
       <div className="landing-page">
         <Navbar></Navbar>
@@ -77,7 +77,7 @@ export default class Landing extends Component {
                 <div className="h6 my-4">Suggested Account</div>
                 <div>
                   <SuggestedAccounts
-                    suggestedUsers={suggestedUsers}
+                    suggested_Users={suggested_Users}
                   ></SuggestedAccounts>
                 </div>
                 <div className="mt-3">
@@ -106,3 +106,14 @@ export default class Landing extends Component {
     );
   }
 }
+
+Landing.propTypes = {
+  fetchPublicUsers: PropTypes.func.isRequired,
+  suggested_Users: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  suggested_Users: state.suggested_Users,
+});
+
+export default connect(mapStateToProps, { fetchPublicUsers }(Landing));

@@ -1,9 +1,9 @@
 import React from "react";
 
-export const SuggestedAccounts = ({ suggestedUsers }) => {
-  if (suggestedUsers.lenght === 0) return null;
+export const SuggestedAccounts = ({ suggested_Users }) => {
+  if (suggested_Users.length === 0) return null;
 
-  console.log(suggestedUsers);
+  console.log(suggested_Users);
 
   const AccountSuggestedCard = (suggestedUser) => {
     return (
@@ -44,7 +44,7 @@ export const SuggestedAccounts = ({ suggestedUsers }) => {
     );
   };
 
-  const AccountSuggestedCards = suggestedUsers.map((suggestedUser) =>
+  const AccountSuggestedCards = suggested_Users.map((suggestedUser) =>
     AccountSuggestedCard(suggestedUser)
   );
 
