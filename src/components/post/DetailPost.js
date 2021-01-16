@@ -29,7 +29,7 @@ class DetailPost extends Component {
   render() {
     return (
       <>
-        <Container>
+        <Container className="containerBox">
           <Row>
             <Col sm={8}>
               <br></br>
