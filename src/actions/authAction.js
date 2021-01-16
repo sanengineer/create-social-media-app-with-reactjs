@@ -28,7 +28,7 @@ export const loginUser = (userData) => (dispatch) => {
     .then((res) => {
       const { token } = res.data;
       // const { user } = res.data;
-      console.log({ token });
+      // console.log({ token });
       // console.log({user});
       //set token to localstorage
       localStorage.setItem("jwtToken", token);
@@ -66,16 +66,4 @@ export const logoutUser = () => (dispatch) => {
   localStorage.removeItem("jwtToken");
   setAuthToken(false);
   dispatch(setCurrentUser({}));
-};
-
-//fetch suggested
-export const fetchPublicUsers = (suggestedusers) => {
-  axios.get(`${url}/all-profiles`, suggestedusers).then((res) => {
-    // return({
-    //   type: actionTypes.GET_SUGGESTED_USERS,
-    //   payload: res.data,
-    // });
-
-    console.log("TEST REDUX" + res.data);
-  });
 };

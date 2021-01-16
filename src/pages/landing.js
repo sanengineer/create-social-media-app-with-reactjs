@@ -3,18 +3,15 @@ import Navbar from "../components/navbar";
 import { Feeds } from "../components/public-feeds";
 import { InfoWeb } from "../components/sidebar-footer";
 import { SuggestedAccounts } from "../components/suggested-accounts";
-import UsersServices from "../services/users-service";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchPublicUsers } from "../actions/authAction";
+import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
 
 class Landing extends Component {
   constructor(props) {
-    super(props);
-
+    super();
     this.state = {
       usersPublic: [],
-      suggested_Users: [],
       linksInfoWeb: [
         "about",
         "explore",
@@ -35,32 +32,13 @@ class Landing extends Component {
   }
 
   componentDidMount() {
-    this.getUsersPublic();
-    this.getSuggestedUsers();
+    this.props.dispatch(fetchSuggestedUsers());
   }
-
-  getUsersPublic() {
-    const suggestedusers = {
-      suggested_users: this.state.suggested_Users,
-    };
-
-    console.log("TEST" + suggestedusers);
-
-    this.props.fetchPublicUsers(suggestedusers);
-  }
-
-  // getSuggestedUsers() {
-  //   UsersServices.fetchAllUsers().then((response) => {
-  //     this.setState({
-  //       suggested_Users: response.data,
-  //     });
-
-  //     console.log("TEST" + response);
-  //   });
-  // }
 
   render() {
-    const { usersPublic, suggested_Users, linksInfoWeb } = this.state;
+    const { usersPublic, linksInfoWeb } = this.state;
+
+    const { suggestedusers, error } = this.props;
     return (
       <div className="landing-page">
         <Navbar></Navbar>
@@ -77,7 +55,7 @@ class Landing extends Component {
                 <div className="h6 my-4">Suggested Account</div>
                 <div>
                   <SuggestedAccounts
-                    suggested_Users={suggested_Users}
+                    suggestedusers={suggestedusers}
                   ></SuggestedAccounts>
                 </div>
                 <div className="mt-3">
@@ -107,13 +85,10 @@ class Landing extends Component {
   }
 }
 
-Landing.propTypes = {
-  fetchPublicUsers: PropTypes.func.isRequired,
-  suggested_Users: PropTypes.object.isRequired,
-};
-
 const mapStateToProps = (state) => ({
-  suggested_Users: state.suggested_Users,
+  suggestedusers: state.suggestedusers.suggestedusers,
+  // error: state.suggestedusers.error,
+  loading: state.suggestedusers.loading,
 });
 
-export default connect(mapStateToProps, { fetchPublicUsers }(Landing));
+export default connect(mapStateToProps)(Landing);

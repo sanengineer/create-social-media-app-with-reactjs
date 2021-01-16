@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
-import suggested_Users from "./usersPublicReducer";
+import suggestedusers from "./suggestedUsers";
 
 export default combineReducers({
   auth: authReducer,
   error: errorReducer,
-  sugusers: suggested_Users,
+  suggestedusers: suggestedusers,
 });
