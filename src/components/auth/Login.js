@@ -20,7 +20,8 @@ class Login extends Component  {
     componentWillReceiveProps(nextProps){
         if(nextProps.auth.isAuthenticated){
             //direct user to dashboard login after login
-            this.props.history.push("/dashboard")
+            // this.props.history.push("/dashboard")
+            this.props.history.push("/latest-post")
         }
         if(nextProps.errors){
             this.setState({
@@ -46,7 +47,7 @@ class Login extends Component  {
     componentDidMount(){
         // If logged in and user navigates to Login page, should redirect to dashboard
         if(this.props.auth.isAuthenticated){
-            this.props.history.push("/dashboard")
+            this.props.history.push("/latest-post")
         }
     }
     

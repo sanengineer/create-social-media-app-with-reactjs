@@ -8,7 +8,7 @@ var url = "https://sosmetend.herokuapp.com/api/v1" || `mongodb+srv://${process.e
 
 // Register User
 export const registerUser =  (userData, history) => dispatch => {
-    axios.post(`${url}/user`, userData)
+    axios.post(`${url}/register`, userData)
         .then(res => history.push("/login"))
         .catch(err => 
             dispatch({
@@ -19,11 +19,12 @@ export const registerUser =  (userData, history) => dispatch => {
 
 // Login - get user token
 export const loginUser = userData => dispatch => {
-    axios.post(`${url}/user/login`, userData)
+    axios.post(`${url}/login`, userData)
         .then(res => {
-            const { token } = res.data;
+            console.log('ini adalah response', res.data);
+            const token = res.data.accessToken;
             // const { user } = res.data;
-            console.log({token});
+            console.log(token);
             // console.log({user});
             //set token to localstorage
             localStorage.setItem("jwtToken", token)
@@ -31,6 +32,7 @@ export const loginUser = userData => dispatch => {
             setAuthToken(token);
             const decoded =jwt_decode(token);
             //set current user
+            console.log('ini data decode', decoded)
             dispatch(setCurrentUser(decoded))
         })
         .catch(err => 

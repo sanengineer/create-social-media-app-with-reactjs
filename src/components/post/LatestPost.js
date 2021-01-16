@@ -3,12 +3,14 @@ import React, { Component} from 'react';
 import { Container, Row, Col, Button, Image, Nav } from 'react-bootstrap'
 import {Link} from 'react-router-dom';
 import {latePostUser} from './../../actions/postAction';
+import { connect } from 'react-redux';
 
 // import component and icon
 // import Post from './Post';
 import AddPost from './AddPost';
 import DetailPost from './DetailPost';
 import userIcon from '../../assets/images/user_no-pict.jpg';
+import PropTypes from 'prop-types';
 
 class LatestPost extends Component {
   state = {
@@ -34,8 +36,8 @@ class LatestPost extends Component {
   }
 
   componentDidMount(){
-    console.log('comDidMount')
-    latePostUser('2');
+    console.log('ini state user ', this.props.auth)
+    latePostUser(this.props.auth.user.user_id);
   }
 
   PostRow = (post, index) => {
@@ -160,4 +162,13 @@ class LatestPost extends Component {
   }
 }
 
-export default LatestPost;
+LatestPost.propTypes = {
+  auth : PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  auth : state.auth
+});
+
+// export default LatestPost;
+export default connect(mapStateToProps)(LatestPost);

@@ -26,12 +26,12 @@ class AddPost extends Component {
     // submiting form
     onClick = () => {
         const postData = {
-            user_id: 2,
+            user_id: this.props.auth.user.user_id,
             content: this.state.post,
             image: "weadasd"
         }
 
-        console.log(this.state.post);
+        console.log(postData);
         posting(postData)
         // .then(res => console.log(res))
         // .catch(err => console.log(err));
@@ -76,14 +76,12 @@ class AddPost extends Component {
     }
 }
 
-// AddPost.prototype = {
-//     auth: PropTypes.object.isRequired,
-//     posting: PropTypes.func.isRequired
-// }
+AddPost.propTypes = {
+    auth: PropTypes.object.isRequired
+}
 
-// const mapStateToProps = state => {
-//     auth: state.auth
-// }
+const mapStateToProps = (state) => ({
+    auth: state.auth
+})
 
-// export default connect(mapStateToProps, {posting}) (AddPost);
-export default AddPost;
+export default connect(mapStateToProps)(AddPost);

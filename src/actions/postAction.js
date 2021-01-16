@@ -6,9 +6,10 @@ var url = "https://sosmetend.herokuapp.com/api/v1" || `mongodb+srv://${process.e
 
 // R
 export const posting =  (userData) => {
+    console.log('posting ini')
     axios.post(`${url}/new-post`, userData, {
         headers: {
-            Authorization : 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImNvYmFqYUBiaXNhLmthbiIsImlhdCI6MTYxMDY3MjE2NSwiZXhwIjoxNjEzMjY0MTY1fQ.ReU3ClaLOCLBtAOAb74yvDETvITU_n2-7__wQxneqHk',
+            Authorization : localStorage.jwtToken,
         }
 
     })
@@ -21,7 +22,7 @@ export const posting =  (userData) => {
 //
 export const latePostUser = (userId) => {
     axios.get(`${url}/posts/${userId}`,{
-        Authorization : 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImNvYmFqYUBiaXNhLmthbiIsImlhdCI6MTYxMDY3MjE2NSwiZXhwIjoxNjEzMjY0MTY1fQ.ReU3ClaLOCLBtAOAb74yvDETvITU_n2-7__wQxneqHk'
+        Authorization : localStorage.jwtToken
     })
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
