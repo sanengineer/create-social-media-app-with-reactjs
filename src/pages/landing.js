@@ -3,54 +3,28 @@ import Navbar from "../components/navbar";
 import { Feeds } from "../components/public-feeds";
 import { InfoWeb } from "../components/sidebar-footer";
 import { SuggestedAccounts } from "../components/suggested-accounts";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
 
-//Dummy Data
-import UsersDataDummyServices from "../json/feeds_users_public_access";
-import SuggestedUsers from "../json/suggested_users";
-
-export default class Landing extends Component {
+class Landing extends Component {
   constructor(props) {
-    super(props);
-
+    super();
     this.state = {
       usersPublic: [],
-      suggestedUsers: [],
-      linksInfoWeb: [
-        "about",
-        "explore",
-        "hastag",
-        "community-guideline",
-        "privacy-policy",
-        "terms",
-        "careers",
-        "developers",
-        "newsroom",
-        "ads",
-        "investors",
-        "contact",
-      ],
     };
+
+    // console.log("TEST" + usersPublic);
   }
 
   componentDidMount() {
-    this.getUsersPublic();
-    this.getSuggestedUsers();
-  }
-
-  getUsersPublic() {
-    this.setState({
-      usersPublic: UsersDataDummyServices,
-    });
-  }
-
-  getSuggestedUsers() {
-    this.setState({
-      suggestedUsers: SuggestedUsers,
-    });
+    this.props.dispatch(fetchSuggestedUsers());
   }
 
   render() {
-    const { usersPublic, suggestedUsers, linksInfoWeb } = this.state;
+    const { usersPublic } = this.state;
+
+    const { suggestedusers, linksInfoWeb, error } = this.props;
     return (
       <div className="landing-page">
         <Navbar></Navbar>
@@ -67,7 +41,7 @@ export default class Landing extends Component {
                 <div className="h6 my-4">Suggested Account</div>
                 <div>
                   <SuggestedAccounts
-                    suggestedUsers={suggestedUsers}
+                    suggestedusers={suggestedusers}
                   ></SuggestedAccounts>
                 </div>
                 <div className="mt-3">
@@ -96,3 +70,12 @@ export default class Landing extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  suggestedusers: state.suggestedusers.suggestedusers,
+  // error: state.suggestedusers.error,
+  loading: state.suggestedusers.loading,
+  linksInfoWeb: state.linksInfoWeb,
+});
+
+export default connect(mapStateToProps)(Landing);
