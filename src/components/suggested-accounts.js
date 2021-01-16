@@ -3,7 +3,7 @@ import React from "react";
 export const SuggestedAccounts = ({ suggestedusers }) => {
   if (suggestedusers.length === 0) return null;
 
-  console.log(suggestedusers, "TEST");
+  console.log("suggested_account_numbers:", suggestedusers.length);
 
   const AccountSuggestedCard = (suggestedUser) => {
     return (

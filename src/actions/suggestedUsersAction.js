@@ -11,10 +11,7 @@ export const fetchSuggestedUsers = () => {
     try {
       const response = await fetch(`${url}/all-profiles`);
       const res = await handleErrors(response);
-      console.log(res);
-      console.log(response);
       const json = await res.json();
-      console.log(json.suggestedusers);
       dispatch(fetchSuggestedUsersSuccess(json));
       return json;
     } catch (error) {

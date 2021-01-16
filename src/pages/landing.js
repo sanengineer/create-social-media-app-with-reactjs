@@ -12,20 +12,6 @@ class Landing extends Component {
     super();
     this.state = {
       usersPublic: [],
-      linksInfoWeb: [
-        "about",
-        "explore",
-        "hastag",
-        "community-guideline",
-        "privacy-policy",
-        "terms",
-        "careers",
-        "developers",
-        "newsroom",
-        "ads",
-        "investors",
-        "contact",
-      ],
     };
 
     // console.log("TEST" + usersPublic);
@@ -36,9 +22,9 @@ class Landing extends Component {
   }
 
   render() {
-    const { usersPublic, linksInfoWeb } = this.state;
+    const { usersPublic } = this.state;
 
-    const { suggestedusers, error } = this.props;
+    const { suggestedusers, linksInfoWeb, error } = this.props;
     return (
       <div className="landing-page">
         <Navbar></Navbar>
@@ -89,6 +75,7 @@ const mapStateToProps = (state) => ({
   suggestedusers: state.suggestedusers.suggestedusers,
   // error: state.suggestedusers.error,
   loading: state.suggestedusers.loading,
+  linksInfoWeb: state.linksInfoWeb,
 });
 
 export default connect(mapStateToProps)(Landing);
