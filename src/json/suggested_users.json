@@ -1,0 +1,27 @@
+[
+  {
+    "username": "rachelbowler",
+    "name": "Rachel Bowler",
+    "pict_url": "/assets/images/user_rachel-bowler.png"
+  },
+  {
+    "username": "marquezbrownlee",
+    "name": "Marques Brownlee",
+    "pict_url": "/assets/images/user_marquez-brownlee.png"
+  },
+  {
+    "username": "noursamantha",
+    "name": "Nour Samantha",
+    "pict_url": "/assets/images/user_no-pict.jpg"
+  },
+  {
+    "username": "tarahrodgers",
+    "name": "Tarah Rodgers",
+    "pict_url": "/assets/images/user_tarah-rodgers.png"
+  },
+  {
+    "username": "saintdaria",
+    "name": "Saint Daria",
+    "pict_url": "/assets/images/user_saint-daria.png"
+  }
+]
