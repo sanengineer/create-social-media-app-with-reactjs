@@ -19,6 +19,7 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
                 "Picture Profile"
               }
               width="40"
+              height="40"
             />
           </div>
         </div>

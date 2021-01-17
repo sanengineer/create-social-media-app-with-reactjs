@@ -21,6 +21,7 @@ export const Feeds = ({ publicusers }) => {
                       "Profil Picture"
                     }
                     width="56"
+                    height="56"
                   />
                 </div>
               </div>

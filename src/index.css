@@ -61,6 +61,10 @@ body {
   display: inline-block;
 }
 
+.image-profile img {
+  object-fit: cover;
+}
+
 .post-detail-link {
   color: #000;
   display: block;
