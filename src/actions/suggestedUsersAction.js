@@ -1,8 +1,8 @@
 import * as actionTypes from "./actionTypes";
 
 var url =
-  "http://localhost:8000/api/v1" ||
-  `mongodb+srv://${process.env.MONGODB_ATLAS_USERNAME}:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0-rmxc3.mongodb.net/test?retryWrites=true&w=majority`;
+  // "http://localhost:8000/api/v1" //Local Server
+  "https://sosmetend.herokuapp.com/api/v1"; //Cloud Server
 
 //fetch suggested
 export const fetchSuggestedUsers = () => {
