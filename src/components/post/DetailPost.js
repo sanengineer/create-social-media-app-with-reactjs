@@ -10,13 +10,11 @@ import shareIcon from '../../assets/icons/icon_share.png';
 import loveIcon from '../../assets/icons/icon_love.png';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { SuggestedAccounts } from "../../components/suggested-accounts";
 
 class DetailPost extends Component {
   
   componentDidMount(){
-    // if(Object.keys(this.props.post['post']).length === 0){
-    //   this.props.history.push('/');
-    // }
     console.log(Object.keys(this.props.post['post']).length)
     console.log(this.props.post['post'])
     console.log('ini adalah redux post detail', this.props.post)
@@ -24,7 +22,12 @@ class DetailPost extends Component {
 
   render() {
     if(Object.keys(this.props.post['post']).length == 0){
-      this.props.history.push('/latest-post');
+      // this.props.history.push('/latest-post');
+      return(
+        <div className="container containerBox">
+          <p>detail error</p>
+        </div>
+      )
     }
     return (
       <>
@@ -102,45 +105,12 @@ class DetailPost extends Component {
               </div>
               <hr></hr>
               <div>
-                  <div className="my-3">
-                      <h6>Sugested Acccount</h6>
-                  </div>
-                <div className="d-flex mb-3">
-                    <div>
-                        <Image width="50px" height="50px" src={userIcon} rounded />
-                    </div>
-                    <div className="my-auto ml-3">
-                        <p className="mb-0 font-weight-bold">Username</p>
-                        <p className="mb-0">name</p>
-                    </div>
-                    <div className="ml-auto " >
-                        <a href="#">follow</a>
-                    </div>
+                <div className="my-3">
+                    <h6>Sugested Acccount</h6>
                 </div>
-                <div className="d-flex mb-3">
-                    <div>
-                        <Image width="50px" height="50px" src={userIcon} rounded />
-                    </div>
-                    <div className="my-auto ml-3">
-                        <p className="mb-0 font-weight-bold">Username</p>
-                        <p className="mb-0">name</p>
-                    </div>
-                    <div className="ml-auto " >
-                        <a href="#">follow</a>
-                    </div>
-                </div>
-                <div className="d-flex mb-3">
-                    <div>
-                        <Image width="50px" height="50px" src={userIcon} rounded />
-                    </div>
-                    <div className="my-auto ml-3">
-                        <p className="mb-0 font-weight-bold">Username</p>
-                        <p className="mb-0">name</p>
-                    </div>
-                    <div className="ml-auto " >
-                        <a href="#">follow</a>
-                    </div>
-                </div>
+                <SuggestedAccounts
+                    suggestedusers={this.props.suggestedusers}
+                ></SuggestedAccounts>
               </div>
             </Col>
           </Row>
@@ -151,11 +121,13 @@ class DetailPost extends Component {
 }
 
 DetailPost.propTypes = {
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
+  suggestedusers: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  post : state.post
+  post : state.post,
+  suggestedusers: state.suggestedusers.suggestedusers
 });
 
 export default connect(mapStateToProps)(DetailPost);

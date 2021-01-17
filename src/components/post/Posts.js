@@ -5,8 +5,16 @@ import {Link} from 'react-router-dom';
 import { SET_USER_POST } from '../../actions/actionTypes';
 
 export const Posts = ({ postArray }) => {
-  const dispatch = useDispatch()
-   
+  let dispatch = useDispatch()
+  console.log(postArray)
+  if(postArray === undefined || postArray.length === 0) {
+    return (
+      <div>
+        <p>Content is Empty</p>
+      </div>
+    )
+  }
+  
   const openDetail = (postData) => {
     dispatch({
       type : SET_USER_POST,

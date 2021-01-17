@@ -6,29 +6,6 @@ import { loginUser } from "../../actions/authAction";
 import classnames from "classnames";
 import Navbar from "../navbar";
 
-<<<<<<< HEAD
-class Login extends Component  {
-    constructor(){
-        super();
-        this.state ={
-            email: "",
-            password: "",
-            errors: {}
-        }
-    }
-
-    componentWillReceiveProps(nextProps){
-        if(nextProps.auth.isAuthenticated){
-            //direct user to dashboard login after login
-            // this.props.history.push("/dashboard")
-            this.props.history.push("/latest-post")
-        }
-        if(nextProps.errors){
-            this.setState({
-                errors: nextProps.errors
-            })
-        }
-=======
 class Login extends Component {
   constructor() {
     super();
@@ -48,7 +25,6 @@ class Login extends Component {
       this.setState({
         errors: nextProps.errors,
       });
->>>>>>> 587cedeb93915e931efd33bb6401d583f40bd15e
     }
   }
 
@@ -66,20 +42,12 @@ class Login extends Component {
     this.props.loginUser(userData);
   };
 
-<<<<<<< HEAD
     componentDidMount(){
         // If logged in and user navigates to Login page, should redirect to dashboard
         if(this.props.auth.isAuthenticated){
             this.props.history.push("/latest-post")
         }
-=======
-  componentDidMount() {
-    // If logged in and user navigates to Login page, should redirect to dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
->>>>>>> 587cedeb93915e931efd33bb6401d583f40bd15e
     }
-  }
 
   render() {
     const { errors } = this.state;
@@ -153,8 +121,8 @@ class Login extends Component {
       </div>
     );
   }
-}
 
+}
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,

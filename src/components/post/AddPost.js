@@ -14,29 +14,48 @@ import iconImage from '../../assets/icons/icon_image.png';
 
 class AddPost extends Component {
     state = {
-        post : ""
+        post : {}
     }
 
     // inputing form
     onChange = (e) => {
-        console.log("onChange")
-        this.setState({ [e.target.id]: e.target.value});
+        let dataValue = this.state.post
+        if(e.target.id === 'post')
+        {
+            dataValue.content = e.target.value
+        } 
+        else if(e.target.id === 'postImage'){
+            dataValue.image = e.target.files[0]
+        }
+
+        this.setState({post: dataValue})
+        console.log(this.state.post)
     }
 
     // submiting form
     onClick = () => {
-        const postData = {
-            user_id: this.props.auth.user.user_id,
-            content: this.state.post,
-            image: "weadasd"
-        }
+        const formData = new FormData();
+        formData.append(
+            "images", this.state.image
+        )
+        formData.append(
+            "content", this.state.content
+        )
+        formData.append(
+            "user_id", this.props.auth.user.user_id
+        )
+        // const postData = {
+        //     user_id: this.props.auth.user.user_id,
+        //     content: this.state.post.content,
+        //     images: this.state.post.image
+        // }
 
-        console.log(postData);
-        posting(postData)
+        console.log(formData);
+        posting(formData)
         .then(res => res.data)
         .then(data => console.log(data))
 
-        window.location.reload();
+        // window.location.reload();
     }
 
     render(){
@@ -47,7 +66,10 @@ class AddPost extends Component {
                         <Col sm={1}><Image width="50px" height="50px" src={userIcon} rounded /></Col>
                         <Col sm={11}>
                             <Form.Group controlId="post">
-                                <Form.Control value={this.state.post} onChange={(e) => this.onChange(e)} as="textarea" rows={3} placeholder="What happen today dear ?" />
+                                <Form.Control value={this.state.post.content} onChange={(e) => this.onChange(e)} as="textarea" rows={3} placeholder="What happen today dear ?" />
+                            </Form.Group>
+                            <Form.Group controlId="postImage">
+                                <Form.File onChange={(e) => this.onChange(e)}/>
                             </Form.Group>
                         </Col>
                     </Row>

@@ -11,7 +11,7 @@ module.exports = app => {
     app.use(
         '/*',
         createProxyMiddleware({
-            target: 'localhost:3000/login',
+            target: 'http://localhost:3000/login',
         })
     )
 }
