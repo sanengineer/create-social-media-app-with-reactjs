@@ -6,32 +6,29 @@ import { SuggestedAccounts } from "../components/suggested-accounts";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
+import { fetchPublicUsers } from "../actions/publicUsers";
 
 class Landing extends Component {
   constructor(props) {
     super();
-    this.state = {
-      usersPublic: [],
-    };
 
     // console.log("TEST" + usersPublic);
   }
 
   componentDidMount() {
     this.props.dispatch(fetchSuggestedUsers());
+    this.props.dispatch(fetchPublicUsers());
   }
 
   render() {
-    const { usersPublic } = this.state;
-
-    const { suggestedusers, linksInfoWeb, error } = this.props;
+    const { publicusers, suggestedusers, linksInfoWeb, error } = this.props;
     return (
       <div className="landing-page">
         <Navbar></Navbar>
         <div className="section-main container">
           <div className="row">
             <div className="feeds-wrapper col-8 pr-5">
-              <Feeds usersPublic={usersPublic}></Feeds>
+              <Feeds publicusers={publicusers}></Feeds>
             </div>
             <aside className="sidebar-wrapper col-4">
               <div className="sidebar-landing-page-heading h4 pr-5">
@@ -72,6 +69,7 @@ class Landing extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  publicusers: state.publicusers.publicusers,
   suggestedusers: state.suggestedusers.suggestedusers,
   // error: state.suggestedusers.error,
   loading: state.suggestedusers.loading,

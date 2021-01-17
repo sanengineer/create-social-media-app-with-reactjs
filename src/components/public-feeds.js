@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-export const Feeds = ({ usersPublic }) => {
-  if (usersPublic.length === 0) return null;
-  console.log(usersPublic);
+export const Feeds = ({ publicusers }) => {
+  if (publicusers.length === 0) return null;
+  console.log(publicusers.length);
 
   const Feed = (userPublic) => {
     return (
@@ -48,7 +48,7 @@ export const Feeds = ({ usersPublic }) => {
     );
   };
 
-  const Feedlist = usersPublic.map((userPublic) => Feed(userPublic));
+  const Feedlist = publicusers.map((userPublic) => Feed(userPublic));
 
   return (
     <div className="TEST">
