@@ -5,8 +5,6 @@ import PropTypes from 'prop-types'
 import {loginUser} from '../../actions/authAction';
 import classnames from 'classnames'
 
-
-
 class Login extends Component  {
     constructor(){
         super();

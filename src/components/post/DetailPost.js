@@ -1,32 +1,31 @@
 // import react and component bootstrap
 import React, { Component} from 'react';
-import { Container, Row, Col, Button, Image, Popover, OverlayTrigger } from 'react-bootstrap'
+import { Container, Row, Col, Image, Popover, OverlayTrigger } from 'react-bootstrap'
 
 // import component and icon
-import Post from './Post';
-import AddPost from './AddPost';
 import userIcon from '../../assets/images/user_no-pict.jpg';
 import commentIcon from '../../assets/icons/icon_comment.png';
 import saveIcon from '../../assets/icons/icon_save.png';
 import shareIcon from '../../assets/icons/icon_share.png';
 import loveIcon from '../../assets/icons/icon_love.png';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class DetailPost extends Component {
-  state = {
-    show : false,
+  
+  componentDidMount(){
+    // if(Object.keys(this.props.post['post']).length === 0){
+    //   this.props.history.push('/');
+    // }
+    console.log(Object.keys(this.props.post['post']).length)
+    console.log(this.props.post['post'])
+    console.log('ini adalah redux post detail', this.props.post)
   }
 
-  // showing modal
-  handleShow = () => {
-    this.setState({ show : true})
-  };
-
-  // closing modal
-  handleClose = () => {
-    this.setState({ show : false})
-  };
-
   render() {
+    if(Object.keys(this.props.post['post']).length == 0){
+      this.props.history.push('/latest-post');
+    }
     return (
       <>
         <Container className="containerBox">
@@ -39,18 +38,18 @@ class DetailPost extends Component {
 
                   <div className="d-flex">
                       <div>
-                        <p className="mb-0 mr-auto">Username</p>
-                        <p>name</p>
+                        <p className="mb-0 mr-auto">{this.props.post['post'].user.username}</p>
+                        <p>{this.props.post['post'].firstname} {this.props.post['post'].lastname}</p>
                       </div>
                   </div>
 
                   <div>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                      <p>{this.props.post['post'].content}</p>
                   </div>
 
                   <div className="d-flex">
                     <div>
-                      <p className="text-muted">4.20 am - 1 Januari 2021</p>
+                      <p className="text-muted">{this.props.post['post'].createdAt}</p>
                     </div>
                     <div className="ml-auto">
                       <p className="mb-0 text-muted">4 Comment - 54 Loved</p>
@@ -146,10 +145,17 @@ class DetailPost extends Component {
             </Col>
           </Row>
         </Container>
-        <AddPost show={this.state.show} handleClose={this.handleClose} />
       </>
     )
   }
 }
 
-export default DetailPost;
+DetailPost.propTypes = {
+  post: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  post : state.post
+});
+
+export default connect(mapStateToProps)(DetailPost);

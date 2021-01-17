@@ -33,21 +33,11 @@ class AddPost extends Component {
 
         console.log(postData);
         posting(postData)
-        // .then(res => console.log(res))
-        // .catch(err => console.log(err));
+        .then(res => res.data)
+        .then(data => console.log(data))
+
+        window.location.reload();
     }
-
-    // componentWillReceiveProps(nextProps){
-    //     if(nextProps.auth.isAuthenticated){
-    //         this.props.history.push('/dashboard')
-    //     }
-    // }
-
-    // componentDidMount(){
-    //     if(this.props.isAuthenticated){
-    //         this.props.history.push('/dashboard')
-    //     }
-    // }
 
     render(){
         return (
