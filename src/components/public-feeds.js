@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 
-export const Feeds = ({ usersPublic }) => {
-  if (usersPublic.length === 0) return null;
-  console.log(usersPublic);
+export const Feeds = ({ publicusers }) => {
+  if (publicusers.length === 0) return null;
+  console.log(publicusers.length);
 
   const Feed = (userPublic) => {
     return (
@@ -16,8 +16,12 @@ export const Feeds = ({ usersPublic }) => {
                 <div className="image-profile">
                   <img
                     className="img-src rounded-circle"
-                    src={userPublic.pict_url}
-                    alt={userPublic.name + " Profil Picture"}
+                    src={userPublic.avatar}
+                    alt={
+                      userPublic.firstname +
+                      userPublic.lastname +
+                      "Profil Picture"
+                    }
                     width="56"
                   />
                 </div>
@@ -27,7 +31,9 @@ export const Feeds = ({ usersPublic }) => {
                   <div className="username">{userPublic.username}</div>
                 </a>
 
-                <div className="name">{userPublic.name}</div>
+                <div className="name">
+                  {userPublic.firstname + userPublic.lastname}
+                </div>
               </div>
             </div>
             <div className="follow-button-group">
@@ -44,7 +50,7 @@ export const Feeds = ({ usersPublic }) => {
     );
   };
 
-  const Feedlist = usersPublic.map((userPublic) => Feed(userPublic));
+  const Feedlist = publicusers.map((userPublic) => Feed(userPublic));
 
   return (
     <div className="TEST">

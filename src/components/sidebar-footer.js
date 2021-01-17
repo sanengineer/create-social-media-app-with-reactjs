@@ -1,9 +1,9 @@
 import React from "react";
 
 export const InfoWeb = ({ linksInfoWeb }) => {
-  if (linksInfoWeb === 0) return null;
+  if (linksInfoWeb.length === 0) return null;
 
-  console.log(linksInfoWeb);
+  console.log("suggested_account_numbers:", linksInfoWeb.length);
 
   const listInfoWeb = (linkInfoWeb) => {
     return (

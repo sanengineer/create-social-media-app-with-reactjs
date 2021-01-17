@@ -3,61 +3,32 @@ import Navbar from "../components/navbar";
 import { Feeds } from "../components/public-feeds";
 import { InfoWeb } from "../components/sidebar-footer";
 import { SuggestedAccounts } from "../components/suggested-accounts";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
+import { fetchPublicUsers } from "../actions/publicUsers";
 
-//Dummy Data
-import UsersDataDummyServices from "../json/feeds_users_public_access";
-import SuggestedUsers from "../json/suggested_users";
-
-export default class Landing extends Component {
+class Landing extends Component {
   constructor(props) {
-    super(props);
+    super();
 
-    this.state = {
-      usersPublic: [],
-      suggestedUsers: [],
-      linksInfoWeb: [
-        "about",
-        "explore",
-        "hastag",
-        "community-guideline",
-        "privacy-policy",
-        "terms",
-        "careers",
-        "developers",
-        "newsroom",
-        "ads",
-        "investors",
-        "contact",
-      ],
-    };
+    // console.log("TEST" + usersPublic);
   }
 
   componentDidMount() {
-    this.getUsersPublic();
-    this.getSuggestedUsers();
-  }
-
-  getUsersPublic() {
-    this.setState({
-      usersPublic: UsersDataDummyServices,
-    });
-  }
-
-  getSuggestedUsers() {
-    this.setState({
-      suggestedUsers: SuggestedUsers,
-    });
+    this.props.dispatch(fetchSuggestedUsers());
+    this.props.dispatch(fetchPublicUsers());
   }
 
   render() {
-    const { usersPublic, suggestedUsers, linksInfoWeb } = this.state;
+    const { publicusers, suggestedusers, linksInfoWeb, error } = this.props;
     return (
       <div className="landing-page">
         <Navbar></Navbar>
         <div className="section-main container">
           <div className="row">
             <div className="feeds-wrapper col-8 pr-5">
-              <Feeds usersPublic={usersPublic}></Feeds>
+              <Feeds publicusers={publicusers}></Feeds>
             </div>
             <aside className="sidebar-wrapper col-4">
               <div className="sidebar-landing-page-heading h4 pr-5">
@@ -67,7 +38,7 @@ export default class Landing extends Component {
                 <div className="h6 my-4">Suggested Account</div>
                 <div>
                   <SuggestedAccounts
-                    suggestedUsers={suggestedUsers}
+                    suggestedusers={suggestedusers}
                   ></SuggestedAccounts>
                 </div>
                 <div className="mt-3">
@@ -96,3 +67,13 @@ export default class Landing extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  publicusers: state.publicusers.publicusers,
+  suggestedusers: state.suggestedusers.suggestedusers,
+  // error: state.suggestedusers.error,
+  loading: state.suggestedusers.loading,
+  linksInfoWeb: state.linksInfoWeb,
+});
+
+export default connect(mapStateToProps)(Landing);

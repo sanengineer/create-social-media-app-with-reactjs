@@ -1,9 +1,9 @@
 import React from "react";
 
-export const SuggestedAccounts = ({ suggestedUsers }) => {
-  if (suggestedUsers.lenght === 0) return null;
+export const SuggestedAccounts = ({ suggestedusers }) => {
+  if (suggestedusers.length === 0) return null;
 
-  console.log(suggestedUsers);
+  console.log("suggested_account_numbers:", suggestedusers.length);
 
   const AccountSuggestedCard = (suggestedUser) => {
     return (
@@ -12,8 +12,12 @@ export const SuggestedAccounts = ({ suggestedUsers }) => {
           <div className="image-profile">
             <img
               className="img-src rounded-circle"
-              src={suggestedUser.pict_url}
-              alt={suggestedUser.name + "Picture Profile"}
+              src={suggestedUser.avatar}
+              alt={
+                suggestedUser.firstname +
+                suggestedUser.lastname +
+                "Picture Profile"
+              }
               width="40"
             />
           </div>
@@ -25,7 +29,9 @@ export const SuggestedAccounts = ({ suggestedUsers }) => {
               href={"/" + suggestedUser.username}
             >
               <div className="username">{suggestedUser.username}</div>
-              <div className="name">{suggestedUser.name}</div>
+              <div className="name">
+                {suggestedUser.firstname + suggestedUser.lastname}
+              </div>
             </a>
           </div>
           <div className="d-block">
@@ -38,39 +44,9 @@ export const SuggestedAccounts = ({ suggestedUsers }) => {
     );
   };
 
-  const AccountSuggestedCards = suggestedUsers.map((suggestedUser) =>
+  const AccountSuggestedCards = suggestedusers.map((suggestedUser) =>
     AccountSuggestedCard(suggestedUser)
   );
 
-  return <div className="xxx">{AccountSuggestedCards}</div>;
+  return <div className="test">{AccountSuggestedCards}</div>;
 };
-
-// export default class AccountCard extends Component {
-//   render() {
-//     return (
-//       <div className="suggested-account-item mt-4">
-//         <div className="image-profile-box">
-//           <div className="image-profile">
-//             <img
-//               className="img-src rounded-circle"
-//               src={RB}
-//               alt="Rachel Bowler Picture Profile"
-//               width="40"
-//             />
-//           </div>
-//         </div>
-//         <div className="username-follow-wrapper justify-content-between">
-//           <div className="bio-desc pl-2">
-//             <div className="username">rachelbowler</div>
-//             <div className="name">Rachel Bowler</div>
-//           </div>
-//           <div className="d-block">
-//             <a href="#" className="suggested-account-folow-btn">
-//               Follow
-//             </a>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
