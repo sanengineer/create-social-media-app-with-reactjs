@@ -63,7 +63,6 @@ class Register extends Component {
     console.log("states", this.state);
     return (
       <div className="register-page">
-        <Navbar></Navbar>
         <div className="container">
           <div
             className="row justify-content-center"

@@ -16,6 +16,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/auth/Dashboard";
+import Navbar from "./components/navbar";
 
 //Importing stylesheet
 import "sanstrap/dist/css/sanstrap.css";
@@ -47,7 +48,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <div className="App">
-          {/* <Navbar/> */}
+          <Navbar/>
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />

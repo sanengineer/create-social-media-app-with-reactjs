@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { loginUser } from "../../actions/authAction";
 import classnames from "classnames";
-import Navbar from "../navbar";
 
 class Login extends Component {
   constructor() {
@@ -54,7 +53,6 @@ class Login extends Component {
 
     return (
       <div className="login-page">
-        <Navbar></Navbar>
         <div className="container">
           <div
             className="row justify-content-center"
