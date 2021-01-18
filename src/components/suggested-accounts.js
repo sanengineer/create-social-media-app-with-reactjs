@@ -31,7 +31,7 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
             >
               <div className="username">{suggestedUser.username}</div>
               <div className="name">
-                {suggestedUser.firstname + suggestedUser.lastname}
+                {suggestedUser.firstname + " " + suggestedUser.lastname}
               </div>
             </a>
           </div>
@@ -49,5 +49,5 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
     AccountSuggestedCard(suggestedUser)
   );
 
-  return <div className="test">{AccountSuggestedCards}</div>;
+  return <div className="suggested-users-list">{AccountSuggestedCards}</div>;
 };
