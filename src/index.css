@@ -149,7 +149,7 @@ body {
 .suggested-users-list {
   overflow: hidden;
   overflow-y: scroll;
-  height: 400px;
+  height: 300px;
 }
 
 .suggested-account-item {
