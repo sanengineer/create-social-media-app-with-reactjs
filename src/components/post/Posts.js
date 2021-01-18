@@ -16,16 +16,22 @@ export const Posts = ({ postArray }) => {
   }
   
   const openDetail = (postData) => {
+    // console.log(postData)
     dispatch({
       type : SET_USER_POST,
       payload: postData
     })
   }
 
+  const test = () => {
+    console.log('tes click')
+  }
+
 
   const PostRow = (post, index) => {
     return (
-      <Link onClick={openDetail(post)} id={index} className="post-detail-link" to="/detail-post">
+      <Link onClick={e=> openDetail(post)} id={index} className="post-detail-link" to="/detail-post">
+      {/* <a onClick={openDetail(post)} id={index} className="post-detail-link" to="/detail-post"> */}
         <div className="quotes-people-box-list">
           <div className="first-text d-flex justify-content-between">
             <div className="img-bio d-flex justify-content-between">
@@ -48,6 +54,7 @@ export const Posts = ({ postArray }) => {
 
                 <div className="second-text">
                   <span>{post.content}</span>
+                  {/* <a onClick={openDetail(post)} >detail</a> */}
                 </div>
               </div>
             </div>

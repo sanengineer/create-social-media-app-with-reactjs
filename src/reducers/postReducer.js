@@ -2,7 +2,7 @@ import {
     SET_USER_POST,
 } from "../actions/actionTypes"
 
-const isEmpty = require('is-empty');
+// const isEmpty = require('is-empty');
 
 const initialState ={
     post: {}

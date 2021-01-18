@@ -7,9 +7,9 @@ var url = "https://sosmetend.herokuapp.com/api/v1" || `mongodb+srv://${process.e
 // R
 export const posting =  (userData) => {
     console.log('posting ini')
-    const response = axios.post(`${url}/new-post`, userData, {
+    const response = axios.post(`${url}/new-post-text`, userData, {
         headers: {
-            'Content-Type': 'multipart/form-data',
+            // 'Content-Type': 'multipart/form-data',
             'Authorization' : localStorage.jwtToken
         }
     })

@@ -8,6 +8,12 @@ import commentIcon from '../../assets/icons/icon_comment.png';
 import saveIcon from '../../assets/icons/icon_save.png';
 import shareIcon from '../../assets/icons/icon_share.png';
 import loveIcon from '../../assets/icons/icon_love.png';
+import logoTwitter from '../../assets/icons/logo_twitter.png';
+import logoFaceBook from '../../assets/icons/logo_facebook.png';
+import logoLinkIdn from '../../assets/icons/logo_linkedin.png';
+import logoReddit from '../../assets/icons/logo_reddit.png';
+import logoTumblr from '../../assets/icons/logo_tumblr.png';
+import iconCopyLink from '../../assets/icons/icon_copy-link.png';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { SuggestedAccounts } from "../../components/suggested-accounts";
@@ -73,9 +79,28 @@ class DetailPost extends Component {
                       overlay=
                           {
                               <Popover id={`popover-positioned-bottom`}>
-                              <Popover.Title as="h3">{`Popover bottom`}</Popover.Title>
+                              <Popover.Title as="h3">Share To</Popover.Title>
                               <Popover.Content>
-                                  <strong>Holy guacamole!</strong> Check this info.
+                                <div className="d-flex">
+                                  <div>
+                                    <Image src={logoTwitter} />
+                                  </div>
+                                  <div>
+                                    <Image className="pl-3" src={logoTumblr} />
+                                  </div>
+                                  <div>
+                                    <Image className="pl-3" src={logoLinkIdn} />
+                                  </div>
+                                  <div>
+                                    <Image className="pl-3" src={logoFaceBook} />
+                                  </div>
+                                  <div>
+                                    <Image className="pl-3" src={logoReddit} />
+                                  </div>
+                                  <div>
+                                    <Image className="pl-3" src={iconCopyLink} />
+                                  </div>
+                                </div>
                               </Popover.Content>
                               </Popover>
                           }

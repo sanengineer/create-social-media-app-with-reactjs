@@ -34,26 +34,27 @@ class AddPost extends Component {
 
     // submiting form
     onClick = () => {
-        const formData = new FormData();
-        formData.append(
-            "images", this.state.image
-        )
-        formData.append(
-            "content", this.state.content
-        )
-        formData.append(
-            "user_id", this.props.auth.user.user_id
-        )
-        // const postData = {
-        //     user_id: this.props.auth.user.user_id,
-        //     content: this.state.post.content,
-        //     images: this.state.post.image
-        // }
+        // const formData = new FormData();
+        // formData.append(
+        //     "images", this.state.post.image
+        // )
+        // formData.append(
+        //     "content", this.state.post.content
+        // )
+        // formData.append(
+        //     "user_id", this.props.auth.user.user_id
+        // )
+        const postData = {
+            user_id: this.props.auth.user.user_id,
+            content: this.state.post.content,
+            // images: this.state.post.image
+        }
 
-        console.log(formData);
-        posting(formData)
+        console.log(postData);
+        posting(postData)
         .then(res => res.data)
-        .then(data => console.log(data))
+        .then(data => window.location.reload())
+        .catch(err => console.log(err))
 
         // window.location.reload();
     }
@@ -68,9 +69,9 @@ class AddPost extends Component {
                             <Form.Group controlId="post">
                                 <Form.Control value={this.state.post.content} onChange={(e) => this.onChange(e)} as="textarea" rows={3} placeholder="What happen today dear ?" />
                             </Form.Group>
-                            <Form.Group controlId="postImage">
+                            {/* <Form.Group controlId="postImage">
                                 <Form.File onChange={(e) => this.onChange(e)}/>
-                            </Form.Group>
+                            </Form.Group> */}
                         </Col>
                     </Row>
                     <div className="d-flex justify-content-between">
