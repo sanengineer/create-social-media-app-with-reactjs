@@ -49,5 +49,5 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
     AccountSuggestedCard(suggestedUser)
   );
 
-  return <div className="test">{AccountSuggestedCards}</div>;
+  return <div className="suggested-users-list">{AccountSuggestedCards}</div>;
 };

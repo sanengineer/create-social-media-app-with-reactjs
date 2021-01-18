@@ -57,7 +57,7 @@ body {
 }
 
 .feeds-wrapper {
-  margin-top: 80px;
+  margin-top: 30px;
   display: inline-block;
 }
 
@@ -120,7 +120,18 @@ body {
 
 /**--sidebar--**/
 .sidebar-wrapper {
-  margin-top: 80px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.sticky-wrapper-aside {
+  position: fixed;
+  width: 300px;
+}
+
+.overflow-wrapper-aside {
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .sidebar-suggested-account {
@@ -133,6 +144,12 @@ body {
   font-weight: bold;
   padding-bottom: 40px;
   border-bottom: 1px solid #dddddd;
+}
+
+.suggested-users-list {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 400px;
 }
 
 .suggested-account-item {
