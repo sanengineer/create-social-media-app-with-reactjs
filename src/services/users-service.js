@@ -6,6 +6,10 @@ class UsersServices {
   fetchAllUsers() {
     return api.get("/all-profiles");
   }
+
+  fetchAllPostsPublic() {
+    return api.get("/posts");
+  }
 }
 
 export default new UsersServices();

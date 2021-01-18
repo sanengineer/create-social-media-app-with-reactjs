@@ -1,14 +1,13 @@
 import * as actionTypes from "./actionTypes";
 import UsersServices from "../services/users-service";
-import { fetchSuggestedUsersSuccess } from "./suggestedUsersAction";
 
 export const fetchPublicUsers = () => (dispatch) => {
-  UsersServices.fetchAllUsers().then((res) => {
+  UsersServices.fetchAllPostsPublic().then((res) => {
     //
     //debugging
-    console.log("TEST", res.data);
+    console.log("TEST", res.data.data);
 
-    dispatch(fetchPublicUsersSuccess(res.data));
+    dispatch(fetchPublicUsersSuccess(res.data.data));
   });
 };
 

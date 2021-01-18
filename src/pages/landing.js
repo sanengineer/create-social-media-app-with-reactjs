@@ -31,35 +31,42 @@ class Landing extends Component {
               <Feeds publicusers={publicusers}></Feeds>
             </div>
             <aside className="sidebar-wrapper col-4">
-              <div className="sidebar-landing-page-heading h4 pr-5">
-                Sign Up or Log In To Follow Poster
-              </div>
-              <div className="sidebar-suggested-account">
-                <div className="h6 my-4">Suggested Account</div>
-                <div>
-                  <SuggestedAccounts
-                    suggestedusers={suggestedusers}
-                  ></SuggestedAccounts>
+              <div className="sticky-wrapper-aside">
+                <div className="overflow-wrapper-aside">
+                  <div className="sidebar-landing-page-heading h4 pr-5">
+                    Sign Up or Log In To Follow Poster
+                  </div>
+                  <div className="sidebar-suggested-account">
+                    <div className="h6 my-4">Suggested Account</div>
+                    <div>
+                      <SuggestedAccounts
+                        suggestedusers={suggestedusers}
+                      ></SuggestedAccounts>
+                    </div>
+                    <div className="mt-3">
+                      <a
+                        href="/more-suggested-users"
+                        className="more-account-link"
+                      >
+                        <span className="more-account pr-2">more</span>
+                        <svg
+                          width="8"
+                          height="6"
+                          viewBox="0 0 8 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 6L0.535899 -3.01142e-07L7.4641 -9.06825e-07L4 6Z"
+                            fill="black"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <InfoWeb linksInfoWeb={linksInfoWeb}></InfoWeb>
                 </div>
-                <div className="mt-3">
-                  <a href="/more-suggested-users" className="more-account-link">
-                    <span className="more-account pr-2">more</span>
-                    <svg
-                      width="8"
-                      height="6"
-                      viewBox="0 0 8 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 6L0.535899 -3.01142e-07L7.4641 -9.06825e-07L4 6Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </a>
-                </div>
               </div>
-              <InfoWeb linksInfoWeb={linksInfoWeb}></InfoWeb>
             </aside>
           </div>
         </div>

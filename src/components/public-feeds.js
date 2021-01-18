@@ -16,23 +16,24 @@ export const Feeds = ({ publicusers }) => {
                 <div className="image-profile">
                   <img
                     className="img-src rounded-circle"
-                    src={userPublic.avatar}
+                    src={userPublic.user.avatar}
                     alt={
-                      userPublic.firstname +
-                      userPublic.lastname +
+                      userPublic.user.firstname +
+                      userPublic.user.lastname +
                       "Profil Picture"
                     }
                     width="56"
+                    height="56"
                   />
                 </div>
               </div>
               <div className="bio-desc pl-4">
-                <a href={"/" + userPublic.username}>
-                  <div className="username">{userPublic.username}</div>
+                <a href={"/" + userPublic.user.username}>
+                  <div className="username">{userPublic.user.username}</div>
                 </a>
 
                 <div className="name">
-                  {userPublic.firstname + userPublic.lastname}
+                  {`${userPublic.user.firstname} ${userPublic.user.lastname}`}
                 </div>
               </div>
             </div>
@@ -43,7 +44,7 @@ export const Feeds = ({ publicusers }) => {
             </div>
           </div>
           <div className="second-text">
-            <span>{userPublic.post}</span>
+            <span>{userPublic.content}</span>
           </div>
         </div>
       </Link>
