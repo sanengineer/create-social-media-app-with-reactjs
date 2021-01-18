@@ -31,7 +31,7 @@ export const Feeds = ({ publicusers }) => {
                 </a>
 
                 <div className="name">
-                  {userPublic.user.firstname + " " + userPublic.user.lastname}
+                  {`${userPublic.user.firstname} ${userPublic.user.lastname}`}
                 </div>
               </div>
             </div>
