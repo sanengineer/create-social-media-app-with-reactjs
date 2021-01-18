@@ -42,12 +42,12 @@ class Login extends Component {
     this.props.loginUser(userData);
   };
 
-  componentDidMount() {
-    // If logged in and user navigates to Login page, should redirect to dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+    componentDidMount(){
+        // If logged in and user navigates to Login page, should redirect to dashboard
+        if(this.props.auth.isAuthenticated){
+            this.props.history.push("/latest-post")
+        }
     }
-  }
 
   render() {
     const { errors } = this.state;
@@ -121,8 +121,8 @@ class Login extends Component {
       </div>
     );
   }
-}
 
+}
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,

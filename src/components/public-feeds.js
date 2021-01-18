@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 export const Feeds = ({ publicusers }) => {
   if (publicusers.length === 0) return null;
@@ -6,7 +7,8 @@ export const Feeds = ({ publicusers }) => {
 
   const Feed = (userPublic) => {
     return (
-      <a className="post-detail-link" href={"/post/" + userPublic.post_id}>
+      // <a className="post-detail-link" href={"/post/" + userPublic.post_id}>
+      <Link className="post-detail-link" to="/latest-post">
         <div className="quotes-people-box-list">
           <div className="first-text d-flex justify-content-between">
             <div className="img-bio d-flex justify-content-between">
@@ -45,7 +47,7 @@ export const Feeds = ({ publicusers }) => {
             <span>{userPublic.content}</span>
           </div>
         </div>
-      </a>
+      </Link>
     );
   };
 

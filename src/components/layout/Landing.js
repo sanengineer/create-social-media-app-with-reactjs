@@ -15,7 +15,7 @@ class Landing extends Component  {
                             </b>
                             <p>Fill the form with specific information</p>
                             <br/>
-                            <div className="col s6">
+                            <div className="col s3">
                                 <Link 
                                 to="/register" 
                                 style={{ width: "140px", borderRadius:"3px", letterSpacing:"1.5px" }} 
@@ -23,9 +23,19 @@ class Landing extends Component  {
                                 Register
                                 </Link>
                             </div>
-                            <div className="col s6">
+                            <div className="col s3">
                                 <Link to="/login" style={{ width: "140px", borderRadius:"3px", letterSpacing:"1.5px" }} className="btn btn-large waves-effect waves-light hoverable blue accent-3" >
                                 Login
+                                </Link>
+                            </div>
+                            <div className="col s3">
+                                <Link to="/latest-post" style={{ width: "140px", borderRadius:"3px", letterSpacing:"1.5px" }} className="btn btn-large waves-effect waves-light hoverable blue accent-3" >
+                                Latest Post
+                                </Link>
+                            </div>
+                            <div className="col s3">
+                                <Link to="/detail-post" style={{ width: "140px", borderRadius:"3px", letterSpacing:"1.5px" }} className="btn btn-large waves-effect waves-light hoverable blue accent-3" >
+                                Detail Post
                                 </Link>
                             </div>
                         </h4>
