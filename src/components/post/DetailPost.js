@@ -112,6 +112,33 @@ class DetailPost extends Component {
                       <Image src={loveIcon}/>
                     </div>
                   </div>
+                  <hr></hr>
+                  <h5>Comments</h5>
+                  
+                  <div className="d-flex mt-3">
+                    <div>
+                      <Image width="30px" height="30px" src={userIcon} rounded />
+                    </div>
+                    <div className="bio-desc ml-1 box-comment">
+                      <h6 className="mb-0">wahyu</h6>
+                      <div className="font-comment">
+                        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="d-flex mt-3">
+                    <div>
+                      <Image width="30px" height="30px" src={userIcon} rounded />
+                    </div>
+                    <div className="bio-desc ml-1 box-comment">
+                      <h6 className="mb-0">wahyu</h6>
+                      <div className="font-comment">
+                        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span>
+                      </div>
+                    </div>
+                  </div>
+
                 </Col>
               </Row>
             </Col>
