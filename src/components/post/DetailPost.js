@@ -1,6 +1,6 @@
 // import react and component bootstrap
 import React, { Component} from 'react';
-import { Container, Row, Col, Image, Popover, OverlayTrigger } from 'react-bootstrap'
+import { Container, Row, Col, Image, Popover, OverlayTrigger, Form, Button } from 'react-bootstrap'
 
 // import component and icon
 import userIcon from '../../assets/images/user_no-pict.jpg';
@@ -14,16 +14,67 @@ import logoLinkIdn from '../../assets/icons/logo_linkedin.png';
 import logoReddit from '../../assets/icons/logo_reddit.png';
 import logoTumblr from '../../assets/icons/logo_tumblr.png';
 import iconCopyLink from '../../assets/icons/icon_copy-link.png';
+import Comments from './Comments';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { SuggestedAccounts } from "../../components/suggested-accounts";
+import { commenting, getComments } from '../../actions/commentAction';
 
 class DetailPost extends Component {
+
+  state = {
+    comment : "",
+    commentArray : Array()
+  }
   
   componentDidMount(){
     console.log(Object.keys(this.props.post['post']).length)
     console.log(this.props.post['post'])
     console.log('ini adalah redux post detail', this.props.post)
+
+    this.getComment();
+
+    console.log("ini respon get comment", this.state.commentArray)
+  }
+
+  onChange = (e) => {
+    this.setState({ comment : e.target.value })
+    console.log(this.state.comment)
+  }
+
+  postComment = () => {
+    // let commentArray = this.state.commentArray
+    console.log('click')
+
+    let commentData = {
+      user_id : this.props.post['post'].user_id,
+      post_id : this.props.post['post'].post_id,
+      content : this.state.comment,
+    }
+
+    commenting(commentData)
+    .then(res => res.data)
+    .then(res2 => {
+      console.log(res2);
+      this.setState({comment: ""})
+      // commentArray.push(commentData);
+      this.getComment();
+    })
+    .catch(err => console.log(err))
+    console.log(commentData)
+
+    // this.setState({ commentArray: commentArray })
+    // console.log(this.state.commentArray)
+  }
+
+  getComment = () => {
+    getComments(this.props.post['post'].post_id)
+    .then(res => res.data.data)
+    .then(res2 => {
+      console.log(res2)
+      this.setState({commentArray: res2})
+    })
+    .catch(err => console.log(err))
   }
 
   render() {
@@ -58,7 +109,7 @@ class DetailPost extends Component {
 
                   <div className="d-flex">
                     <div>
-                      <p className="text-muted">{this.props.post['post'].createdAt}</p>
+                      <p className="text-muted">{this.props.post['post'].createdAt.split("T")[0] } { this.props.post['post'].createdAt.split("T")[1].substring(0, 5) }</p>
                     </div>
                     <div className="ml-auto">
                       <p className="mb-0 text-muted">4 Comment - 54 Loved</p>
@@ -114,30 +165,23 @@ class DetailPost extends Component {
                   </div>
                   <hr></hr>
                   <h5>Comments</h5>
-                  
-                  <div className="d-flex mt-3">
-                    <div>
-                      <Image width="30px" height="30px" src={userIcon} rounded />
-                    </div>
-                    <div className="bio-desc ml-1 box-comment">
-                      <h6 className="mb-0">wahyu</h6>
-                      <div className="font-comment">
-                        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span>
-                      </div>
-                    </div>
-                  </div>
 
                   <div className="d-flex mt-3">
                     <div>
                       <Image width="30px" height="30px" src={userIcon} rounded />
                     </div>
-                    <div className="bio-desc ml-1 box-comment">
-                      <h6 className="mb-0">wahyu</h6>
-                      <div className="font-comment">
-                        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span>
+                    <div className="bio-desc ml-1 box-comment w-100">
+                      <h6 className="mb-1">wahyu</h6>
+                      <div>
+                        <Form.Control className="font-comment" value={this.state.comment} onChange={(e) => this.onChange(e)} as="textarea" rows={3} placeholder="What happen today dear ?" />
+                        <div className="d-flex">
+                          <Button onClick={ this.postComment } className="ml-auto" variant="primary" size="sm">Comment</Button>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  
+                  <Comments commentArray={this.state.commentArray} />
 
                 </Col>
               </Row>
@@ -153,7 +197,7 @@ class DetailPost extends Component {
                   </div>
               </div>
               <div>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <p>{this.props.post['post'].user.bio }</p>
               </div>
               <hr></hr>
               <div>

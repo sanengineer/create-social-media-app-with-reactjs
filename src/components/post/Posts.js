@@ -1,5 +1,5 @@
 // import react and component bootstrap
-import React, { Component} from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import {Link} from 'react-router-dom';
 import { SET_USER_POST } from '../../actions/actionTypes';
