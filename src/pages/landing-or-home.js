@@ -49,7 +49,10 @@ class Landing extends Component {
             <aside className="sidebar-wrapper col-4">
               <div className="sticky-wrapper-aside">
                 <div className="overflow-wrapper-aside">
-                  <SidebarProfileOverview auth={auth.isAuthenticated} />
+                  <SidebarProfileOverview
+                    auth={auth.isAuthenticated}
+                    whoami={whoami}
+                  />
                   <div className="sidebar-suggested-account">
                     <div className="h6 my-4">Suggested Account</div>
                     <div>

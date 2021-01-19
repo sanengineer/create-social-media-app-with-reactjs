@@ -78,7 +78,6 @@ function App() {
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/register" component={Register}></Route>
           <Switch>
-            <PrivateRoute exact path="/" component={Dashboard} />
             <PrivateRoute exact path="/latest-post" component={LatestPost} />
             <Route exact path="/detail-post" component={DetailPost} />
           </Switch>
