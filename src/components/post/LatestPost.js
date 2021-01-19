@@ -54,29 +54,31 @@ class LatestPost extends Component {
       <>
         <Container className="containerBox">
           <Row>
-            <Col sm={8}>
-              <Row>
-                <Col sm={10}>
-                  <h3>Latest Post</h3>
+            <Col lg={8} className="feeds-wrapper pr-5">
+              <div className="row justify-content-between mb-5">
+                <Col lg={4}>
+                  <h3 className="font-weight-bold">Your Posts</h3>
                 </Col>
-                <Col sm={2} className="p-0">
-                  <Button
-                    onClick={this.handleShow}
-                    className="post-btn btn btn-purple"
-                  >
-                    Post
-                  </Button>
-                  {/* <button onClick={this.handleShow}  className="follow-btn btn block" block>Post</button> */}
-                </Col>
-              </Row>
+                <Button
+                  onClick={this.handleShow}
+                  className="post-btn btn btn-purple"
+                >
+                  New Post
+                </Button>
+                {/* <button onClick={this.handleShow}  className="follow-btn btn block" block>Post</button> */}
+              </div>
               <br></br>
               <Posts postArray={this.state.postArray} />
             </Col>
-            <Col sm={4}>
+            <Col lg={4} className="sidebar-wrapper">
               <SidebarProfileOverview whoami={whoami} />
-              <Nav defaultActiveKey="#" className="flex-column">
-                <Nav.Link href={"/" + whoami.username}>Latest Post</Nav.Link>
-                <Nav.Link href="/edit-profile">Edit Profile</Nav.Link>
+              <Nav defaultActiveKey="#" className="flex-column mt-4">
+                <Nav.Link href={"/" + whoami.username} className="pl-0">
+                  Your Posts
+                </Nav.Link>
+                <Nav.Link href="/edit-profile" className="pl-0">
+                  Edit Profile
+                </Nav.Link>
               </Nav>
             </Col>
           </Row>

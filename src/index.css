@@ -55,7 +55,11 @@ body {
 }
 
 .nav-link {
-  color: #000000 !important;
+  color: #000000;
+}
+
+.nav-link:hover {
+  color: #ad1af1;
 }
 
 /*--navbar home page--*/
@@ -76,7 +80,7 @@ body {
 }
 
 .dropdown-menu {
-  box-shadow: -15px 12px 20px 7px rgb(253 244 255) !important;
+  box-shadow: 0px 12px 20px 7px rgb(253 244 255);
 }
 
 .dropdown-item {
@@ -203,6 +207,10 @@ body {
   line-height: 1.5;
   font-weight: bold;
   padding-bottom: 40px;
+  border-bottom: 1px solid #dddddd;
+}
+.sidebar-home-page-profile-overview {
+  line-height: 1.5;
   border-bottom: 1px solid #dddddd;
 }
 
@@ -355,4 +363,28 @@ body {
   backdrop-filter: blur(29px);
   filter: blur(8px);
   -webkit-filter: blur(8px);
+}
+
+/**--edit profile--**/
+
+.edit-profile-details-wrapper {
+  margin-bottom: 20rem;
+}
+.edit-profile-form {
+  background-color: transparent !important;
+  border-right: 1px solid #dddddd !important;
+  border-bottom: 1px solid #dddddd !important;
+  border-left: 1px solid #dddddd !important;
+  border-top: 1px solid #dddddd !important;
+  padding: 10px;
+}
+
+/**--suggested page--*/
+
+.suggested-page .suggested-users-list {
+  padding: 10px 30px 30px 30px;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 500px;
+  border: 1px solid #e7e7e7;
 }

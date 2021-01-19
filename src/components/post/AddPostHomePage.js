@@ -97,7 +97,7 @@ class AddPostHomePage extends Component {
             onClick={this.onClick}
             block
           >
-            POST
+            NEW POST
           </button>
         </div>
       </>

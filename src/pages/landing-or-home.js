@@ -57,7 +57,7 @@ class Landing extends Component {
                     auth={auth.isAuthenticated}
                     whoami={whoami}
                   />
-                  <div className="sidebar-suggested-account">
+                  <div className="sidebar-suggested-account mt-3">
                     <div className="h6 mb-2">Suggested Account</div>
                     <div>
                       <SuggestedAccounts
@@ -65,10 +65,7 @@ class Landing extends Component {
                       ></SuggestedAccounts>
                     </div>
                     <div className="mt-3">
-                      <a
-                        href="/more-suggested-users"
-                        className="more-account-link"
-                      >
+                      <a href="/suggested-users" className="more-account-link">
                         <span className="more-account pr-2">more</span>
                         <svg
                           width="8"

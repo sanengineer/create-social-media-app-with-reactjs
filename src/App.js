@@ -29,6 +29,7 @@ import "sanstrap/dist/css/sanstrap.css";
 import "./index.css";
 import { fetchWhoAmi } from "./actions/whoAmiAction";
 import EditProfile from "./components/editProfile";
+import SuggestedPage from "./pages/suggested-account-page";
 
 // // check for token  to keep user login
 // if (localStorage.jwtToken) {
@@ -131,6 +132,11 @@ class App extends Component {
           <Route exact path="/" component={Landing}></Route>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/register" component={Register}></Route>
+          <Route
+            exact
+            path="/suggested-users"
+            component={SuggestedPage}
+          ></Route>
           <Switch>
             <PrivateRoute
               exact

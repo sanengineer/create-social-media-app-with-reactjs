@@ -16,7 +16,7 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
     );
   } else {
     return (
-      <>
+      <div className="sidebar-home-page-profile-overview pr-5">
         <div className="d-flex mb-3">
           <img
             className="rounded-circle"
@@ -35,8 +35,7 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
           </div>
         </div>
         <p className="f-12">{whoami.bio}</p>
-        <hr />
-      </>
+      </div>
     );
   }
 };

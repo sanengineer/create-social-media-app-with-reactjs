@@ -88,8 +88,8 @@ class EditProfile extends Component {
     return (
       <div className="container mt-5">
         <div className="row mt-5">
-          <Col md={8}>
-            <div className="container mx-4">
+          <Col lg={8} className="pr-5">
+            <div className="edit-profile-details-wrapper container mx-4">
               <h3 className="pb-5">
                 <strong>Edit Profile</strong>
               </h3>
@@ -109,61 +109,76 @@ class EditProfile extends Component {
                   Save
                 </Button>
               </div>
-              <div className="mt-5">
+              <div className="mt-5 mb-5">
                 <Form>
-                  <Form.Group>
-                    <Form.Label>UserName</Form.Label>
+                  <Form.Group className="mb-5">
+                    <Form.Label className="font-weight-bold">
+                      UserName
+                    </Form.Label>
                     <Form.Control
+                      className="edit-profile-form"
                       value={whoami.username}
                       onChange={(e) => this.onChange(e)}
                       name="username"
                     />
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Email</Form.Label>
+                  <Form.Group className="mb-5">
+                    <Form.Label className="font-weight-bold">Email</Form.Label>
                     <Form.Control
+                      className="edit-profile-form"
                       value={whoami.email}
                       onChange={(e) => this.onChange(e)}
                       name="email"
                     />
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>FirstName</Form.Label>
+                  <Form.Group className="mb-5">
+                    <Form.Label className="font-weight-bold">
+                      FirstName
+                    </Form.Label>
                     <Form.Control
+                      className="edit-profile-form"
                       value={whoami.firstname}
                       onChange={(e) => this.onChange(e)}
                       name="firstname"
                     />
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>LastName</Form.Label>
+                  <Form.Group className="mb-5">
+                    <Form.Label className="font-weight-bold">
+                      LastName
+                    </Form.Label>
                     <Form.Control
+                      className="edit-profile-form"
                       value={whoami.lastname}
                       onChange={(e) => this.onChange(e)}
                       name="lastname"
                     />
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>BirthDate</Form.Label>
+                  <Form.Group className="mb-5">
+                    <Form.Label className="font-weight-bold">
+                      BirthDate
+                    </Form.Label>
                     <Form.Control
+                      className="edit-profile-form"
                       value={whoami.birthdate}
                       onChange={(e) => this.onChange(e)}
                       name="birthdate"
                       placeholder="2020-12-12"
                     />
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>avatar</Form.Label>
+                  <Form.Group className="mb-5">
+                    <Form.Label className="font-weight-bold">avatar</Form.Label>
                     <Form.Control
+                      className="edit-profile-form"
                       value={whoami.avatar}
                       onChange={(e) => this.onChange(e)}
                       name="avatar"
                       placeholder="gak ada"
                     />
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Sex</Form.Label>
+                  <Form.Group className="mb-5">
+                    <Form.Label className="font-weight-bold">Sex</Form.Label>
                     <Form.Control
+                      className="edit-profile-form"
                       value={whoami.gender}
                       as="select"
                       onChange={(e) => this.onChange(e)}
@@ -174,9 +189,12 @@ class EditProfile extends Component {
                       <option value="female">Female</option>
                     </Form.Control>
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Address</Form.Label>
+                  <Form.Group className="mb-5">
+                    <Form.Label className="font-weight-bold">
+                      Address
+                    </Form.Label>
                     <Form.Control
+                      className="edit-profile-form"
                       value={whoami.address}
                       as="textarea"
                       col={3}
@@ -189,11 +207,17 @@ class EditProfile extends Component {
             </div>
           </Col>
           <Col md={4} style={{ marginTop: "5rem" }}>
-            <SidebarProfileOverview whoami={whoami} />
-            <Nav defaultActiveKey="#" className="flex-column">
-              <Nav.Link href={"/" + whoami.username}>Latest Post</Nav.Link>
-              <Nav.Link href="/edit-profile">Edit Profile</Nav.Link>
-            </Nav>
+            <div className="sticky-wrapper-aside">
+              <SidebarProfileOverview whoami={whoami} />
+              <Nav defaultActiveKey="#" className="flex-column mt-4">
+                <Nav.Link href={"/" + whoami.username} className="pl-0">
+                  Your Posts
+                </Nav.Link>
+                <Nav.Link href="/edit-profile" className="pl-0">
+                  Edit Profile
+                </Nav.Link>
+              </Nav>
+            </div>
           </Col>
         </div>
       </div>

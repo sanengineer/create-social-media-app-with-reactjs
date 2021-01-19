@@ -118,7 +118,7 @@ class AddPost extends Component {
               </div> */}
             </div>
             <Button className="post-btn btn btn-purple" onClick={this.onClick}>
-              POST
+              NEW POST
             </Button>
           </div>
         </Modal.Body>
