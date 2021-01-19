@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 // import assets
 import userNoPict from "../assets/images/user_no-pict.jpg";
 import SidebarProfileOverview from "./auth/sidebarProfileOverview";
+import usersService from "../services/users-service";
 
 // import component
 
@@ -13,23 +14,6 @@ class EditProfile extends Component {
   constructor(props) {
     super();
   }
-
-  //   state={
-  //     user:{},
-  //     token : "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMSwiZW1haWwiOiJ0cnkxMjNAYmlzYS5rYW4iLCJpYXQiOjE2MTA5Mzk3MjcsImV4cCI6MTYxMzUzMTcyN30.C-ir-2asWp5gpplFZfGM6iKxBqFcwep4AqwRDDZbOlM",
-  //     me:{},
-  // }
-
-  // componentDidMount=()=>{
-  //     let token = this.state.token;
-  //     if(token){
-  //        UserService.me(token).then((result)=>{
-  //         this.setState({me:result.data})
-  //         console.log(result.data)
-  //        });
-  //     }
-
-  // }
 
   componentDidMount() {
     this.props.dispatch(fetchWhoAmi());
@@ -51,10 +35,6 @@ class EditProfile extends Component {
       user.gender = e.target.value;
     } else if (e.target.name === "address") {
       user.address = e.target.value;
-    } else if (e.target.name === "avatar") {
-      user.avatar = e.target.value;
-    } else if (e.target.name === "newPassword") {
-      user.newPassword = e.target.value;
     }
   };
 
@@ -73,12 +53,31 @@ class EditProfile extends Component {
   //     console.log(this.state.user);
   //   };
 
+  handleSubmit = () => {
+    usersService
+      .updateWhoAmi(
+        this.props.whoami.user_id,
+        this.props.whoami,
+        localStorage.jwtToken
+      )
+      .then((result) => {
+        //
+        //debugging
+        console.log(result);
+      })
+      .catch((err) => {
+        //
+        //debugging
+        console.log(err.message);
+      });
+  };
+
   render() {
     var whoamiAvatar;
 
-    // console.log("VALUEEEE:", value);
-
     const { whoami } = this.props;
+
+    console.log("USERIDDD:", this.props.auth.user_id);
 
     if (whoami.avatar) {
       whoamiAvatar = whoami.avatar;
@@ -86,13 +85,11 @@ class EditProfile extends Component {
       whoamiAvatar = userNoPict;
     }
 
-    let value = whoami;
-
     return (
-      <Container className="mt-5">
-        <Row className="mt-5">
+      <div className="container mt-5">
+        <div className="row mt-5">
           <Col md={8}>
-            <Container className="mx-4">
+            <div className="container mx-4">
               <h3 className="pb-5">
                 <strong>Edit Profile</strong>
               </h3>
@@ -189,7 +186,7 @@ class EditProfile extends Component {
                   </Form.Group>
                 </Form>
               </div>
-            </Container>
+            </div>
           </Col>
           <Col md={4} style={{ marginTop: "5rem" }}>
             <SidebarProfileOverview whoami={whoami} />
@@ -198,8 +195,8 @@ class EditProfile extends Component {
               <Nav.Link href="/edit-profile">Edit Profile</Nav.Link>
             </Nav>
           </Col>
-        </Row>
-      </Container>
+        </div>
+      </div>
     );
   }
 }

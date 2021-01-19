@@ -11,12 +11,14 @@ class UsersServices {
     return api.get("/posts");
   }
 
-  me = (token) => {
+  whoami = (token) => {
     return api.get("/user/profile/me", { headers: { authorization: token } });
   };
 
-  whoami = (token) => {
-    return api.get("/user/profile/me", { headers: { authorization: token } });
+  updateWhoAmi = (user_id, whoami, token) => {
+    return api.put(`/user/${user_id}`, whoami, {
+      headers: { authorization: token },
+    });
   };
 }
 
