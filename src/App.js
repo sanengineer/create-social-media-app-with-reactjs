@@ -28,6 +28,7 @@ import Landing from "./pages/landing-or-home";
 import "sanstrap/dist/css/sanstrap.css";
 import "./index.css";
 import { fetchWhoAmi } from "./actions/whoAmiAction";
+import EditProfile from "./components/editProfile";
 
 // // check for token  to keep user login
 // if (localStorage.jwtToken) {
@@ -136,7 +137,7 @@ class App extends Component {
               path={"/" + whoami.username}
               component={LatestPost}
             />
-            <PrivateRoute exact path="/edit-profile" component={Dashboard} />
+            <PrivateRoute exact path="/edit-profile" component={EditProfile} />
             <Route exact path="/detail-post" component={DetailPost} />
           </Switch>
         </div>
