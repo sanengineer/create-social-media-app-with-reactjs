@@ -48,9 +48,9 @@ export const CornerComponent = ({ whoami, logOut, auth }) => {
         id="collasible-nav-dropdown"
       >
         <div className="who-am-i-navbar-detail">
-          <strong>Sign In as</strong>
+          <strong>Sign In as:</strong>
           <br />
-          {whoami.email}
+          {whoami.username}
         </div>
         <NavDropdown.Divider />
         <div className="dashboard-link">

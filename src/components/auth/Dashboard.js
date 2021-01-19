@@ -10,7 +10,8 @@ class Dashboard extends Component {
         <div className="row">
           <div className="text-center" style={{ marginTop: "10rem" }}>
             {/* <HomePage /> */}
-            Edit Profile PAGE
+            GA BICA EDIT PROPIL YACH , BENTAR YACH ENGNINEEERNYA LAGI NGODING
+            NICH
           </div>
         </div>
       </div>
