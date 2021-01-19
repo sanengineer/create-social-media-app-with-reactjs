@@ -136,7 +136,7 @@ class App extends Component {
               path={"/" + whoami.username}
               component={LatestPost}
             />
-            <PrivateRoute exact path="/latest-post" component={LatestPost} />
+            <PrivateRoute exact path="/edit-profile" component={Dashboard} />
             <Route exact path="/detail-post" component={DetailPost} />
           </Switch>
         </div>

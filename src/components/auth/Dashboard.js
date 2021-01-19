@@ -8,8 +8,9 @@ class Dashboard extends Component {
     return (
       <div className="container align-wrapper cccc" style={{ height: "72vh" }}>
         <div className="row">
-          <div className="col s12 center-align">
-            <HomePage />
+          <div className="text-center" style={{ marginTop: "10rem" }}>
+            {/* <HomePage /> */}
+            Edit Profile PAGE
           </div>
         </div>
       </div>
