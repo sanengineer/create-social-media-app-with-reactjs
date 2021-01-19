@@ -1,5 +1,5 @@
 import React from "react";
-import { NavDropdown, Button } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import "./navHeader.css";
 
 // import assets
@@ -28,24 +28,23 @@ export const CornerComponent = ({ user, logOut, auth }) => {
         }
         id="collasible-nav-dropdown"
       >
-        {/* <div className="CCCC p-5"> */}
-        <strong>SignIn as :</strong>
-        <br />
-        {user.email}
+        <div className="who-am-i-navbar-detail">
+          <strong>Sign In as</strong>
+          <br />
+          {user.email}
+        </div>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="/main-profile">
-          <Button>Your Profile</Button>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
-          <Button
-            className="btn-block"
-            variant="danger"
-            onClick={() => logOut()}
-          >
-            Log Out
-          </Button>
-        </NavDropdown.Item>
-        {/* </div> */}
+        <div className="dashboard-link">
+          <NavDropdown.Item href="/main-profile">Your Profile</NavDropdown.Item>
+          <NavDropdown.Item className="text-center">
+            <button
+              className="logout-btn btn-danger btn"
+              onClick={() => logOut()}
+            >
+              Log Out
+            </button>
+          </NavDropdown.Item>
+        </div>
       </NavDropdown>
     );
   } else {
