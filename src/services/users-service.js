@@ -14,6 +14,10 @@ class UsersServices {
   me = (token) => {
     return api.get("/user/profile/me", { headers: { authorization: token } });
   };
+
+  whoami = (token) => {
+    return api.get("/user/profile/me", { headers: { authorization: token } });
+  };
 }
 
 export default new UsersServices();

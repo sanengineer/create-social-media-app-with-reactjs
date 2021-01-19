@@ -1,17 +1,28 @@
-import axios from "axios";
+// import axios from "axios";
+import UsersServices from "../services/users-service";
 import * as actionTypes from "./actionTypes";
 
 var urlHeroku = "https://sosmetend.herokuapp.com/api/v1";
 
 export const fetchWhoAmi = () => (dispatch) => {
-  const response = axios.get(`${urlHeroku}/user/profile/me`, {
-    Authorization: localStorage.jwtToken,
+  const token = localStorage.jwtToken;
+
+  // const response = axios.get(`${urlHeroku}/user/profile/me`, {
+  //   Authorization: localStorage.jwtToken,
+  // });
+
+  UsersServices.whoami(token).then((res) => {
+    //
+    //debugging
+    console.log("TESTTTTTT:", res.data);
+    dispatch(fetchWhoAmiSuccess(res.data));
   });
 
-  dispatch(fetchWhoAmiSuccess(response));
   //
   //debugging
-  console.log("RESPONSESS:", response);
+  // console.log("RESPONSESS:", response);
+  console.log("TOKENNNNN:", localStorage.jwtToken);
+  // console.log("TOKEN:", token);
 
   //   return response;
 };

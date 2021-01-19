@@ -99,6 +99,7 @@ const mapStateToProps = (state) => ({
   // error: state.suggestedusers.error,
   loading: state.suggestedusers.loading,
   linksInfoWeb: state.linksInfoWeb,
+  whoami: state.whoami.whoami,
   auth: state.auth,
 });
 

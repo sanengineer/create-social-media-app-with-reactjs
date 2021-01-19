@@ -6,6 +6,7 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
   //debugging
   //   console.log(user.username);
   console.log("AUTH:", auth);
+  console.log("whoamiiii:", whoami);
 
   if (auth) {
     return (
