@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import AddPostHomePage from "./post/AddPostHomePage";
 
-export const Feeds = ({ publicusers }) => {
+export const Feeds = ({ publicusers, whoami }) => {
   if (publicusers.length === 0) return null;
   console.log(publicusers.length);
+
+  console.log("FEEEEEDS:", whoami.length === 0);
 
   const Feed = (userPublic) => {
     return (
       // <a className="post-detail-link" href={"/post/" + userPublic.post_id}>
-      <Link className="post-detail-link" to="/latest-post">
+      <Link className="post-detail-link" to={"/" + whoami.username}>
         <div className="quotes-people-box-list">
           <div className="first-text d-flex justify-content-between">
             <div className="img-bio d-flex justify-content-between">
@@ -53,9 +56,22 @@ export const Feeds = ({ publicusers }) => {
 
   const Feedlist = publicusers.map((userPublic) => Feed(userPublic));
 
-  return (
-    <div className="TEST">
-      <div className="TEST2">{Feedlist}</div>
-    </div>
-  );
+  if (whoami.length === 0) {
+    return (
+      <div className="TEST">
+        <div className="TEST2">
+          <div className="TTTT">{Feedlist}</div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="TEST">
+        <div className="TEST2">
+          <AddPostHomePage />
+          <div className="TTTT">{Feedlist}</div>
+        </div>
+      </div>
+    );
+  }
 };

@@ -48,7 +48,7 @@ class Landing extends Component {
         <div className="section-main container">
           <div className="row">
             <div className="feeds-wrapper col-8 pr-5">
-              <Feeds publicusers={publicusers}></Feeds>
+              <Feeds publicusers={publicusers} whoami={whoami}></Feeds>
             </div>
             <aside className="sidebar-wrapper col-4">
               <div className="sticky-wrapper-aside">
