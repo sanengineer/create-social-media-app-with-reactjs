@@ -5,10 +5,16 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
   //
   //debugging
   //   console.log(user.username);
-  console.log("AUTH:", auth);
+  // console.log("AUTH:", auth);
   console.log("whoamiiii:", whoami);
 
-  if (auth) {
+  if (whoami.length === 0) {
+    return (
+      <div className="sidebar-landing-page-heading h4 pr-5">
+        Sign Up or Log In To Follow Poster
+      </div>
+    );
+  } else {
     return (
       <>
         <div className="d-flex mb-3">
@@ -31,12 +37,6 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
         <p className="f-12">{whoami.bio}</p>
         <hr />
       </>
-    );
-  } else {
-    return (
-      <div className="sidebar-landing-page-heading h4 pr-5">
-        Sign Up or Log In To Follow Poster
-      </div>
     );
   }
 };

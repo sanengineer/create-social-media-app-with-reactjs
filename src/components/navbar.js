@@ -1,36 +1,58 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import usersService from "../services/users-service";
+// import usersService from "../services/users-service";
 
 //importAction
 import { logoutUser } from "../actions/authAction";
 
 //import component
-import {CornerComponent} from "./cornerComponent"
+import { CornerComponent } from "./cornerComponent";
+import { fetchWhoAmi } from "../actions/whoAmiAction";
 
 class Navbar extends Component {
-  state={
-    token:localStorage.jwtToken,
-    me:{}
+  constructor(props) {
+    super();
+
+    // this.state = {
+    //   token: localStorage.jwtToken,
+    // };
   }
 
-  componentDidMount=()=>{
-    usersService.me(this.state.token).then((result)=>{
-      this.setState({me:result.data});
-      console.log(result.data)
-    }).catch((err)=>{
-      console.log(err.message)
-    })
+  // state = {
+  //   token: localStorage.jwtToken,
+  //   me:{}
+  // };
 
-    console.log(this.props.auth)
+  // componentDidMount=()=>{
+  //   usersService.me(this.state.token).then((result)=>{
+  //     this.setState({me:result.data});
+  //     console.log(result.data)
+  //   }).catch((err)=>{
+  //     console.log(err.message)
+  //   })
+
+  //   console.log(this.props.auth)
+  // }
+
+  componentDidMount() {
+    this.props.dispatch(fetchWhoAmi());
+
+    // this.props.dispatch(logoutUser())
+
+    // if (this.props.auth.isAuthenticated) {
+    //   this.props.history.push("/");
+    // }
   }
 
   logOut = () => {
-    this.props.logoutUser();
+    this.props.dispatch(logoutUser());
   };
+
   render() {
-   
+    const { whoami, auth } = this.props;
+
+    console.log("WHOAMMMMMM:", whoami);
     return (
       <nav className="top-nav navbar navbar-expand-xl navbar-dark fixed-top py-3">
         <div className="container-xl justify-content-between">
@@ -86,23 +108,28 @@ class Navbar extends Component {
             </ul>
           </div>
           <div>
-           <CornerComponent
-           auth={this.props.auth.isAuthenticated}
-           user={this.state.me}
-           logOut={()=>this.logOut()}/>
+            <CornerComponent
+              auth={auth.isAuthenticated}
+              whoami={whoami}
+              logOut={() => this.logOut()}
+            />
           </div>
         </div>
       </nav>
     );
   }
 }
+
 Navbar.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
+  whoami: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  whoami: state.whoami.whoami,
 });
 
-export default connect(mapStateToProps,{ logoutUser })(Navbar);
+// export default connect(mapStateToProps, { logoutUser })(Navbar);
+export default connect(mapStateToProps)(Navbar);

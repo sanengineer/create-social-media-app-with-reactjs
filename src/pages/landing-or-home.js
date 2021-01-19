@@ -23,7 +23,11 @@ class Landing extends Component {
     this.props.dispatch(fetchSuggestedUsers());
     this.props.dispatch(fetchPublicUsers());
     this.props.dispatch(fetchWhoAmi());
+
     // this.props.dispatch(setCurrentUser());
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/");
+    }
   }
 
   render() {

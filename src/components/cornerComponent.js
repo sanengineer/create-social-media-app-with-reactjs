@@ -5,51 +5,20 @@ import "./navHeader.css";
 // import assets
 import noPict from "../assets/icons/user.png";
 
-export const CornerComponent = ({ user, logOut, auth }) => {
-  console.log(user.avatar);
+export const CornerComponent = ({ whoami, logOut, auth }) => {
+  //
+  //
+  console.log(whoami.length);
 
-  let profileSrc;
-  if (user.avatar) {
-    profileSrc = user.avatar;
+  let whoAmiProfileSrc;
+
+  if (whoami.avatar) {
+    whoAmiProfileSrc = whoami.avatar;
   } else {
-    profileSrc = noPict;
+    whoAmiProfileSrc = noPict;
   }
 
-  if (auth) {
-    return (
-      <NavDropdown
-        className="testcccc"
-        title={
-          <img
-            className="img-avatar avatar rounded-circle"
-            src={profileSrc}
-            alt="user pic"
-          />
-        }
-        id="collasible-nav-dropdown"
-      >
-        <div className="who-am-i-navbar-detail">
-          <strong>Sign In as</strong>
-          <br />
-          {user.email}
-        </div>
-        <NavDropdown.Divider />
-        <div className="dashboard-link">
-          <NavDropdown.Item href={"/" + user.username}>
-            Profile
-          </NavDropdown.Item>
-          <NavDropdown.Item className="text-center">
-            <button
-              className="logout-btn btn-danger btn"
-              onClick={() => logOut()}
-            >
-              Log Out
-            </button>
-          </NavDropdown.Item>
-        </div>
-      </NavDropdown>
-    );
-  } else {
+  if (whoami === 0) {
     return (
       <ul className="navbar-nav d-lg-flex order-4">
         <li className="...">
@@ -63,6 +32,40 @@ export const CornerComponent = ({ user, logOut, auth }) => {
           </a>
         </li>
       </ul>
+    );
+  } else {
+    return (
+      <NavDropdown
+        className="testcccc"
+        title={
+          <img
+            className="img-avatar avatar rounded-circle"
+            src={whoAmiProfileSrc}
+            alt="user pic"
+          />
+        }
+        id="collasible-nav-dropdown"
+      >
+        <div className="who-am-i-navbar-detail">
+          <strong>Sign In as</strong>
+          <br />
+          {whoami.email}
+        </div>
+        <NavDropdown.Divider />
+        <div className="dashboard-link">
+          <NavDropdown.Item href={"/" + whoami.username}>
+            Profile
+          </NavDropdown.Item>
+          <NavDropdown.Item className="text-center">
+            <button
+              className="logout-btn btn-danger btn"
+              onClick={() => logOut()}
+            >
+              Log Out
+            </button>
+          </NavDropdown.Item>
+        </div>
+      </NavDropdown>
     );
   }
 };
