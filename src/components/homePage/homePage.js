@@ -53,7 +53,7 @@ class HomePage extends Component{
                                 <Image className="rounded-circle" src={profileSrc} width={100} height={100}/>
                                 <div className="ml-4">
                                     <h3><strong>{me.username}</strong></h3>
-                                    <h4 className="text-secondary">{me.lastname}</h4>
+                                    <h4 className="text-secondary">{`${me.firstname} ${me.lastname}`}</h4>
                                 </div>
                            </div>
                            <p>
