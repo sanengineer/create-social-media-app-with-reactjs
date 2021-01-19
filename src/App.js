@@ -129,6 +129,25 @@ class App extends Component {
 
     // const routeComponents;
 
+    // const routeComponent = (routeStatusFeed) => {
+    //   <Route
+    //     exact
+    //     path={
+    //       "/feed-" +
+    //       routeStatusFeed.user.username +
+    //       "-" +
+    //       routeStatusFeed.post_id
+    //     }
+    //     component={Dashboard}
+    //   />;
+    // };
+
+    // const routesComponents = publicusers.map((routeStatusFeed) =>
+    //   routeComponent(routeStatusFeed)
+    // );
+
+    // console.log("ROUTESSS:", routesComponents);
+
     return (
       <Router>
         <div className="App">
@@ -143,9 +162,9 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path={"/feed-" + publicusers.username + "-" + publicusers.post_id}
+            path={"/feed-" + publicusers.post_id}
             component={Dashboard}
-          ></Route>
+          />
           <Switch>
             <PrivateRoute
               exact

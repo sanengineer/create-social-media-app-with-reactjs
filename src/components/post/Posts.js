@@ -32,8 +32,9 @@ export const Posts = ({ postArray }) => {
       <Link
         onClick={(e) => openDetail(post)}
         id={index}
-        className="post-detail-link"
-        to="/detail-post"
+        className="post-detail-link mmm"
+        // to="/detail-post"
+        to="#"
       >
         {/* <a onClick={openDetail(post)} id={index} className="post-detail-link" to="/detail-post"> */}
         <div className="quotes-people-box-list">
@@ -50,9 +51,9 @@ export const Posts = ({ postArray }) => {
                 </div>
               </div>
               <div className="bio-desc pl-4">
-                <a href="/rachelbowler">
+                <Link to="#" style={{ textDecoration: "none" }}>
                   <div className="username">{post.user.username}</div>
-                </a>
+                </Link>
 
                 <div className="name">
                   {post.user.firstname} {post.user.lastname}

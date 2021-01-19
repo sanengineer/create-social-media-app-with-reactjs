@@ -29,6 +29,8 @@ class EditProfile extends Component {
       user.firstname = e.target.value;
     } else if (e.target.name === "lastname") {
       user.lastname = e.target.value;
+    } else if (e.target.name === "bio") {
+      user.bio = e.target.value;
     } else if (e.target.name === "birthdate") {
       user.birthdate = e.target.value;
     } else if (e.target.name === "gender") {
@@ -159,6 +161,19 @@ class EditProfile extends Component {
                       </Form.Group>
                       <Form.Group className="mb-5">
                         <Form.Label className="font-weight-bold">
+                          Bio
+                        </Form.Label>
+                        <Form.Control
+                          className="edit-profile-form"
+                          value={whoami.bio}
+                          as="textarea"
+                          onChange={(e) => this.onChange(e)}
+                          name="bio"
+                          placeholder="let's introduce your self to the world"
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-5">
+                        <Form.Label className="font-weight-bold">
                           BirthDate
                         </Form.Label>
                         <Form.Control
@@ -167,18 +182,6 @@ class EditProfile extends Component {
                           onChange={(e) => this.onChange(e)}
                           name="birthdate"
                           placeholder="2020-12-12"
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-5">
-                        <Form.Label className="font-weight-bold">
-                          avatar
-                        </Form.Label>
-                        <Form.Control
-                          className="edit-profile-form"
-                          value={whoami.avatar}
-                          onChange={(e) => this.onChange(e)}
-                          name="avatar"
-                          placeholder="gak ada"
                         />
                       </Form.Group>
                       <Form.Group className="mb-5">

@@ -26,6 +26,7 @@ import iconCopyLink from "../../assets/icons/icon_copy-link.png";
 import Comments from "./Comments";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import SidebarProfileOverview from "../auth/sidebarProfileOverview";
 import { SuggestedAccounts } from "../../components/suggested-accounts";
 import { commenting, getComments } from "../../actions/commentAction";
 
@@ -373,19 +374,7 @@ class DetailPost extends Component {
               </Row>
             </Col>
             <Col sm={4}>
-              <div className="d-flex">
-                <div>
-                  <Image width="70px" height="70px" src={userIcon} rounded />
-                </div>
-                <div className="my-auto ml-3">
-                  <p className="mb-0 font-weight-bold">Username</p>
-                  <p className="mb-0">name</p>
-                </div>
-              </div>
-              <div>
-                <p>{this.props.post["post"].user.bio}</p>
-              </div>
-              <hr></hr>
+              <SidebarProfileOverview whoami={whoami} />
               <div>
                 <div className="my-3">
                   <h6>Sugested Acccount</h6>

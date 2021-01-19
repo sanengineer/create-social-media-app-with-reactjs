@@ -162,8 +162,18 @@ body {
 .post-detail-link:hover {
   color: rgb(26, 26, 26);
   text-decoration: none;
+  background-color: transparent;
+}
+
+.feeds-whoami-page .post-detail-link:hover {
+  /* color: rgb(26, 26, 26);
+  text-decoration: none;
   background-color: #d3d3d33a;
-  border-bottom: none;
+  border-bottom: none; */
+
+  color: rgb(26, 26, 26);
+  text-decoration: none;
+  background-color: transparent;
 }
 
 /* .quotes-people-box-list {

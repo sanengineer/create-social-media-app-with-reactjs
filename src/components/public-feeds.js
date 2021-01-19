@@ -11,10 +11,12 @@ export const Feeds = ({ publicusers, whoami }) => {
   const Feed = (userPublic) => {
     return (
       // <a className="post-detail-link" href={"/post/" + userPublic.post_id}>
-      <Link
-        className="post-detail-link"
-        to={"/feed-" + userPublic.user.username + "-" + userPublic.post_id}
-      >
+      // <Link
+      //   className="post-detail-link"
+      //   to={"/feed-" + userPublic.user.username + "-" + userPublic.post_id}
+      // >
+      // <Link className="post-detail-link" to={"/feed-" + userPublic.post_id}>
+      <Link className="post-detail-link" to="#">
         <div className="quotes-people-box-list">
           <div className="first-text d-flex justify-content-between">
             <div className="img-bio d-flex justify-content-between">
@@ -34,9 +36,10 @@ export const Feeds = ({ publicusers, whoami }) => {
                 </div>
               </div>
               <div className="bio-desc pl-4">
-                <a href={"/" + userPublic.user.username}>
+                {/* <Link to={"/" + userPublic.user.username}> */}
+                <Link to="#" style={{ textDecoration: "none" }}>
                   <div className="username">{userPublic.user.username}</div>
-                </a>
+                </Link>
 
                 <div className="name">
                   {`${userPublic.user.firstname} ${userPublic.user.lastname}`}
