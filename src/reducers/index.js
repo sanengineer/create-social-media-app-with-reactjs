@@ -6,7 +6,6 @@ import suggestedusers from "./suggestedUsers";
 import linksInfoWeb from "./footerReducer";
 import publicusers from "./publicUsers";
 import whoami from "./whoAmiReducer";
-import { whoAmi } from "../actions/whoAmiAction";
 
 export default combineReducers({
   auth: authReducer,
@@ -15,5 +14,5 @@ export default combineReducers({
   suggestedusers: suggestedusers,
   linksInfoWeb: linksInfoWeb,
   publicusers: publicusers,
-  whoami: whoAmi,
+  whoami: whoami,
 });

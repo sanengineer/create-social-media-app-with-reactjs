@@ -1,7 +1,7 @@
 import React from "react";
 import noPict from "../../assets/images/user_no-pict.jpg";
 
-const SidebarProfileOverview = ({ auth }) => {
+const SidebarProfileOverview = ({ auth, whoami }) => {
   //
   //debugging
   //   console.log(user.username);
@@ -14,7 +14,7 @@ const SidebarProfileOverview = ({ auth }) => {
           <img className="rounded-circle" src={noPict} width={74} height={74} />
           <div className="ml-3 pt-3">
             <h3 className="h6 mb-1">
-              <strong>TEST</strong>
+              <strong>{whoami.username}</strong>
             </h3>
             <h4 className="h6 text-secondary">TEST iii</h4>
           </div>

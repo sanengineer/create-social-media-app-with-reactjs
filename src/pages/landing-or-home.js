@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
 import { fetchPublicUsers } from "../actions/publicUsers";
+import { fetchWhoAmi } from "../actions/whoAmiAction";
 import SidebarProfileOverview from "../components/auth/sidebarProfileOverview";
 import setAuthToken from "../utils/setAuthToken";
 import { setCurrentUser } from "../actions/authAction";
@@ -21,6 +22,7 @@ class Landing extends Component {
   componentDidMount() {
     this.props.dispatch(fetchSuggestedUsers());
     this.props.dispatch(fetchPublicUsers());
+    this.props.dispatch(fetchWhoAmi());
     // this.props.dispatch(setCurrentUser());
   }
 
@@ -30,8 +32,11 @@ class Landing extends Component {
       suggestedusers,
       linksInfoWeb,
       auth,
+      whoami,
       error,
     } = this.props;
+
+    console.log("WHOAMIIIIII:", whoami);
 
     // console.log("AUTHHHHH:", auth);
     return (

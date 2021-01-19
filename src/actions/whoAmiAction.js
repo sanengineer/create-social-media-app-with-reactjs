@@ -3,7 +3,7 @@ import * as actionTypes from "./actionTypes";
 
 var urlHeroku = "https://sosmetend.herokuapp.com/api/v1";
 
-export const whoAmi = () => (dispatch) => {
+export const fetchWhoAmi = () => (dispatch) => {
   const response = axios.get(`${urlHeroku}/user/profile/me`, {
     Authorization: localStorage.jwtToken,
   });
