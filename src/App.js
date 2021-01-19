@@ -9,6 +9,7 @@ import { fetchPublicUsersSuccess } from "./actions/publicUsers";
 
 // Related to store
 import { Provider } from "react-redux";
+import { connect } from "react-redux";
 import store from "./store/store";
 
 // Importing components
@@ -26,51 +27,103 @@ import Landing from "./pages/landing-or-home";
 //Importing stylesheet
 import "sanstrap/dist/css/sanstrap.css";
 import "./index.css";
+import { fetchWhoAmi } from "./actions/whoAmiAction";
 
-// check for token  to keep user login
-if (localStorage.jwtToken) {
-  //set auth token header auth
-  const token = localStorage.jwtToken;
-  setAuthToken(token);
-  // Decode token and get user info and exp token info
-  const decoded = jwt_decode(token);
+// // check for token  to keep user login
+// if (localStorage.jwtToken) {
+//   //set auth token header auth
+//   const token = localStorage.jwtToken;
+//   setAuthToken(token);
+//   // Decode token and get user info and exp token info
+//   const decoded = jwt_decode(token);
 
-  // Set user and isAuthenticated
-  store.dispatch(setCurrentUser(decoded));
+//   // Set user and isAuthenticated
+//   store.dispatch(setCurrentUser(decoded));
 
-  //Check for expired token
-  const currentTime = Date.now() / 1000; // to get in milliseconds
-  if (decoded.exp < currentTime) {
-    //logout user
-    store.dispatch(logoutUser());
+//   //Check for expired token
+//   const currentTime = Date.now() / 1000; // to get in milliseconds
+//   if (decoded.exp < currentTime) {
+//     //logout user
+//     store.dispatch(logoutUser());
 
-    //Redirect to login
-    window.location.href = "./";
+//     //Redirect to login
+//     window.location.href = "./";
+//   }
+// }
+
+// console.log("YYYY:", store.dispatch(setCurrentUser()));
+
+// function App() {
+// if (localStorage.jwtToken) {
+//   const token = localStorage.jwtToken;
+//   const decoded = jwt_decode(token);
+
+//   store.dispatch(setCurrentUser(decoded));
+
+//   const currentTime = Date.now() / 1000;
+
+//   if (decoded.exp < currentTime) {
+//     store.dispatch(logoutUser());
+
+//     window.location.href = "./login";
+//   }
+
+//   console.log("DECODDD", store.dispatch(setCurrentUser(decoded)));
+//   console.log("APPPP:", token);
+
+//   return (
+//     <Provider store={store}>
+//       <Router>
+//         <div className="App">
+//           <Navbar></Navbar>
+//           <Route exact path="/" component={Landing}></Route>
+//           <Route exact path="/login" component={Login}></Route>
+//           <Route exact path="/register" component={Register}></Route>
+//           <Switch>
+//             <PrivateRoute exact path="/latest-post" component={LatestPost} />
+//             <Route exact path="/detail-post" component={DetailPost} />
+//           </Switch>
+//         </div>
+//       </Router>
+//     </Provider>
+//   );
+// }
+
+class App extends Component {
+  constructor(props) {
+    super();
   }
-}
 
-console.log("YYYY:", store.dispatch(setCurrentUser()));
+  componentDidMount() {
+    this.props.dispatch(fetchWhoAmi());
+  }
 
-function App() {
-  // if (localStorage.jwtToken) {
-  //   const token = localStorage.jwtToken;
-  //   const decoded = jwt_decode(token);
+  render() {
+    // check for token  to keep user login
+    if (localStorage.jwtToken) {
+      //set auth token header auth
+      const token = localStorage.jwtToken;
+      setAuthToken(token);
+      // Decode token and get user info and exp token info
+      const decoded = jwt_decode(token);
 
-  //   store.dispatch(setCurrentUser(decoded));
+      // Set user and isAuthenticated
+      store.dispatch(setCurrentUser(decoded));
 
-  //   const currentTime = Date.now() / 1000;
+      //Check for expired token
+      const currentTime = Date.now() / 1000; // to get in milliseconds
+      if (decoded.exp < currentTime) {
+        //logout user
+        store.dispatch(logoutUser());
 
-  //   if (decoded.exp < currentTime) {
-  //     store.dispatch(logoutUser());
+        //Redirect to login
+        window.location.href = "./";
+      }
+    }
 
-  //     window.location.href = "./login";
-  //   }
+    const { whoami } = this.props;
 
-  //   console.log("DECODDD", store.dispatch(setCurrentUser(decoded)));
-  //   console.log("APPPP:", token);
-
-  return (
-    <Provider store={store}>
+    return (
       <Router>
         <div className="App">
           <Navbar></Navbar>
@@ -78,36 +131,22 @@ function App() {
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/register" component={Register}></Route>
           <Switch>
+            <PrivateRoute
+              exact
+              path={"/" + whoami.username}
+              component={LatestPost}
+            />
             <PrivateRoute exact path="/latest-post" component={LatestPost} />
             <Route exact path="/detail-post" component={DetailPost} />
           </Switch>
         </div>
       </Router>
-    </Provider>
-  );
+    );
+  }
 }
 
-// class App extends Component {
-//   render() {
+const mapStateToProps = (state) => ({
+  whoami: state.whoami.whoami,
+});
 
-//     return (
-//       <Provider store={store}>
-//         <Router>
-//           <div className="App">
-//             <Navbar />
-//             <Route exact path="/" component={Landing} />
-//             <Route exact path="/register" component={Register} />
-//             <Route exact path="/login" component={Login} />
-//             <Switch>
-//               {/* <PrivateRoute exact path="/" component={Dashboard} /> */}
-//               <PrivateRoute exact path="/latest-post" component={LatestPost} />
-//               <Route exact path="/detail-post" component={DetailPost} />
-//             </Switch>
-//           </div>
-//         </Router>
-//       </Provider>
-//     );
-//   }
-// }
-
-export default App;
+export default connect(mapStateToProps)(App);
