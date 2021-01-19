@@ -19,7 +19,7 @@ export const CornerComponent = ({ whoami, logOut, auth }) => {
     whoAmiProfileSrc = noPict;
   }
 
-  if (whoami == 0) {
+  if (whoami.length === 0) {
     return (
       <ul className="navbar-nav d-lg-flex order-4">
         <li className="...">
