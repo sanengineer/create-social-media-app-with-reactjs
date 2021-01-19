@@ -270,3 +270,13 @@ body {
   border-left: 1px solid #dddddd !important;
   border-top: 1px solid #dddddd !important;
 }
+
+.font-comment {
+  font-size : 0.7rem;
+}
+
+.box-comment {
+  background-color: whitesmoke;
+  border-radius: 8px;
+  padding: 8px;
+}
