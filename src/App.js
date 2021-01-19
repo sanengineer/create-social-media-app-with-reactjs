@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Related to Authentication
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authAction";
+import { fetchPublicUsersSuccess } from "./actions/publicUsers";
 
 // Related to store
 import { Provider } from "react-redux";
@@ -20,7 +21,7 @@ import Dashboard from "./components/auth/Dashboard";
 import LatestPost from "./components/post/LatestPost";
 import DetailPost from "./components/post/DetailPost";
 
-import Landing from "./pages/landing";
+import Landing from "./pages/landing-or-home";
 
 //Importing stylesheet
 import "sanstrap/dist/css/sanstrap.css";
@@ -33,6 +34,7 @@ if (localStorage.jwtToken) {
   setAuthToken(token);
   // Decode token and get user info and exp token info
   const decoded = jwt_decode(token);
+
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
 
@@ -43,21 +45,40 @@ if (localStorage.jwtToken) {
     store.dispatch(logoutUser());
 
     //Redirect to login
-    window.location.href = "./login";
+    window.location.href = "./";
   }
 }
 
+console.log("YYYY:", store.dispatch(setCurrentUser()));
+
 function App() {
+  // if (localStorage.jwtToken) {
+  //   const token = localStorage.jwtToken;
+  //   const decoded = jwt_decode(token);
+
+  //   store.dispatch(setCurrentUser(decoded));
+
+  //   const currentTime = Date.now() / 1000;
+
+  //   if (decoded.exp < currentTime) {
+  //     store.dispatch(logoutUser());
+
+  //     window.location.href = "./login";
+  //   }
+
+  //   console.log("DECODDD", store.dispatch(setCurrentUser(decoded)));
+  //   console.log("APPPP:", token);
+
   return (
     <Provider store={store}>
       <Router>
         <div className="App">
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
+          <Navbar></Navbar>
+          <Route exact path="/" component={Landing}></Route>
+          <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/register" component={Register}></Route>
           <Switch>
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/" component={Dashboard} />
             <PrivateRoute exact path="/latest-post" component={LatestPost} />
             <Route exact path="/detail-post" component={DetailPost} />
           </Switch>
@@ -66,5 +87,28 @@ function App() {
     </Provider>
   );
 }
+
+// class App extends Component {
+//   render() {
+
+//     return (
+//       <Provider store={store}>
+//         <Router>
+//           <div className="App">
+//             <Navbar />
+//             <Route exact path="/" component={Landing} />
+//             <Route exact path="/register" component={Register} />
+//             <Route exact path="/login" component={Login} />
+//             <Switch>
+//               {/* <PrivateRoute exact path="/" component={Dashboard} /> */}
+//               <PrivateRoute exact path="/latest-post" component={LatestPost} />
+//               <Route exact path="/detail-post" component={DetailPost} />
+//             </Switch>
+//           </div>
+//         </Router>
+//       </Provider>
+//     );
+//   }
+// }
 
 export default App;

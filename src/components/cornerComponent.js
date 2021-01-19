@@ -35,7 +35,9 @@ export const CornerComponent = ({ user, logOut, auth }) => {
         </div>
         <NavDropdown.Divider />
         <div className="dashboard-link">
-          <NavDropdown.Item href="/main-profile">Your Profile</NavDropdown.Item>
+          <NavDropdown.Item href={"/" + user.username}>
+            Profile
+          </NavDropdown.Item>
           <NavDropdown.Item className="text-center">
             <button
               className="logout-btn btn-danger btn"

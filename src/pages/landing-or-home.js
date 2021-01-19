@@ -7,6 +7,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
 import { fetchPublicUsers } from "../actions/publicUsers";
+import SidebarProfileOverview from "../components/auth/sidebarProfileOverview";
+import setAuthToken from "../utils/setAuthToken";
+import { setCurrentUser } from "../actions/authAction";
 
 class Landing extends Component {
   constructor(props) {
@@ -18,10 +21,19 @@ class Landing extends Component {
   componentDidMount() {
     this.props.dispatch(fetchSuggestedUsers());
     this.props.dispatch(fetchPublicUsers());
+    // this.props.dispatch(setCurrentUser());
   }
 
   render() {
-    const { publicusers, suggestedusers, linksInfoWeb, error } = this.props;
+    const {
+      publicusers,
+      suggestedusers,
+      linksInfoWeb,
+      auth,
+      error,
+    } = this.props;
+
+    // console.log("AUTHHHHH:", auth);
     return (
       <div className="landing-page">
         <div className="section-main container">
@@ -32,9 +44,7 @@ class Landing extends Component {
             <aside className="sidebar-wrapper col-4">
               <div className="sticky-wrapper-aside">
                 <div className="overflow-wrapper-aside">
-                  <div className="sidebar-landing-page-heading h4 pr-5">
-                    Sign Up or Log In To Follow Poster
-                  </div>
+                  <SidebarProfileOverview auth={auth.isAuthenticated} />
                   <div className="sidebar-suggested-account">
                     <div className="h6 my-4">Suggested Account</div>
                     <div>
@@ -74,12 +84,17 @@ class Landing extends Component {
   }
 }
 
+Landing.propsTypes = {
+  auth: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = (state) => ({
   publicusers: state.publicusers.publicusers,
   suggestedusers: state.suggestedusers.suggestedusers,
   // error: state.suggestedusers.error,
   loading: state.suggestedusers.loading,
   linksInfoWeb: state.linksInfoWeb,
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps)(Landing);

@@ -11,9 +11,9 @@ class UsersServices {
     return api.get("/posts");
   }
 
-  me=(token)=>{
-    return api.get("/user/profile/me",{headers:{authorization:token}})
-  }
+  me = (token) => {
+    return api.get("/user/profile/me", { headers: { authorization: token } });
+  };
 }
 
 export default new UsersServices();
