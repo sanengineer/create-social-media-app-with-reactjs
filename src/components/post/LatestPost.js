@@ -55,20 +55,28 @@ class LatestPost extends Component {
         <Container className="containerBox">
           <Row>
             <Col lg={8} className="feeds-wrapper pr-5">
-              <div className="row justify-content-between mb-5">
-                <Col lg={4}>
-                  <h3 className="font-weight-bold">Your Posts</h3>
-                </Col>
-                <Button
-                  onClick={this.handleShow}
-                  className="post-btn btn btn-purple"
-                >
-                  New Post
-                </Button>
-                {/* <button onClick={this.handleShow}  className="follow-btn btn block" block>Post</button> */}
+              <div className="heading-profile-page-wrapper">
+                <div className="row justify-content-between mb-5">
+                  <Col lg={4}>
+                    <h3 className="font-weight-bold">Your Posts</h3>
+                  </Col>
+                  <Button
+                    onClick={this.handleShow}
+                    className="post-btn btn btn-purple"
+                  >
+                    New Post
+                  </Button>
+                  {/* <button onClick={this.handleShow}  className="follow-btn btn block" block>Post</button> */}
+                </div>
               </div>
               <br></br>
-              <Posts postArray={this.state.postArray} />
+              <div className="feeds-whoami-page">
+                <div className="feeds-whoami-page-wrapper">
+                  <div className="feeds-whoami-page-overflow">
+                    <Posts postArray={this.state.postArray} />
+                  </div>
+                </div>
+              </div>
             </Col>
             <Col lg={4} className="sidebar-wrapper">
               <SidebarProfileOverview whoami={whoami} />

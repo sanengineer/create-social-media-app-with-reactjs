@@ -110,99 +110,109 @@ class EditProfile extends Component {
                 </Button>
               </div>
               <div className="mt-5 mb-5">
-                <Form>
-                  <Form.Group className="mb-5">
-                    <Form.Label className="font-weight-bold">
-                      UserName
-                    </Form.Label>
-                    <Form.Control
-                      className="edit-profile-form"
-                      value={whoami.username}
-                      onChange={(e) => this.onChange(e)}
-                      name="username"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-5">
-                    <Form.Label className="font-weight-bold">Email</Form.Label>
-                    <Form.Control
-                      className="edit-profile-form"
-                      value={whoami.email}
-                      onChange={(e) => this.onChange(e)}
-                      name="email"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-5">
-                    <Form.Label className="font-weight-bold">
-                      FirstName
-                    </Form.Label>
-                    <Form.Control
-                      className="edit-profile-form"
-                      value={whoami.firstname}
-                      onChange={(e) => this.onChange(e)}
-                      name="firstname"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-5">
-                    <Form.Label className="font-weight-bold">
-                      LastName
-                    </Form.Label>
-                    <Form.Control
-                      className="edit-profile-form"
-                      value={whoami.lastname}
-                      onChange={(e) => this.onChange(e)}
-                      name="lastname"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-5">
-                    <Form.Label className="font-weight-bold">
-                      BirthDate
-                    </Form.Label>
-                    <Form.Control
-                      className="edit-profile-form"
-                      value={whoami.birthdate}
-                      onChange={(e) => this.onChange(e)}
-                      name="birthdate"
-                      placeholder="2020-12-12"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-5">
-                    <Form.Label className="font-weight-bold">avatar</Form.Label>
-                    <Form.Control
-                      className="edit-profile-form"
-                      value={whoami.avatar}
-                      onChange={(e) => this.onChange(e)}
-                      name="avatar"
-                      placeholder="gak ada"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-5">
-                    <Form.Label className="font-weight-bold">Sex</Form.Label>
-                    <Form.Control
-                      className="edit-profile-form"
-                      value={whoami.gender}
-                      as="select"
-                      onChange={(e) => this.onChange(e)}
-                      name="gender"
-                    >
-                      <option value="">Choosee</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                    </Form.Control>
-                  </Form.Group>
-                  <Form.Group className="mb-5">
-                    <Form.Label className="font-weight-bold">
-                      Address
-                    </Form.Label>
-                    <Form.Control
-                      className="edit-profile-form"
-                      value={whoami.address}
-                      as="textarea"
-                      col={3}
-                      onChange={(e) => this.onChange(e)}
-                      name="address"
-                    />
-                  </Form.Group>
-                </Form>
+                <div className="form-edit-wrapper">
+                  <div className="form-edit-overflow">
+                    <Form>
+                      <Form.Group className="mb-5">
+                        <Form.Label className="font-weight-bold">
+                          UserName
+                        </Form.Label>
+                        <Form.Control
+                          className="edit-profile-form"
+                          value={whoami.username}
+                          onChange={(e) => this.onChange(e)}
+                          name="username"
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-5">
+                        <Form.Label className="font-weight-bold">
+                          Email
+                        </Form.Label>
+                        <Form.Control
+                          className="edit-profile-form"
+                          value={whoami.email}
+                          onChange={(e) => this.onChange(e)}
+                          name="email"
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-5">
+                        <Form.Label className="font-weight-bold">
+                          FirstName
+                        </Form.Label>
+                        <Form.Control
+                          className="edit-profile-form"
+                          value={whoami.firstname}
+                          onChange={(e) => this.onChange(e)}
+                          name="firstname"
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-5">
+                        <Form.Label className="font-weight-bold">
+                          LastName
+                        </Form.Label>
+                        <Form.Control
+                          className="edit-profile-form"
+                          value={whoami.lastname}
+                          onChange={(e) => this.onChange(e)}
+                          name="lastname"
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-5">
+                        <Form.Label className="font-weight-bold">
+                          BirthDate
+                        </Form.Label>
+                        <Form.Control
+                          className="edit-profile-form"
+                          value={whoami.birthdate}
+                          onChange={(e) => this.onChange(e)}
+                          name="birthdate"
+                          placeholder="2020-12-12"
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-5">
+                        <Form.Label className="font-weight-bold">
+                          avatar
+                        </Form.Label>
+                        <Form.Control
+                          className="edit-profile-form"
+                          value={whoami.avatar}
+                          onChange={(e) => this.onChange(e)}
+                          name="avatar"
+                          placeholder="gak ada"
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-5">
+                        <Form.Label className="font-weight-bold">
+                          Sex
+                        </Form.Label>
+                        <Form.Control
+                          className="edit-profile-form"
+                          value={whoami.gender}
+                          as="select"
+                          onChange={(e) => this.onChange(e)}
+                          name="gender"
+                        >
+                          <option value="">Choosee</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </Form.Control>
+                      </Form.Group>
+                      <Form.Group className="mb-5">
+                        <Form.Label className="font-weight-bold">
+                          Address
+                        </Form.Label>
+                        <Form.Control
+                          className="edit-profile-form"
+                          value={whoami.address}
+                          as="textarea"
+                          col={3}
+                          onChange={(e) => this.onChange(e)}
+                          name="address"
+                        />
+                      </Form.Group>
+                    </Form>
+                  </div>
+                </div>
               </div>
             </div>
           </Col>

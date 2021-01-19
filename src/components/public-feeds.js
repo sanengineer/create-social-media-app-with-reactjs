@@ -11,7 +11,10 @@ export const Feeds = ({ publicusers, whoami }) => {
   const Feed = (userPublic) => {
     return (
       // <a className="post-detail-link" href={"/post/" + userPublic.post_id}>
-      <Link className="post-detail-link" to={"/" + whoami.username}>
+      <Link
+        className="post-detail-link"
+        to={"/feed-" + userPublic.user.username + "-" + userPublic.post_id}
+      >
         <div className="quotes-people-box-list">
           <div className="first-text d-flex justify-content-between">
             <div className="img-bio d-flex justify-content-between">
@@ -60,7 +63,7 @@ export const Feeds = ({ publicusers, whoami }) => {
     return (
       <div className="TEST">
         <div className="TEST2">
-          <div className="TTTT">{Feedlist}</div>
+          <div className="public-feeds-landing">{Feedlist}</div>
         </div>
       </div>
     );
@@ -71,7 +74,11 @@ export const Feeds = ({ publicusers, whoami }) => {
           <div className="card-no-round">
             <AddPostHomePage />
           </div>
-          <div className="TTTT">{Feedlist}</div>
+          <div className="public-feeds-home-relative">
+            <div className="public-feeds-home">
+              <div className="public-feeds-home-wrapper">{Feedlist}</div>
+            </div>
+          </div>
         </div>
       </div>
     );

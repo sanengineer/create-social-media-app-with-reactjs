@@ -123,7 +123,11 @@ class App extends Component {
       }
     }
 
-    const { whoami } = this.props;
+    const { whoami, publicusers } = this.props;
+
+    console.log("APPPP:", publicusers);
+
+    // const routeComponents;
 
     return (
       <Router>
@@ -136,6 +140,11 @@ class App extends Component {
             exact
             path="/suggested-users"
             component={SuggestedPage}
+          ></Route>
+          <Route
+            exact
+            path={"/feed-" + publicusers.username + "-" + publicusers.post_id}
+            component={Dashboard}
           ></Route>
           <Switch>
             <PrivateRoute
@@ -154,6 +163,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   whoami: state.whoami.whoami,
+  publicusers: state.publicusers.publicusers,
 });
 
 export default connect(mapStateToProps)(App);
