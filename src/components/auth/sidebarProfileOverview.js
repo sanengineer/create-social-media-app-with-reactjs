@@ -8,7 +8,7 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
   // console.log("AUTH:", auth);
   console.log("whoamiiii:", whoami);
 
-  if (whoami.length === 0) {
+  if (whoami.length == 0) {
     return (
       <div className="sidebar-landing-page-heading h4 pr-5">
         Sign Up or Log In To Follow Poster

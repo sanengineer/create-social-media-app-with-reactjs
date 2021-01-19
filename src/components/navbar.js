@@ -39,10 +39,6 @@ class Navbar extends Component {
     this.props.dispatch(fetchWhoAmi());
 
     // this.props.dispatch(logoutUser())
-
-    // if (this.props.auth.isAuthenticated) {
-    //   this.props.history.push("/");
-    // }
   }
 
   logOut = () => {

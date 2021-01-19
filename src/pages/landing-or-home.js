@@ -25,9 +25,9 @@ class Landing extends Component {
     this.props.dispatch(fetchWhoAmi());
 
     // this.props.dispatch(setCurrentUser());
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/");
-    }
+    // if (this.props.auth.isAuthenticated) {
+    //   this.props.history.push("/");
+    // }
   }
 
   render() {
