@@ -11,14 +11,14 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 
 // Importing components
-import Navbar from './components/navbar';
+import Navbar from "./components/navbar";
 // import Landing from './components/layout/Landing';
-import Register from './components/auth/Register';
-import Login from './components/auth/Login';
-import PrivateRoute from './components/private-route/PrivateRoute'
-import Dashboard from './components/auth/Dashboard';
-import LatestPost from './components/post/LatestPost';
-import DetailPost from './components/post/DetailPost';
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import PrivateRoute from "./components/private-route/PrivateRoute";
+import Dashboard from "./components/auth/Dashboard";
+import LatestPost from "./components/post/LatestPost";
+import DetailPost from "./components/post/DetailPost";
 
 import Landing from "./pages/landing";
 
@@ -47,23 +47,24 @@ if (localStorage.jwtToken) {
   }
 }
 
-function App () {
-    return (
-      <Provider store={store}>
-        <Router>
-          <div className="App">
-              <Navbar/>
-                <Route exact path="/" component={Landing} />
-                <Route exact path="/register" component={Register}/>
-                <Route exact path ="/login" component={Login}/>
-                <Switch>
-                  <PrivateRoute exact path="/dashboard" component={Dashboard}/>
-                  <PrivateRoute exact path="/latest-post" component={LatestPost}/>
-                  <Route exact path="/detail-post" component={DetailPost}/>
-                </Switch>
-          </div>
-        </Router>
-      </Provider>
-    )};
+function App() {
+  return (
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Switch>
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/latest-post" component={LatestPost} />
+            <Route exact path="/detail-post" component={DetailPost} />
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
+  );
+}
 
 export default App;

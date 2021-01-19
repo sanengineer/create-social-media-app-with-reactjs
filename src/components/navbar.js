@@ -1,8 +1,36 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import usersService from "../services/users-service";
 
-export default class Navbar extends Component {
+//importAction
+import { logoutUser } from "../actions/authAction";
+
+//import component
+import {CornerComponent} from "./cornerComponent"
+
+class Navbar extends Component {
+  state={
+    token:localStorage.jwtToken,
+    me:{}
+  }
+
+  componentDidMount=()=>{
+    usersService.me(this.state.token).then((result)=>{
+      this.setState({me:result.data});
+      console.log(result.data)
+    }).catch((err)=>{
+      console.log(err.message)
+    })
+
+    console.log(this.props.auth)
+  }
+
+  logOut = () => {
+    this.props.logoutUser();
+  };
   render() {
+   
     return (
       <nav className="top-nav navbar navbar-expand-xl navbar-dark fixed-top py-3">
         <div className="container-xl justify-content-between">
@@ -58,17 +86,23 @@ export default class Navbar extends Component {
             </ul>
           </div>
           <div>
-            <ul className="navbar-nav d-lg-flex order-4">
-              <li className="...">
-                <Link className="login-btn btn text-uppercase" to="/login">Login</Link>
-              </li>
-              <li className="...">
-                <Link className="signup-btn btn text-uppercase" to="/register">Sign Up</Link>
-              </li>
-            </ul>
+           <CornerComponent
+           auth={this.props.auth.isAuthenticated}
+           user={this.state.me}
+           logOut={()=>this.logOut()}/>
           </div>
         </div>
       </nav>
     );
   }
 }
+Navbar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps,{ logoutUser })(Navbar);
