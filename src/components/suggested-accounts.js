@@ -35,11 +35,11 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
               </div>
             </a>
           </div>
-          <div className="d-block">
+          {/* <div className="d-block">
             <button href="#" className="suggested-account-folow-btn btn">
               Follow
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     );

@@ -20,11 +20,18 @@ body {
 
 .form-control {
   background-color: transparent !important;
-  border-right: 1px solid #dddddd;
+  border-right: 1px solid transparent;
   border-bottom: none !important;
   border-left: none !important;
   border-top: none !important;
   padding: 10px;
+}
+.card-no-round .form-control:focus {
+  color: #0b4900;
+  background-color: #fff;
+  border-color: transparent;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(72, 255, 0, 0);
 }
 
 .search-container {
@@ -64,6 +71,14 @@ body {
   padding: 10px 20px 20px 20px;
 }
 
+.dropdown-menu.show {
+  transform: translate3d(-120px, 48px, 0px) !important;
+}
+
+.dropdown-menu {
+  box-shadow: -15px 12px 20px 7px rgb(253 244 255) !important;
+}
+
 .dropdown-item {
   padding: 10px 0;
 }
@@ -78,6 +93,24 @@ body {
 .logout-btn {
   padding: 10px 4rem !important;
   font-weight: bold;
+}
+
+/*--home page--*/
+
+/**--post card box--**/
+.card-no-round {
+  padding: 20px;
+  border: 1px solid #9140b6;
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.post-bottom-btn {
+  text-align: right;
+}
+
+.post-btn {
+  padding: 8px 40px;
 }
 
 /**--feed wrapper--**/
@@ -107,10 +140,8 @@ body {
 .post-detail-link:hover {
   color: rgb(26, 26, 26);
   text-decoration: none;
-  background-color: #d3d3d359;
-  border-radius: 10px;
+  background-color: #d3d3d33a;
   border-bottom: none;
-  margin-top: 10px;
 }
 
 /* .quotes-people-box-list {
@@ -307,4 +338,21 @@ body {
   background-color: whitesmoke;
   border-radius: 8px;
   padding: 8px;
+}
+
+/**--**/
+.modal-content {
+  margin-top: 30%;
+}
+
+.modal-body .form-control:focus {
+  box-shadow: unset;
+  border-right: 1px solid transparent;
+}
+
+.modal-backdrop {
+  background-color: #ffffff;
+  backdrop-filter: blur(29px);
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }

@@ -40,11 +40,11 @@ export const Feeds = ({ publicusers, whoami }) => {
                 </div>
               </div>
             </div>
-            <div className="follow-button-group">
+            {/* <div className="follow-button-group">
               <button className="follow-btn btn" to="#">
                 Follow
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="second-text">
             <span>{userPublic.content}</span>
@@ -68,7 +68,9 @@ export const Feeds = ({ publicusers, whoami }) => {
     return (
       <div className="TEST">
         <div className="TEST2">
-          <AddPostHomePage />
+          <div className="card-no-round">
+            <AddPostHomePage />
+          </div>
           <div className="TTTT">{Feedlist}</div>
         </div>
       </div>

@@ -71,19 +71,14 @@ class Navbar extends Component {
             </svg>
           </a>
 
-          <div className="search-container">
+          {/* <div className="search-container">
             <ul className="navbar-nav mr-auto">
-              <form
-                className="form-inline"
-                //onSubmit={this.searchUserBiodataTable}
-              >
+              <form className="form-inline">
                 <div className="col p-0 input-group">
                   <input
                     type="search"
                     className="sosmet-search-form form-control ds-input p-2 f-14"
                     placeholder="Search"
-                    //value={searchUserBiodataTable}
-                    //onChange={this.onChangeSearchFullname}
                   />
                   <button className="btn ml-1" type="submit">
                     <svg
@@ -102,7 +97,7 @@ class Navbar extends Component {
                 </div>
               </form>
             </ul>
-          </div>
+          </div> */}
           <div>
             <CornerComponent
               auth={auth.isAuthenticated}

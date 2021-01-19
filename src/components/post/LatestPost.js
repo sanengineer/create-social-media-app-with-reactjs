@@ -62,9 +62,7 @@ class LatestPost extends Component {
                 <Col sm={2} className="p-0">
                   <Button
                     onClick={this.handleShow}
-                    variant="outline-dark"
-                    size="sm"
-                    block
+                    className="post-btn btn btn-purple"
                   >
                     Post
                   </Button>

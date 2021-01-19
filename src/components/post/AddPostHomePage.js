@@ -63,7 +63,13 @@ class AddPostHomePage extends Component {
       <>
         <Row>
           <Col sm={1}>
-            <Image width="50px" height="50px" src={whoami.avatar} rounded />
+            <img
+              className="rounded-circle"
+              src={whoami.avatar}
+              width={56}
+              height={56}
+              alt={"Image Profile Of" + whoami.firstname + whoami.lastname}
+            />
           </Col>
           <Col sm={11}>
             <Form.Group controlId="post">
@@ -80,20 +86,19 @@ class AddPostHomePage extends Component {
                             </Form.Group> */}
           </Col>
         </Row>
-        <div className="d-flex justify-content-between">
+        <div className="post-bottom-btn">
           {/* <div>
             <img src={iconEmoji} />
             <img src={iconImage} />
           </div> */}
-          <Button
-            className="w-25"
-            variant="outline-dark"
+          <button
+            className="post-btn btn btn-purple"
             size="sm"
             onClick={this.onClick}
             block
           >
             POST
-          </Button>
+          </button>
         </div>
       </>
     );

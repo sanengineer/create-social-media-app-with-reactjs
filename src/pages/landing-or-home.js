@@ -58,7 +58,7 @@ class Landing extends Component {
                     whoami={whoami}
                   />
                   <div className="sidebar-suggested-account">
-                    <div className="h6 my-4">Suggested Account</div>
+                    <div className="h6 mb-2">Suggested Account</div>
                     <div>
                       <SuggestedAccounts
                         suggestedusers={suggestedusers}
