@@ -20,6 +20,12 @@ class UsersServices {
       headers: { authorization: token },
     });
   };
+
+  updateImageProfile = (user_id, token) => {
+    return api.put(`/avatar/${user_id}`, {
+      headers: { authorization: token },
+    });
+  };
 }
 
 export default new UsersServices();

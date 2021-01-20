@@ -2,8 +2,6 @@
 import UsersServices from "../services/users-service";
 import * as actionTypes from "./actionTypes";
 
-var urlHeroku = "https://sosmetend.herokuapp.com/api/v1";
-
 export const fetchWhoAmi = () => (dispatch) => {
   const token = localStorage.jwtToken;
 

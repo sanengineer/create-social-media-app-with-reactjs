@@ -4,7 +4,8 @@ export default (app) => {
   app.use(
     "/*",
     createProxyMiddleware({
-      target: "http://localhost:3000/login",
+      // target: "http://localhost:3000/login",
+      target: "http://localhost:3000/edit-profile",
     })
   );
 };

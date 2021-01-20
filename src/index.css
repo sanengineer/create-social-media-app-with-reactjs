@@ -447,3 +447,41 @@ body {
   overflow-x: hidden;
   padding-bottom: 10vh;
 }
+
+/**--edit profile--**/
+.ava-form-label-group {
+  position: relative;
+}
+
+.icon-change-ava {
+  position: absolute;
+  left: 62px;
+  top: 62px;
+}
+
+.ava-cover-opacity {
+  background-color: #ffffff73;
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 100%;
+  position: absolute;
+}
+
+.ava-cover-opacity:hover {
+  background-color: #97019073;
+  cursor: pointer;
+}
+/* 
+.ava-form-label-group:hover {
+  background-color: #41414173;
+} */
+
+.form-image-change {
+  padding-top: 3rem;
+  padding-left: 2rem;
+}
+
+/* .ava-form-label {
+  background-color: #a248cc;
+  padding: 10px;
+} */
