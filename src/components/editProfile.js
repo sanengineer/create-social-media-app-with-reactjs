@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form, Image, Button, Nav } from "react-bootstrap";
-import { fetchWhoAmi } from "../actions/whoAmiAction";
+import { fetchWhoAmi, fetchWhoAmiSuccess } from "../actions/whoAmiAction";
 import { connect } from "react-redux";
 import axios, { put, post } from "axios";
 
@@ -13,53 +13,29 @@ import ChangeAvaFormModal from "./changeAvaModal";
 // import component
 
 class EditProfile extends Component {
-  // constructor(props) {
-  //   super();
+  constructor(props) {
+    super();
 
-  //   this.state = {
-  //     file: "",
-  //   };
-
-  //   this.onFormAvaSubmit = this.onFormAvaSubmit.bind(this);
-  //   this.onChangeAva = this.onChangeAva.bind(this);
-  //   this.fileUpload = this.fileUpload.bind(this);
-  // }
+    this.state = {
+      show: false,
+    };
+  }
 
   state = {
-    show: false,
+    userProfile: null,
   };
-  // onFormAvaSubmit(e) {
-  //   e.preventDefault();
-  //   this.fileUpload(this.state.file).then((response) => {
-  //     console.log();
-  //   });
-  // }
-
-  // onChangeAva(e) {
-  //   this.setState({ file: e.target.files[0] });
-  // }
-
-  // fileUpload(file) {
-  //   const user_id = this.props.whoami.user_id;
-  //   const url = `https://sosmetend.herokuapp.com/api/v1/avatar/${user_id}`;
-  //   const url_local = `http://localhost:8000/api/v1/avatar/${user_id}`;
-  //   const form_data = new FormData();
-
-  //   form_data.append("image", file);
-
-  //   const config = {
-  //     headers: {
-  //       Authorization: localStorage.jwtToken,
-  //       "content-type": "multipart/form-data",
-  //     },
-  //   };
-
-  //   console.log("CONFIGGG:", config, "\n", "FORMDATAAA:", form_data, "\n");
-  //   return put(url, form_data, config);
-  // }
 
   componentDidMount() {
-    this.props.dispatch(fetchWhoAmi());
+    // this.props.dispatch(fetchWhoAmiSuccess());
+    // this.setState({ userProfile: this.props.whoami });
+
+    UsersService.whoami(localStorage.jwtToken)
+      .then((res) => res.data)
+      .then((res) => {
+        this.setState({ userProfile: res });
+        console.log("RESSSS:", res);
+      })
+      .catch((err) => console.log(err));
   }
 
   onChange = (e) => {
@@ -82,58 +58,45 @@ class EditProfile extends Component {
       user.address = e.target.value;
     }
 
-    // let userAva = this.
+    console.log("VALUEEE:", user);
+
+    this.setState({ userProfile: user });
   };
 
-  //   handleSubmit = () => {
-  //     UserService.editUsr(
-  //       this.state.me.user_id,
-  //       this.state.user,
-  //       this.state.token
-  //     )
-  //       .then((result) => {
-  //         console.log(result);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err.message);
-  //       });
-  //     console.log(this.state.user);
-  //   };
+  handleSubmit = () => {
+    let data = {
+      address: this.state.userProfile.address,
+      avatar: this.state.userProfile.avatar,
+      bio: this.state.userProfile.bio,
+      birthdate: this.state.userProfile.birthdate,
+      cloudinary_id: this.state.userProfile.cloudinary_id,
+      email: this.state.userProfile.email,
+      firstname: this.state.userProfile.firstname,
+      gender: this.state.userProfile.gender,
+      lastname: this.state.userProfile.lastname,
+      username: this.state.userProfile.username,
+    };
 
-  // handleSubmit = () => {
-  //   UsersService.updateWhoAmi(
-  //     this.props.whoami.user_id,
-  //     this.props.whoami,
-  //     localStorage.jwtToken
-  //   )
-  //     .then((result) => {
-  //       //
-  //       //debugging
-  //       console.log(result);
-  //     })
-  //     .catch((err) => {
-  //       //
-  //       //debugging
-  //       console.log(err.message);
-  //     });
-  // };
+    console.log("RRRR:", data, this.props.whoami.user_id);
 
-  // handleSubmitAvatar = () => {
-  //   UsersService.updateImageProfile(
-  //     this.props.whoami.user_id,
-  //     localStorage.jwtToken
-  //   )
-  //     .then((res) => {
-  //       //
-  //       //debugging
-  //       console.log("AVAAAAA", res);
-  //     })
-  //     .catch((err) => {
-  //       //
-  //       //debug
-  //       console.log("AVAAAA:", err.message);
-  //     });
-  // };
+    UsersService.updateWhoAmi(
+      this.props.whoami.user_id,
+      data,
+      localStorage.jwtToken
+    )
+      .then((result) => {
+        //
+        //debugging
+        console.log(result);
+      })
+      .catch((err) => {
+        //
+        //debugging
+        console.log(err.message);
+      });
+
+    console.log("dataaaa", data);
+  };
 
   //
   //Modal React Bootstrap
@@ -148,11 +111,20 @@ class EditProfile extends Component {
   render() {
     var whoamiAvatar;
 
-    console.log("FILEEE:", this.state.file);
+    console.log("userProfileee", this.state.userProfile);
 
     const { whoami } = this.props;
+    // const { userProfile } = this.state;
 
-    console.log("USERIDDD:", this.props.whoami.user_id);
+    // console.log("STATEEEE:");
+
+    // console.log("USERIDDD:", userProfile);
+
+    // if (userProfile.avatar) {
+    //   whoamiAvatar = userProfile.avatar;
+    // } else {
+    //   whoamiAvatar = userNoPict;
+    // }
 
     if (whoami.avatar) {
       whoamiAvatar = whoami.avatar;
@@ -256,14 +228,14 @@ class EditProfile extends Component {
               <div className="mt-5 mb-5">
                 <div className="form-edit-wrapper">
                   <div className="form-edit-overflow">
-                    <Form>
+                    {/* <Form>
                       <Form.Group className="mb-5">
                         <Form.Label className="font-weight-bold">
                           UserName
                         </Form.Label>
                         <Form.Control
                           className="edit-profile-form"
-                          value={whoami.username}
+                          value={this.state.userProfile.username}
                           onChange={(e) => this.onChange(e)}
                           name="username"
                         />
@@ -274,7 +246,7 @@ class EditProfile extends Component {
                         </Form.Label>
                         <Form.Control
                           className="edit-profile-form"
-                          value={whoami.email}
+                          value={this.state.userProfile.email}
                           onChange={(e) => this.onChange(e)}
                           name="email"
                         />
@@ -285,7 +257,7 @@ class EditProfile extends Component {
                         </Form.Label>
                         <Form.Control
                           className="edit-profile-form"
-                          value={whoami.firstname}
+                          value={this.state.userProfile.firstname}
                           onChange={(e) => this.onChange(e)}
                           name="firstname"
                         />
@@ -296,7 +268,7 @@ class EditProfile extends Component {
                         </Form.Label>
                         <Form.Control
                           className="edit-profile-form"
-                          value={whoami.lastname}
+                          value={this.state.userProfile.lastname}
                           onChange={(e) => this.onChange(e)}
                           name="lastname"
                         />
@@ -307,7 +279,7 @@ class EditProfile extends Component {
                         </Form.Label>
                         <Form.Control
                           className="edit-profile-form"
-                          value={whoami.bio}
+                          value={this.state.userProfile.bio}
                           as="textarea"
                           onChange={(e) => this.onChange(e)}
                           name="bio"
@@ -320,7 +292,7 @@ class EditProfile extends Component {
                         </Form.Label>
                         <Form.Control
                           className="edit-profile-form"
-                          value={whoami.birthdate}
+                          value={this.state.userProfile.birthdate}
                           onChange={(e) => this.onChange(e)}
                           name="birthdate"
                           placeholder="2020-12-12"
@@ -332,7 +304,7 @@ class EditProfile extends Component {
                         </Form.Label>
                         <Form.Control
                           className="edit-profile-form"
-                          value={whoami.gender}
+                          value={this.state.userProfile.gender}
                           as="select"
                           onChange={(e) => this.onChange(e)}
                           name="gender"
@@ -348,14 +320,14 @@ class EditProfile extends Component {
                         </Form.Label>
                         <Form.Control
                           className="edit-profile-form"
-                          value={whoami.address}
+                          value={this.state.userProfile.address}
                           as="textarea"
                           col={3}
                           onChange={(e) => this.onChange(e)}
                           name="address"
                         />
                       </Form.Group>
-                    </Form>
+                    </Form> */}
                     <Button
                       onClick={() => this.handleSubmit()}
                       variant="disabled"
