@@ -29,6 +29,7 @@ import "sanstrap/dist/css/sanstrap.css";
 import "./index.css";
 import { fetchWhoAmi } from "./actions/whoAmiAction";
 import EditProfile from "./components/editProfile";
+import EditProfileByWahyu from "./components/editProfile-Wahyu";
 import SuggestedPage from "./pages/suggested-account-page";
 
 // // check for token  to keep user login
@@ -171,7 +172,11 @@ class App extends Component {
               path={"/" + whoami.username}
               component={LatestPost}
             />
-            <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+            <PrivateRoute
+              exact
+              path="/edit-profile"
+              component={EditProfileByWahyu}
+            />
             <Route exact path="/detail-post" component={DetailPost} />
           </Switch>
         </div>

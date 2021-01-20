@@ -140,6 +140,7 @@ class EditProfile extends Component {
               <h3 className="pb-5">
                 <strong>Edit Profile</strong>
               </h3>
+
               <div className="d-flex">
                 <div className="ava-wrapper-edit">
                   {/*--
