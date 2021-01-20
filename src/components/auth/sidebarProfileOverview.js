@@ -30,7 +30,7 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
               <strong>{whoami.username}</strong>
             </h3>
             <h4 className="h6 text-secondary">
-              {whoami.firstname + whoami.lastname}
+              {`${whoami.firstname} ${whoami.lastname}`}
             </h4>
           </div>
         </div>
