@@ -49,7 +49,7 @@ class AddPost extends Component {
 
     if (postData.content === null || postData.content === undefined) {
       console.log("form null");
-      this.setState({ errors: "Please fill me" });
+      this.setState({ errors: true });
     } else {
       console.log(postData);
       posting(postData)
@@ -84,7 +84,11 @@ class AddPost extends Component {
                   onChange={(e) => this.onChange(e)}
                   as="textarea"
                   rows={3}
-                  placeholder={this.state.errors}
+                  placeholder={
+                    this.state.errors
+                      ? "   Fill Your post, please! 😜"
+                      : "  What happen today dear?"
+                  }
                   required
                 />
               </Form.Group>
