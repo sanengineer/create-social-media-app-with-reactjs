@@ -459,6 +459,19 @@ body {
   top: 62px;
 }
 
+.change-ava-btn {
+  background-color: transparent;
+  border: unset;
+  color: #ad1af1;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.change-ava-btn:hover {
+  color: #5a0681;
+}
+
 .ava-cover-opacity {
   background-color: #ffffff73;
   min-width: 100%;
@@ -485,3 +498,12 @@ body {
   background-color: #a248cc;
   padding: 10px;
 } */
+
+/**--modal box change ava-**/
+.box-file-see {
+  border: 1px solid #f0f0f0;
+}
+
+.browse-and-upload-btn-group {
+  text-align: right;
+}

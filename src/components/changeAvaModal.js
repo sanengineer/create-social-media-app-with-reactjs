@@ -72,22 +72,30 @@ class ChangeAvaFormModal extends Component {
     return (
       <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Body>
-          <Row>
+          <Row className="justify-content-center">
             <Col sm={11}>
               <form className="mt-3" onSubmit={this.onFormAvaSubmit}>
-                <label
-                  className="font-weight-bold form-label ava-form-label btn-purple btn f-12"
-                  for="avatar-input"
-                >
-                  Change Avatar
-                </label>
+                <h6 className="h5 mb-3 pl-2">Check! Your File Name 👇:</h6>
+                <div className="box-file-see text-align-center m-2 p-4">
+                  <span className="h6 f-12">{this.state.file.name}</span>
+                </div>
                 <input
                   type="file"
                   id="avatar-input"
                   onChange={this.onChangeAva}
                   hidden
                 />
-                <button type="submit">Upload</button>
+                <div className="browse-and-upload-btn-group mt-3">
+                  <label className="ava-form-label btn mr-5" for="avatar-input">
+                    Browse
+                  </label>
+                  <button
+                    type="submit"
+                    className="upload-ava-btn btn btn-purple"
+                  >
+                    Upload
+                  </button>
+                </div>
               </form>
             </Col>
           </Row>

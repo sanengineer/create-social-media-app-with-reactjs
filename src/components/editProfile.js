@@ -226,12 +226,12 @@ class EditProfile extends Component {
                     {/* <img src={this.state.file.name} /> */}
                     <h2 className="h4 font-weight-bold">{whoami.username}</h2>
                   </div>
-                  <Button
+                  <div
                     onClick={this.handleShow}
-                    className="post-btn btn btn-purple"
+                    className="change-ava-btn mt-3"
                   >
                     Change Avatar
-                  </Button>
+                  </div>
                   <ChangeAvaFormModal
                     show={this.state.show}
                     handleClose={this.handleClose}
