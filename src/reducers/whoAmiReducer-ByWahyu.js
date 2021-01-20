@@ -2,6 +2,8 @@ import {
   FETCH_WHOAMI_START,
   FETCH_WHOAMI_SUCCESS,
   FETCH_WHOAMI_FAIL,
+  FETCH_WHOAMI_NULL,
+  PUT_WHOAMI,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -29,7 +31,19 @@ export default function whoAmIReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        whoami: [],
+        whoami: {},
+      };
+    case FETCH_WHOAMI_NULL:
+      return {
+        ...state,
+        loading: false,
+        whoami: {},
+      };
+    case PUT_WHOAMI:
+      return {
+        ...state,
+        loading: false,
+        whoami: action.payload,
       };
     default:
       return state;

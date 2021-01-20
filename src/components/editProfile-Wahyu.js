@@ -6,22 +6,27 @@ import { connect } from "react-redux";
 // import assets
 import userNoPict from "../assets/images/user_no-pict.jpg";
 import SidebarProfileOverview from "./auth/sidebarProfileOverview";
-import usersService from "../services/users-service";
+import UsersService from "../services/users-service";
+import ChangeAvaFormModal from "./changeAvaModal";
 
 // import component
 
 class EditProfileByWahyu extends Component {
   constructor(props) {
     super();
+
+    // this.state = {
+    //   show: false,
+    // };
   }
 
   state = {
     userProfile: null,
+    show: false,
   };
 
   componentDidMount() {
-    usersService
-      .whoami(localStorage.jwtToken)
+    UsersService.whoami(localStorage.jwtToken)
       .then((res) => res.data)
       .then((res) => {
         this.setState({ userProfile: res });
@@ -71,14 +76,29 @@ class EditProfileByWahyu extends Component {
 
     console.log(data, this.props.whoami.user_id);
 
-    usersService
-      .updateWhoAmi(this.props.whoami.user_id, data)
+    UsersService.updateWhoAmi(
+      this.props.whoami.user_id,
+      data,
+      localStorage.jwtToken
+    )
       .then((result) => {
         console.log(result);
       })
       .catch((err) => {
         console.log(err.message);
       });
+
+    console.log("EDITT PROFF", localStorage.jwtToken);
+  };
+
+  //
+  //Modal React Bootstrap
+  handleShow = () => {
+    this.setState({ show: true });
+  };
+
+  handleClose = () => {
+    this.setState({ show: false });
   };
 
   render() {
@@ -104,11 +124,7 @@ class EditProfileByWahyu extends Component {
                   <img
                     className="rounded-circle"
                     src={this.props.whoami.avatar}
-                    alt={
-                      "Profile Image " +
-                      this.state.userProfile.firstname +
-                      this.state.userProfile.lastname
-                    }
+                    alt={"Profile Image " + whoami.firstname + whoami.lastname}
                     width={150}
                     height={150}
                   />
@@ -173,15 +189,6 @@ class EditProfileByWahyu extends Component {
                           onChange={(e) => this.onChange(e)}
                           name="birthdate"
                           placeholder="2020-12-12"
-                        />
-                      </Form.Group>
-                      <Form.Group>
-                        <Form.Label>avatar</Form.Label>
-                        <Form.Control
-                          value={this.state.userProfile.avatar}
-                          onChange={(e) => this.onChange(e)}
-                          name="avatar"
-                          placeholder="gak ada"
                         />
                       </Form.Group>
                       <Form.Group>
