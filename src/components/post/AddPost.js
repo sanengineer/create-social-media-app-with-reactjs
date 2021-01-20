@@ -47,13 +47,19 @@ class AddPost extends Component {
       // images: this.state.post.image
     };
 
-    console.log(postData);
-    posting(postData)
-      .then((res) => res.data)
-      .then((data) => window.location.reload())
-      .catch((err) => console.log(err));
-
-    // window.location.reload();
+    if (postData.content === null || postData.content === undefined) {
+      console.log("form null");
+      this.setState({ errors: "Please fill me" });
+    } else {
+      console.log(postData);
+      posting(postData)
+        .then((res) => res.data)
+        .then((data) => {
+          console.log(data);
+          window.location.reload();
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   render() {
@@ -78,7 +84,8 @@ class AddPost extends Component {
                   onChange={(e) => this.onChange(e)}
                   as="textarea"
                   rows={3}
-                  placeholder="What happen today dear ?"
+                  placeholder={this.state.errors}
+                  required
                 />
               </Form.Group>
               {/* <Form.Group controlId="postImage">
