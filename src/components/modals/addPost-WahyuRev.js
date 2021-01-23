@@ -1,7 +1,7 @@
 // import component react and react-bootstrap
 import { Modal, Button, Form, Row, Col, Image } from "react-bootstrap";
 import React, { Component } from "react";
-import { posting } from "./../../actions/postAction";
+import { posting } from "../../actions/postAction";
 import PropTypes from "prop-types";
 // import {Link} from 'react-router-dom';
 import { connect } from "react-redux";

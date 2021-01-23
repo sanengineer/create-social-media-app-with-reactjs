@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
-import UsersService from "../services/users-service";
+import UsersService from "../../services/users-service";
 import axios, { put } from "axios";
 
 class ChangeAvaFormModal extends Component {
