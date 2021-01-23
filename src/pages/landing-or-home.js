@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Navbar from "../components/navbar";
 import { Feeds } from "../components/public-feeds";
-import { InfoWeb } from "../components/sidebar-footer";
-import { SuggestedAccounts } from "../components/suggested-accounts";
+import { InfoWeb } from "../components/sidebar/sidebar-footer";
+import { SuggestedAccounts } from "../components/sidebar/suggested-accounts";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
 import { fetchPublicUsers } from "../actions/publicUsers";
 import { fetchWhoAmi } from "../actions/whoAmiAction";
-import SidebarProfileOverview from "../components/auth/sidebarProfileOverview";
+import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
 import setAuthToken from "../utils/setAuthToken";
 import { setCurrentUser } from "../actions/authAction";
 

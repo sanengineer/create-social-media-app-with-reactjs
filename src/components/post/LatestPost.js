@@ -5,11 +5,11 @@ import { latePostUser } from "./../../actions/postAction";
 import { connect } from "react-redux";
 
 import Posts from "./Posts";
-import AddPost from "./AddPost";
+import AddPost from "../modals/AddPost";
 import DetailPost from "./DetailPost";
 import userIcon from "../../assets/images/user_no-pict.jpg";
 import PropTypes from "prop-types";
-import SidebarProfileOverview from "../auth/sidebarProfileOverview";
+import SidebarProfileOverview from "../../components/sidebar/sidebarProfileOverview";
 import { fetchWhoAmi } from "../../actions/whoAmiAction";
 
 class LatestPost extends Component {

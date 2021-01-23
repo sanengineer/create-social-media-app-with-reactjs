@@ -6,9 +6,9 @@ import axios, { put, post } from "axios";
 
 // import assets
 import userNoPict from "../assets/images/user_no-pict.jpg";
-import SidebarProfileOverview from "./auth/sidebarProfileOverview";
+import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
 import UsersService from "../services/users-service";
-import ChangeAvaFormModal from "./changeAvaModal";
+import ChangeAvaFormModal from "../components/modals/changeAvaModal";
 
 // import component
 

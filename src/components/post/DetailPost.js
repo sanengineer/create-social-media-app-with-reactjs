@@ -26,8 +26,8 @@ import iconCopyLink from "../../assets/icons/icon_copy-link.png";
 import Comments from "./Comments";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import SidebarProfileOverview from "../auth/sidebarProfileOverview";
-import { SuggestedAccounts } from "../../components/suggested-accounts";
+import SidebarProfileOverview from "../../components/sidebar/sidebarProfileOverview";
+import { SuggestedAccounts } from "../../components/sidebar/suggested-accounts";
 import { commenting, getComments } from "../../actions/commentAction";
 
 class DetailPost extends Component {

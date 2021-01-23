@@ -1,6 +1,5 @@
 import React from "react";
 import { NavDropdown } from "react-bootstrap";
-import "./navHeader.css";
 
 // import assets
 import noPict from "../assets/icons/user.png";

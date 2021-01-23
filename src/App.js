@@ -16,9 +16,9 @@ import store from "./store/store";
 import Navbar from "./components/navbar";
 // import Landing from './components/layout/Landing';
 import Register from "./components/auth/Register";
+import Underconstruction from "./components/Underconstruction";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/auth/Dashboard";
 import LatestPost from "./components/post/LatestPost";
 import DetailPost from "./components/post/DetailPost";
 
@@ -164,7 +164,7 @@ class App extends Component {
           <Route
             exact
             path={"/feed-" + publicusers.post_id}
-            component={Dashboard}
+            component={Underconstruction}
           />
           <Switch>
             <PrivateRoute
