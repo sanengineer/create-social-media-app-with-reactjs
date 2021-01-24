@@ -158,6 +158,9 @@ class Register extends Component {
                     <span className="red-text">{errors.password}</span>
                   </div>
                   <div className="text-center mt-5">
+                    <span className="text-danger">{errors.message}</span>
+                  </div>
+                  <div className="text-center mt-5 f-12">
                     <button type="submit" className="btn btn-purple">
                       Sign Up
                     </button>

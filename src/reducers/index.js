@@ -9,7 +9,7 @@ import whoami from "./whoAmiReducer";
 
 export default combineReducers({
   auth: authReducer,
-  error: errorReducer,
+  errors: errorReducer,
   post: postReducer,
   suggestedusers: suggestedusers,
   linksInfoWeb: linksInfoWeb,

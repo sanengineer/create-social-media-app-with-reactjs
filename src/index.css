@@ -23,6 +23,15 @@ body {
   color: #401a52 !important;
 }
 
+.btn-danger:hover {
+  background-color: #f00000;
+  border-color: #ff0000e3;
+}
+
+.btn-danger {
+  border-color: #ff0000e3;
+}
+
 .form-control {
   background-color: transparent !important;
   border-right: 1px solid transparent;
@@ -86,6 +95,8 @@ body {
 
 .dropdown-menu {
   box-shadow: 0px 12px 20px 7px rgb(253 244 255);
+  left: -30px !important;
+  top: 10px !important;
 }
 
 .dropdown-item {
@@ -97,6 +108,27 @@ body {
   color: #a248cc;
   text-decoration: none;
   background-color: transparent;
+}
+
+.dropdown-toggle:after {
+  content: none;
+}
+
+.dropdown-menu.show::before {
+  content: "";
+  position: absolute;
+  top: -21px;
+  right: 47px;
+  border: 10px solid #ffffff;
+  border-bottom-color: #00000026;
+}
+.dropdown-menu.show::after {
+  content: "";
+  position: absolute;
+  top: -19px;
+  right: 47px;
+  border: 10px solid #ffffff00;
+  border-bottom-color: #ffffff;
 }
 
 .logout-btn {

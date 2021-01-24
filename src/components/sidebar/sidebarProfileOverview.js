@@ -22,10 +22,12 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
       var userAva = userNoPict;
     }
 
-    var userFullnameNull = whoami.username + whoami.user_id;
-    var userFullnameNotNull = `${whoami.firstname} ${whoami.lastname}`;
-
-    var FullnameNull = true;
+    var Fullname;
+    if (whoami.firstname == "" || whoami.firstname == null) {
+      var Fullname = whoami.username + whoami.user_id;
+    } else {
+      var Fullname = `${whoami.firstname} ${whoami.lastname}`;
+    }
 
     return (
       <div className="sidebar-home-page-profile-overview pr-5">
@@ -41,9 +43,7 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
             <h3 className="h6 mb-1">
               <strong>{whoami.username}</strong>
             </h3>
-            <h4 className="h6 text-secondary">
-              {FullnameNull ? userFullnameNull : userFullnameNotNull}
-            </h4>
+            <h4 className="h6 text-secondary">{Fullname}</h4>
           </div>
         </div>
         <p className="f-12">{whoami.bio}</p>

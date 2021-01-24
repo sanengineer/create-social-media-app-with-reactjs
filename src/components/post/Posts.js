@@ -36,10 +36,16 @@ export const Posts = ({ postArray }) => {
       var userAva = userNoPict;
     }
 
-    var userFullnameNull = post.user.username + post.user_id;
-    var userFullnameNotNull = `${post.user.firstname} ${post.user.lastname}`;
+    var Fullname;
+    if (
+      (post.user.firstname == "" && post.user.lastname == "") ||
+      (post.user.firstname == null && post.user.lastname == null)
+    ) {
+      var Fullname = post.user.username + post.user.user_id;
+    } else {
+      var Fullname = `${post.user.firstname} ${post.user.lastname}`;
+    }
 
-    var FullnameNull = true;
     return (
       <Link
         onClick={(e) => openDetail(post)}
@@ -67,9 +73,7 @@ export const Posts = ({ postArray }) => {
                   <div className="username">{post.user.username}</div>
                 </Link>
 
-                <div className="name">
-                  {FullnameNull ? userFullnameNull : userFullnameNotNull}
-                </div>
+                <div className="name">{Fullname}</div>
 
                 <div className="second-text">
                   <span>{post.content}</span>

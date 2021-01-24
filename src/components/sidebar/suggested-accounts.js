@@ -15,10 +15,13 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
       var userAva = userNoPict;
     }
 
-    var userFullnameNull = suggestedUser.username + suggestedUser.user_id;
-    var userFullnameNotNull = `${suggestedUser.firstname} ${suggestedUser.lastname}`;
+    var Fullname;
+    if (suggestedUser.firstname == "" || suggestedUser.firstname == null) {
+      var Fullname = suggestedUser.username + suggestedUser.user_id;
+    } else {
+      var Fullname = `${suggestedUser.firstname} ${suggestedUser.lastname}`;
+    }
 
-    var FullnameNull = true;
     return (
       <div className="suggested-account-item mt-4">
         <div className="image-profile-box">
@@ -43,9 +46,7 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
               href={"/" + suggestedUser.username}
             >
               <div className="username">{suggestedUser.username}</div>
-              <div className="name">
-                {FullnameNull ? userFullnameNull : userFullnameNotNull}
-              </div>
+              <div className="name">{Fullname}</div>
             </a>
           </div>
           {/* <div className="d-block">

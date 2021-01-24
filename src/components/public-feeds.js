@@ -17,11 +17,15 @@ export const Feeds = ({ publicusers, whoami }) => {
       var userAva = userNoPict;
     }
 
-    var userFullnameNull = userPublic.user.username + userPublic.user_id;
-    var userFullnameNotNull =
-      userPublic.user.firstname + " " + userPublic.user.lastname;
-
-    var FullnameNull = true;
+    var Fullname;
+    if (
+      (userPublic.user.firstname == "" && userPublic.user.lastname == "") ||
+      (userPublic.user.firstname == null && userPublic.user.lastname == null)
+    ) {
+      var Fullname = userPublic.user.username + userPublic.user_id;
+    } else {
+      var Fullname = `${userPublic.user.firstname} ${userPublic.user.lastname}`;
+    }
 
     return (
       // <a className="post-detail-link" href={"/post/" + userPublic.post_id}>
@@ -53,9 +57,7 @@ export const Feeds = ({ publicusers, whoami }) => {
                   <div className="username">{userPublic.user.username}</div>
                 </Link>
 
-                <div className="name">
-                  {FullnameNull ? userFullnameNull : userFullnameNotNull}
-                </div>
+                <div className="name">{Fullname}</div>
               </div>
             </div>
             {/* <div className="follow-button-group">
