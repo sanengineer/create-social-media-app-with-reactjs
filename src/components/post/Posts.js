@@ -41,7 +41,7 @@ export const Posts = ({ postArray }) => {
       (post.user.firstname == "" && post.user.lastname == "") ||
       (post.user.firstname == null && post.user.lastname == null)
     ) {
-      var Fullname = post.user.username + post.user.user_id;
+      var Fullname = post.user.username + post.user_id;
     } else {
       var Fullname = `${post.user.firstname} ${post.user.lastname}`;
     }
