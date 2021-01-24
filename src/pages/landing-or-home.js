@@ -19,6 +19,10 @@ class Landing extends Component {
     // console.log("TEST" + usersPublic);
   }
 
+  // componentDidUpdate() {
+  //   this.props.dispatch(fetchPublicUsers());
+  // }
+
   componentDidMount() {
     this.props.dispatch(fetchSuggestedUsers());
     this.props.dispatch(fetchPublicUsers());

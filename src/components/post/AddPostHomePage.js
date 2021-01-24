@@ -95,7 +95,7 @@ class AddPostHomePage extends Component {
                 rows={3}
                 placeholder={
                   this.state.errors
-                    ? "   Fill Your post, please! 😜"
+                    ? "  Fill Your post, please! 😜"
                     : "  What happen today dear?"
                 }
               />

@@ -16,6 +16,7 @@ class LatestPost extends Component {
   state = {
     show: false,
     postArray: Array(),
+    postArrayLength: 0,
   };
 
   // showing modal
@@ -36,12 +37,30 @@ class LatestPost extends Component {
     return <DetailPost />;
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    //
+    //debug
+    console.log("comDidUpdate\n");
+    if (prevState.postArray.length !== this.state.postArray.length) {
+      this.setState({
+        postArray: this.state.postArray,
+      });
+    }
+  }
+
   componentDidMount() {
     latePostUser(this.props.auth.user.user_id)
       .then((res) => res.data.data)
       .then((data) => {
-        this.setState({ postArray: data });
-        console.log("comDidMount on latest", this.state.postArray);
+        this.setState({ postArray: data, postArrayLength: data.length });
+        console.log(
+          "comDidMount on latest:\n",
+          "-postArray:",
+          this.state.postArray,
+          "\n",
+          "-postArrayLength:",
+          this.state.postArrayLength
+        );
       });
 
     this.props.dispatch(fetchWhoAmi());
