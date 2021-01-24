@@ -111,6 +111,13 @@ class EditProfileByWahyu extends Component {
 
     const { whoami } = this.props;
 
+    var userAva;
+    if (this.props.whoami.avatar) {
+      var userAva = this.props.whoami.avatar;
+    } else {
+      var userAva = userNoPict;
+    }
+
     return (
       <div className="container mt-5">
         <div className="row mt-5">
@@ -123,7 +130,7 @@ class EditProfileByWahyu extends Component {
                 <div className="ava-wrapper-edit">
                   <img
                     className="rounded-circle"
-                    src={this.props.whoami.avatar}
+                    src={userAva}
                     alt={"Profile Image " + whoami.firstname + whoami.lastname}
                     width={150}
                     height={150}
@@ -151,7 +158,9 @@ class EditProfileByWahyu extends Component {
                   <div className="form-edit-overflow">
                     <Form>
                       <Form.Group>
-                        <Form.Label>UserName</Form.Label>
+                        <Form.Label className="font-weight-bold">
+                          UserName
+                        </Form.Label>
                         <Form.Control
                           value={this.state.userProfile.username}
                           onChange={(e) => this.onChange(e)}
@@ -159,7 +168,9 @@ class EditProfileByWahyu extends Component {
                         />
                       </Form.Group>
                       <Form.Group>
-                        <Form.Label>Email</Form.Label>
+                        <Form.Label className="font-weight-bold">
+                          Email
+                        </Form.Label>
                         <Form.Control
                           value={this.state.userProfile.email}
                           onChange={(e) => this.onChange(e)}
@@ -167,7 +178,9 @@ class EditProfileByWahyu extends Component {
                         />
                       </Form.Group>
                       <Form.Group>
-                        <Form.Label>FirstName</Form.Label>
+                        <Form.Label className="font-weight-bold">
+                          FirstName
+                        </Form.Label>
                         <Form.Control
                           value={this.state.userProfile.firstname}
                           onChange={(e) => this.onChange(e)}
@@ -175,7 +188,9 @@ class EditProfileByWahyu extends Component {
                         />
                       </Form.Group>
                       <Form.Group>
-                        <Form.Label>LastName</Form.Label>
+                        <Form.Label className="font-weight-bold">
+                          LastName
+                        </Form.Label>
                         <Form.Control
                           value={this.state.userProfile.lastname}
                           onChange={(e) => this.onChange(e)}
@@ -183,7 +198,9 @@ class EditProfileByWahyu extends Component {
                         />
                       </Form.Group>
                       <Form.Group>
-                        <Form.Label>BirthDate</Form.Label>
+                        <Form.Label className="font-weight-bold">
+                          BirthDate
+                        </Form.Label>
                         <Form.Control
                           value={this.state.userProfile.birthdate}
                           onChange={(e) => this.onChange(e)}
@@ -192,7 +209,9 @@ class EditProfileByWahyu extends Component {
                         />
                       </Form.Group>
                       <Form.Group>
-                        <Form.Label>Bio</Form.Label>
+                        <Form.Label className="font-weight-bold">
+                          Bio
+                        </Form.Label>
                         <Form.Control
                           value={this.state.userProfile.bio}
                           as="textarea"
@@ -202,7 +221,9 @@ class EditProfileByWahyu extends Component {
                         />
                       </Form.Group>
                       <Form.Group>
-                        <Form.Label>Address</Form.Label>
+                        <Form.Label className="font-weight-bold">
+                          Address
+                        </Form.Label>
                         <Form.Control
                           value={this.state.userProfile.address}
                           as="textarea"
@@ -212,7 +233,9 @@ class EditProfileByWahyu extends Component {
                         />
                       </Form.Group>
                       <Form.Group>
-                        <Form.Label>Sex</Form.Label>
+                        <Form.Label className="font-weight-bold">
+                          Sex
+                        </Form.Label>
                         <Form.Control
                           value={this.state.userProfile.gender}
                           as="select"

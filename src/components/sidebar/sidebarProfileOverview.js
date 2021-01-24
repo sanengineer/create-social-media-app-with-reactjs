@@ -1,5 +1,5 @@
 import React from "react";
-import noPict from "../../assets/images/user_no-pict.jpg";
+import userNoPict from "../../assets/images/user_no-pict.jpg";
 
 const SidebarProfileOverview = ({ auth, whoami }) => {
   //
@@ -15,12 +15,24 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
       </div>
     );
   } else {
+    var userAva;
+    if (whoami.avatar) {
+      var userAva = whoami.avatar;
+    } else {
+      var userAva = userNoPict;
+    }
+
+    var userFullnameNull = whoami.username + whoami.user_id;
+    var userFullnameNotNull = `${whoami.firstname} ${whoami.lastname}`;
+
+    var FullnameNull = true;
+
     return (
       <div className="sidebar-home-page-profile-overview pr-5">
         <div className="d-flex mb-3">
           <img
             className="img-avatar rounded-circle"
-            src={whoami.avatar}
+            src={userAva}
             width={74}
             height={74}
             alt={`Image Profile Of ${whoami.firstname} ${whoami.lastname}`}
@@ -30,7 +42,7 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
               <strong>{whoami.username}</strong>
             </h3>
             <h4 className="h6 text-secondary">
-              {`${whoami.firstname} ${whoami.lastname}`}
+              {FullnameNull ? userFullnameNull : userFullnameNotNull}
             </h4>
           </div>
         </div>

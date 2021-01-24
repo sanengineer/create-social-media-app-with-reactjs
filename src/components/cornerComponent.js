@@ -2,7 +2,7 @@ import React from "react";
 import { NavDropdown } from "react-bootstrap";
 
 // import assets
-import noPict from "../assets/icons/user.png";
+import noPict from "../assets/images/user_no-pict.jpg";
 
 export const CornerComponent = ({ whoami, logOut, auth }) => {
   //
@@ -43,6 +43,7 @@ export const CornerComponent = ({ whoami, logOut, auth }) => {
             src={whoAmiProfileSrc}
             alt="user pic"
             width="30"
+            height="30"
           />
         }
         id="collasible-nav-dropdown"

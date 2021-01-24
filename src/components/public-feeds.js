@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AddPostHomePage from "./post/AddPostHomePage";
+import userNoPict from "../assets/images/user_no-pict.jpg";
 
 export const Feeds = ({ publicusers, whoami }) => {
   if (publicusers.length === 0) return null;
@@ -9,6 +10,19 @@ export const Feeds = ({ publicusers, whoami }) => {
   console.log("FEEEEEDS:", whoami.length === 0);
 
   const Feed = (userPublic) => {
+    var userAva;
+    if (userPublic.user.avatar) {
+      var userAva = userPublic.user.avatar;
+    } else {
+      var userAva = userNoPict;
+    }
+
+    var userFullnameNull = userPublic.user.username + userPublic.user_id;
+    var userFullnameNotNull =
+      userPublic.user.firstname + " " + userPublic.user.lastname;
+
+    var FullnameNull = true;
+
     return (
       // <a className="post-detail-link" href={"/post/" + userPublic.post_id}>
       // <Link
@@ -24,7 +38,7 @@ export const Feeds = ({ publicusers, whoami }) => {
                 <div className="image-profile">
                   <img
                     className="img-src rounded-circle"
-                    src={userPublic.user.avatar}
+                    src={userAva}
                     alt={`${
                       userPublic.user.firstname + userPublic.user.lastname
                     } Profil Picture`}
@@ -40,7 +54,7 @@ export const Feeds = ({ publicusers, whoami }) => {
                 </Link>
 
                 <div className="name">
-                  {`${userPublic.user.firstname} ${userPublic.user.lastname}`}
+                  {FullnameNull ? userFullnameNull : userFullnameNotNull}
                 </div>
               </div>
             </div>

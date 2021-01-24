@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 // import icons and images
-import userIcon from "../../assets/images/user_no-pict.jpg";
+import userNoPict from "../../assets/images/user_no-pict.jpg";
 import iconEmoji from "../../assets/icons/icon_emoji.png";
 import iconImage from "../../assets/icons/icon_image.png";
 import { fetchWhoAmi } from "../../actions/whoAmiAction";
@@ -65,13 +65,22 @@ class AddPostHomePage extends Component {
 
   render() {
     const { whoami } = this.props;
+
+    var userAva;
+
+    if (whoami.avatar) {
+      var userAva = whoami.avatar;
+    } else {
+      var userAva = userNoPict;
+    }
+
     return (
       <>
         <Row>
           <Col sm={1}>
             <img
               className="img-avatar rounded-circle"
-              src={whoami.avatar}
+              src={userAva}
               width={56}
               height={56}
               alt={`Image Profile Of ${whoami.firstname} ${whoami.lastname}`}

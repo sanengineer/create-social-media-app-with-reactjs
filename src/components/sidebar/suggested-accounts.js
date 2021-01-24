@@ -1,4 +1,5 @@
 import React from "react";
+import userNoPict from "../../assets/images/user_no-pict.jpg";
 
 export const SuggestedAccounts = ({ suggestedusers }) => {
   if (suggestedusers.length === 0) return null;
@@ -6,13 +7,25 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
   console.log("suggested_account_numbers:", suggestedusers.length);
 
   const AccountSuggestedCard = (suggestedUser) => {
+    var userAva;
+
+    if (suggestedUser.avatar) {
+      var userAva = suggestedUser.avatar;
+    } else {
+      var userAva = userNoPict;
+    }
+
+    var userFullnameNull = suggestedUser.username + suggestedUser.user_id;
+    var userFullnameNotNull = `${suggestedUser.firstname} ${suggestedUser.lastname}`;
+
+    var FullnameNull = true;
     return (
       <div className="suggested-account-item mt-4">
         <div className="image-profile-box">
           <div className="image-profile">
             <img
               className="img-src rounded-circle"
-              src={suggestedUser.avatar}
+              src={userAva}
               alt={
                 suggestedUser.firstname +
                 suggestedUser.lastname +
@@ -31,7 +44,7 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
             >
               <div className="username">{suggestedUser.username}</div>
               <div className="name">
-                {`${suggestedUser.firstname} ${suggestedUser.lastname}`}
+                {FullnameNull ? userFullnameNull : userFullnameNotNull}
               </div>
             </a>
           </div>

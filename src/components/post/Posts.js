@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { SET_USER_POST } from "../../actions/actionTypes";
+import userNoPict from "../../assets/images/user_no-pict.jpg";
 
 export const Posts = ({ postArray }) => {
   let dispatch = useDispatch();
@@ -28,6 +29,17 @@ export const Posts = ({ postArray }) => {
   };
 
   const PostRow = (post, index) => {
+    var userAva;
+    if (post.user.avatar) {
+      var userAva = post.user.avatar;
+    } else {
+      var userAva = userNoPict;
+    }
+
+    var userFullnameNull = post.user.username + post.user_id;
+    var userFullnameNotNull = `${post.user.firstname} ${post.user.lastname}`;
+
+    var FullnameNull = true;
     return (
       <Link
         onClick={(e) => openDetail(post)}
@@ -44,7 +56,7 @@ export const Posts = ({ postArray }) => {
                 <div className="image-profile">
                   <img
                     className="img-src rounded-circle"
-                    src={post.user.avatar}
+                    src={userAva}
                     alt={post.user.username + " Profil Picture"}
                     width="56"
                   />
@@ -56,7 +68,7 @@ export const Posts = ({ postArray }) => {
                 </Link>
 
                 <div className="name">
-                  {post.user.firstname} {post.user.lastname}
+                  {FullnameNull ? userFullnameNull : userFullnameNotNull}
                 </div>
 
                 <div className="second-text">

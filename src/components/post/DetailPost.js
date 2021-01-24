@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap";
 
 // import component and icon
-import userIcon from "../../assets/images/user_no-pict.jpg";
+import userNoPict from "../../assets/images/user_no-pict.jpg";
 import commentIcon from "../../assets/icons/icon_comment.png";
 import saveIcon from "../../assets/icons/icon_save.png";
 import shareIcon from "../../assets/icons/icon_share.png";
@@ -97,6 +97,13 @@ class DetailPost extends Component {
     }
 
     const { whoami } = this.props;
+
+    var userAva;
+    if (whoami.avatar) {
+      var userAva = whoami.avatar;
+    } else {
+      var userAva = userNoPict;
+    }
     return (
       <>
         <Container className="containerBox">
@@ -105,12 +112,7 @@ class DetailPost extends Component {
               <br></br>
               <Row>
                 <Col sm={1}>
-                  <Image
-                    width="50px"
-                    height="50px"
-                    src={whoami.avatar}
-                    rounded
-                  />
+                  <Image width="50px" height="50px" src={userAva} rounded />
                 </Col>
                 <Col sm={11}>
                   <div className="d-flex">
@@ -337,12 +339,7 @@ class DetailPost extends Component {
 
                   <div className="d-flex mt-3">
                     <div>
-                      <Image
-                        width="30px"
-                        height="30px"
-                        src={userIcon}
-                        rounded
-                      />
+                      <Image width="30px" height="30px" src={userAva} rounded />
                     </div>
                     <div className="bio-desc ml-1 box-comment w-100">
                       <h6 className="mb-1">wahyu</h6>
