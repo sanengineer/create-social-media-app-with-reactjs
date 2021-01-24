@@ -39,9 +39,10 @@ export const CornerComponent = ({ whoami, logOut, auth }) => {
         className="testcccc"
         title={
           <img
-            className="img-avatar avatar rounded-circle"
+            className="img-avatar-navbar avatar rounded-circle"
             src={whoAmiProfileSrc}
             alt="user pic"
+            width="30"
           />
         }
         id="collasible-nav-dropdown"

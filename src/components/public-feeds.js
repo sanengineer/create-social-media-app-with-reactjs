@@ -25,11 +25,9 @@ export const Feeds = ({ publicusers, whoami }) => {
                   <img
                     className="img-src rounded-circle"
                     src={userPublic.user.avatar}
-                    alt={
-                      userPublic.user.firstname +
-                      userPublic.user.lastname +
-                      "Profil Picture"
-                    }
+                    alt={`${
+                      userPublic.user.firstname + userPublic.user.lastname
+                    } Profil Picture`}
                     width="56"
                     height="56"
                   />
@@ -64,16 +62,16 @@ export const Feeds = ({ publicusers, whoami }) => {
 
   if (whoami.length === 0) {
     return (
-      <div className="TEST">
-        <div className="TEST2">
+      <div className="child-landing-page">
+        <div className="child-landing-page-wrapper">
           <div className="public-feeds-landing">{Feedlist}</div>
         </div>
       </div>
     );
   } else {
     return (
-      <div className="TEST">
-        <div className="TEST2">
+      <div className="child-home-page">
+        <div className="child-home-page-wrapper">
           <div className="card-no-round">
             <AddPostHomePage />
           </div>

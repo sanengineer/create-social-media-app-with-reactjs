@@ -70,11 +70,11 @@ class AddPostHomePage extends Component {
         <Row>
           <Col sm={1}>
             <img
-              className="rounded-circle"
+              className="img-avatar rounded-circle"
               src={whoami.avatar}
               width={56}
               height={56}
-              alt={"Image Profile Of" + whoami.firstname + whoami.lastname}
+              alt={`Image Profile Of ${whoami.firstname} ${whoami.lastname}`}
             />
           </Col>
           <Col sm={11}>

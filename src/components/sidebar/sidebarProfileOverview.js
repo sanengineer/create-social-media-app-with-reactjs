@@ -19,11 +19,11 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
       <div className="sidebar-home-page-profile-overview pr-5">
         <div className="d-flex mb-3">
           <img
-            className="rounded-circle"
+            className="img-avatar rounded-circle"
             src={whoami.avatar}
             width={74}
             height={74}
-            alt={"Image Profile Of" + whoami.firstname + whoami.lastname}
+            alt={`Image Profile Of ${whoami.firstname} ${whoami.lastname}`}
           />
           <div className="ml-3 pt-3">
             <h3 className="h6 mb-1">

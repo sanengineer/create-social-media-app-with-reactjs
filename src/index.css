@@ -7,6 +7,11 @@ body {
   background-color: #fff;
 }
 
+.img-avatar-navbar,
+.img-avatar {
+  object-fit: cover;
+}
+
 .login-btn {
   border: 1px solid #7f37a0 !important;
   color: #7f37a0 !important;
