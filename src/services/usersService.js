@@ -1,4 +1,4 @@
-import api from "./http-service";
+import api from "./httpService";
 
 class UsersServices {
   //
@@ -11,6 +11,12 @@ class UsersServices {
     return api.get("/posts");
   }
 
+  latestPostUser = (user_id) => {
+    return api.get(`/posts/${user_id}`);
+  };
+
+  //
+  //data private
   whoami = (token) => {
     return api.get("/user/profile/me", { headers: { authorization: token } });
   };
@@ -23,6 +29,12 @@ class UsersServices {
 
   updateImageProfile = (user_id, token) => {
     return api.put(`/avatar/${user_id}`, {
+      headers: { authorization: token },
+    });
+  };
+
+  createPostText = (token, postTextData) => {
+    return api.post("/new-post-text", postTextData, {
       headers: { authorization: token },
     });
   };

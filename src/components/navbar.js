@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-// import usersService from "../services/users-service";
+// import usersService from "../services/usersService";
 
 //importAction
 import { logoutUser } from "../actions/authAction";
@@ -27,12 +27,12 @@ class Navbar extends Component {
   // componentDidMount=()=>{
   //   usersService.me(this.state.token).then((result)=>{
   //     this.setState({me:result.data});
-  //     console.log(result.data)
+  //     // console.log(result.data)
   //   }).catch((err)=>{
-  //     console.log(err.message)
+  //     // console.log(err.message)
   //   })
 
-  //   console.log(this.props.auth)
+  //   // console.log(this.props.auth)
   // }
 
   componentDidMount() {
@@ -48,7 +48,7 @@ class Navbar extends Component {
   render() {
     const { whoami, auth } = this.props;
 
-    console.log("WHOAMMMMMM:", whoami);
+    // console.log("WHOAMMMMMM:", whoami);
     return (
       <nav className="top-nav navbar navbar-expand-xl navbar-dark fixed-top py-3">
         <div className="container-xl justify-content-between">
@@ -100,7 +100,7 @@ class Navbar extends Component {
           </div> */}
           <div>
             <CornerComponent
-              auth={auth.isAuthenticated}
+              auth={auth}
               whoami={whoami}
               logOut={() => this.logOut()}
             />

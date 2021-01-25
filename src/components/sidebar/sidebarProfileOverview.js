@@ -4,11 +4,11 @@ import userNoPict from "../../assets/images/user_no-pict.jpg";
 const SidebarProfileOverview = ({ auth, whoami }) => {
   //
   //debugging
-  //   console.log(user.username);
-  // console.log("AUTH:", auth);
-  console.log("whoamiiii:", whoami);
+  //   // console.log(user.username);
+  // // console.log("AUTH:", auth);
+  // console.log("whoamiiii:", whoami);
 
-  if (whoami.length == 0) {
+  if (auth.isAuthenticated === false) {
     return (
       <div className="sidebar-landing-page-heading h4 pr-5">
         Sign Up or Log In To Follow Poster

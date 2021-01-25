@@ -1,7 +1,7 @@
 // import react and component bootstrap
 import React, { Component } from "react";
 import { Container, Row, Col, Button, Image, Nav } from "react-bootstrap";
-import { latePostUser } from "./../../actions/postAction";
+
 import { connect } from "react-redux";
 
 import Posts from "./Posts";
@@ -21,18 +21,18 @@ class LatestPost extends Component {
 
   // showing modal
   handleShow = () => {
-    // console.log(this.state.postArray);
+    // // console.log(this.state.postArray);
     this.setState({ show: true });
   };
 
   // closing modal
   handleClose = () => {
     this.setState({ show: false });
-    // console.log(this.state.postArray);
+    // // console.log(this.state.postArray);
   };
 
   openDetail = () => {
-    console.log("open detail");
+    // console.log("open detail");
     // this.props.history.push('/detail-post')
     return <DetailPost />;
   };
@@ -40,7 +40,7 @@ class LatestPost extends Component {
   componentDidUpdate(prevProps, prevState) {
     //
     //debug
-    console.log("comDidUpdate\n");
+    // console.log("comDidUpdate\n");
     if (prevState.postArray.length !== this.state.postArray.length) {
       this.setState({
         postArray: this.state.postArray,
@@ -49,25 +49,25 @@ class LatestPost extends Component {
   }
 
   componentDidMount() {
-    latePostUser(this.props.auth.user.user_id)
-      .then((res) => res.data.data)
-      .then((data) => {
-        this.setState({ postArray: data, postArrayLength: data.length });
-        console.log(
-          "comDidMount on latest:\n",
-          "-postArray:",
-          this.state.postArray,
-          "\n",
-          "-postArrayLength:",
-          this.state.postArrayLength
-        );
-      });
+    // latePostUser(this.props.auth.user.user_id)
+    //   .then((res) => res.data.data)
+    //   .then((data) => {
+    //     this.setState({ postArray: data, postArrayLength: data.length });
+    //     // console.log(
+    //       "comDidMount on latest:\n",
+    //       "-postArray:",
+    //       this.state.postArray,
+    //       "\n",
+    //       "-postArrayLength:",
+    //       this.state.postArrayLength
+    //     );
+    //   });
 
     this.props.dispatch(fetchWhoAmi());
   }
 
   render() {
-    const { whoami } = this.props;
+    const { whoami, auth } = this.props;
 
     return (
       <>
@@ -98,7 +98,7 @@ class LatestPost extends Component {
               </div>
             </Col>
             <Col lg={4} className="sidebar-wrapper">
-              <SidebarProfileOverview whoami={whoami} />
+              <SidebarProfileOverview auth={auth} whoami={whoami} />
               <Nav defaultActiveKey="#" className="flex-column mt-4">
                 <Nav.Link href={"/" + whoami.username} className="pl-0">
                   Your Posts

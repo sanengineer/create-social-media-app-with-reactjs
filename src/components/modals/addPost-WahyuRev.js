@@ -1,7 +1,7 @@
 // import component react and react-bootstrap
 import { Modal, Button, Form, Row, Col, Image } from "react-bootstrap";
 import React, { Component } from "react";
-import { posting } from "../../actions/postAction";
+// import { posting } from "../../actions/postAction";
 import PropTypes from "prop-types";
 // import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
@@ -38,17 +38,17 @@ class AddPost extends Component {
     };
 
     if (postData.content === null || postData.content === undefined) {
-      console.log("form null");
+      // console.log("form null");
       this.setState({ errors: "Please fill me" });
     } else {
-      console.log(postData);
+      // console.log(postData);
       posting(postData)
         .then((res) => res.data)
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           // window.location.reload();
         })
-        .catch((err) => console.log(err));
+        .catch((err) => // // console.log(err));
 
       // window.location.reload();
     }

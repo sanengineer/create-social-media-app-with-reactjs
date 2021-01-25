@@ -1,5 +1,5 @@
 // import axios from "axios";
-import UsersServices from "../services/users-service";
+import UsersServices from "../services/usersService";
 import * as actionTypes from "./actionTypes";
 
 export const fetchWhoAmi = () => (dispatch) => {
@@ -12,15 +12,15 @@ export const fetchWhoAmi = () => (dispatch) => {
   UsersServices.whoami(token).then((res) => {
     //
     //debugging
-    console.log("TESTTTTTT:", res.data);
+    // console.log("TESTTTTTT:", res.data);
     dispatch(fetchWhoAmiSuccess(res.data));
   });
 
   //
   //debugging
-  // console.log("RESPONSESS:", response);
-  console.log("TOKENNNNN:", localStorage.jwtToken);
-  // console.log("TOKEN:", token);
+  // // console.log("RESPONSESS:", response);
+  // console.log("TOKENNNNN:", localStorage.jwtToken);
+  // // console.log("TOKEN:", token);
 
   //   return response;
 };

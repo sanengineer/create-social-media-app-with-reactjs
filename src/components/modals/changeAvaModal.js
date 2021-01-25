@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
-import UsersService from "../../services/users-service";
+import UsersService from "../../services/usersService";
 import axios, { put } from "axios";
 
 class ChangeAvaFormModal extends Component {
@@ -24,7 +24,7 @@ class ChangeAvaFormModal extends Component {
     e.preventDefault();
     this.fileUpload(this.state.file)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
       })
       .then((data) => window.location.reload())
       .catch((err) => console.log("ERRR:", err));
@@ -45,7 +45,7 @@ class ChangeAvaFormModal extends Component {
       },
     };
 
-    console.log("CONFIGGG:", config, "\n", "FORMDATAAA:", form_data, "\n");
+    // console.log("CONFIGGG:", config, "\n", "FORMDATAAA:", form_data, "\n");
     return put(url, form_data, config);
   }
 
@@ -57,12 +57,12 @@ class ChangeAvaFormModal extends Component {
       .then((res) => {
         //
         //debugging
-        console.log("AVAAAAA", res);
+        // console.log("AVAAAAA", res);
       })
       .catch((err) => {
         //
         //debug
-        console.log("AVAAAA:", err.message);
+        // console.log("AVAAAA:", err.message);
       });
   };
 

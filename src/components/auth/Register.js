@@ -47,7 +47,7 @@ class Register extends Component {
       password: this.state.password,
     };
 
-    console.log(newUser);
+    // console.log(newUser);
     this.props.registerUser(newUser, this.props.history);
   };
 
@@ -60,7 +60,7 @@ class Register extends Component {
 
   render() {
     const { errors } = this.state;
-    console.log("states", this.state);
+    // console.log("states", this.state);
     return (
       <div className="register-page">
         <div className="container">

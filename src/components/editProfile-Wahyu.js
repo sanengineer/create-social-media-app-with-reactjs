@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 // import assets
 import userNoPict from "../assets/images/user_no-pict.jpg";
 import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
-import UsersService from "../services/users-service";
+import UsersService from "../services/usersService";
 import ChangeAvaFormModal from "../components/modals/changeAvaModal";
 
 // import component
@@ -30,7 +30,7 @@ class EditProfileByWahyu extends Component {
       .then((res) => res.data)
       .then((res) => {
         this.setState({ userProfile: res });
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => console.log(err));
   }
@@ -74,7 +74,7 @@ class EditProfileByWahyu extends Component {
       username: this.state.userProfile.username,
     };
 
-    console.log(data, this.props.whoami.user_id);
+    // console.log(data, this.props.whoami.user_id);
 
     UsersService.updateWhoAmi(
       this.props.whoami.user_id,
@@ -82,13 +82,13 @@ class EditProfileByWahyu extends Component {
       localStorage.jwtToken
     )
       .then((result) => {
-        console.log(result);
+        // console.log(result);
       })
       .catch((err) => {
-        console.log(err.message);
+        // console.log(err.message);
       });
 
-    console.log("EDITT PROFF", localStorage.jwtToken);
+    // console.log("EDITT PROFF", localStorage.jwtToken);
   };
 
   //
@@ -102,14 +102,14 @@ class EditProfileByWahyu extends Component {
   };
 
   render() {
-    console.log("render edit profile", this.state.userProfile);
+    // console.log("render edit profile", this.state.userProfile);
 
     if (this.state.userProfile === null) {
-      console.log("jika null");
+      // console.log("jika null");
       return null;
     }
 
-    const { whoami } = this.props;
+    const { whoami, auth } = this.props;
 
     var userAva;
     if (this.props.whoami.avatar) {
@@ -262,7 +262,7 @@ class EditProfileByWahyu extends Component {
           </Col>
           <Col md={4} style={{ marginTop: "5rem" }}>
             <div className="sticky-wrapper-aside">
-              <SidebarProfileOverview whoami={whoami} />
+              <SidebarProfileOverview whoami={whoami} auth={auth} />
               <Nav defaultActiveKey="#" className="flex-column mt-4">
                 <Nav.Link href={"/" + whoami.username} className="pl-0">
                   Your Posts
@@ -281,6 +281,7 @@ class EditProfileByWahyu extends Component {
 
 const mapStateToProps = (state) => ({
   whoami: state.whoami.whoami,
+  auth: state.auth,
 });
 
 // export default EditProfile;

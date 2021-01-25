@@ -2,12 +2,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { SET_USER_POST } from "../../actions/actionTypes";
+import { CREATE_USER_POST } from "../../actions/actionTypes";
 import userNoPict from "../../assets/images/user_no-pict.jpg";
 
 export const Posts = ({ postArray }) => {
   let dispatch = useDispatch();
-  console.log(postArray);
+  // console.log(postArray);
   if (postArray === undefined || postArray.length === 0) {
     return (
       <div>
@@ -17,15 +17,15 @@ export const Posts = ({ postArray }) => {
   }
 
   const openDetail = (postData) => {
-    // console.log(postData)
+    // // console.log(postData)
     dispatch({
-      type: SET_USER_POST,
+      type: CREATE_USER_POST,
       payload: postData,
     });
   };
 
   const test = () => {
-    console.log("tes click");
+    // console.log("tes click");
   };
 
   const PostRow = (post, index) => {

@@ -1,7 +1,7 @@
 // import component react and react-bootstrap
 import { Modal, Button, Form, Row, Col, Image } from "react-bootstrap";
 import React, { Component } from "react";
-import { posting } from "../../actions/postAction";
+import { createPostText } from "../../actions/createPostTextAction";
 import PropTypes from "prop-types";
 // import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
@@ -26,7 +26,7 @@ class AddPost extends Component {
     }
 
     this.setState({ post: dataValue });
-    console.log(this.state.post);
+    // console.log(this.state.post);
   };
 
   // submiting form
@@ -48,17 +48,18 @@ class AddPost extends Component {
     };
 
     if (postData.content === null || postData.content === undefined) {
-      console.log("form null");
+      // console.log("form null");
       this.setState({ errors: true });
     } else {
-      console.log(postData);
-      posting(postData)
-        .then((res) => res.data)
-        .then((data) => {
-          console.log(data);
-          window.location.reload();
-        })
-        .catch((err) => console.log(err));
+      // console.log(postData);
+      this.props.createPostText(postData);
+      // posting(postData)
+      //   .then((res) => res.data)
+      //   .then((data) => {
+      //     // console.log(data);
+      //     window.location.reload();
+      //   })
+      //   .catch((err) => // // console.log(err));
     }
   };
 

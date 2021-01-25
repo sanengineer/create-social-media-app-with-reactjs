@@ -37,23 +37,23 @@ class DetailPost extends Component {
   };
 
   componentDidMount() {
-    console.log(Object.keys(this.props.post["post"]).length);
-    console.log(this.props.post["post"]);
-    console.log("ini adalah redux post detail", this.props.post);
+    // console.log(Object.keys(this.props.post["post"]).length);
+    // console.log(this.props.post["post"]);
+    // console.log("ini adalah redux post detail", this.props.post);
 
     this.getComment();
 
-    console.log("ini respon get comment", this.state.commentArray);
+    // console.log("ini respon get comment", this.state.commentArray);
   }
 
   onChange = (e) => {
     this.setState({ comment: e.target.value });
-    console.log(this.state.comment);
+    // console.log(this.state.comment);
   };
 
   postComment = () => {
     // let commentArray = this.state.commentArray
-    console.log("click");
+    // console.log("click");
 
     let commentData = {
       user_id: this.props.post["post"].user_id,
@@ -64,23 +64,23 @@ class DetailPost extends Component {
     commenting(commentData)
       .then((res) => res.data)
       .then((res2) => {
-        console.log(res2);
+        // console.log(res2);
         this.setState({ comment: "" });
         // commentArray.push(commentData);
         this.getComment();
       })
       .catch((err) => console.log(err));
-    console.log(commentData);
+    // console.log(commentData);
 
     // this.setState({ commentArray: commentArray })
-    // console.log(this.state.commentArray)
+    // // console.log(this.state.commentArray)
   };
 
   getComment = () => {
     getComments(this.props.post["post"].post_id)
       .then((res) => res.data.data)
       .then((res2) => {
-        console.log(res2);
+        // console.log(res2);
         this.setState({ commentArray: res2 });
       })
       .catch((err) => console.log(err));

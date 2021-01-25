@@ -3,7 +3,7 @@ import React from "react";
 export const InfoWeb = ({ linksInfoWeb }) => {
   if (linksInfoWeb.length === 0) return null;
 
-  console.log("suggested_account_numbers:", linksInfoWeb.length);
+  // console.log("suggested_account_numbers:", linksInfoWeb.length);
 
   const listInfoWeb = (linkInfoWeb) => {
     return (

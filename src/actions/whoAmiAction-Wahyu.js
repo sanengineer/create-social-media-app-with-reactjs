@@ -1,27 +1,27 @@
 // import axios from "axios";
-import UsersServices from "../services/users-service";
+import UsersServices from "../services/usersService";
 import * as actionTypes from "./actionTypes";
 
 var urlHeroku = "https://sosmetend.herokuapp.com/api/v1";
 
 export const fetchWhoAmi = () => (dispatch) => {
   const token = localStorage.jwtToken;
-  // console.log("ini token di whoamiaction.js", token)
+  // // console.log("ini token di whoamiaction.js", token)
 
   if (token !== undefined) {
     UsersServices.whoami(token)
       .then((res) => {
         //
         //debugging
-        // console.log("TESTTTTTT:", res.data);
+        // // console.log("TESTTTTTT:", res.data);
         dispatch(fetchWhoAmiSuccess(res.data));
       })
       .catch((err) => {
-        // console.log('ini gagal who ami di action', err)
+        // // console.log('ini gagal who ami di action', err)
         dispatch(fetchWhoAmiNull());
       });
   } else {
-    console.log("aku nullkan whoami");
+    // console.log("aku nullkan whoami");
     dispatch(fetchWhoAmiNull());
   }
 
@@ -33,19 +33,19 @@ export const fetchWhoAmi = () => (dispatch) => {
   // .then((res) => {
   //   //
   //   //debugging
-  //   console.log("TESTTTTTT:", res.data);
+  //   // console.log("TESTTTTTT:", res.data);
   //   dispatch(fetchWhoAmiSuccess(res.data));
   // })
   // .catch(err => {
-  //   console.log('ini gagal who ami di action', err)
+  //   // console.log('ini gagal who ami di action', err)
   //   dispatch(fetchWhoAmiNull)
   // });
 
   //
   //debugging
-  // console.log("RESPONSESS:", response);
-  // console.log("TOKENNNNN:", localStorage.jwtToken);
-  // console.log("TOKEN:", token);
+  // // console.log("RESPONSESS:", response);
+  // // console.log("TOKENNNNN:", localStorage.jwtToken);
+  // // console.log("TOKEN:", token);
 
   //   return response;
 };

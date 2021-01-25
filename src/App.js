@@ -54,7 +54,7 @@ import SuggestedPage from "./pages/suggested-account-page";
 //   }
 // }
 
-// console.log("YYYY:", store.dispatch(setCurrentUser()));
+// // console.log("YYYY:", store.dispatch(setCurrentUser()));
 
 // function App() {
 // if (localStorage.jwtToken) {
@@ -71,8 +71,8 @@ import SuggestedPage from "./pages/suggested-account-page";
 //     window.location.href = "./login";
 //   }
 
-//   console.log("DECODDD", store.dispatch(setCurrentUser(decoded)));
-//   console.log("APPPP:", token);
+//   // console.log("DECODDD", store.dispatch(setCurrentUser(decoded)));
+//   // console.log("APPPP:", token);
 
 //   return (
 //     <Provider store={store}>
@@ -126,7 +126,7 @@ class App extends Component {
 
     const { whoami, publicusers } = this.props;
 
-    console.log("APPPP:", publicusers);
+    // console.log("APPPP:", publicusers);
 
     // const routeComponents;
 
@@ -147,7 +147,7 @@ class App extends Component {
     //   routeComponent(routeStatusFeed)
     // );
 
-    // console.log("ROUTESSS:", routesComponents);
+    // // console.log("ROUTESSS:", routesComponents);
 
     return (
       <Router>

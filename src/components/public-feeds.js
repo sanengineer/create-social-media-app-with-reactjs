@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import AddPostHomePage from "./post/AddPostHomePage";
 import userNoPict from "../assets/images/user_no-pict.jpg";
 
-export const Feeds = ({ publicusers, whoami }) => {
+export const Feeds = ({ publicusers, whoami, auth }) => {
   if (publicusers.length === 0) return null;
-  console.log(publicusers.length);
+  // console.log(publicusers.length);
 
-  console.log("FEEEEEDS:", whoami.length === 0);
+  // console.log("FEEEEEDS:", whoami.length === 0);
 
   const Feed = (userPublic) => {
     var userAva;
@@ -76,28 +76,49 @@ export const Feeds = ({ publicusers, whoami }) => {
 
   const Feedlist = publicusers.map((userPublic) => Feed(userPublic));
 
-  if (whoami.length === 0) {
-    return (
-      <div className="child-landing-page">
-        <div className="child-landing-page-wrapper">
-          <div className="public-feeds-landing">{Feedlist}</div>
+  // if (whoami.length === 0) {
+  //   return (
+  //     <div className="child-landing-page">
+  //       <div className="child-landing-page-wrapper">
+  //         <div className="public-feeds-landing">{Feedlist}</div>
+  //       </div>
+  //     </div>
+  //   );
+  // } else {
+  //   return (
+  //     <div className="child-home-page">
+  //       <div className="child-home-page-wrapper">
+  //         <div className="card-no-round">
+  //           <AddPostHomePage />
+  //         </div>
+  //         <div className="public-feeds-home-relative">
+  //           <div className="public-feeds-home">
+  //             <div className="public-feeds-home-wrapper">{Feedlist}</div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
+  return auth.isAuthenticated === true ? (
+    <div className="child-home-page">
+      <div className="child-home-page-wrapper">
+        <div className="card-no-round">
+          <AddPostHomePage />
+        </div>
+        <div className="public-feeds-home-relative">
+          <div className="public-feeds-home">
+            <div className="public-feeds-home-wrapper">{Feedlist}</div>
+          </div>
         </div>
       </div>
-    );
-  } else {
-    return (
-      <div className="child-home-page">
-        <div className="child-home-page-wrapper">
-          <div className="card-no-round">
-            <AddPostHomePage />
-          </div>
-          <div className="public-feeds-home-relative">
-            <div className="public-feeds-home">
-              <div className="public-feeds-home-wrapper">{Feedlist}</div>
-            </div>
-          </div>
-        </div>
+    </div>
+  ) : (
+    <div className="child-landing-page">
+      <div className="child-landing-page-wrapper">
+        <div className="public-feeds-landing">{Feedlist}</div>
       </div>
-    );
-  }
+    </div>
+  );
 };

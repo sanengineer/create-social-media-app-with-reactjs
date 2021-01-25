@@ -1,7 +1,7 @@
 // import component react and react-bootstrap
 import { Modal, Button, Form, Row, Col, Image } from "react-bootstrap";
 import React, { Component } from "react";
-import { posting } from "../../actions/postAction";
+import { postStart, postSuccess } from "../../actions/createPostTextAction";
 import PropTypes from "prop-types";
 // import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
@@ -11,60 +11,76 @@ import userNoPict from "../../assets/images/user_no-pict.jpg";
 import iconEmoji from "../../assets/icons/icon_emoji.png";
 import iconImage from "../../assets/icons/icon_image.png";
 import { fetchWhoAmi } from "../../actions/whoAmiAction";
+import { createPostText } from "../../actions/createPostTextAction";
+import setAuthToken from "../../utils/setAuthToken";
 
 class AddPostHomePage extends Component {
+  // state = {
+  //   post: {},
+  // };
+
   state = {
-    post: {},
+    disabled: "",
   };
 
   // inputing form
   onChange = (e) => {
-    let dataValue = this.state.post;
+    let dataValue = this.props.postText;
     if (e.target.id === "post") {
       dataValue.content = e.target.value;
-    } else if (e.target.id === "postImage") {
-      dataValue.image = e.target.files[0];
     }
 
-    this.setState({ post: dataValue });
-    console.log(this.state.post);
+    console.log("onchange:\n", dataValue);
+    console.log(this.props.postText);
+
+    this.setState({ disabled: dataValue.content });
+
+    console.log("lenght:\n", dataValue.content.length > 0);
   };
+
+  getSnapshotBeforeUpdate(nextProps) {
+    console.log("AddHomePage.js: getSnapshotBeforeUpdate");
+  }
+
+  componentDidCatch() {
+    console.log("AddHomePage.js: componentDidCatch", this.props.postText);
+  }
 
   // submiting form
   onClick = () => {
-    // const formData = new FormData();
-    // formData.append(
-    //     "images", this.state.post.image
-    // )
-    // formData.append(
-    //     "content", this.state.post.content
-    // )
-    // formData.append(
-    //     "user_id", this.props.auth.user.user_id
-    // )
-    const postData = {
+    const postTextData = {
       user_id: this.props.auth.user.user_id,
-      content: this.state.post.content,
-      // images: this.state.post.image
+      content: this.props.postText.content,
     };
 
-    if (postData.content === null || postData.content === undefined) {
-      console.log("form null");
-      this.setState({ errors: true });
+    // console.log("postTextData:\n", postTextData);
+    // console.log("this.props.postText:\n", this.props.postText);
+
+    if (postTextData.content == undefined || postTextData.content == " ") {
+      this.setState({ error: true });
+      // this.props.dispatch(postSuccess());
     } else {
-      console.log(postData);
-      posting(postData)
-        .then((res) => res.data)
-        .then((data) => {
-          console.log(data);
-          window.location.reload();
-        })
-        .catch((err) => console.log(err));
+      this.props.dispatch(createPostText(postTextData));
     }
+
+    console.log(
+      "!postTextData.content:",
+      !postTextData.content,
+      postTextData.content == undefined,
+      postTextData.content == null,
+      postTextData.content == ""
+    );
+
+    // if (postTextData.content == null && !postTextData.content.trim()) {
+    //   this.setState({ errors: true });
+    // } else {
+    //   this.props.dispatch(createPostText(postTextData));
+    // }
   };
 
   render() {
-    const { whoami } = this.props;
+    const { whoami, postText, isPosted } = this.props;
+    const { error, disabled } = this.state;
 
     var userAva;
 
@@ -73,6 +89,10 @@ class AddPostHomePage extends Component {
     } else {
       var userAva = userNoPict;
     }
+
+    console.log("error:\n", error);
+    // console.log("postText.content.length:", postText.content.length > 0);
+    console.log("disabled:", disabled);
 
     return (
       <>
@@ -89,15 +109,16 @@ class AddPostHomePage extends Component {
           <Col sm={11}>
             <Form.Group controlId="post">
               <Form.Control
-                value={this.state.post.content}
+                value={postText.textContent}
                 onChange={(e) => this.onChange(e)}
                 as="textarea"
                 rows={3}
                 placeholder={
-                  this.state.errors
+                  error
                     ? "  Fill Your post, please! 😜"
                     : "  What happen today dear?"
                 }
+                // placeholder="Fill Your post, please! 😜"
               />
             </Form.Group>
             {/* <Form.Group controlId="postImage">
@@ -114,7 +135,7 @@ class AddPostHomePage extends Component {
             className="post-btn btn btn-purple"
             size="sm"
             onClick={this.onClick}
-            block
+            disabled={disabled.length == 0}
           >
             NEW POST
           </button>
@@ -124,12 +145,15 @@ class AddPostHomePage extends Component {
   }
 }
 
-// AddPost.propTypes = {
-//   auth: PropTypes.object.isRequired,
-// };
+AddPostHomePage.propTypes = {
+  // createPostText: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  postText: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  postText: state.postText,
   whoami: state.whoami.whoami,
 });
 

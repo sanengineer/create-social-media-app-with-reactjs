@@ -7,8 +7,8 @@ import noPict from "../assets/images/user_no-pict.jpg";
 export const CornerComponent = ({ whoami, logOut, auth }) => {
   //
   //
-  console.log(whoami.length);
-  console.log("LOGOUUUTTT:", logOut);
+  // console.log(whoami.length);
+  // console.log("LOGOUUUTTT:", logOut);
 
   let whoAmiProfileSrc;
 
@@ -18,7 +18,7 @@ export const CornerComponent = ({ whoami, logOut, auth }) => {
     whoAmiProfileSrc = noPict;
   }
 
-  if (whoami.length === 0) {
+  if (auth.isAuthenticated === false) {
     return (
       <ul className="navbar-nav d-lg-flex order-4">
         <li className="...">

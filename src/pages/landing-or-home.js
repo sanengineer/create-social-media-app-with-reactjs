@@ -9,19 +9,24 @@ import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
 import { fetchPublicUsers } from "../actions/publicUsers";
 import { fetchWhoAmi } from "../actions/whoAmiAction";
 import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
-import setAuthToken from "../utils/setAuthToken";
-import { setCurrentUser } from "../actions/authAction";
 
 class Landing extends Component {
   constructor(props) {
     super();
 
-    // console.log("TEST" + usersPublic);
+    // // console.log("TEST" + usersPublic);
   }
 
-  // componentDidUpdate() {
-  //   this.props.dispatch(fetchPublicUsers());
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.postText !== this.props.postText) {
+      this.props.dispatch(fetchPublicUsers());
+      // this.props.dispatch(postStart());
+      console.log("componentDidUpdate(prevProps):", true);
+    }
+    // console.log("componentDidUpdate(prevProps):\n", prevProps);
+    // console.log("componentDidUpdate(this.props):\n", this.props.postText);
+    // console.log("componentDidUpdate(this.props.postText):\n", this.props);
+  }
 
   componentDidMount() {
     this.props.dispatch(fetchSuggestedUsers());
@@ -42,25 +47,30 @@ class Landing extends Component {
       auth,
       whoami,
       error,
+      postText,
     } = this.props;
 
-    console.log("WHOAMIIIIII:", whoami);
-
+    //
+    //debug
+    // console.log("WHOAMIIIIII:\n", whoami);
+    // console.log("postTEXTTTT:\n", postText);
     // console.log("AUTHHHHH:", auth);
     return (
       <div className="landing-page">
         <div className="section-main container">
           <div className="row">
             <div className="feeds-wrapper col-8 pr-5">
-              <Feeds publicusers={publicusers} whoami={whoami}></Feeds>
+              <Feeds
+                publicusers={publicusers}
+                whoami={whoami}
+                postText={postText}
+                auth={auth}
+              ></Feeds>
             </div>
             <aside className="sidebar-wrapper col-4">
               <div className="sticky-wrapper-aside">
                 <div className="overflow-wrapper-aside">
-                  <SidebarProfileOverview
-                    auth={auth.isAuthenticated}
-                    whoami={whoami}
-                  />
+                  <SidebarProfileOverview auth={auth} whoami={whoami} />
                   <div className="sidebar-suggested-account mt-3">
                     <div className="h6 mb-2">Suggested Account</div>
                     <div>
@@ -109,6 +119,7 @@ const mapStateToProps = (state) => ({
   linksInfoWeb: state.linksInfoWeb,
   whoami: state.whoami.whoami,
   auth: state.auth,
+  postText: state.postText,
 });
 
 export default connect(mapStateToProps)(Landing);

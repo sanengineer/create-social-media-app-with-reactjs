@@ -7,7 +7,7 @@ import axios, { put, post } from "axios";
 // import assets
 import userNoPict from "../assets/images/user_no-pict.jpg";
 import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
-import UsersService from "../services/users-service";
+import UsersService from "../services/usersService";
 import ChangeAvaFormModal from "../components/modals/changeAvaModal";
 
 // import component
@@ -33,7 +33,7 @@ class EditProfile extends Component {
       .then((res) => res.data)
       .then((res) => {
         this.setState({ userProfile: res });
-        console.log("RESSSS:", res);
+        // console.log("RESSSS:", res);
       })
       .catch((err) => console.log(err));
   }
@@ -58,7 +58,7 @@ class EditProfile extends Component {
       user.address = e.target.value;
     }
 
-    console.log("VALUEEE:", user);
+    // console.log("VALUEEE:", user);
 
     this.setState({ userProfile: user });
   };
@@ -77,7 +77,7 @@ class EditProfile extends Component {
       username: this.state.userProfile.username,
     };
 
-    console.log("RRRR:", data, this.props.whoami.user_id);
+    // console.log("RRRR:", data, this.props.whoami.user_id);
 
     UsersService.updateWhoAmi(
       this.props.whoami.user_id,
@@ -87,15 +87,15 @@ class EditProfile extends Component {
       .then((result) => {
         //
         //debugging
-        console.log(result);
+        // console.log(result);
       })
       .catch((err) => {
         //
         //debugging
-        console.log(err.message);
+        // console.log(err.message);
       });
 
-    console.log("dataaaa", data);
+    // console.log("dataaaa", data);
   };
 
   //
@@ -111,14 +111,14 @@ class EditProfile extends Component {
   render() {
     var whoamiAvatar;
 
-    console.log("userProfileee", this.state.userProfile);
+    // console.log("userProfileee", this.state.userProfile);
 
     const { whoami } = this.props;
     // const { userProfile } = this.state;
 
-    // console.log("STATEEEE:");
+    // // console.log("STATEEEE:");
 
-    // console.log("USERIDDD:", userProfile);
+    // // console.log("USERIDDD:", userProfile);
 
     // if (userProfile.avatar) {
     //   whoamiAvatar = userProfile.avatar;

@@ -4,7 +4,7 @@ import userNoPict from "../../assets/images/user_no-pict.jpg";
 export const SuggestedAccounts = ({ suggestedusers }) => {
   if (suggestedusers.length === 0) return null;
 
-  console.log("suggested_account_numbers:", suggestedusers.length);
+  // console.log("suggested_account_numbers:", suggestedusers.length);
 
   const AccountSuggestedCard = (suggestedUser) => {
     var userAva;
