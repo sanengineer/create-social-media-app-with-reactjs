@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AddPostHomePage from "./post/AddPostHomePage";
 import userNoPict from "../assets/images/user_no-pict.jpg";
+import { postStart } from "../actions/createPostTextAction";
 
 export const Feeds = ({ publicusers, whoami, auth }) => {
   if (publicusers.length === 0) return null;
@@ -34,7 +35,10 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
       //   to={"/feed-" + userPublic.user.username + "-" + userPublic.post_id}
       // >
       // <Link className="post-detail-link" to={"/feed-" + userPublic.post_id}>
-      <Link className="post-detail-link" to="#">
+      <Link
+        className="post-detail-link"
+        to={`/${userPublic.user.username}/post/${userPublic.post_id}`}
+      >
         <div className="quotes-people-box-list">
           <div className="first-text d-flex justify-content-between">
             <div className="img-bio d-flex justify-content-between">
@@ -75,31 +79,6 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
   };
 
   const Feedlist = publicusers.map((userPublic) => Feed(userPublic));
-
-  // if (whoami.length === 0) {
-  //   return (
-  //     <div className="child-landing-page">
-  //       <div className="child-landing-page-wrapper">
-  //         <div className="public-feeds-landing">{Feedlist}</div>
-  //       </div>
-  //     </div>
-  //   );
-  // } else {
-  //   return (
-  //     <div className="child-home-page">
-  //       <div className="child-home-page-wrapper">
-  //         <div className="card-no-round">
-  //           <AddPostHomePage />
-  //         </div>
-  //         <div className="public-feeds-home-relative">
-  //           <div className="public-feeds-home">
-  //             <div className="public-feeds-home-wrapper">{Feedlist}</div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
 
   return auth.isAuthenticated === true ? (
     <div className="child-home-page">

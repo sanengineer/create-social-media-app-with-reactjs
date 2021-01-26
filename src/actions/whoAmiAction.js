@@ -21,8 +21,6 @@ export const fetchWhoAmi = () => (dispatch) => {
   // // console.log("RESPONSESS:", response);
   // console.log("TOKENNNNN:", localStorage.jwtToken);
   // // console.log("TOKEN:", token);
-
-  //   return response;
 };
 
 export const fetchWhoAmiStart = () => ({

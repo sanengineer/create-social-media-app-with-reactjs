@@ -64,6 +64,8 @@ class LatestPost extends Component {
     //   });
 
     this.props.dispatch(fetchWhoAmi());
+
+    console.log("this.props:", this.props);
   }
 
   render() {

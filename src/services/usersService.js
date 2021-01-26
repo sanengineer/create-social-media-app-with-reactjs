@@ -11,6 +11,10 @@ class UsersServices {
     return api.get("/posts");
   }
 
+  fetchtPostDetails(postId) {
+    return api.get(`/post/${postId}`);
+  }
+
   latestPostUser = (user_id) => {
     return api.get(`/posts/${user_id}`);
   };

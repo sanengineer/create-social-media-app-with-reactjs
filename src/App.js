@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authAction";
-import { fetchPublicUsersSuccess } from "./actions/publicUsers";
+import { fetchPublicUsers } from "./actions/publicUsers";
+import { fetchSuggestedUsers } from "./actions/suggestedUsersAction";
+
+// import { fetchPostDetails } from "./actions/postDetailsAction";
 
 // Related to store
 import { Provider } from "react-redux";
@@ -20,7 +23,7 @@ import Underconstruction from "./components/Underconstruction";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import LatestPost from "./components/post/LatestPost";
-import DetailPost from "./components/post/DetailPost";
+// import DetailPost from "./components/post/DetailPost";
 
 import Landing from "./pages/landing-or-home";
 
@@ -31,6 +34,8 @@ import { fetchWhoAmi } from "./actions/whoAmiAction";
 import EditProfile from "./components/editProfile";
 import EditProfileByWahyu from "./components/editProfile-Wahyu";
 import SuggestedPage from "./pages/suggested-account-page";
+import PostDetails from "./pages/postDetail";
+import PostDetailDescription from "./components/postDetailDescriptions";
 
 // // check for token  to keep user login
 // if (localStorage.jwtToken) {
@@ -99,6 +104,16 @@ class App extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchWhoAmi());
+    this.props.dispatch(fetchPublicUsers());
+    this.props.dispatch(fetchSuggestedUsers());
+    // this.props.dispatch(fetchPostDetails());
+    // console.log("this.props.match:", this.props.match);
+
+    // const data = this.props.publicusers;
+
+    // const x = data.find((x) => x.post_id);
+
+    // console.log("x:", x);
   }
 
   render() {
@@ -147,7 +162,37 @@ class App extends Component {
     //   routeComponent(routeStatusFeed)
     // );
 
-    // // console.log("ROUTESSS:", routesComponents);
+    //
+    //debug
+    // console.log("ROUTESSS:", routesComponents);
+    // console.log("publicusers.user:", publicusers.user.username);
+    // console.log("this.props", this.props);
+
+    const route = (user) => ({
+      path: `/${user.user.username}/post/${user.post_id}`,
+      // path: `/${user.user.username}/post/:id`,
+      params: { id: `${user.post_id}` },
+      // component: PostDetailDescription,
+      component: PostDetails,
+    });
+
+    const routes = publicusers.map((user) => route(user));
+
+    // console.log("route", route);
+    // console.log("publicusers:", publicusers[0]);
+
+    const dynamicRoutes = routes.map(({ path, component, params }, key) => (
+      <Route
+        exact
+        path={path}
+        component={component}
+        params={params}
+        key={key}
+      />
+    ));
+
+    // console.log("dynamicRoutes.props:", dynamicRoutes.props);
+    // console.log("dynamicRoutes:", dynamicRoutes);
 
     return (
       <Router>
@@ -161,11 +206,9 @@ class App extends Component {
             path="/suggested-users"
             component={SuggestedPage}
           ></Route>
-          <Route
-            exact
-            path={"/feed-" + publicusers.post_id}
-            component={Underconstruction}
-          />
+          {dynamicRoutes}
+          {/* <Route exact path="/properties/:id" component={PostDetails} /> */}
+
           <Switch>
             <PrivateRoute
               exact
@@ -177,7 +220,7 @@ class App extends Component {
               path="/edit-profile"
               component={EditProfileByWahyu}
             />
-            <Route exact path="/detail-post" component={DetailPost} />
+            {/* <Route exact path="/detail-post" component={DetailPost} /> */}
           </Switch>
         </div>
       </Router>
@@ -188,6 +231,8 @@ class App extends Component {
 const mapStateToProps = (state) => ({
   whoami: state.whoami.whoami,
   publicusers: state.publicusers.publicusers,
+  postdetails: state.postdetails.postdetails,
+  suggestedusers: state.suggestedusers.suggestedusers,
 });
 
 export default connect(mapStateToProps)(App);

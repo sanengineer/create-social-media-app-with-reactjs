@@ -2,13 +2,17 @@ import * as actionTypes from "./actionTypes";
 import UsersServices from "../services/usersService";
 
 export const fetchPublicUsers = () => (dispatch) => {
-  UsersServices.fetchAllPostsPublic().then((res) => {
-    //
-    //debugging
-    // console.log("TEST", res.data.data);
+  UsersServices.fetchAllPostsPublic()
+    .then((res) => {
+      //
+      //debugging
+      console.log("TEST", res.data.data);
 
-    dispatch(fetchPublicUsersSuccess(res.data.data));
-  });
+      dispatch(fetchPublicUsersSuccess(res.data.data));
+    })
+    .catch((err) => {
+      dispatch(fetchPublicUsersFail(err.response));
+    });
 };
 
 export const fetchPublicUsersStart = () => ({
