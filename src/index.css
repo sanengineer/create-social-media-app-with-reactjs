@@ -131,7 +131,7 @@ body {
 
 /*--navbar home page--*/
 .dropdown-divider {
-  border: 3px solid #dddddd;
+  border: 1px solid #dfdfdf;
 }
 
 .who-am-i-navbar-detail {
@@ -139,11 +139,11 @@ body {
 }
 
 .dashboard-link {
-  padding: 10px 20px 20px 20px;
+  padding: unset;
 }
 
 .dropdown-menu.show {
-  transform: translate3d(-120px, 48px, 0px) !important;
+  transform: translate3d(-41px, 48px, 0px) !important;
 }
 
 .dropdown-menu {
@@ -185,8 +185,9 @@ body {
 }
 
 .logout-btn {
-  padding: 10px 4rem !important;
+  padding: unset !important;
   font-weight: bold;
+  color: #f00000;
 }
 
 /*--home page--*/
@@ -617,4 +618,15 @@ body {
 .testcccc.show img {
   border: 2px solid #7f37a0;
   padding: 2px;
+}
+
+.icon-logout svg,
+.icon-profile svg {
+  height: 18px;
+  margin-right: 12px;
+}
+
+.icon-setting svg {
+  height: 18px;
+  margin-right: 12px;
 }

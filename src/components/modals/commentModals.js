@@ -3,7 +3,8 @@ import { Modal, Button, Form, Row, Image, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import userNoPict from "../../assets/images/user_no-pict.jpg";
-import { createComment } from "../../actions/createCommentAction";
+import { commentStart, createComment } from "../../actions/createCommentAction";
+import { fetchCommentsPost } from "../../actions/fetchCommentsPostAction";
 
 class AddComment extends Component {
   state = {
@@ -27,6 +28,15 @@ class AddComment extends Component {
 
   //     return this.setState({ postId: postId });
   //   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.createcomment !== this.props.createcomment) {
+      const spliturl = window.location.pathname.split("/");
+      const postId = spliturl[3];
+
+      this.props.dispatch(fetchCommentsPost(postId));
+    }
+  }
 
   componentDidMount() {
     // this.getPostId();
@@ -56,6 +66,7 @@ class AddComment extends Component {
     ) {
       this.setState({ error: true });
     } else {
+      this.props.dispatch(commentStart());
       this.props.dispatch(createComment(commentData));
     }
   };

@@ -23,8 +23,8 @@ class Landing extends Component {
       // this.props.dispatch(postStart());
       console.log("componentDidUpdate(prevProps):", true);
     }
-    // console.log("componentDidUpdate(prevProps):\n", prevProps);
-    // console.log("componentDidUpdate(this.props):\n", this.props.postText);
+    console.log("componentDidUpdate(prevProps):\n", prevProps.postText);
+    console.log("componentDidUpdate(this.props):\n", this.props.postText);
     // console.log("componentDidUpdate(this.props.postText):\n", this.props);
   }
 

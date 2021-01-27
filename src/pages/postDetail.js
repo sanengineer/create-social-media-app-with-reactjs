@@ -17,6 +17,26 @@ class PostDetails extends Component {
     super();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log(
+      "componentDidUpdate(prevProps.loves.loading):\n",
+      prevProps.loves.loading
+    );
+    console.log(
+      "componentDidUpdate(this.props.loves.loading):\n",
+      this.props.loves.loading
+    );
+
+    if (prevProps.loves.loading !== this.props.loves.loading) {
+      const spliturl = this.props.match.path.split("/");
+      const postId = spliturl[3];
+      console.log("postId", postId);
+      this.props.dispatch(fetchPostLoves(postId));
+    }
+    console.log("this.props.loves.loves", this.props.loves.loves);
+    // console.log(this.props.dispatch());
+  }
+
   componentDidMount() {
     console.log("PostDetails:");
     // console.log("window:", window);
@@ -82,6 +102,7 @@ class PostDetails extends Component {
     console.log("commentspost:", commentspost);
     // console.log("url:", url.href);
     console.log(this.props);
+    console.log("loves", loves);
     console.log("window:", window);
     // console.log("postdetails.user.username:", postdetails.user.username);
 
@@ -100,10 +121,10 @@ class PostDetails extends Component {
                       pathname={pathname}
                       hostname={hostname}
                       whoami={whoami}
-                      loves={loves}
-                      commentspost={commentspost}
+                      loves={loves.loves}
+                      commentspost={commentspost.commentspost}
                     ></PostDetailsDescription>
-                    <Comments commentspost={commentspost} />
+                    <Comments commentspost={commentspost.commentspost} />
                   </div>
                 </div>
               </div>
@@ -162,9 +183,9 @@ const mapStateToProps = (state) => ({
   suggestedusers: state.suggestedusers.suggestedusers,
   whoami: state.whoami.whoami,
   auth: state.auth,
-  loves: state.loves.loves,
+  loves: state.loves,
   linksInfoWeb: state.linksInfoWeb,
-  commentspost: state.commentspost.commentspost,
+  commentspost: state.commentspost,
 });
 
 export default connect(mapStateToProps)(PostDetails);

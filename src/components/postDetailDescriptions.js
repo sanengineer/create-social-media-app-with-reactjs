@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Popover, OverlayTrigger } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import moment from "moment";
 import AddComment from "../components/modals/commentModals";
 import UsersServices from "../services/usersService";
+import { fetchPostLovesStart } from "../actions/publicPostLovesAction";
 
 const PostDetailsDescription = ({
   postdetails,
@@ -16,6 +18,7 @@ const PostDetailsDescription = ({
 }) => {
   const date = moment(postdetails.createdAt).format("DD MMMM YYYY");
   const time = moment(postdetails.createdAt).format("HH:MM");
+  const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
 
@@ -46,6 +49,7 @@ const PostDetailsDescription = ({
         console.log("res.data", err.response);
         alert(err.data.message);
       });
+    dispatch(fetchPostLovesStart());
 
     //
     //debug
