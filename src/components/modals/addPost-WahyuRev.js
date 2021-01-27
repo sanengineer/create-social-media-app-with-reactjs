@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import userIcon from "../../assets/images/user_no-pict.jpg";
 import iconEmoji from "../../assets/icons/icon_emoji.png";
 import iconImage from "../../assets/icons/icon_image.png";
+import UsersService from "../../services/usersService";
 
 class AddPost extends Component {
   state = {
@@ -42,7 +43,7 @@ class AddPost extends Component {
       this.setState({ errors: "Please fill me" });
     } else {
       // console.log(postData);
-      posting(postData)
+      UsersService.createPostText(postData)
         .then((res) => res.data)
         .then((data) => {
           // console.log(data);

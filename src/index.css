@@ -613,3 +613,8 @@ body {
   margin: 0 0.35em;
   color: #757575;
 }
+
+.testcccc.show img {
+  border: 2px solid #7f37a0;
+  padding: 2px;
+}

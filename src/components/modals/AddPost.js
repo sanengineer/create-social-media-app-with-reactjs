@@ -52,7 +52,7 @@ class AddPost extends Component {
       this.setState({ errors: true });
     } else {
       // console.log(postData);
-      this.props.createPostText(postData);
+      this.props.dispatch(createPostText(postData));
       // posting(postData)
       //   .then((res) => res.data)
       //   .then((data) => {

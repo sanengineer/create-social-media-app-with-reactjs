@@ -11,6 +11,7 @@ import userIcon from "../../assets/images/user_no-pict.jpg";
 import PropTypes from "prop-types";
 import SidebarProfileOverview from "../../components/sidebar/sidebarProfileOverview";
 import { fetchWhoAmi } from "../../actions/whoAmiAction";
+import UsersServices from "../../services/usersService";
 
 class LatestPost extends Component {
   state = {
@@ -49,19 +50,19 @@ class LatestPost extends Component {
   }
 
   componentDidMount() {
-    // latePostUser(this.props.auth.user.user_id)
-    //   .then((res) => res.data.data)
-    //   .then((data) => {
-    //     this.setState({ postArray: data, postArrayLength: data.length });
-    //     // console.log(
-    //       "comDidMount on latest:\n",
-    //       "-postArray:",
-    //       this.state.postArray,
-    //       "\n",
-    //       "-postArrayLength:",
-    //       this.state.postArrayLength
-    //     );
-    //   });
+    UsersServices.latestPostUser(this.props.auth.user.user_id)
+      .then((res) => res.data.data)
+      .then((data) => {
+        this.setState({ postArray: data, postArrayLength: data.length });
+        console.log(
+          "comDidMount on latest:\n",
+          "-postArray:",
+          this.state.postArray,
+          "\n",
+          "-postArrayLength:",
+          this.state.postArrayLength
+        );
+      });
 
     this.props.dispatch(fetchWhoAmi());
 

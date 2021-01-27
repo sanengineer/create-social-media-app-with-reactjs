@@ -222,7 +222,6 @@ class App extends Component {
               path="/edit-profile"
               component={EditProfileByWahyu}
             />
-            {/* <Route exact path="/detail-post" component={DetailPost} /> */}
           </Switch>
         </div>
       </Router>
