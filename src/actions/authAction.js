@@ -34,7 +34,7 @@ export const loginUser = (userData) => (dispatch) => {
       setAuthToken(res.data.accessToken);
       // const decoded =jwt_decode(user.accessToken);
       //set current user
-      dispatch(setCurrentUser(user));
+      dispatch(setCurrentUser(res.data));
     })
     .catch((err) => {
       // // console.log("error ", err);

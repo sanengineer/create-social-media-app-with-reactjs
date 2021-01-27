@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { SuggestedAccounts } from "../components/sidebar/suggested-accounts";
 import { InfoWeb } from "../components/sidebar/sidebar-footer";
+import { fetchPostLoves } from "../actions/publicPostLovesAction";
+import { fetchCommentsPost } from "../actions/fetchCommentsPostAction";
+import Comments from "../components/post/Comments";
 
 class PostDetails extends Component {
   constructor(props) {
@@ -27,6 +30,9 @@ class PostDetails extends Component {
     const userdata = this.props.postdetails.user;
 
     document.title = `Sosmet App | Posting From ${spliturl[1]}`;
+
+    this.props.dispatch(fetchPostLoves(postId));
+    this.props.dispatch(fetchCommentsPost(postId));
 
     // const data = this.props.publicusers;
 
@@ -56,16 +62,27 @@ class PostDetails extends Component {
       whoami,
       auth,
       linksInfoWeb,
+      match,
+      loves,
+      commentspost,
     } = this.props;
 
-    const spliturl = this.props.match.path.split("/");
+    const spliturl = match.path.split("/");
     const postId = spliturl[3];
     const data = publicusers;
     const x = data.find((x) => x.post_id == `${postId}`);
+
+    const pathname = window.location.pathname;
+    const hostname = window.location.hostname;
+
     //
     //debug
     // console.log("match.params.id:", match.params);
     console.log("postdetails:", postdetails);
+    console.log("commentspost:", commentspost);
+    // console.log("url:", url.href);
+    console.log(this.props);
+    console.log("window:", window);
     // console.log("postdetails.user.username:", postdetails.user.username);
 
     return (
@@ -80,53 +97,45 @@ class PostDetails extends Component {
                   <div className="feeds-whoami-page-overflow">
                     <PostDetailsDescription
                       postdetails={x}
+                      pathname={pathname}
+                      hostname={hostname}
+                      whoami={whoami}
+                      loves={loves}
+                      commentspost={commentspost}
                     ></PostDetailsDescription>
+                    <Comments commentspost={commentspost} />
                   </div>
                 </div>
               </div>
             </Col>
             <Col lg={4} className="sidebar-wrapper">
               <SidebarProfileOverview auth={auth} whoami={whoami} />
-              {auth.isAuthenticated ? (
-                <Nav defaultActiveKey="#" className="flex-column mt-4">
-                  <Nav.Link href={"/" + whoami.username} className="pl-0">
-                    Your Posts
-                  </Nav.Link>
-                  <Nav.Link href="/edit-profile" className="pl-0">
-                    Edit Profile
-                  </Nav.Link>
-                </Nav>
-              ) : (
-                // <SuggestedAccounts suggestedusers={suggestedusers} />
-                <>
-                  <div className="sidebar-suggested-account mt-3">
-                    <div className="h6 mb-2">Suggested Account</div>
-                    <div>
-                      <SuggestedAccounts
-                        suggestedusers={suggestedusers}
-                      ></SuggestedAccounts>
-                    </div>
-                    <div className="mt-3">
-                      <a href="/suggested-users" className="more-account-link">
-                        <span className="more-account pr-2">more</span>
-                        <svg
-                          width="8"
-                          height="6"
-                          viewBox="0 0 8 6"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M4 6L0.535899 -3.01142e-07L7.4641 -9.06825e-07L4 6Z"
-                            fill="black"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                  <InfoWeb linksInfoWeb={linksInfoWeb}></InfoWeb>
-                </>
-              )}
+              <div className="sidebar-suggested-account mt-3">
+                <div className="h6 mb-2">Suggested Account</div>
+                <div>
+                  <SuggestedAccounts
+                    suggestedusers={suggestedusers}
+                  ></SuggestedAccounts>
+                </div>
+                <div className="mt-3">
+                  <a href="/suggested-users" className="more-account-link">
+                    <span className="more-account pr-2">more</span>
+                    <svg
+                      width="8"
+                      height="6"
+                      viewBox="0 0 8 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 6L0.535899 -3.01142e-07L7.4641 -9.06825e-07L4 6Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <InfoWeb linksInfoWeb={linksInfoWeb}></InfoWeb>
             </Col>
           </Row>
         </Container>
@@ -140,9 +149,12 @@ PostDetails.propsTypes = {
   postdetails: PropTypes.object.isRequired,
   whoami: PropTypes.object.isRequired,
   publicusers: PropTypes.object.isRequired,
-  fetchPostDetails: PropTypes.func.isRequired,
+  fetchPostLoves: PropTypes.func.isRequired,
+  fetchCommentsPost: PropTypes.func.isRequired,
   suggestedusers: PropTypes.object.isRequired,
   linksInfoWeb: PropTypes.object.isRequired,
+  loves: PropTypes.object.isRequired,
+  commentspost: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
   postdetails: state.postdetails.postdetails,
@@ -150,7 +162,9 @@ const mapStateToProps = (state) => ({
   suggestedusers: state.suggestedusers.suggestedusers,
   whoami: state.whoami.whoami,
   auth: state.auth,
+  loves: state.loves.loves,
   linksInfoWeb: state.linksInfoWeb,
+  commentspost: state.commentspost.commentspost,
 });
 
-export default connect(mapStateToProps, { fetchPostDetails })(PostDetails);
+export default connect(mapStateToProps)(PostDetails);

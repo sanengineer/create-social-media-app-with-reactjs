@@ -16,6 +16,11 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(
+      "this.props.auth.isAuthenticated:",
+      this.props.auth.isAuthenticated
+    );
+    console.log("componentWilReceiveProps");
     if (nextProps.auth.isAuthenticated) {
       //direct user to dashboard login after login
       this.props.history.push("/");
@@ -42,6 +47,10 @@ class Login extends Component {
   };
 
   componentDidMount() {
+    console.log(
+      "this.props.auth.isAuthenticated:",
+      this.props.auth.isAuthenticated
+    );
     // If logged in and user navigates to Login page, should redirect to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/");

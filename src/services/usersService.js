@@ -19,6 +19,14 @@ class UsersServices {
     return api.get(`/posts/${user_id}`);
   };
 
+  fetchLoveReceived = (postId) => {
+    return api.get(`/total-love/${postId}`);
+  };
+
+  fetchCommentsPost = (postId) => {
+    return api.get(`/comments/${postId}`);
+  };
+
   //
   //data private
   whoami = (token) => {
@@ -39,6 +47,18 @@ class UsersServices {
 
   createPostText = (token, postTextData) => {
     return api.post("/new-post-text", postTextData, {
+      headers: { authorization: token },
+    });
+  };
+
+  giveLovePost = (token, loveData) => {
+    return api.post("/love-post", loveData, {
+      headers: { authorization: token },
+    });
+  };
+
+  createComment = (token, comment) => {
+    return api.post("/comment-post", comment, {
       headers: { authorization: token },
     });
   };

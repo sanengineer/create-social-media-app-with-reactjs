@@ -40,6 +40,7 @@ body {
   border-top: none !important;
   padding: 10px;
 }
+
 .card-no-round .form-control:focus {
   color: #0b4900;
   background-color: #fff;
@@ -48,6 +49,58 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(72, 255, 0, 0);
 }
 
+.bs-popover-bottom,
+.bs-popover-auto[x-placement^="bottom"] {
+  margin-top: 0.5rem !important;
+}
+
+.popover-header {
+  background-color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.popover {
+  position: absolute;
+  transform: translate3d(209px, 456px, 0px) !important;
+  z-index: 1060;
+  display: block;
+  max-width: 1000px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+  font-size: 0.875rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: unset !important;
+}
+
+.popover-body {
+  padding: 1.5rem 1.75rem;
+  color: #212529;
+}
+
+.share-button-group svg {
+  height: 20px !important;
+}
+
+.popover .arrow {
+  transform: translate3d(68px, 0px, 0px) !important;
+}
 .search-container {
   background-color: #f9f9f9;
   padding: 6px 20px;
@@ -543,4 +596,20 @@ body {
 
 .browse-and-upload-btn-group {
   text-align: right;
+}
+
+/*--share link--*/
+.logo-copy-link,
+.logo-copy-link:focus {
+  background-color: unset;
+  border: unset;
+  outline: unset;
+}
+
+/*--post detail--*/
+.post-date::before,
+.love-info-numbers::before {
+  content: "\00B7";
+  margin: 0 0.35em;
+  color: #757575;
 }

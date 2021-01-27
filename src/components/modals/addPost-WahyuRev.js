@@ -48,7 +48,7 @@ class AddPost extends Component {
           // console.log(data);
           // window.location.reload();
         })
-        .catch((err) => // // console.log(err));
+        .catch((err) => console.log(err));
 
       // window.location.reload();
     }

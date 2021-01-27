@@ -7,6 +7,9 @@ import linksInfoWeb from "./footerReducer";
 import publicusers from "./publicUsers";
 import whoami from "./whoAmiReducer";
 import postdetails from "./postDetailsReducer";
+import loves from "./publicPostLovesReducer";
+import createcomment from "./createCommentReducer";
+import commentspost from "./fetchCommentsPostReducer";
 
 export default combineReducers({
   auth: authReducer,
@@ -17,4 +20,7 @@ export default combineReducers({
   publicusers: publicusers,
   whoami: whoami,
   postdetails: postdetails,
+  loves: loves,
+  createcomment: createcomment,
+  commentspost: commentspost,
 });

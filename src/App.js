@@ -7,6 +7,7 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authAction";
 import { fetchPublicUsers } from "./actions/publicUsers";
 import { fetchSuggestedUsers } from "./actions/suggestedUsersAction";
+import { fetchPostLoves } from "./actions/publicPostLovesAction";
 
 // import { fetchPostDetails } from "./actions/postDetailsAction";
 
@@ -106,12 +107,13 @@ class App extends Component {
     this.props.dispatch(fetchWhoAmi());
     this.props.dispatch(fetchPublicUsers());
     this.props.dispatch(fetchSuggestedUsers());
+
     // this.props.dispatch(fetchPostDetails());
     // console.log("this.props.match:", this.props.match);
 
     // const data = this.props.publicusers;
-
-    // const x = data.find((x) => x.post_id);
+    // const x = data.find((x) => x.post_id === "post_id");
+    // this.props.dispatch(fetchPostLoves(x));
 
     // console.log("x:", x);
   }
