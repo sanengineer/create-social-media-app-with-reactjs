@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 // Related to Authentication
 import jwt_decode from "jwt-decode";
@@ -37,6 +42,9 @@ import EditProfileByWahyu from "./components/editProfile-Wahyu";
 import SuggestedPage from "./pages/suggested-account-page";
 import PostDetails from "./pages/postDetail";
 import PostDetailDescription from "./components/postDetailDescriptions";
+import StoragePage from "./pages/storagePage";
+
+import PdfRender from "./pages/journalsPage";
 
 // // check for token  to keep user login
 // if (localStorage.jwtToken) {
@@ -102,6 +110,12 @@ class App extends Component {
   constructor(props) {
     super();
   }
+
+  // componentWillMount() {
+  //   if (localStorage.jwtToken !== 0) {
+  //     this.props.history.("/home");
+  //   }
+  // }
 
   componentDidMount() {
     this.props.dispatch(fetchWhoAmi());
@@ -200,6 +214,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Navbar></Navbar>
+          <Route exact path="/home" component={Landing}></Route>
           <Route exact path="/" component={Landing}></Route>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/register" component={Register}></Route>
@@ -209,7 +224,11 @@ class App extends Component {
             component={SuggestedPage}
           ></Route>
           {dynamicRoutes}
-          {/* <Route exact path="/properties/:id" component={PostDetails} /> */}
+          <Route
+            exact
+            path={`/${whoami.username}/journals`}
+            component={PdfRender}
+          />
 
           <Switch>
             <PrivateRoute
@@ -221,6 +240,11 @@ class App extends Component {
               exact
               path="/edit-profile"
               component={EditProfileByWahyu}
+            />
+            <PrivateRoute
+              exact
+              path={"/" + whoami.username + "/storage"}
+              component={StoragePage}
             />
           </Switch>
         </div>

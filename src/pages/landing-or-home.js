@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
 import { fetchPublicUsers } from "../actions/publicUsers";
 import { fetchWhoAmi } from "../actions/whoAmiAction";
+import { setCurrentUser } from "../actions/authAction";
 import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
 
 class Landing extends Component {
@@ -28,15 +29,23 @@ class Landing extends Component {
     // console.log("componentDidUpdate(this.props.postText):\n", this.props);
   }
 
+  componentWillMount() {
+    // this.props.dispatch(setCurrentUser());
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/home");
+    }
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchSuggestedUsers());
     this.props.dispatch(fetchPublicUsers());
     this.props.dispatch(fetchWhoAmi());
 
-    // this.props.dispatch(setCurrentUser());
-    // if (this.props.auth.isAuthenticated) {
-    //   this.props.history.push("/");
-    // }
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/home");
+    } else {
+      this.props.history.push("/");
+    }
   }
 
   render() {

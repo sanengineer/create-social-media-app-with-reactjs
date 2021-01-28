@@ -62,6 +62,18 @@ class UsersServices {
       headers: { authorization: token },
     });
   };
+
+  fetchImages = (token, user_id) => {
+    return api.get(`/storage-images/${user_id}`, {
+      headers: { authorization: token },
+    });
+  };
+
+  fetchVideos = (token, user_id) => {
+    return api.get(`/storage-videos/${user_id}`, {
+      headers: { authorization: token },
+    });
+  };
 }
 
 export default new UsersServices();

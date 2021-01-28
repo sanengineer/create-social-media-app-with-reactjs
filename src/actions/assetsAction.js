@@ -4,16 +4,14 @@ import jwt_decode from "jwt-decode";
 import * as actionTypes from "./actionTypes";
 require("dotenv").config();
 
-var url =
-  "http://localhost:5000" ||
-  `mongodb+srv://${process.env.MONGODB_ATLAS_USERNAME}:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0-rmxc3.mongodb.net/test?retryWrites=true&w=majority`;
+var url = "http://localhost:8000/api/v1";
 
-var urlHeroku = "https://sosmetend.herokuapp.com/api/v1";
+// var url = "https://sosmetend.herokuapp.com/api/v1";
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post(`${urlHeroku}/user`, userData)
+    .post(`${url}/user`, userData)
     .then((res) => history.push("/login"))
     .catch((err) =>
       dispatch({

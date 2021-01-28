@@ -80,7 +80,7 @@ class LatestPost extends Component {
               <div className="heading-profile-page-wrapper">
                 <div className="row justify-content-between mb-5">
                   <Col lg={4}>
-                    <h3 className="font-weight-bold">Your Posts</h3>
+                    <h3 className="font-weight-bold">YourPosts</h3>
                   </Col>
                   <Button
                     onClick={this.handleShow}

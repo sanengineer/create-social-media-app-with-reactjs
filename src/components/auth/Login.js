@@ -23,7 +23,7 @@ class Login extends Component {
     console.log("componentWilReceiveProps");
     if (nextProps.auth.isAuthenticated) {
       //direct user to dashboard login after login
-      this.props.history.push("/");
+      this.props.history.push("/home");
     }
     if (nextProps.errors) {
       this.setState({
@@ -53,7 +53,7 @@ class Login extends Component {
     );
     // If logged in and user navigates to Login page, should redirect to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/");
+      this.props.history.push("/home");
     }
   }
 

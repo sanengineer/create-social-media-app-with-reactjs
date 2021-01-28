@@ -4,12 +4,14 @@ import jwt_decode from "jwt-decode";
 import * as actionTypes from "./actionTypes";
 require("dotenv").config();
 
-var urlHeroku = "https://sosmetend.herokuapp.com/api/v1";
+var url = "http://localhost:8000/api/v1";
+
+// var url = "https://sosmetend.herokuapp.com/api/v1";
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post(`${urlHeroku}/register`, userData)
+    .post(`${url}/register`, userData)
     .then((res) => history.push("/login"))
     .catch((err) =>
       dispatch({
@@ -22,7 +24,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .post(`${urlHeroku}/login`, userData)
+    .post(`${url}/login`, userData)
     .then((res) => {
       // const { data } = res;
       const { user } = res.data;
@@ -65,4 +67,5 @@ export const logoutUser = () => (dispatch) => {
   localStorage.removeItem("jwtToken");
   setAuthToken(false);
   dispatch(setCurrentUser({}));
+  window.location.pathname = "/";
 };

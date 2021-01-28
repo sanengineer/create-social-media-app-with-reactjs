@@ -10,6 +10,7 @@ import postdetails from "./postDetailsReducer";
 import loves from "./publicPostLovesReducer";
 import createcomment from "./createCommentReducer";
 import commentspost from "./fetchCommentsPostReducer";
+import fetchvideos from "./fetchVideosReducer";
 
 export default combineReducers({
   auth: authReducer,
@@ -23,4 +24,5 @@ export default combineReducers({
   loves: loves,
   createcomment: createcomment,
   commentspost: commentspost,
+  fetchvideos: fetchvideos,
 });

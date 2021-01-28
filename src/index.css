@@ -630,3 +630,7 @@ body {
   height: 18px;
   margin-right: 12px;
 }
+
+.ava-wrapper-edit img {
+  object-fit: fill;
+}
