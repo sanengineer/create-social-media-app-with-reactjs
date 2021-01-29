@@ -1,18 +1,13 @@
 // import component react and react-bootstrap
-import { Modal, Button, Form, Row, Col, Image } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 import React, { Component } from "react";
-import { postStart, postSuccess } from "../../actions/createPostTextAction";
+
 import PropTypes from "prop-types";
-// import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 
 // import icons and images
 import userNoPict from "../../assets/images/user_no-pict.jpg";
-import iconEmoji from "../../assets/icons/icon_emoji.png";
-import iconImage from "../../assets/icons/icon_image.png";
-import { fetchWhoAmi } from "../../actions/whoAmiAction";
-import { createPostText } from "../../actions/createPostTextAction";
-import setAuthToken from "../../utils/setAuthToken";
+import { createPostText } from "../../redux/actions/createPostTextAction";
 
 class AddPostHomePage extends Component {
   // state = {
@@ -56,7 +51,7 @@ class AddPostHomePage extends Component {
     // console.log("postTextData:\n", postTextData);
     // console.log("this.props.postText:\n", this.props.postText);
 
-    if (postTextData.content == undefined || postTextData.content == " ") {
+    if (postTextData.content === undefined || postTextData.content === " ") {
       this.setState({ error: true });
       // this.props.dispatch(postSuccess());
     } else {
@@ -66,9 +61,9 @@ class AddPostHomePage extends Component {
     console.log(
       "!postTextData.content:",
       !postTextData.content,
-      postTextData.content == undefined,
-      postTextData.content == null,
-      postTextData.content == ""
+      postTextData.content === undefined,
+      postTextData.content === null,
+      postTextData.content === ""
     );
 
     // if (postTextData.content == null && !postTextData.content.trim()) {
@@ -79,18 +74,13 @@ class AddPostHomePage extends Component {
   };
 
   render() {
-    const { whoami, postText, isPosted } = this.props;
+    const { whoami, postText } = this.props;
     const { error, disabled } = this.state;
 
-    var userAva;
-
-    if (whoami.avatar) {
-      var userAva = whoami.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
+    const userAva = !whoami.avatar ? userNoPict : whoami.avatar;
 
     console.log("error:\n", error);
+    console.log("error:\n", userAva);
     // console.log("postText.content.length:", postText.content.length > 0);
     console.log("disabled:", disabled);
 
@@ -103,7 +93,7 @@ class AddPostHomePage extends Component {
               src={userAva}
               width={56}
               height={56}
-              alt={`Image Profile Of ${whoami.firstname} ${whoami.lastname}`}
+              alt={`Profile Of ${whoami.firstname} ${whoami.lastname}`}
             />
           </Col>
           <Col sm={11}>
@@ -135,7 +125,7 @@ class AddPostHomePage extends Component {
             className="post-btn btn btn-purple"
             size="sm"
             onClick={this.onClick}
-            disabled={disabled.length == 0}
+            disabled={disabled.length === 0}
           >
             NEW POST
           </button>

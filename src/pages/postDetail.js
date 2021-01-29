@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPostDetails } from "../actions/postDetailsAction";
-import { Container, Row, Col, Button, Image, Nav } from "react-bootstrap";
-import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
-import PostDetailsDescription from "../components/postDetailDescriptions";
-import { Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import SidebarProfileOverview from "../components/sidebar/SidebarProfileOverview";
+import PostDetailsDescription from "../components/PostDetailDescriptions";
 import PropTypes from "prop-types";
-import { SuggestedAccounts } from "../components/sidebar/suggested-accounts";
-import { InfoWeb } from "../components/sidebar/sidebar-footer";
-import { fetchPostLoves } from "../actions/publicPostLovesAction";
-import { fetchCommentsPost } from "../actions/fetchCommentsPostAction";
+import { SuggestedAccounts } from "../components/sidebar/SidebarSuggestedAccounts";
+import { InfoWeb } from "../components/sidebar/SidebarFooter";
+import { fetchPostLoves } from "../redux/actions/publicPostLovesAction";
+import { fetchCommentsPost } from "../redux/actions/fetchCommentsPostAction";
 import Comments from "../components/post/Comments";
 
 class PostDetails extends Component {
@@ -90,7 +88,7 @@ class PostDetails extends Component {
     const spliturl = match.path.split("/");
     const postId = spliturl[3];
     const data = publicusers;
-    const x = data.find((x) => x.post_id == `${postId}`);
+    const x = data.find((x) => x.post_id === `${postId}`);
 
     const pathname = window.location.pathname;
     const hostname = window.location.hostname;
@@ -108,7 +106,7 @@ class PostDetails extends Component {
 
     return (
       <>
-        <Container className="containerBox">
+        <Container className="container-boxx">
           <Row>
             <Col lg={8} className="feeds-wrapper pr-5">
               <div className="heading-profile-page-wrapper">{}</div>

@@ -1,7 +1,5 @@
 import React from "react";
 import { NavDropdown } from "react-bootstrap";
-
-// import assets
 import noPict from "../assets/images/user_no-pict.jpg";
 
 export const CornerComponent = ({ whoami, logOut, auth }) => {
@@ -48,12 +46,6 @@ export const CornerComponent = ({ whoami, logOut, auth }) => {
         }
         id="collasible-nav-dropdown"
       >
-        {/* <div className="who-am-i-navbar-detail f-12">
-          <strong>Sign In as:</strong>
-          <br />
-          {whoami.username}
-        </div> */}
-        {/* <NavDropdown.Divider /> */}
         <div className="dashboard-link f-12">
           <NavDropdown.Item
             href={"/" + whoami.username}

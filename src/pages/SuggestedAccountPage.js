@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
-import { SuggestedAccounts } from "../components/sidebar/suggested-accounts";
+import { fetchSuggestedUsers } from "../redux/actions/suggestedUsersAction";
+import { SuggestedAccounts } from "../components/sidebar/SidebarSuggestedAccounts";
 
 class SuggestedPage extends Component {
   constructor(props) {

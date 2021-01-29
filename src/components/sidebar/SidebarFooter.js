@@ -12,6 +12,7 @@ export const InfoWeb = ({ linksInfoWeb }) => {
           class={"list-link-" + linkInfoWeb}
           href={"/" + linkInfoWeb}
           target="_blank"
+          rel="noreferrer"
         >
           {linkInfoWeb}
         </a>

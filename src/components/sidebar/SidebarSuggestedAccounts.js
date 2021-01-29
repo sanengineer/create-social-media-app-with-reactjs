@@ -7,20 +7,12 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
   // console.log("suggested_account_numbers:", suggestedusers.length);
 
   const AccountSuggestedCard = (suggestedUser) => {
-    var userAva;
+    const userAva = !suggestedUser.avatar ? userNoPict : suggestedUser.avatar;
 
-    if (suggestedUser.avatar) {
-      var userAva = suggestedUser.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
-
-    var Fullname;
-    if (suggestedUser.firstname == "" || suggestedUser.firstname == null) {
-      var Fullname = suggestedUser.username + suggestedUser.user_id;
-    } else {
-      var Fullname = `${suggestedUser.firstname} ${suggestedUser.lastname}`;
-    }
+    const Fullname =
+      suggestedUser.firstname === "" || suggestedUser.firstname === null
+        ? suggestedUser.username + suggestedUser.user_id
+        : `${suggestedUser.firstname} ${suggestedUser.lastname}`;
 
     return (
       <div className="suggested-account-item mt-4">

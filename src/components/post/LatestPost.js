@@ -1,22 +1,21 @@
 // import react and component bootstrap
 import React, { Component } from "react";
-import { Container, Row, Col, Button, Image, Nav } from "react-bootstrap";
+import { Container, Row, Col, Button, Nav } from "react-bootstrap";
 
 import { connect } from "react-redux";
 
 import Posts from "./Posts";
 import AddPost from "../modals/AddPost";
 import DetailPost from "./DetailPost";
-import userIcon from "../../assets/images/user_no-pict.jpg";
 import PropTypes from "prop-types";
-import SidebarProfileOverview from "../../components/sidebar/sidebarProfileOverview";
-import { fetchWhoAmi } from "../../actions/whoAmiAction";
+import SidebarProfileOverview from "../../components/sidebar/SidebarProfileOverview";
+import { fetchWhoAmi } from "../../redux/actions/whoAmiAction";
 import UsersServices from "../../services/usersService";
 
 class LatestPost extends Component {
   state = {
     show: false,
-    postArray: Array(),
+    postArray: [],
     postArrayLength: 0,
   };
 
@@ -74,7 +73,7 @@ class LatestPost extends Component {
 
     return (
       <>
-        <Container className="containerBox">
+        <Container className="container-box">
           <Row>
             <Col lg={8} className="feeds-wrapper pr-5">
               <div className="heading-profile-page-wrapper">

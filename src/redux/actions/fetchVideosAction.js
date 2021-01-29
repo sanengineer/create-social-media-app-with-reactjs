@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import UsersServices from "../services/usersService";
+import UsersServices from "../../services/usersService";
 
 export const fetchVideos = (user_id) => (dispatch) => {
   const token = localStorage.jwtToken;

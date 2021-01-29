@@ -1,15 +1,12 @@
-// import component react and react-bootstrap
-import { Modal, Button, Form, Row, Col, Image } from "react-bootstrap";
+import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import React, { Component } from "react";
-import { createPostText } from "../../actions/createPostTextAction";
+import { createPostText } from "../../redux/actions/createPostTextAction";
 import PropTypes from "prop-types";
-// import {Link} from 'react-router-dom';
+
 import { connect } from "react-redux";
 
 // import icons and images
 import userNoPict from "../../assets/images/user_no-pict.jpg";
-import iconEmoji from "../../assets/icons/icon_emoji.png";
-import iconImage from "../../assets/icons/icon_image.png";
 
 class AddPost extends Component {
   state = {
@@ -66,12 +63,8 @@ class AddPost extends Component {
   render() {
     const { whoami, show, handleClose } = this.props;
 
-    var userAva;
-    if (whoami.avatar) {
-      var userAva = whoami.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
+    const userAva = !whoami.avatar ? userNoPict : whoami.avatar;
+
     return (
       <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Body>
@@ -82,7 +75,7 @@ class AddPost extends Component {
                 src={userAva}
                 width={56}
                 height={56}
-                alt={`Image Profile Of ${whoami.firstname} ${whoami.lastname}`}
+                alt={`Profile Of ${whoami.firstname} ${whoami.lastname}`}
               />
             </Col>
             <Col sm={11}>

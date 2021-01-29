@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import UsersServices from "../services/usersService";
+import UsersServices from "../../services/usersService";
 
 export const fetchPostDetails = (postId) => (dispatch) => {
   UsersServices.fetchtPostDetails(postId)

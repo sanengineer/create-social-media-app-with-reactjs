@@ -1,5 +1,4 @@
 import axios from "axios";
-import * as actionTypes from "./actionTypes";
 require("dotenv").config();
 
 var url = "http://localhost:8000/api/v1";

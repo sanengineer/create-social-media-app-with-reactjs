@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form, Image, Button, Nav } from "react-bootstrap";
-import { fetchWhoAmi, fetchWhoAmiSuccess } from "../actions/whoAmiAction";
+import { fetchWhoAmi, fetchWhoAmiSuccess } from "../redux/actions/whoAmiAction";
 import { connect } from "react-redux";
 import axios, { put, post } from "axios";
-
-// import assets
 import userNoPict from "../assets/images/user_no-pict.jpg";
-import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
+import SidebarProfileOverview from "./sidebar/SidebarProfileOverview";
 import UsersService from "../services/usersService";
-import ChangeAvaFormModal from "../components/modals/changeAvaModal";
+import ChangeAvaFormModal from "./modals/ChangeAvaModal";
 
 // import component
 

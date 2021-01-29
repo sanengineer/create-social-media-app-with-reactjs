@@ -3,9 +3,9 @@ import userNoPict from "../../assets/images/user_no-pict.jpg";
 
 const SidebarProfileOverview = ({ auth, whoami }) => {
   //
-  //debugging
-  //   // console.log(user.username);
-  // // console.log("AUTH:", auth);
+  //debug
+  // console.log(user.username);
+  // console.log("AUTH:", auth);
   // console.log("whoamiiii:", whoami);
 
   if (auth.isAuthenticated === false) {
@@ -15,19 +15,12 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
       </div>
     );
   } else {
-    var userAva;
-    if (whoami.avatar) {
-      var userAva = whoami.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
+    const userAva = !whoami.avatar ? userNoPict : whoami.avatar;
 
-    var Fullname;
-    if (whoami.firstname == "" || whoami.firstname == null) {
-      var Fullname = whoami.username + whoami.user_id;
-    } else {
-      var Fullname = `${whoami.firstname} ${whoami.lastname}`;
-    }
+    const Fullname =
+      whoami.firstname === "" || whoami.firstname === null
+        ? whoami.username + whoami.user_id
+        : `${whoami.firstname} ${whoami.lastname}`;
 
     return (
       <div className="sidebar-home-page-profile-overview pr-5">
@@ -37,7 +30,7 @@ const SidebarProfileOverview = ({ auth, whoami }) => {
             src={userAva}
             width={74}
             height={74}
-            alt={`Image Profile Of ${whoami.firstname} ${whoami.lastname}`}
+            alt={`Profile Of ${whoami.firstname} ${whoami.lastname}`}
           />
           <div className="ml-3 pt-3">
             <h3 className="h6 mb-1">

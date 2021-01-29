@@ -1,32 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import AddPostHomePage from "./post/AddPostHomePage";
 import userNoPict from "../assets/images/user_no-pict.jpg";
-import { postStart } from "../actions/createPostTextAction";
 
 export const Feeds = ({ publicusers, whoami, auth }) => {
   if (publicusers.length === 0) return null;
-  // console.log(publicusers.length);
 
+  //
+  //debug
+  // console.log(publicusers.length);
   // console.log("FEEEEEDS:", whoami.length === 0);
 
   const Feed = (userPublic) => {
-    var userAva;
-    if (userPublic.user.avatar) {
-      var userAva = userPublic.user.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
+    const userAva = !userPublic.user.avatar
+      ? userNoPict
+      : userPublic.user.avatar;
 
-    var Fullname;
-    if (
-      (userPublic.user.firstname == "" && userPublic.user.lastname == "") ||
-      (userPublic.user.firstname == null && userPublic.user.lastname == null)
-    ) {
-      var Fullname = userPublic.user.username + userPublic.user_id;
-    } else {
-      var Fullname = `${userPublic.user.firstname} ${userPublic.user.lastname}`;
-    }
+    const Fullname =
+      (userPublic.user.firstname === "" && userPublic.user.lastname === "") ||
+      (userPublic.user.firstname === null && userPublic.user.lastname === null)
+        ? userPublic.user.username + userPublic.user_id
+        : `${userPublic.user.firstname} ${userPublic.user.lastname}`;
 
     return (
       // <a className="post-detail-link" href={"/post/" + userPublic.post_id}>
@@ -49,7 +43,7 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
                     src={userAva}
                     alt={`${
                       userPublic.user.firstname + userPublic.user.lastname
-                    } Profil Picture`}
+                    } Profil`}
                     width="56"
                     height="56"
                   />

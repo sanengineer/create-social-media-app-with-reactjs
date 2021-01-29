@@ -1,15 +1,13 @@
 import React, { Component } from "react";
-import Navbar from "../components/navbar";
-import { Feeds } from "../components/public-feeds";
-import { InfoWeb } from "../components/sidebar/sidebar-footer";
-import { SuggestedAccounts } from "../components/sidebar/suggested-accounts";
+import { Feeds } from "../components/PublicFeeds";
+import { InfoWeb } from "../components/sidebar/SidebarFooter";
+import { SuggestedAccounts } from "../components/sidebar/SidebarSuggestedAccounts";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchSuggestedUsers } from "../actions/suggestedUsersAction";
-import { fetchPublicUsers } from "../actions/publicUsers";
-import { fetchWhoAmi } from "../actions/whoAmiAction";
-import { setCurrentUser } from "../actions/authAction";
-import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
+import { fetchSuggestedUsers } from "../redux/actions/suggestedUsersAction";
+import { fetchPublicUsers } from "../redux/actions/publicUsers";
+import { fetchWhoAmi } from "../redux/actions/whoAmiAction";
+import SidebarProfileOverview from "../components/sidebar/SidebarProfileOverview";
 
 class Landing extends Component {
   constructor(props) {
@@ -55,7 +53,6 @@ class Landing extends Component {
       linksInfoWeb,
       auth,
       whoami,
-      error,
       postText,
     } = this.props;
 

@@ -1,5 +1,5 @@
 // import axios from "axios";
-import UsersServices from "../services/usersService";
+import UsersServices from "../../services/usersService";
 import * as actionTypes from "./actionTypes";
 
 export const fetchWhoAmi = () => (dispatch) => {

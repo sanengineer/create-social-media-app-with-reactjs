@@ -2,7 +2,6 @@ import {
   FETCH_POST_DETAILS_FAIL,
   FETCH_POST_DETAILS_START,
   FETCH_POST_DETAILS_SUCCESS,
-  FETCH_PUBLIC_USERS_FAIL,
 } from "../actions/actionTypes";
 
 const initialState = {

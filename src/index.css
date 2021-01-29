@@ -146,6 +146,10 @@ body {
   transform: translate3d(-41px, 48px, 0px) !important;
 }
 
+.storage .dropdown-menu.show {
+  transform: translate3d(-76px, 43px, 0px) !important;
+}
+
 .dropdown-menu {
   box-shadow: 0px 12px 20px 7px rgb(253 244 255);
   left: -30px !important;
@@ -427,6 +431,30 @@ body {
   margin-bottom: 5px;
 }
 
+.nav-tabs {
+  border-top: 1px solid #dee2e6;
+  border-bottom: none;
+}
+
+.nav-tabs .nav-link {
+  border: unset;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.nav-tabs .nav-item {
+  margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #000000;
+  background-color: #fff;
+  border-color: unset;
+  border-top: 1px solid #000;
+  transform: translateY(-1px);
+}
+
 .about .nav-about .underlist-link .list-link a {
   text-decoration: none;
   font-size: 8px;
@@ -446,8 +474,8 @@ body {
   text-decoration: none;
 }
 
-.containerBox {
-  margin-top: 7rem;
+.container-box {
+  margin-top: 10rem;
 }
 /*--Register Login Form--*/
 .auth-form-control {
@@ -633,4 +661,59 @@ body {
 
 .ava-wrapper-edit img {
   object-fit: fill;
+}
+
+.card-video {
+  border-radius: 0px !important;
+  border-color: #a248cc;
+}
+.card-video::after {
+  background-color: #9140b6;
+}
+
+.card-video video {
+  object-fit: cover;
+}
+
+.icon-storage-add {
+  padding: 10px;
+}
+
+.add-image-text {
+  padding-left: 4px;
+}
+
+.add-video-text {
+  padding-left: 2px;
+}
+
+.add-doc-text {
+  padding-left: 8px;
+}
+
+.card-hover {
+  cursor: pointer;
+}
+
+.card-hover:hover .card-video::before {
+  opacity: 1;
+}
+
+.card-video::before {
+  background-color: rgba(0, 0, 0, 0.4);
+  content: "";
+  background-image: url(https://static-web-prod-vidio.akamaized.net/assets/packs/media/icons/play-button-white-3a5c20eb.svg);
+  background-position: 56%;
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
+  border-radius: 100%;
+  display: inline-block;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
 }

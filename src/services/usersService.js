@@ -51,6 +51,12 @@ class UsersServices {
     });
   };
 
+  createPostImage = (token, user_id, postImageData) => {
+    return api.post(`/new-post-image/${user_id}`, postImageData, {
+      headers: { authorization: token },
+    });
+  };
+
   giveLovePost = (token, loveData) => {
     return api.post("/love-post", loveData, {
       headers: { authorization: token },
@@ -63,6 +69,24 @@ class UsersServices {
     });
   };
 
+  uploadImages = (token, user_id, image_data) => {
+    return api.post(`/upload-image/${user_id}`, image_data, {
+      headers: { authorization: token },
+    });
+  };
+
+  uploadVideos = (token, user_id, video_data) => {
+    return api.post(`/upload-video/${user_id}`, video_data, {
+      headers: { authorization: token },
+    });
+  };
+
+  uploadDocs = (token, user_id, doc_data) => {
+    return api.post(`/upload-doc/${user_id}`, doc_data, {
+      headers: { authorization: token },
+    });
+  };
+
   fetchImages = (token, user_id) => {
     return api.get(`/storage-images/${user_id}`, {
       headers: { authorization: token },
@@ -71,6 +95,12 @@ class UsersServices {
 
   fetchVideos = (token, user_id) => {
     return api.get(`/storage-videos/${user_id}`, {
+      headers: { authorization: token },
+    });
+  };
+
+  fetchDocs = (token, user_id) => {
+    return api.get(`/storage-docs/${user_id}`, {
       headers: { authorization: token },
     });
   };

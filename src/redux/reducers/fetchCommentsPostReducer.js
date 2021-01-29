@@ -2,7 +2,6 @@ import {
   FETCH_COMMENTS_POST_START,
   FETCH_COMMENTS_POST_SUCCESS,
   FETCH_COMMENTS_POST_FAIL,
-  FETCH_POST_LOVES_START,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -13,7 +12,7 @@ const initialState = {
 
 export default function fetchCommentsPostReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_POST_LOVES_START:
+    case FETCH_COMMENTS_POST_START:
       return {
         ...state,
         loading: true,

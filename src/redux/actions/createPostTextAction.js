@@ -1,4 +1,4 @@
-import usersService from "../services/usersService";
+import usersService from "../../services/usersService";
 import * as actionTypes from "./actionTypes";
 
 export const createPostText = (postText) => (dispatch) => {

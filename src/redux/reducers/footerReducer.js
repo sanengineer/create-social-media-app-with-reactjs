@@ -15,7 +15,7 @@ const initialState = [
   "contact",
 ];
 
-export default function (state = initialState, action) {
+export default function footerReducer(state = initialState, action) {
   switch (action.type) {
     case WEB_INFO_FOOTER_SIDEBAR:
       return state;

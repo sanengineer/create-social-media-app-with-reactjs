@@ -1,15 +1,10 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Form, Image, Button, Nav } from "react-bootstrap";
-import { fetchWhoAmi, putWhoAmi } from "../actions/whoAmiAction-Wahyu";
+import { Form, Button, Nav, Col } from "react-bootstrap";
 import { connect } from "react-redux";
-
-// import assets
 import userNoPict from "../assets/images/user_no-pict.jpg";
-import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
+import SidebarProfileOverview from "../components/sidebar/SidebarProfileOverview";
 import UsersService from "../services/usersService";
-import ChangeAvaFormModal from "../components/modals/changeAvaModal";
-
-// import component
+import ChangeAvaFormModal from "../components/modals/ChangeAvaModal";
 
 class EditProfileByWahyu extends Component {
   constructor(props) {
@@ -110,13 +105,7 @@ class EditProfileByWahyu extends Component {
     }
 
     const { whoami, auth } = this.props;
-
-    var userAva;
-    if (this.props.whoami.avatar) {
-      var userAva = this.props.whoami.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
+    const userAva = !whoami.avatar ? userNoPict : whoami.avatar;
 
     return (
       <div className="container mt-5">

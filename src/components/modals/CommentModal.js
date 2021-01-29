@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import { Modal, Button, Form, Row, Image, Col } from "react-bootstrap";
+import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import userNoPict from "../../assets/images/user_no-pict.jpg";
-import { commentStart, createComment } from "../../actions/createCommentAction";
-import { fetchCommentsPost } from "../../actions/fetchCommentsPostAction";
+import {
+  commentStart,
+  createComment,
+} from "../../redux/actions/createCommentAction";
+import { fetchCommentsPost } from "../../redux/actions/fetchCommentsPostAction";
 
 class AddComment extends Component {
   state = {
@@ -62,7 +65,7 @@ class AddComment extends Component {
     if (
       (commentData.content === undefined &&
         commentData.post_id === undefined) ||
-      (commentData.content === " " && commentData.post_id == " ")
+      (commentData.content === " " && commentData.post_id === " ")
     ) {
       this.setState({ error: true });
     } else {
@@ -75,13 +78,8 @@ class AddComment extends Component {
     const { whoami, createcomment, publicusers } = this.props;
     const { error, disabled } = this.state;
     console.log(publicusers);
-    var userAva;
 
-    if (whoami.avatar) {
-      var userAva = whoami.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
+    const userAva = !whoami.avatar ? userNoPict : whoami.avatar;
 
     //
     //debug
@@ -96,7 +94,7 @@ class AddComment extends Component {
                 src={userAva}
                 width={56}
                 height={56}
-                alt={`Image Profile Of ${whoami.firstname} ${whoami.lastname}`}
+                alt={`Profile Of ${whoami.firstname} ${whoami.lastname}`}
               />
             </Col>
             <Col sm={11}>
@@ -128,7 +126,7 @@ class AddComment extends Component {
               onClick={this.onClick}
               className="btn-purple btn w-25"
               block
-              disabled={disabled.length == 0}
+              disabled={disabled.length === 0}
             >
               COMMENT
             </Button>

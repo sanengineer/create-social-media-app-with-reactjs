@@ -8,7 +8,7 @@ const initialState = {
 // console.log("initialState.postText:\n", initialState.postText);
 // console.log("initialState.postText:\n", initialState.isLoading);
 
-export default function (state = initialState, action) {
+export default function postTextReducer(state = initialState, action) {
   switch (action.type) {
     // case CREATE_USER_POST:
     //   return action.payload;

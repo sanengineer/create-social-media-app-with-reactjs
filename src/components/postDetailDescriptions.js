@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { Popover, OverlayTrigger } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import moment from "moment";
-import AddComment from "../components/modals/commentModals";
+import AddComment from "./modals/CommentModal";
 import UsersServices from "../services/usersService";
-import { fetchPostLovesStart } from "../actions/publicPostLovesAction";
+import { fetchPostLovesStart } from "../redux/actions/publicPostLovesAction";
 
 const PostDetailsDescription = ({
   postdetails,
@@ -62,15 +62,12 @@ const PostDetailsDescription = ({
   console.log("date:", date);
   console.log("time:", time);
 
-  var Fullname;
-  if (
-    (postdetails.user.firstname == "" && postdetails.user.lastname == "") ||
-    (postdetails.user.firstname == null && postdetails.user.lastname == null)
-  ) {
-    var Fullname = postdetails.user.username + postdetails.user_id;
-  } else {
-    var Fullname = `${postdetails.user.firstname} ${postdetails.user.lastname}`;
-  }
+  const Fullname =
+    (postdetails.user.firstname === "" && postdetails.user.lastname === "") ||
+    (postdetails.user.firstname === null && postdetails.user.lastname === null)
+      ? postdetails.user.username + postdetails.user_id
+      : `${postdetails.user.firstname} ${postdetails.user.lastname}`;
+
   return (
     <>
       <div className="quotes-people-box-list pr-5">
@@ -83,7 +80,7 @@ const PostDetailsDescription = ({
                   src={postdetails.user.avatar}
                   alt={`${
                     postdetails.user.firstname + postdetails.user.lastname
-                  } Profil Picture`}
+                  } Profile`}
                   width="56"
                   height="56"
                 />
@@ -178,6 +175,7 @@ const PostDetailsDescription = ({
                           <a
                             className="logo-twitter mr-5"
                             target="_blank"
+                            rel="noreferrer"
                             href={`https://twitter.com/intent/tweet?text=${postdetails.content} Post by ${Fullname}&url=https%3A%2F%2F${hostname}${pathname}%2F&`}
                           >
                             <svg
@@ -196,6 +194,7 @@ const PostDetailsDescription = ({
                           <a
                             className="logo-tumblr mr-5"
                             target="_blank"
+                            rel="noreferrer"
                             href={`https://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2F${hostname}${pathname}`}
                           >
                             <svg
@@ -214,6 +213,7 @@ const PostDetailsDescription = ({
                           <a
                             className="logo-linkedin mr-5"
                             target="_blank"
+                            rel="noreferrer"
                             href={`https://www.linkedin.com/sharing/share-offsite/?url=https://${hostname}${pathname}`}
                           >
                             <svg
@@ -232,6 +232,7 @@ const PostDetailsDescription = ({
                           <a
                             className="logo-facebook mr-5"
                             target="_blank"
+                            rel="noreferrer"
                             href={`https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F${hostname}${pathname}&`}
                           >
                             <svg

@@ -9,13 +9,7 @@ export const Comments = ({ commentspost }) => {
   }
 
   const CommentRow = (post, index) => {
-    var userAva;
-    if (post.user.avatar) {
-      var userAva = post.user.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
-
+    const userAva = !post.user.avatar ? userNoPict : post.user.avatar;
     return (
       <div id={index} className="d-flex mt-3">
         <div>

@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 // import usersService from "../services/usersService";
 
 //importAction
-import { logoutUser } from "../actions/authAction";
+import { logoutUser } from "../redux/actions/authAction";
 
 //import component
-import { CornerComponent } from "./cornerComponent";
-import { fetchWhoAmi } from "../actions/whoAmiAction";
+import { CornerComponent } from "./CornerComponent";
+import { fetchWhoAmi } from "../redux/actions/whoAmiAction";
 
 class Navbar extends Component {
   constructor(props) {

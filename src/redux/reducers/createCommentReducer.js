@@ -7,7 +7,7 @@ const initialState = {
   isCommented: false,
 };
 
-export default function (state = initialState, action) {
+export default function createCommentReducer(state = initialState, action) {
   switch (action.type) {
     case CREATE_USER_COMMENT_START:
       return {

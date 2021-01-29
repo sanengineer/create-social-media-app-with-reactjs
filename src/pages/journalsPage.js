@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { useDispatch } from "react-redux";
 import {
   BlobProvider,
   Page,
@@ -51,7 +50,11 @@ class PdfRender extends Component {
       <div style={{ height: "100vh" }}>
         <BlobProvider document={PdfDoct()}>
           {({ url }) => (
-            <iframe src={url} style={{ width: "100%", height: "100%" }} />
+            <iframe
+              title="pdf-doc-test"
+              src={url}
+              style={{ width: "100%", height: "100%" }}
+            />
           )}
         </BlobProvider>
       </div>

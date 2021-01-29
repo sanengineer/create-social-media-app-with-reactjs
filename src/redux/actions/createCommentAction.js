@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import UsersService from "../services/usersService";
+import UsersService from "../../services/usersService";
 
 export const createComment = (comment) => (dispatch) => {
   const token = localStorage.jwtToken;

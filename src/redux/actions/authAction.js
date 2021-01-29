@@ -1,6 +1,5 @@
 import axios from "axios";
-import setAuthToken from "../utils/setAuthToken";
-import jwt_decode from "jwt-decode";
+import setAuthToken from "../../utils/setAuthToken";
 import * as actionTypes from "./actionTypes";
 require("dotenv").config();
 
@@ -27,9 +26,9 @@ export const loginUser = (userData) => (dispatch) => {
     .post(`${url}/login`, userData)
     .then((res) => {
       // const { data } = res;
-      const { user } = res.data;
-
-      // // console.log("data", res.data.accessToken);
+      //
+      //debug
+      //console.log("data", res.data.accessToken);
       // set token to localstorage
       localStorage.setItem("jwtToken", res.data.accessToken);
       // set token to Auth header
@@ -39,7 +38,7 @@ export const loginUser = (userData) => (dispatch) => {
       dispatch(setCurrentUser(res.data));
     })
     .catch((err) => {
-      // // console.log("error ", err);
+      //console.log("error ", err);
       dispatch({
         type: actionTypes.GET_ERRORS,
         payload: { message: "authentication has failed" },
