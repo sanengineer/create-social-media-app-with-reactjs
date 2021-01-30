@@ -4,9 +4,9 @@ import { fetchWhoAmi, fetchWhoAmiSuccess } from "../redux/actions/whoAmiAction";
 import { connect } from "react-redux";
 import axios, { put, post } from "axios";
 import userNoPict from "../assets/images/user_no-pict.jpg";
-import SidebarProfileOverview from "./sidebar/SidebarProfileOverview";
+import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
 import UsersService from "../services/usersService";
-import ChangeAvaFormModal from "./modals/ChangeAvaModal";
+import ChangeAvaFormModal from "../components/modals/ChangeAvaModal";
 
 class EditProfile extends Component {
   constructor(props) {

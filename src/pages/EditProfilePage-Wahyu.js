@@ -7,7 +7,6 @@ import UsersService from "../services/usersService";
 import ChangeAvaFormModal from "../components/modals/ChangeAvaModal";
 
 // import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import Navbar from "../components/Navbar";
 
 class EditProfileByWahyu extends Component {
