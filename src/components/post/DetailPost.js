@@ -27,23 +27,24 @@ class DetailPost extends Component {
   };
 
   componentDidMount() {
+    this.getComment();
+    //
+    //debug
     // console.log(Object.keys(this.props.post["post"]).length);
     // console.log(this.props.post["post"]);
     // console.log("ini adalah redux post detail", this.props.post);
-
-    this.getComment();
-
     // console.log("ini respon get comment", this.state.commentArray);
   }
 
   onChange = (e) => {
     this.setState({ comment: e.target.value });
+    //
+    //debug
     // console.log(this.state.comment);
   };
 
   postComment = () => {
     // let commentArray = this.state.commentArray
-    // console.log("click");
 
     let commentData = {
       user_id: this.props.post["post"].user_id,
@@ -60,10 +61,13 @@ class DetailPost extends Component {
         this.getComment();
       })
       .catch((err) => console.log(err));
-    // console.log(commentData);
 
     // this.setState({ commentArray: commentArray })
-    // // console.log(this.state.commentArray)
+    //
+    //debug
+    // console.log("click");
+    // console.log(commentData);
+    // console.log(this.state.commentArray)
   };
 
   getComment = () => {

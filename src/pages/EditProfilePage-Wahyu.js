@@ -1,29 +1,23 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { Form, Button, Nav, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import userNoPict from "../assets/images/user_no-pict.jpg";
 import SidebarProfileOverview from "../components/sidebar/SidebarProfileOverview";
 import UsersService from "../services/usersService";
 import ChangeAvaFormModal from "../components/modals/ChangeAvaModal";
-// import DatePickerComp from "./DatePickerComp";
-import DatePicker from "react-datepicker";
+
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Navbar from "../components/Navbar";
 
 class EditProfileByWahyu extends Component {
   constructor(props) {
     super();
-
-    // this.state = {
-    //   show: false,
-    // };
     this.state = {
       userProfile: null,
       show: false,
       startDate: null,
     };
-
-    // this.onChangeBirthdate = this.onChangeBirthdate.bind(this);
   }
 
   // state = {

@@ -12,11 +12,9 @@ import { fetchSuggestedUsers } from "./redux/actions/suggestedUsersAction";
 import { connect } from "react-redux";
 import store from "./redux/store/store";
 
-import Navbar from "./components/Navbar";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import LatestPost from "./components/post/LatestPost(Archived)";
 import Landing from "./pages/LandingOrHomePage";
 import { fetchWhoAmi } from "./redux/actions/whoAmiAction";
 import EditProfileByWahyu from "./pages/EditProfilePage-Wahyu";

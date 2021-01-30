@@ -37,7 +37,7 @@ class PostDetails extends Component {
   }
 
   componentDidMount() {
-    console.log("PostDetails:");
+    // console.log("PostDetails:");
     // console.log("window:", window);
     // console.log("this.props.params:", this.props.params);
     // console.log("this.props:", this.props);
@@ -46,7 +46,6 @@ class PostDetails extends Component {
 
     const spliturl = this.props.match.path.split("/");
     const postId = spliturl[3];
-    const userdata = this.props.postdetails.user;
 
     document.title = `Sosmet App | Posting From ${spliturl[1]}`;
 
@@ -54,11 +53,7 @@ class PostDetails extends Component {
     this.props.dispatch(fetchCommentsPost(postId));
 
     // const data = this.props.publicusers;
-
     // const x = data.find((x) => x.post_id == `${postId}`);
-
-    // console.log("x", x);
-    // console.log("data:", data);
 
     // this.props.fetchPostDetails(postId);
     // console.log(
@@ -68,14 +63,15 @@ class PostDetails extends Component {
 
     //
     //debug
-    console.log("postId:", postId);
+    // console.log("x", x);
+    // console.log("data:", data);
+    // console.log("postId:", postId);
     // console.log("params:", params);
-    console.log("userdata:", userdata);
   }
 
   render() {
     const {
-      postdetails,
+      // postdetails,
       publicusers,
       suggestedusers,
       whoami,
@@ -98,14 +94,14 @@ class PostDetails extends Component {
     //
     //debug
     // console.log("match.params.id:", match.params);
-    console.log("postdetails:", postdetails);
-    console.log("commentspost:", commentspost);
+    // console.log("postdetails:", postdetails);
+    // console.log("commentspost:", commentspost);
     // console.log("url:", url.href);
-    console.log(this.props);
-    console.log("loves", loves);
-    console.log("window:", window);
-    console.log("x:", x);
-    console.log("data:", data);
+    // console.log(this.props);
+    // console.log("loves", loves);
+    // console.log("window:", window);
+    // console.log("x:", x);
+    // console.log("data:", data);
     // console.log("postdetails.user.username:", postdetails.user.username);
 
     return (
@@ -170,7 +166,7 @@ class PostDetails extends Component {
 
 PostDetails.propsTypes = {
   auth: PropTypes.object.isRequired,
-  postdetails: PropTypes.object.isRequired,
+  // postdetails: PropTypes.object.isRequired,
   whoami: PropTypes.object.isRequired,
   publicusers: PropTypes.object.isRequired,
   fetchPostLoves: PropTypes.func.isRequired,
@@ -181,7 +177,7 @@ PostDetails.propsTypes = {
   commentspost: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
-  postdetails: state.postdetails.postdetails,
+  // postdetails: state.postdetails.postdetails,
   publicusers: state.publicusers.publicusers,
   suggestedusers: state.suggestedusers.suggestedusers,
   whoami: state.whoami.whoami,

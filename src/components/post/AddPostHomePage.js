@@ -22,9 +22,6 @@ class AddPostHomePage extends Component {
       image_link: "",
     };
   }
-  // state = {
-
-  // };
 
   // onChangePostImage(e) {
   //   this.setState({ image_file_name: e.target.files[0] });
@@ -53,11 +50,12 @@ class AddPostHomePage extends Component {
 
     this.setState({ file: e.target.files[0] });
 
-    console.log("onchange:\n", dataValue);
-    console.log("dataValue.image", dataValue.image);
-    console.log(this.props.postText);
-    console.log("e.target.files[0]:", e.target);
-
+    //
+    //debug
+    // console.log("onchange:\n", dataValue);
+    // console.log("dataValue.image", dataValue.image);
+    // console.log(this.props.postText);
+    // console.log("e.target.files[0]:", e.target);
     // console.log("lenght:\n", dataValue.image.length > 0);
   };
 
@@ -92,8 +90,8 @@ class AddPostHomePage extends Component {
         this.setState({ image_link: response.data.image_link });
 
         //
-        //
-        console.log(response);
+        //debug
+        // console.log(response);
       })
       // .then((data) => window.location.reload())
       .catch((err) => console.log("ERRR:", err));
@@ -108,6 +106,8 @@ class AddPostHomePage extends Component {
     //   image: this.props.postText.image,
     // };
 
+    //
+    //debug
     // console.log("postTextData:\n", postTextData);
     // console.log("postImageData:\n", postImageData);
     // console.log("this.props.postText:\n", this.props.postText);
@@ -138,13 +138,15 @@ class AddPostHomePage extends Component {
     const { whoami, postText } = this.props;
     const { error, disabled } = this.state;
 
-    console.log("this.state.image_link", this.state.image_link);
     const userAva = !whoami.avatar ? userNoPict : whoami.avatar;
 
-    console.log("error:\n", error);
-    console.log("error:\n", userAva);
+    //
+    //debug
+    // console.log("error:\n", error);
+    // console.log("error:\n", userAva);
     // console.log("postText.content.length:", postText.content.length > 0);
-    console.log("disabled:", disabled);
+    // console.log("disabled:", disabled);
+    // console.log("this.state.image_link", this.state.image_link);
 
     return (
       <>

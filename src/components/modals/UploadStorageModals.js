@@ -11,6 +11,8 @@ const AddImageModal = (props) => {
   const [selectedFile, setSelectedFile] = useState(undefined);
   const [currentFile, setCurrentFile] = useState(undefined);
 
+  console.log(currentFile);
+
   const selectFile = (e) => {
     setSelectedFile(e.target.files);
 

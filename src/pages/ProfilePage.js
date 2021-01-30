@@ -22,17 +22,23 @@ class LatestPost extends Component {
 
   // showing modal
   handleShow = () => {
-    // // console.log(this.state.postArray);
+    //
+    //debug
+    // console.log(this.state.postArray);
     this.setState({ show: true });
   };
 
   // closing modal
   handleClose = () => {
     this.setState({ show: false });
-    // // console.log(this.state.postArray);
+    //
+    //debug
+    // console.log(this.state.postArray);
   };
 
   openDetail = () => {
+    //
+    //debug
     // console.log("open detail");
     // this.props.history.push('/detail-post')
     return <DetailPost />;
@@ -129,5 +135,4 @@ const mapStateToProps = (state) => ({
   whoami: state.whoami.whoami,
 });
 
-// export default LatestPost;
 export default connect(mapStateToProps)(LatestPost);

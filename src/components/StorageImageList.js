@@ -11,6 +11,7 @@ export const ImagesList = ({ fetchimages }) => {
             src={imageData.image_link}
             height="240px"
             style={{ objectFit: "contain" }}
+            alt={`${imageData.user_id}`}
           />
         </div>
       </div>

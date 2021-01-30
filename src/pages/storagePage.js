@@ -292,8 +292,6 @@ class StoragePage extends Component {
         </Router>
       </div>
     );
-    // } else {
-    //   return null;
   }
 }
 
