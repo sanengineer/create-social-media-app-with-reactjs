@@ -1,15 +1,12 @@
-// import component react and react-bootstrap
-import { Modal, Button, Form, Row, Col, Image } from "react-bootstrap";
+import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import React, { Component } from "react";
-import { posting } from "../../actions/postAction";
+import { createPostText } from "../../redux/actions/createPostTextAction";
 import PropTypes from "prop-types";
-// import {Link} from 'react-router-dom';
+
 import { connect } from "react-redux";
 
 // import icons and images
 import userNoPict from "../../assets/images/user_no-pict.jpg";
-import iconEmoji from "../../assets/icons/icon_emoji.png";
-import iconImage from "../../assets/icons/icon_image.png";
 
 class AddPost extends Component {
   state = {
@@ -26,7 +23,7 @@ class AddPost extends Component {
     }
 
     this.setState({ post: dataValue });
-    console.log(this.state.post);
+    // console.log(this.state.post);
   };
 
   // submiting form
@@ -48,29 +45,26 @@ class AddPost extends Component {
     };
 
     if (postData.content === null || postData.content === undefined) {
-      console.log("form null");
+      // console.log("form null");
       this.setState({ errors: true });
     } else {
-      console.log(postData);
-      posting(postData)
-        .then((res) => res.data)
-        .then((data) => {
-          console.log(data);
-          window.location.reload();
-        })
-        .catch((err) => console.log(err));
+      // console.log(postData);
+      this.props.dispatch(createPostText(postData));
+      // posting(postData)
+      //   .then((res) => res.data)
+      //   .then((data) => {
+      //     // console.log(data);
+      //     window.location.reload();
+      //   })
+      //   .catch((err) => // // console.log(err));
     }
   };
 
   render() {
     const { whoami, show, handleClose } = this.props;
 
-    var userAva;
-    if (whoami.avatar) {
-      var userAva = whoami.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
+    const userAva = !whoami.avatar ? userNoPict : whoami.avatar;
+
     return (
       <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Body>
@@ -81,7 +75,7 @@ class AddPost extends Component {
                 src={userAva}
                 width={56}
                 height={56}
-                alt={`Image Profile Of ${whoami.firstname} ${whoami.lastname}`}
+                alt={`Profile Of ${whoami.firstname} ${whoami.lastname}`}
               />
             </Col>
             <Col sm={11}>

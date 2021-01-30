@@ -6,9 +6,7 @@ class Underconstruction extends Component {
       <div className="container align-wrapper cccc" style={{ height: "72vh" }}>
         <div className="row">
           <div className="text-center" style={{ marginTop: "10rem" }}>
-            {/* <HomePage /> */}
-            HALAMANYA LAGI DIBENERIN, BENTAR YACH ENGNINEEERNYA LAGI NGODING
-            NICH
+            UNDERCONTRUCTION
           </div>
         </div>
       </div>

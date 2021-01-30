@@ -3,19 +3,13 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import userNoPict from "../../assets/images/user_no-pict.jpg";
 
-export const Comments = ({ commentArray }) => {
-  if (commentArray === undefined || commentArray.length === 0) {
+export const Comments = ({ commentspost }) => {
+  if (commentspost === undefined || commentspost.length === 0) {
     return null;
   }
 
   const CommentRow = (post, index) => {
-    var userAva;
-    if (post.user.avatar) {
-      var userAva = post.user.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
-
+    const userAva = !post.user.avatar ? userNoPict : post.user.avatar;
     return (
       <div id={index} className="d-flex mt-3">
         <div>
@@ -25,8 +19,8 @@ export const Comments = ({ commentArray }) => {
           <h6 className="mb-1">
             {post.user.username}
             <span className="font-comment">
-              {post.createdAt.split("T")[0]}{" "}
-              {post.createdAt.split("T")[1].substring(0, 5)}
+              {/* {post.createdAt.split("T")[0]}{" "}
+              {post.createdAt.split("T")[1].substring(0, 5)} */}
             </span>
           </h6>
           <div className="font-comment">
@@ -37,7 +31,7 @@ export const Comments = ({ commentArray }) => {
     );
   };
 
-  const CommentTable = commentArray.map((post, index) =>
+  const CommentTable = commentspost.map((post, index) =>
     CommentRow(post, index)
   );
 

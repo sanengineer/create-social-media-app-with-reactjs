@@ -2,12 +2,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { SET_USER_POST } from "../../actions/actionTypes";
+import { CREATE_USER_POST } from "../../redux/actions/actionTypes";
 import userNoPict from "../../assets/images/user_no-pict.jpg";
 
 export const Posts = ({ postArray }) => {
   let dispatch = useDispatch();
-  console.log(postArray);
+  // console.log(postArray);
   if (postArray === undefined || postArray.length === 0) {
     return (
       <div>
@@ -17,44 +17,28 @@ export const Posts = ({ postArray }) => {
   }
 
   const openDetail = (postData) => {
-    // console.log(postData)
+    // // console.log(postData)
     dispatch({
-      type: SET_USER_POST,
+      type: CREATE_USER_POST,
       payload: postData,
     });
   };
 
-  const test = () => {
-    console.log("tes click");
-  };
-
   const PostRow = (post, index) => {
-    var userAva;
-    if (post.user.avatar) {
-      var userAva = post.user.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
+    const userAva = !post.user.avatar ? userNoPict : post.user.avatar;
 
-    var Fullname;
-    if (
-      (post.user.firstname == "" && post.user.lastname == "") ||
-      (post.user.firstname == null && post.user.lastname == null)
-    ) {
-      var Fullname = post.user.username + post.user_id;
-    } else {
-      var Fullname = `${post.user.firstname} ${post.user.lastname}`;
-    }
+    const Fullname =
+      (post.user.firstname === "" && post.user.lastname === "") ||
+      (post.user.firstname === null && post.user.lastname === null)
+        ? post.user.username + post.user_id
+        : `${post.user.firstname} ${post.user.lastname}`;
 
     return (
       <Link
         onClick={(e) => openDetail(post)}
         id={index}
         className="post-detail-link mmm"
-        // to="/detail-post"
-        to="#"
       >
-        {/* <a onClick={openDetail(post)} id={index} className="post-detail-link" to="/detail-post"> */}
         <div className="quotes-people-box-list">
           <div className="first-text d-flex justify-content-between">
             <div className="img-bio d-flex justify-content-between">
@@ -76,8 +60,19 @@ export const Posts = ({ postArray }) => {
                 <div className="name">{Fullname}</div>
 
                 <div className="second-text">
-                  <span>{post.content}</span>
-                  {/* <a onClick={openDetail(post)} >detail</a> */}
+                  <div className="col" style={{ marginLeft: "0" }}>
+                    <p className="row">{post.content}</p>
+                    <div className="row">
+                      {!post.image ? null : (
+                        <img
+                          src={post.image}
+                          className="rounded"
+                          height="280"
+                          alt={`Post From ${Fullname}`}
+                        />
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -87,12 +82,6 @@ export const Posts = ({ postArray }) => {
               </button>
             </div> */}
           </div>
-          {/* <div className="d-flex">
-            <p className="mb-0 text-muted">4 Comment</p>
-            <p className="mb-0 ml-3 text-muted">87 Saved</p>
-            <p className="mb-0 ml-3 text-muted">54 Loved</p>
-            <p className="mb-0 ml-3 text-muted">46 Shared</p>
-          </div> */}
         </div>
       </Link>
     );

@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form, Image, Button, Nav } from "react-bootstrap";
-import { fetchWhoAmi, fetchWhoAmiSuccess } from "../actions/whoAmiAction";
+import { fetchWhoAmi, fetchWhoAmiSuccess } from "../redux/actions/whoAmiAction";
 import { connect } from "react-redux";
 import axios, { put, post } from "axios";
-
-// import assets
 import userNoPict from "../assets/images/user_no-pict.jpg";
-import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
-import UsersService from "../services/users-service";
-import ChangeAvaFormModal from "../components/modals/changeAvaModal";
-
-// import component
+import SidebarProfileOverview from "./sidebar/SidebarProfileOverview";
+import UsersService from "../services/usersService";
+import ChangeAvaFormModal from "./modals/ChangeAvaModal";
 
 class EditProfile extends Component {
   constructor(props) {
@@ -26,6 +22,8 @@ class EditProfile extends Component {
   };
 
   componentDidMount() {
+    //
+    //debug
     // this.props.dispatch(fetchWhoAmiSuccess());
     // this.setState({ userProfile: this.props.whoami });
 
@@ -33,7 +31,9 @@ class EditProfile extends Component {
       .then((res) => res.data)
       .then((res) => {
         this.setState({ userProfile: res });
-        console.log("RESSSS:", res);
+        //
+        //debug
+        // console.log("RESSSS:", res);
       })
       .catch((err) => console.log(err));
   }
@@ -58,7 +58,9 @@ class EditProfile extends Component {
       user.address = e.target.value;
     }
 
-    console.log("VALUEEE:", user);
+    //
+    //debug
+    // console.log("VALUEEE:", user);
 
     this.setState({ userProfile: user });
   };
@@ -77,8 +79,6 @@ class EditProfile extends Component {
       username: this.state.userProfile.username,
     };
 
-    console.log("RRRR:", data, this.props.whoami.user_id);
-
     UsersService.updateWhoAmi(
       this.props.whoami.user_id,
       data,
@@ -86,16 +86,19 @@ class EditProfile extends Component {
     )
       .then((result) => {
         //
-        //debugging
-        console.log(result);
+        //debug
+        // console.log(result);
       })
       .catch((err) => {
         //
-        //debugging
-        console.log(err.message);
+        //debug
+        // console.log(err.message);
       });
 
-    console.log("dataaaa", data);
+    //
+    //debug
+    // console.log("RRRR:", data, this.props.whoami.user_id);
+    // console.log("dataaaa", data);
   };
 
   //
@@ -111,13 +114,13 @@ class EditProfile extends Component {
   render() {
     var whoamiAvatar;
 
-    console.log("userProfileee", this.state.userProfile);
-
     const { whoami } = this.props;
     // const { userProfile } = this.state;
 
+    //
+    //debug
+    // console.log("userProfileee", this.state.userProfile);
     // console.log("STATEEEE:");
-
     // console.log("USERIDDD:", userProfile);
 
     // if (userProfile.avatar) {

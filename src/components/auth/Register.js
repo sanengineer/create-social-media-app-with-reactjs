@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { registerUser } from "../../actions/authAction";
+import { registerUser } from "../../redux/actions/authAction";
 import classnames from "classnames";
-import Navbar from "../navbar";
 
 class Register extends Component {
   constructor() {
@@ -47,20 +46,20 @@ class Register extends Component {
       password: this.state.password,
     };
 
-    console.log(newUser);
+    // console.log(newUser);
     this.props.registerUser(newUser, this.props.history);
   };
 
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/home");
     }
   }
 
   render() {
     const { errors } = this.state;
-    console.log("states", this.state);
+    // console.log("states", this.state);
     return (
       <div className="register-page">
         <div className="container">

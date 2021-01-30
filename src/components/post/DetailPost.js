@@ -13,47 +13,38 @@ import {
 
 // import component and icon
 import userNoPict from "../../assets/images/user_no-pict.jpg";
-import commentIcon from "../../assets/icons/icon_comment.png";
-import saveIcon from "../../assets/icons/icon_save.png";
-import shareIcon from "../../assets/icons/icon_share.png";
-import loveIcon from "../../assets/icons/icon_love.png";
-import logoTwitter from "../../assets/icons/logo_twitter.png";
-import logoFaceBook from "../../assets/icons/logo_facebook.png";
-import logoLinkIdn from "../../assets/icons/logo_linkedin.png";
-import logoReddit from "../../assets/icons/logo_reddit.png";
-import logoTumblr from "../../assets/icons/logo_tumblr.png";
-import iconCopyLink from "../../assets/icons/icon_copy-link.png";
 import Comments from "./Comments";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import SidebarProfileOverview from "../../components/sidebar/sidebarProfileOverview";
-import { SuggestedAccounts } from "../../components/sidebar/suggested-accounts";
-import { commenting, getComments } from "../../actions/commentAction";
+import SidebarProfileOverview from "../../components/sidebar/SidebarProfileOverview";
+import { SuggestedAccounts } from "../../components/sidebar/SidebarSuggestedAccounts";
+import { commenting, getComments } from "../../redux/actions/commentAction";
 
 class DetailPost extends Component {
   state = {
     comment: "",
-    commentArray: Array(),
+    commentArray: [],
   };
 
   componentDidMount() {
-    console.log(Object.keys(this.props.post["post"]).length);
-    console.log(this.props.post["post"]);
-    console.log("ini adalah redux post detail", this.props.post);
-
     this.getComment();
-
-    console.log("ini respon get comment", this.state.commentArray);
+    //
+    //debug
+    // console.log(Object.keys(this.props.post["post"]).length);
+    // console.log(this.props.post["post"]);
+    // console.log("ini adalah redux post detail", this.props.post);
+    // console.log("ini respon get comment", this.state.commentArray);
   }
 
   onChange = (e) => {
     this.setState({ comment: e.target.value });
-    console.log(this.state.comment);
+    //
+    //debug
+    // console.log(this.state.comment);
   };
 
   postComment = () => {
     // let commentArray = this.state.commentArray
-    console.log("click");
 
     let commentData = {
       user_id: this.props.post["post"].user_id,
@@ -64,15 +55,18 @@ class DetailPost extends Component {
     commenting(commentData)
       .then((res) => res.data)
       .then((res2) => {
-        console.log(res2);
+        // console.log(res2);
         this.setState({ comment: "" });
         // commentArray.push(commentData);
         this.getComment();
       })
       .catch((err) => console.log(err));
-    console.log(commentData);
 
     // this.setState({ commentArray: commentArray })
+    //
+    //debug
+    // console.log("click");
+    // console.log(commentData);
     // console.log(this.state.commentArray)
   };
 
@@ -80,17 +74,17 @@ class DetailPost extends Component {
     getComments(this.props.post["post"].post_id)
       .then((res) => res.data.data)
       .then((res2) => {
-        console.log(res2);
+        // console.log(res2);
         this.setState({ commentArray: res2 });
       })
       .catch((err) => console.log(err));
   };
 
   render() {
-    if (Object.keys(this.props.post["post"]).length == 0) {
+    if (Object.keys(this.props.post["post"]).length === 0) {
       // this.props.history.push('/latest-post');
       return (
-        <div className="container containerBox">
+        <div className="container container-box">
           <p>detail error</p>
         </div>
       );
@@ -98,15 +92,11 @@ class DetailPost extends Component {
 
     const { whoami } = this.props;
 
-    var userAva;
-    if (whoami.avatar) {
-      var userAva = whoami.avatar;
-    } else {
-      var userAva = userNoPict;
-    }
+    const userAva = !whoami.avatar ? userNoPict : whoami.avatar;
+
     return (
       <>
-        <Container className="containerBox">
+        <Container className="container-box">
           <Row>
             <Col sm={8}>
               <br></br>
@@ -284,7 +274,7 @@ class DetailPost extends Component {
                           </Popover>
                         }
                       >
-                        <a href="#" className="icon-share">
+                        <Button className="icon-share">
                           {/* <Image src={shareIcon} /> */}
                           <svg
                             width="20"
@@ -315,7 +305,7 @@ class DetailPost extends Component {
                               stroke-linejoin="round"
                             />
                           </svg>
-                        </a>
+                        </Button>
                       </OverlayTrigger>
                     </div>
                     <div className="icon-love ml-5">

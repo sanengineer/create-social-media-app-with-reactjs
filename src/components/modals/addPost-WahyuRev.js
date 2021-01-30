@@ -1,15 +1,14 @@
 // import component react and react-bootstrap
 import { Modal, Button, Form, Row, Col, Image } from "react-bootstrap";
 import React, { Component } from "react";
-import { posting } from "../../actions/postAction";
 import PropTypes from "prop-types";
-// import {Link} from 'react-router-dom';
 import { connect } from "react-redux";
 
 // import icons and images
 import userIcon from "../../assets/images/user_no-pict.jpg";
 import iconEmoji from "../../assets/icons/icon_emoji.png";
 import iconImage from "../../assets/icons/icon_image.png";
+import UsersService from "../../services/usersService";
 
 class AddPost extends Component {
   state = {
@@ -38,14 +37,14 @@ class AddPost extends Component {
     };
 
     if (postData.content === null || postData.content === undefined) {
-      console.log("form null");
+      // console.log("form null");
       this.setState({ errors: "Please fill me" });
     } else {
-      console.log(postData);
-      posting(postData)
+      // console.log(postData);
+      UsersService.createPostText(postData)
         .then((res) => res.data)
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           // window.location.reload();
         })
         .catch((err) => console.log(err));
