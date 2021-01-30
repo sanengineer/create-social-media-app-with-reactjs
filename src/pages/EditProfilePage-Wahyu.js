@@ -145,7 +145,7 @@ class EditProfileByWahyu extends Component {
                 <div className="d-flex">
                   <div className="ava-wrapper-edit">
                     <img
-                      className="rounded-circle"
+                      className="avatar-large rounded-circle"
                       src={userAva}
                       alt={
                         "Profile Image " + whoami.firstname + whoami.lastname

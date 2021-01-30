@@ -20,7 +20,7 @@ export const SuggestedAccounts = ({ suggestedusers }) => {
         <div className="image-profile-box">
           <div className="image-profile">
             <img
-              className="img-src rounded-circle"
+              className="avatar-small img-src rounded-circle"
               src={userAva}
               alt={
                 suggestedUser.firstname +

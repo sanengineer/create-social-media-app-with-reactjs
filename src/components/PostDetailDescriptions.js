@@ -78,7 +78,7 @@ const PostDetailsDescription = ({
             <div className="image-profile-box">
               <div className="image-profile">
                 <img
-                  className="img-src rounded-circle"
+                  className="avatar-medium img-src rounded-circle"
                   src={postdetails.user.avatar}
                   alt={`${
                     postdetails.user.firstname + postdetails.user.lastname

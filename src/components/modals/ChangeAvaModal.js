@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Modal, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import UsersService from "../../services/usersService";
+import { baseUrl } from "../../services/httpService";
 import { put } from "axios";
 
 class ChangeAvaFormModal extends Component {
@@ -33,8 +34,8 @@ class ChangeAvaFormModal extends Component {
 
   fileUpload(file) {
     const user_id = this.props.whoami.user_id;
-    const url = `https://sosmetend.herokuapp.com/api/v1/avatar/${user_id}`;
-    // const url = `http://localhost:8000/api/v1/avatar/${user_id}`;
+    const url = `${baseUrl}/avatar/${user_id}`;
+    // const url = `${baseUrl}/avatar/${user_id}`;
     const form_data = new FormData();
 
     form_data.append("image", file);

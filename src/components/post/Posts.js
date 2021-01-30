@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { CREATE_USER_POST } from "../../redux/actions/actionTypes";
+import ReactHtmlParser from "react-html-parser";
 import userNoPict from "../../assets/images/user_no-pict.jpg";
 
 export const Posts = ({ postArray }) => {
@@ -45,7 +46,7 @@ export const Posts = ({ postArray }) => {
               <div className="image-profile-box">
                 <div className="image-profile">
                   <img
-                    className="img-src rounded-circle"
+                    className="avatar-medium img-src rounded-circle"
                     src={userAva}
                     alt={post.user.username + " Profil Picture"}
                     width="56"
@@ -61,7 +62,7 @@ export const Posts = ({ postArray }) => {
 
                 <div className="second-text">
                   <div className="col" style={{ marginLeft: "0" }}>
-                    <p className="row">{post.content}</p>
+                    <p className="row">{ReactHtmlParser(post.content)}</p>
                     <div className="row">
                       {!post.image ? null : (
                         <img

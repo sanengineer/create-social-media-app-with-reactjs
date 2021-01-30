@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AddPostHomePage from "./post/AddPostHomePage";
 import userNoPict from "../assets/images/user_no-pict.jpg";
+import ReactHtmlParser from "react-html-parser";
 
 export const Feeds = ({ publicusers, whoami, auth }) => {
   if (publicusers.length === 0) return null;
@@ -39,7 +40,7 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
               <div className="image-profile-box">
                 <div className="image-profile">
                   <img
-                    className="img-src rounded-circle"
+                    className="avatar-medium rounded-circle"
                     src={userAva}
                     alt={`${
                       userPublic.user.firstname + userPublic.user.lastname
@@ -66,7 +67,7 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
           </div>
           <div className="second-text">
             <div className="col" style={{ marginLeft: "82px" }}>
-              <p className="row">{userPublic.content}</p>
+              <p className="row">{ReactHtmlParser(userPublic.content)}</p>
               <div className="row">
                 {!userPublic.image ? null : (
                   <img

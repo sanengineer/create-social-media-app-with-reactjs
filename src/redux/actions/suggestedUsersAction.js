@@ -1,15 +1,12 @@
 import * as actionTypes from "./actionTypes";
-
-// var url = "http://localhost:8000/api/v1";
-
-var url = "https://sosmetend.herokuapp.com/api/v1";
+import { baseUrl } from "../../services/httpService";
 
 //fetch suggested
 export const fetchSuggestedUsers = () => {
   return async (dispatch) => {
     dispatch(fetchSuggestedUsersStart());
     try {
-      const response = await fetch(`${url}/all-profiles`);
+      const response = await fetch(`${baseUrl}/all-profiles`);
       const res = await handleErrors(response);
       const json = await res.json();
       dispatch(fetchSuggestedUsersSuccess(json));

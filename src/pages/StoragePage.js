@@ -123,7 +123,7 @@ class StoragePage extends Component {
                   src={whoami.avatar}
                   style={{ borderRadius: "100%" }}
                   height="160px"
-                  className="ml-5 pl-3"
+                  className="avatar-large ml-5 pl-3"
                   alt={`Profile of ${whoami.firstname} ${whoami.lastname}`}
                 />
               </div>

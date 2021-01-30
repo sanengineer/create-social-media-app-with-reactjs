@@ -1,16 +1,13 @@
 import axios from "axios";
 import setAuthToken from "../../utils/setAuthToken";
 import * as actionTypes from "./actionTypes";
+import { baseUrl } from "../../services/httpService";
 require("dotenv").config();
-
-// var url = "http://localhost:8000/api/v1";
-
-var url = "https://sosmetend.herokuapp.com/api/v1";
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post(`${url}/register`, userData)
+    .post(`${baseUrl}/register`, userData)
     .then((res) => history.push("/login"))
     .catch((err) =>
       dispatch({
@@ -23,7 +20,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .post(`${url}/login`, userData)
+    .post(`${baseUrl}/login`, userData)
     .then((res) => {
       // const { data } = res;
       //
