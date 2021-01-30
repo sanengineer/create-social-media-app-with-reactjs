@@ -1,8 +1,8 @@
 import axios from "axios";
 require("dotenv").config();
 
-var url = "http://localhost:8000/api/v1";
-// var url = "https://sosmetend.herokuapp.com/api/v1";
+// var url = "http://localhost:8000/api/v1";
+var url = "https://sosmetend.herokuapp.com/api/v1";
 
 // R
 export const commenting = (commentData) => {

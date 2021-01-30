@@ -33,8 +33,8 @@ class ChangeAvaFormModal extends Component {
 
   fileUpload(file) {
     const user_id = this.props.whoami.user_id;
-    // const url = `https://sosmetend.herokuapp.com/api/v1/avatar/${user_id}`;
-    const url_local = `http://localhost:8000/api/v1/avatar/${user_id}`;
+    const url = `https://sosmetend.herokuapp.com/api/v1/avatar/${user_id}`;
+    // const url = `http://localhost:8000/api/v1/avatar/${user_id}`;
     const form_data = new FormData();
 
     form_data.append("image", file);
@@ -47,7 +47,7 @@ class ChangeAvaFormModal extends Component {
     };
 
     // console.log("CONFIGGG:", config, "\n", "FORMDATAAA:", form_data, "\n");
-    return put(url_local, form_data, config);
+    return put(url, form_data, config);
   }
 
   handleSubmitAvatar = () => {

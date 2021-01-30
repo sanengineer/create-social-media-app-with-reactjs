@@ -1,8 +1,8 @@
 import * as actionTypes from "./actionTypes";
 
-var url = "http://localhost:8000/api/v1";
+// var url = "http://localhost:8000/api/v1";
 
-// var url = "https://sosmetend.herokuapp.com/api/v1";
+var url = "https://sosmetend.herokuapp.com/api/v1";
 
 //fetch suggested
 export const fetchSuggestedUsers = () => {

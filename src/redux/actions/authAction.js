@@ -3,9 +3,9 @@ import setAuthToken from "../../utils/setAuthToken";
 import * as actionTypes from "./actionTypes";
 require("dotenv").config();
 
-var url = "http://localhost:8000/api/v1";
+// var url = "http://localhost:8000/api/v1";
 
-// var url = "https://sosmetend.herokuapp.com/api/v1";
+var url = "https://sosmetend.herokuapp.com/api/v1";
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
