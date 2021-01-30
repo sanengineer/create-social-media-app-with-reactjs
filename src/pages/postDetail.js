@@ -9,6 +9,7 @@ import { InfoWeb } from "../components/sidebar/SidebarFooter";
 import { fetchPostLoves } from "../redux/actions/publicPostLovesAction";
 import { fetchCommentsPost } from "../redux/actions/fetchCommentsPostAction";
 import Comments from "../components/post/Comments";
+import Navbar from "../components/Navbar";
 
 class PostDetails extends Component {
   constructor(props) {
@@ -86,9 +87,10 @@ class PostDetails extends Component {
     } = this.props;
 
     const spliturl = match.path.split("/");
-    const postId = spliturl[3];
+    const postIdStr = spliturl[3];
+    const postIdInt = parseInt(postIdStr);
     const data = publicusers;
-    const x = data.find((x) => x.post_id === `${postId}`);
+    const x = data.find((x) => x.post_id === postIdInt);
 
     const pathname = window.location.pathname;
     const hostname = window.location.hostname;
@@ -102,11 +104,14 @@ class PostDetails extends Component {
     console.log(this.props);
     console.log("loves", loves);
     console.log("window:", window);
+    console.log("x:", x);
+    console.log("data:", data);
     // console.log("postdetails.user.username:", postdetails.user.username);
 
     return (
       <>
-        <Container className="container-boxx">
+        <Navbar />
+        <Container className="container-box">
           <Row>
             <Col lg={8} className="feeds-wrapper pr-5">
               <div className="heading-profile-page-wrapper">{}</div>

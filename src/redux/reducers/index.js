@@ -11,6 +11,7 @@ import loves from "./publicPostLovesReducer";
 import createcomment from "./createCommentReducer";
 import commentspost from "./fetchCommentsPostReducer";
 import fetchvideos from "./fetchVideosReducer";
+import fetchimages from "./fetchImagesReducer";
 
 export default combineReducers({
   auth: authReducer,
@@ -25,4 +26,5 @@ export default combineReducers({
   createcomment: createcomment,
   commentspost: commentspost,
   fetchvideos: fetchvideos,
+  fetchimages: fetchimages,
 });

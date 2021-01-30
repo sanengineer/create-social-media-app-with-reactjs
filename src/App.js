@@ -16,10 +16,10 @@ import Navbar from "./components/Navbar";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import LatestPost from "./components/post/LatestPost";
+import LatestPost from "./components/post/LatestPost(Archived)";
 import Landing from "./pages/LandingOrHomePage";
 import { fetchWhoAmi } from "./redux/actions/whoAmiAction";
-import EditProfileByWahyu from "./components/editProfile-Wahyu";
+import EditProfileByWahyu from "./pages/EditProfilePage-Wahyu";
 import SuggestedPage from "./pages/SuggestedAccountPage";
 import PostDetails from "./pages/PostDetail";
 import StoragePage from "./pages/StoragePage";
@@ -28,6 +28,7 @@ import PdfRender from "./pages/JournalsPage";
 //Importing stylesheet
 import "sanstrap/dist/css/sanstrap.css";
 import "./index.css";
+import ProfilePage from "./pages/ProfilePage";
 
 class App extends Component {
   constructor(props) {
@@ -74,7 +75,7 @@ class App extends Component {
     const routes = publicusers.map((user) => route(user));
 
     const dynamicRoutes = routes.map(({ path, component, params }, key) => (
-      <Route
+      <PrivateRoute
         exact
         path={path}
         component={component}
@@ -97,7 +98,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Navbar></Navbar>
           <Route exact path="/home" component={Landing}></Route>
           <Route exact path="/" component={Landing}></Route>
           <Route exact path="/login" component={Login}></Route>
@@ -108,22 +108,15 @@ class App extends Component {
             component={SuggestedPage}
           ></Route>
           {dynamicRoutes}
-          <Route
-            exact
-            path={`/${whoami.username}/journals`}
-            component={PdfRender}
-          />
+          <Route path={`/${whoami.username}/journals`} component={PdfRender} />
           <Switch>
             <PrivateRoute
               exact
               path={"/" + whoami.username}
-              component={LatestPost}
+              //component={LatestPost}
+              component={ProfilePage}
             />
-            <PrivateRoute
-              exact
-              path="/edit-profile"
-              component={EditProfileByWahyu}
-            />
+            <PrivateRoute path="/edit-profile" component={EditProfileByWahyu} />
             <PrivateRoute
               path={"/" + whoami.username + "/storage"}
               component={StoragePage}

@@ -65,7 +65,19 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
             </div> */}
           </div>
           <div className="second-text">
-            <span>{userPublic.content}</span>
+            <div className="col" style={{ marginLeft: "82px" }}>
+              <p className="row">{userPublic.content}</p>
+              <div className="row">
+                {!userPublic.image ? null : (
+                  <img
+                    src={userPublic.image}
+                    className="rounded"
+                    height="280"
+                    alt={`Post From ${Fullname}`}
+                  />
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </Link>

@@ -60,7 +60,19 @@ export const Posts = ({ postArray }) => {
                 <div className="name">{Fullname}</div>
 
                 <div className="second-text">
-                  <span>{post.content}</span>
+                  <div className="col" style={{ marginLeft: "0" }}>
+                    <p className="row">{post.content}</p>
+                    <div className="row">
+                      {!post.image ? null : (
+                        <img
+                          src={post.image}
+                          className="rounded"
+                          height="280"
+                          alt={`Post From ${Fullname}`}
+                        />
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

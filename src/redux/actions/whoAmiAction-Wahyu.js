@@ -22,30 +22,6 @@ export const fetchWhoAmi = () => (dispatch) => {
     // console.log("aku nullkan whoami");
     dispatch(fetchWhoAmiNull());
   }
-
-  // const response = axios.get(`${urlHeroku}/user/profile/me`, {
-  //   Authorization: localStorage.jwtToken,
-  // });
-
-  // UsersServices.whoami(token)
-  // .then((res) => {
-  //   //
-  //   //debugging
-  //   // console.log("TESTTTTTT:", res.data);
-  //   dispatch(fetchWhoAmiSuccess(res.data));
-  // })
-  // .catch(err => {
-  //   // console.log('ini gagal who ami di action', err)
-  //   dispatch(fetchWhoAmiNull)
-  // });
-
-  //
-  //debugging
-  // // console.log("RESPONSESS:", response);
-  // // console.log("TOKENNNNN:", localStorage.jwtToken);
-  // // console.log("TOKEN:", token);
-
-  //   return response;
 };
 export const putWhoAmi = (data) => (dispatch) => {
   dispatch(putWhoAmiEdit(data));

@@ -18,6 +18,7 @@ class ChangeAvaFormModal extends Component {
 
   onChangeAva(e) {
     this.setState({ file: e.target.files[0] });
+    console.log("e.target.files[0]:", e.target.files);
   }
 
   onFormAvaSubmit(e) {

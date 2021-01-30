@@ -54,6 +54,7 @@ class UsersServices {
   createPostImage = (token, user_id, postImageData) => {
     return api.post(`/new-post-image/${user_id}`, postImageData, {
       headers: { authorization: token },
+      "content-type": "multipart/form-data",
     });
   };
 
@@ -69,20 +70,38 @@ class UsersServices {
     });
   };
 
-  uploadImages = (token, user_id, image_data) => {
-    return api.post(`/upload-image/${user_id}`, image_data, {
+  uploadImages = (user_id, image_data, token) => {
+    const image_append = new FormData();
+    image_append.append("image", image_data);
+
+    // debug;
+    console.log("image_append", image_append);
+
+    return api.post(`/upload-image/${user_id}`, image_append, {
       headers: { authorization: token },
     });
   };
 
-  uploadVideos = (token, user_id, video_data) => {
-    return api.post(`/upload-video/${user_id}`, video_data, {
+  uploadVideos = (user_id, video_data, token) => {
+    const video_append = new FormData();
+    video_append.append("image", video_data);
+
+    // debug;
+    console.log("video_append", video_append);
+
+    return api.post(`/upload-video/${user_id}`, video_append, {
       headers: { authorization: token },
     });
   };
 
-  uploadDocs = (token, user_id, doc_data) => {
-    return api.post(`/upload-doc/${user_id}`, doc_data, {
+  uploadDocs = (user_id, doc_data, token) => {
+    const doc_append = new FormData();
+    doc_append.append("image", doc_data);
+
+    // debug;
+    console.log("doc_append", doc_append);
+
+    return api.post(`/upload-doc/${user_id}`, doc_append, {
       headers: { authorization: token },
     });
   };

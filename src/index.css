@@ -2,6 +2,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.sbox-filter-blur {
+  filter: blur(10px);
+}
+
 .top-nav {
   border-bottom: 1px solid #dddddd;
   background-color: #fff;
@@ -21,6 +25,15 @@ body {
 .login-btn:hover {
   border: 1px solid #401a52 !important;
   color: #401a52 !important;
+}
+
+/**--botstrap overider--**/
+.modal-content {
+  margin-top: 0rem !important;
+}
+
+.modal-backdrop {
+  background-color: #ffffff;
 }
 
 .btn-danger:hover {
@@ -475,7 +488,7 @@ body {
 }
 
 .container-box {
-  margin-top: 10rem;
+  padding-top: 8rem;
 }
 /*--Register Login Form--*/
 .auth-form-control {
@@ -503,13 +516,6 @@ body {
 .modal-body .form-control:focus {
   box-shadow: unset;
   border-right: 1px solid transparent;
-}
-
-.modal-backdrop {
-  background-color: #ffffff;
-  backdrop-filter: blur(29px);
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
 }
 
 /**--edit profile--**/

@@ -7,6 +7,7 @@ import {
   Document,
   StyleSheet,
 } from "@react-pdf/renderer";
+import Navbar from "../components/Navbar";
 
 const styles = StyleSheet.create({
   page: {
@@ -47,17 +48,34 @@ class PdfRender extends Component {
   }
   render() {
     return (
-      <div style={{ height: "100vh" }}>
-        <BlobProvider document={PdfDoct()}>
-          {({ url }) => (
-            <iframe
-              title="pdf-doc-test"
-              src={url}
-              style={{ width: "100%", height: "100%" }}
-            />
-          )}
-        </BlobProvider>
-      </div>
+      <>
+        <Navbar />
+        <div
+          className="container-box"
+          style={{
+            marginRight: "10rem",
+            marginLeft: "10rem",
+            marginBottom: "10rem",
+          }}
+        >
+          <h2 className="p-5 h4 font-weight-bold">Read 📄</h2>
+          <div style={{ height: "100vh" }}>
+            <BlobProvider document={PdfDoct()}>
+              {({ url }) => (
+                <iframe
+                  title="pdf-doc-test"
+                  src={url}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "10px",
+                  }}
+                />
+              )}
+            </BlobProvider>
+          </div>
+        </div>
+      </>
     );
   }
 }

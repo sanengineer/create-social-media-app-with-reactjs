@@ -8,6 +8,7 @@ import { fetchSuggestedUsers } from "../redux/actions/suggestedUsersAction";
 import { fetchPublicUsers } from "../redux/actions/publicUsers";
 import { fetchWhoAmi } from "../redux/actions/whoAmiAction";
 import SidebarProfileOverview from "../components/sidebar/SidebarProfileOverview";
+import Navbar from "../components/Navbar";
 
 class Landing extends Component {
   constructor(props) {
@@ -63,6 +64,7 @@ class Landing extends Component {
     // console.log("AUTHHHHH:", auth);
     return (
       <div className="landing-page">
+        <Navbar />
         <div className="section-main container">
           <div className="row">
             <div className="feeds-wrapper col-8 pr-5">

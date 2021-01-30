@@ -22,6 +22,6 @@ export const fetchPostDetailsSuccess = (postdetails) => ({
 });
 
 export const fetchPostDetailsFail = (error) => ({
-  type: actionTypes.FETCH_PUBLIC_USERS_FAIL,
+  type: actionTypes.FETCH_POST_DETAILS_FAIL,
   payload: { error },
 });

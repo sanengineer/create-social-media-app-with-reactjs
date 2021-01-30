@@ -21,6 +21,6 @@ export const fetchPostLovesSuccess = (loves) => ({
 });
 
 export const fetchPostLovesFail = (error) => ({
-  type: actionTypes.FETCH_PUBLIC_USERS_FAIL,
+  type: actionTypes.FETCH_POST_LOVES_FAIL,
   payload: { error },
 });

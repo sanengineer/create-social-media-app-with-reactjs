@@ -62,11 +62,13 @@ const PostDetailsDescription = ({
   console.log("date:", date);
   console.log("time:", time);
 
-  const Fullname =
+  let Fullname =
     (postdetails.user.firstname === "" && postdetails.user.lastname === "") ||
     (postdetails.user.firstname === null && postdetails.user.lastname === null)
       ? postdetails.user.username + postdetails.user_id
       : `${postdetails.user.firstname} ${postdetails.user.lastname}`;
+
+  console.log(Fullname);
 
   return (
     <>
@@ -102,9 +104,20 @@ const PostDetailsDescription = ({
         </div> */}
         </div>
         <div className="second-text">
-          <span>{postdetails.content}</span>
+          <div className="col" style={{ marginLeft: "82px" }}>
+            <p className="row">{postdetails.content}</p>
+            <div className="row">
+              {!postdetails.image ? null : (
+                <img
+                  src={postdetails.image}
+                  className="rounded"
+                  height="280"
+                  alt={`Post From ${Fullname}`}
+                />
+              )}
+            </div>
+          </div>
         </div>
-
         <div className="thrid-text container pt-5 pb-5">
           <div className="row justify-content-between">
             <div className="third-text-left-group d-flex">

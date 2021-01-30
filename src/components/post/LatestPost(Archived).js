@@ -8,7 +8,7 @@ import Posts from "./Posts";
 import AddPost from "../modals/AddPost";
 import DetailPost from "./DetailPost";
 import PropTypes from "prop-types";
-import SidebarProfileOverview from "../../components/sidebar/SidebarProfileOverview";
+import SidebarProfileOverview from "../sidebar/SidebarProfileOverview";
 import { fetchWhoAmi } from "../../redux/actions/whoAmiAction";
 import UsersServices from "../../services/usersService";
 
