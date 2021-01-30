@@ -288,10 +288,14 @@ body {
   color: #000;
   display: block;
   background-color: white;
-  padding: 10px 10px;
+  padding: 11px 80px 0px 10px;
   border-bottom: 1px solid #dddddd;
   z-index: 0;
   position: relative;
+}
+
+.feeds-post {
+  padding-right: 90px;
 }
 
 .post-detail-link:hover {

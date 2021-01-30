@@ -67,7 +67,9 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
           </div>
           <div className="second-text">
             <div className="col" style={{ marginLeft: "82px" }}>
-              <p className="row">{ReactHtmlParser(userPublic.content)}</p>
+              <p className="row feeds-post">
+                {ReactHtmlParser(userPublic.content)}
+              </p>
               <div className="row">
                 {!userPublic.image ? null : (
                   <img
