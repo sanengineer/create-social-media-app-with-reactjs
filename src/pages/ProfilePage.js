@@ -60,14 +60,14 @@ class LatestPost extends Component {
       .then((res) => res.data.data)
       .then((data) => {
         this.setState({ postArray: data, postArrayLength: data.length });
-        console.log(
-          "comDidMount on latest:\n",
-          "-postArray:",
-          this.state.postArray,
-          "\n",
-          "-postArrayLength:",
-          this.state.postArrayLength
-        );
+        // console.log(
+        //   "comDidMount on latest:\n",
+        //   "-postArray:",
+        //   this.state.postArray,
+        //   "\n",
+        //   "-postArrayLength:",
+        //   this.state.postArrayLength
+        // );
       });
 
     this.props.dispatch(fetchWhoAmi());

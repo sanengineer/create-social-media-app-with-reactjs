@@ -27,12 +27,12 @@ class Navbar extends Component {
   // componentDidMount=()=>{
   //   usersService.me(this.state.token).then((result)=>{
   //     this.setState({me:result.data});
-  //     // console.log(result.data)
+  //     console.log(result.data)
   //   }).catch((err)=>{
-  //     // console.log(err.message)
+  //     console.log(err.message)
   //   })
 
-  //   // console.log(this.props.auth)
+  //   console.log(this.props.auth)
   // }
 
   componentDidMount() {

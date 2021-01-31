@@ -2,8 +2,8 @@ import { api, baseUrl } from "./httpService";
 
 //
 //debug
-console.log("url", baseUrl);
-console.log("api", api);
+// console.log("url", baseUrl);
+// console.log("api", api);
 
 class UsersServices {
   //

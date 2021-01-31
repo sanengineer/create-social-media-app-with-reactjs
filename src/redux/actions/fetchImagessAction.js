@@ -7,13 +7,13 @@ export const fetchImages = (user_id) => (dispatch) => {
     .then((res) => {
       //
       //debug
-      console.log("res.data:", res.data.data);
+      // console.log("res.data:", res.data.data);
       dispatch(fetchImagesSuccess(res.data.data));
     })
     .catch((err) => {
       //
       //debug
-      console.log("err:", err.message);
+      // console.log("err:", err.message);
       dispatch(fetchImagesFail(err.message));
     });
 };

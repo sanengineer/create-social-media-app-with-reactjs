@@ -40,7 +40,7 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
               <div className="image-profile-box">
                 <div className="image-profile">
                   <img
-                    className="avatar-medium rounded-circle"
+                    className="avatar-small rounded-circle"
                     src={userAva}
                     alt={`${
                       userPublic.user.firstname + userPublic.user.lastname
@@ -50,7 +50,7 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
                   />
                 </div>
               </div>
-              <div className="bio-desc pl-4">
+              <div className="bio-desc pl-2 f-10">
                 {/* <Link to={"/" + userPublic.user.username}> */}
                 <Link to="#" style={{ textDecoration: "none" }}>
                   <div className="username">{userPublic.user.username}</div>
@@ -66,8 +66,8 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
             </div> */}
           </div>
           <div className="second-text">
-            <div className="col" style={{ marginLeft: "82px" }}>
-              <p className="row feeds-post">
+            <div className="col" style={{ marginLeft: "38px" }}>
+              <p className="row feeds-post f-12">
                 {ReactHtmlParser(userPublic.content)}
               </p>
               <div className="row">

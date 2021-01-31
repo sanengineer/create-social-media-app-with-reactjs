@@ -18,7 +18,7 @@ const AddImageModal = (props) => {
 
     //
     //debug
-    console.log("e.target.files", e.target.files);
+    // console.log("e.target.files", e.target.files);
   };
 
   function uploadImage() {
@@ -27,9 +27,9 @@ const AddImageModal = (props) => {
     let currentFile = selectedFile[0];
     //
     //debug
-    console.log("user_id:", user_id);
-    console.log("token:", token);
-    console.log("currentFile:", currentFile);
+    // console.log("user_id:", user_id);
+    // console.log("token:", token);
+    // console.log("currentFile:", currentFile);
 
     setCurrentFile(currentFile);
 

@@ -16,11 +16,13 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(
-      "this.props.auth.isAuthenticated:",
-      this.props.auth.isAuthenticated
-    );
-    console.log("componentWilReceiveProps");
+    //
+    //debug
+    // console.log(
+    //   "this.props.auth.isAuthenticated:",
+    //   this.props.auth.isAuthenticated
+    // );
+    // console.log("componentWilReceiveProps");
     if (nextProps.auth.isAuthenticated) {
       //direct user to dashboard login after login
       this.props.history.push("/home");

@@ -53,10 +53,12 @@ class AddPost extends Component {
       // posting(postData)
       //   .then((res) => res.data)
       //   .then((data) => {
-      //     // console.log(data);
+      //     console.log(data);
       //     window.location.reload();
       //   })
-      //   .catch((err) => // // console.log(err));
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
     }
   };
 

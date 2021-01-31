@@ -6,13 +6,13 @@ export const fetchCommentsPost = (postId) => (dispatch) => {
     .then((res) => {
       //
       //debug
-      console.log("res.data:", res.data.data);
+      // console.log("res.data:", res.data.data);
       dispatch(fetchCommentsPostSuccess(res.data.data));
     })
     .catch((err) => {
       //
       //debug
-      console.log("err:", err.response);
+      // console.log("err:", err.response);
       dispatch(fetchCommentsPostFail(err.response));
     });
 };

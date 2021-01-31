@@ -21,10 +21,14 @@ class Landing extends Component {
     if (prevProps.postText !== this.props.postText) {
       this.props.dispatch(fetchPublicUsers());
       // this.props.dispatch(postStart());
-      console.log("componentDidUpdate(prevProps):", true);
+      //
+      //debug
+      // console.log("componentDidUpdate(prevProps):", true);
     }
-    console.log("componentDidUpdate(prevProps):\n", prevProps.postText);
-    console.log("componentDidUpdate(this.props):\n", this.props.postText);
+    //
+    //debug
+    // console.log("componentDidUpdate(prevProps):\n", prevProps.postText);
+    // console.log("componentDidUpdate(this.props):\n", this.props.postText);
     // console.log("componentDidUpdate(this.props.postText):\n", this.props);
   }
 
@@ -62,6 +66,7 @@ class Landing extends Component {
     // console.log("WHOAMIIIIII:\n", whoami);
     // console.log("postTEXTTTT:\n", postText);
     // console.log("AUTHHHHH:", auth);
+    console.log("window:", window.clientInformation.platform);
     return (
       <div className="landing-page">
         <Navbar />

@@ -7,13 +7,13 @@ export const fetchVideos = (user_id) => (dispatch) => {
     .then((res) => {
       //
       //debug
-      console.log("res.data:", res.data.data);
+      // console.log("res.data:", res.data.data);
       dispatch(fetchVideosSuccess(res.data.data));
     })
     .catch((err) => {
       //
       //debug
-      console.log("err:", err.message);
+      // console.log("err:", err.message);
       dispatch(fetchVideosFail(err.message));
     });
 };

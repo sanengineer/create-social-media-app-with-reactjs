@@ -71,12 +71,12 @@ class AddPostHomePage extends Component {
       dataValue.content = e.target.value;
     }
 
-    console.log("onchange:\n", dataValue);
-    console.log(this.props.postText);
+    // console.log("onchange:\n", dataValue);
+    // console.log(this.props.postText);
 
     this.setState({ disabled: dataValue.content });
 
-    console.log("lenght:\n", dataValue.content.length > 0);
+    // console.log("lenght:\n", dataValue.content.length > 0);
   };
 
   getSnapshotBeforeUpdate(nextProps) {

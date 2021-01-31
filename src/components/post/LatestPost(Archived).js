@@ -21,14 +21,14 @@ class LatestPost extends Component {
 
   // showing modal
   handleShow = () => {
-    // // console.log(this.state.postArray);
+    // console.log(this.state.postArray);
     this.setState({ show: true });
   };
 
   // closing modal
   handleClose = () => {
     this.setState({ show: false });
-    // // console.log(this.state.postArray);
+    // console.log(this.state.postArray);
   };
 
   openDetail = () => {

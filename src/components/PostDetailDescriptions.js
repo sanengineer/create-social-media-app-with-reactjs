@@ -35,33 +35,33 @@ const PostDetailsDescription = ({
     const token = localStorage.jwtToken;
     //
     //debug
-    console.log("token:", token);
+    // console.log("token:", token);
 
     UsersServices.giveLovePost(token, lovePayload)
       .then((res) => {
         //
         //debug
-        console.log("res.data", res.data);
+        // console.log("res.data", res.data);
         alert(res.data.message);
       })
       .catch((err) => {
         //
         //debug
-        console.log("res.data", err.response);
+        // console.log("res.data", err.response);
         alert(err.data.message);
       });
     dispatch(fetchPostLovesStart());
 
     //
     //debug
-    console.log("lovePayload:", lovePayload);
+    // console.log("lovePayload:", lovePayload);
   };
 
   //
   //debug
-  console.log("postdetails:", postdetails.createAt);
-  console.log("date:", date);
-  console.log("time:", time);
+  // console.log("postdetails:", postdetails.createAt);
+  // console.log("date:", date);
+  // console.log("time:", time);
 
   let Fullname =
     (postdetails.user.firstname === "" && postdetails.user.lastname === "") ||
@@ -107,10 +107,12 @@ const PostDetailsDescription = ({
         <div className="second-text">
           <div
             className="col"
-            style={{ marginLeft: "82px", paddingRight: "6rem" }}
+            // style={{ marginLeft: "82px", paddingRight: "6rem" }}
           >
-            <p className="row">{ReactHtmlParser(postdetails.content)}</p>
-            <div className="row">
+            <p className="row post-detail">
+              {ReactHtmlParser(postdetails.content)}
+            </p>
+            <div className="row ">
               {!postdetails.image ? null : (
                 <img
                   src={postdetails.image}

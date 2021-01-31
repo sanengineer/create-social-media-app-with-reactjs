@@ -4,7 +4,7 @@ import { NavDropdown } from "react-bootstrap";
 const StorageAddButton = (props) => {
   //
   //debug
-  console.log("StorageAddButton.js props:", props);
+  // console.log("StorageAddButton.js props:", props);
 
   // const [modalImageShow, setModalImageShow] = useState(false);
   // const [modalVideoShow, setModalVideoShow] = useState(false);

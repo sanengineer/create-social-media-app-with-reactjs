@@ -6,7 +6,7 @@ export const fetchPublicUsers = () => (dispatch) => {
     .then((res) => {
       //
       //debugging
-      console.log("TEST", res.data.data);
+      // console.log("TEST", res.data.data);
 
       dispatch(fetchPublicUsersSuccess(res.data.data));
     })

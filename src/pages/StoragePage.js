@@ -17,10 +17,11 @@ import {
 } from "../components/modals/UploadStorageModals";
 
 export const x = async ({ fetchvideos }) => {
-  console.log("fetchvideos:\n", fetchvideos);
   const x = await fetchvideos;
-
-  console.log("x", x);
+  //
+  //debug
+  // console.log("fetchvideos:\n", fetchvideos);
+  // console.log("x", x);
   return <ReactPlayer url={x.video_link} controls={true} />;
 };
 
@@ -96,13 +97,13 @@ class StoragePage extends Component {
     const { whoami, fetchvideos, fetchimages } = this.props;
 
     const no = fetchvideos;
-    console.log("this.props", this.props.children);
+    // console.log("this.props", this.props.children);
 
     console.log("render\n", "no:\n", no);
-    console.log("window\n", window);
-    console.log("this.videoRef", this.videoRef);
-    console.log("this.imagesRef", this.imagesRef.current);
-    console.log("this.docsRef", this.docsRef.current);
+    // console.log("window\n", window);
+    // console.log("this.videoRef", this.videoRef);
+    // console.log("this.imagesRef", this.imagesRef.current);
+    // console.log("this.docsRef", this.docsRef.current);
     // if (fetchvideos.length !== undefined) {
     return (
       <div
@@ -158,6 +159,7 @@ class StoragePage extends Component {
                       onClick={this.addActiveClassOnImages}
                       to={`/${whoami.username}/storage/images`}
                     >
+                      <div></div>
                       <span className="pr-2">
                         <svg
                           width="20"
