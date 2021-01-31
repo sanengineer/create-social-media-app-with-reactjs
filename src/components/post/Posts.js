@@ -5,20 +5,40 @@ import { Link } from "react-router-dom";
 import { CREATE_USER_POST } from "../../redux/actions/actionTypes";
 import ReactHtmlParser from "react-html-parser";
 import userNoPict from "../../assets/images/user_no-pict.jpg";
+import ContentLoader from "react-content-loader";
 
-export const Posts = ({ postArray }) => {
+export const Posts = ({ postArray, props }) => {
   let dispatch = useDispatch();
+  //
+  //debug
   // console.log(postArray);
   if (postArray === undefined || postArray.length === 0) {
     return (
-      <div>
-        <p>Content is Empty</p>
+      <div className="post-detail-link mmm">
+        <ContentLoader
+          speed={2}
+          width={900}
+          height={260}
+          viewBox="0 0 900 260"
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
+          {...props}
+        >
+          <rect x="78" y="12" rx="3" ry="3" width="140" height="12" />
+          <rect x="78" y="36" rx="3" ry="3" width="90" height="12" />
+          <rect x="0" y="92" rx="3" ry="3" width="600" height="14" />
+          <rect x="0" y="116" rx="3" ry="3" width="600" height="14" />
+          <rect x="0" y="140" rx="3" ry="3" width="600" height="14" />
+          <circle cx="30" cy="30" r="30" />
+        </ContentLoader>
       </div>
     );
   }
 
   const openDetail = (postData) => {
-    // // console.log(postData)
+    //
+    //debug
+    // console.log(postData)
     dispatch({
       type: CREATE_USER_POST,
       payload: postData,

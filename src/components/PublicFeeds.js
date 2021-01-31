@@ -3,14 +3,46 @@ import { Link } from "react-router-dom";
 import AddPostHomePage from "./post/AddPostHomePage";
 import userNoPict from "../assets/images/user_no-pict.jpg";
 import ReactHtmlParser from "react-html-parser";
+import ContentLoader from "react-content-loader";
 
-export const Feeds = ({ publicusers, whoami, auth }) => {
-  if (publicusers.length === 0) return null;
+export const Feeds = ({ publicusers, whoami, auth, props }) => {
+  // if (publicusers.length === 0) return null;
 
   //
   //debug
   // console.log(publicusers.length);
   // console.log("FEEEEEDS:", whoami.length === 0);
+  if (publicusers === undefined || publicusers.length === 0) {
+    return (
+      <ContentLoader
+        speed={2}
+        width={900}
+        height={460}
+        viewBox="0 0 900 460"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb"
+        {...props}
+      >
+        <rect x="38" y="7" rx="1" ry="1" width="90" height="6" />
+        <rect x="38" y="18" rx="1" ry="1" width="60" height="6" />
+        <rect x="0" y="52" rx="1" ry="1" width="600" height="10" />
+        <rect x="0" y="72" rx="1" ry="1" width="600" height="10" />
+        <rect x="0" y="92" rx="1" ry="1" width="600" height="10" />
+        <rect x="0" y="112" rx="1" ry="1" width="600" height="10" />
+        <rect x="0" y="132" rx="1" ry="1" width="400" height="10" />
+        <circle cx="15" cy="15" r="15" />
+
+        <rect x="38" y="182" rx="1" ry="1" width="90" height="6" />
+        <rect x="38" y="192" rx="1" ry="1" width="60" height="6" />
+        <rect x="0" y="222" rx="1" ry="1" width="600" height="10" />
+        <rect x="0" y="242" rx="1" ry="1" width="600" height="10" />
+        <rect x="0" y="262" rx="1" ry="1" width="600" height="10" />
+        <rect x="0" y="282" rx="1" ry="1" width="600" height="10" />
+        <rect x="0" y="302" rx="1" ry="1" width="400" height="10" />
+        <circle cx="15" cy="190" r="15" />
+      </ContentLoader>
+    );
+  }
 
   const Feed = (userPublic) => {
     const userAva = !userPublic.user.avatar
