@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { Form, Button, Nav, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import userNoPict from "../assets/images/user_no-pict.jpg";
-import SidebarProfileOverview from "../components/sidebar/SidebarProfileOverview";
+import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
 import UsersService from "../services/usersService";
 import ChangeAvaFormModal from "../components/modals/ChangeAvaModal";
 
 // import DatePicker from "react-datepicker";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 
 class EditProfileByWahyu extends Component {
   constructor(props) {

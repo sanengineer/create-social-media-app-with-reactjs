@@ -16,7 +16,7 @@ import userNoPict from "../../assets/images/user_no-pict.jpg";
 import Comments from "./Comments";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import SidebarProfileOverview from "../../components/sidebar/SidebarProfileOverview";
+import SidebarProfileOverview from "../../components/sidebar/sidebarProfileOverview";
 import { SuggestedAccounts } from "../../components/sidebar/SidebarSuggestedAccounts";
 import { commenting, getComments } from "../../redux/actions/commentAction";
 

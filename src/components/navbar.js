@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { logoutUser } from "../redux/actions/authAction";
 
 //import component
-import { CornerComponent } from "./CornerComponent";
+import { CornerComponent } from "./cornerComponent";
 import { fetchWhoAmi } from "../redux/actions/whoAmiAction";
 
 class Navbar extends Component {

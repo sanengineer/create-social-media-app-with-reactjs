@@ -1,13 +1,13 @@
 import React, { Component, createRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import { connect } from "react-redux";
 import { fetchVideos } from "../redux/actions/fetchVideosAction";
 import { fetchImages } from "../redux/actions/fetchImagessAction";
 import ReactPlayer from "react-player/youtube";
 import { StorageAddButton } from "../components/StorageAddButton";
 
-import { VideosList } from "../components/StorageVideoList";
+import { VideosList } from "../components/storageVideoList";
 import { ImagesList } from "../components/StorageImageList";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import {

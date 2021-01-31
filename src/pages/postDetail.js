@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
-import SidebarProfileOverview from "../components/sidebar/SidebarProfileOverview";
-import PostDetailsDescription from "../components/PostDetailDescriptions";
+import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
+import PostDetailsDescription from "../components/postDetailDescriptions";
 import PropTypes from "prop-types";
 import { SuggestedAccounts } from "../components/sidebar/SidebarSuggestedAccounts";
 import { InfoWeb } from "../components/sidebar/SidebarFooter";
 import { fetchPostLoves } from "../redux/actions/publicPostLovesAction";
 import { fetchCommentsPost } from "../redux/actions/fetchCommentsPostAction";
 import Comments from "../components/post/Comments";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 
 class PostDetails extends Component {
   constructor(props) {

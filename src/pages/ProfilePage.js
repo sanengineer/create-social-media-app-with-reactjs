@@ -8,10 +8,10 @@ import Posts from "../components/post/Posts";
 import AddPost from "../components/modals/AddPost";
 import DetailPost from "../components/post/DetailPost";
 import PropTypes from "prop-types";
-import SidebarProfileOverview from "../components/sidebar/SidebarProfileOverview";
+import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
 import { fetchWhoAmi } from "../redux/actions/whoAmiAction";
 import UsersServices from "../services/usersService";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 
 class LatestPost extends Component {
   state = {

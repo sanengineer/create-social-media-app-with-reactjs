@@ -7,7 +7,7 @@ import {
   Document,
   StyleSheet,
 } from "@react-pdf/renderer";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 
 const styles = StyleSheet.create({
   page: {

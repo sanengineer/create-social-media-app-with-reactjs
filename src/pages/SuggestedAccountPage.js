@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchSuggestedUsers } from "../redux/actions/suggestedUsersAction";
 import { SuggestedAccounts } from "../components/sidebar/SidebarSuggestedAccounts";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import { Container } from "react-bootstrap";
 
 class SuggestedPage extends Component {

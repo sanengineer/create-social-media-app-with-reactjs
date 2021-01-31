@@ -19,9 +19,9 @@ import Landing from "./pages/LandingOrHomePage";
 import { fetchWhoAmi } from "./redux/actions/whoAmiAction";
 import EditProfileByWahyu from "./pages/EditProfilePage-Wahyu";
 import SuggestedPage from "./pages/SuggestedAccountPage";
-import PostDetails from "./pages/PostDetail";
-import StoragePage from "./pages/StoragePage";
-import PdfRender from "./pages/JournalsPage";
+import PostDetails from "./pages/postDetail";
+import StoragePage from "./pages/storagePage";
+import PdfRender from "./pages/journalsPage";
 
 //Importing stylesheet
 import "sanstrap/dist/css/sanstrap.css";

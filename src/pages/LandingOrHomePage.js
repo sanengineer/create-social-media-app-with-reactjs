@@ -7,8 +7,8 @@ import { connect } from "react-redux";
 import { fetchSuggestedUsers } from "../redux/actions/suggestedUsersAction";
 import { fetchPublicUsers } from "../redux/actions/publicUsers";
 import { fetchWhoAmi } from "../redux/actions/whoAmiAction";
-import SidebarProfileOverview from "../components/sidebar/SidebarProfileOverview";
-import Navbar from "../components/Navbar";
+import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
+import Navbar from "../components/navbar";
 
 class Landing extends Component {
   constructor(props) {

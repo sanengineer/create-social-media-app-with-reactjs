@@ -1,4 +1,4 @@
-import { api, baseUrl } from "./httpService";
+import { api } from "./httpService";
 
 //
 //debug
