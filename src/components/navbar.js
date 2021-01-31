@@ -50,12 +50,10 @@ class Navbar extends Component {
 
     // console.log("WHOAMMMMMM:", whoami);
     return (
-      <nav className="top-nav navbar navbar-expand-xl navbar-dark fixed-top py-3">
-        <div className="container-xl justify-content-between">
-          <a className=" navbar-brand" href="/">
+      <nav className="top-nav navbar navbar-expand-xl navbar-dark fixed-top p-0">
+        <div className="container justify-content-between p-0">
+          <a className=" navbar-brand sosmet-logo" href="/">
             <svg
-              width="141"
-              height="40"
               viewBox="0 0 141 40"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +68,6 @@ class Navbar extends Component {
               />
             </svg>
           </a>
-
           {/* <div className="search-container">
             <ul className="navbar-nav mr-auto">
               <form className="form-inline">

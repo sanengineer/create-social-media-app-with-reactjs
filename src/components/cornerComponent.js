@@ -18,14 +18,20 @@ export const CornerComponent = ({ whoami, logOut, auth }) => {
 
   if (auth.isAuthenticated === false) {
     return (
-      <ul className="navbar-nav d-lg-flex order-4">
+      <ul className="navbar-nav d-lg-flex order-4 f-12">
         <li className="...">
-          <a className="login-btn btn text-uppercase" href="/login">
+          <a
+            className="login-btn btn text-uppercase f-12 px-2 py-1"
+            href="/login"
+          >
             Login
           </a>
         </li>
         <li className="...">
-          <a className="signup-btn btn text-uppercase" href="/register">
+          <a
+            className="signup-btn btn text-uppercase f-12 px-2 py-1"
+            href="/register"
+          >
             Sign Up
           </a>
         </li>

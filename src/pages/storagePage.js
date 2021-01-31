@@ -116,7 +116,7 @@ class StoragePage extends Component {
       >
         <Navbar />
         <Router>
-          <Container className="container-box">
+          <Container className="section-main">
             <Row className="justify-content-center mb-5 mt-5">
               <div className="col-lg-3 ">
                 <img

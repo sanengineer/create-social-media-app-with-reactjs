@@ -6,6 +6,13 @@ body {
   filter: blur(10px);
 }
 
+.sosmet-logo svg {
+  height: 25px;
+}
+.navbar {
+  padding: 0.2rem 1rem;
+}
+
 .avatar-small {
   height: 30px !important;
   width: 30px !important;
@@ -238,7 +245,7 @@ body {
 
 /**--post card box--**/
 .card-no-round {
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
   border: 1px solid #9140b6;
   position: relative;
   margin-bottom: 1rem;
@@ -271,7 +278,7 @@ body {
 
 /**--feed wrapper--**/
 .section-main {
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .feeds-wrapper {
@@ -480,6 +487,10 @@ body {
   border-bottom: none;
 }
 
+.nav-link {
+  padding: 10px 0px 10px 0px;
+}
+
 .nav-tabs .nav-link {
   border: unset;
   border-top-left-radius: 0;
@@ -601,7 +612,7 @@ body {
   width: 700px;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding-bottom: 10vh;
+  padding-bottom: 16rem;
 }
 
 /**--edit profile--**/

@@ -73,7 +73,7 @@ const PostDetailsDescription = ({
 
   return (
     <>
-      <div className="quotes-people-box-list pr-5">
+      <div className="quotes-people-box-list" style={{ paddingRight: "4rem" }}>
         <div className="first-text d-flex justify-content-between">
           <div className="img-bio d-flex justify-content-between">
             <div className="image-profile-box">
@@ -105,7 +105,10 @@ const PostDetailsDescription = ({
         </div> */}
         </div>
         <div className="second-text">
-          <div className="col" style={{ marginLeft: "82px" }}>
+          <div
+            className="col"
+            style={{ marginLeft: "82px", paddingRight: "6rem" }}
+          >
             <p className="row">{ReactHtmlParser(postdetails.content)}</p>
             <div className="row">
               {!postdetails.image ? null : (
@@ -119,7 +122,7 @@ const PostDetailsDescription = ({
             </div>
           </div>
         </div>
-        <div className="thrid-text container pt-5 pb-5">
+        <div className="thrid-text col pt-5 pb-5">
           <div className="row justify-content-between">
             <div className="third-text-left-group d-flex">
               <div className="text-muted f-12">
@@ -146,7 +149,10 @@ const PostDetailsDescription = ({
           <div className="row justify-content-between">
             <div className="fourth-text-left-group d-flex">
               <div className="icon-comment">
-                <button onClick={handleShow} className="icon-comment-btn btn">
+                <button
+                  onClick={handleShow}
+                  className="icon-comment-btn btn p-0"
+                >
                   <svg
                     width="24"
                     height="24"
