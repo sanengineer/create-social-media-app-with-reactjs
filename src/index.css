@@ -574,7 +574,8 @@ body {
 .box-comment {
   background-color: #fafafa;
   border-radius: 4px;
-  padding: 6px 4px 6px 8px !important;
+  padding: 1px 6px 6px 6px !important;
+  width: auto !important;
 }
 
 /**--**/
@@ -799,4 +800,27 @@ body {
 
 .row.post-detail > iframe {
   width: 100% !important;
+}
+
+.feeds-post > audio {
+  width: 100vw;
+  border-radius: 0px !important;
+  background-color: #f1f3f4;
+}
+
+.row.post-detail {
+  font-size: 12px;
+}
+.row.post-detail > audio {
+  width: 100vw;
+  border-radius: 0px !important;
+  background-color: #f1f3f4;
+}
+
+.feeds-post > audio:focus {
+  outline: unset !important;
+}
+
+.row.post-detail > audio:focus {
+  outline: unset !important;
 }

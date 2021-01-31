@@ -56,7 +56,7 @@ export const Feeds = ({ publicusers, whoami, auth }) => {
                   <div className="username">{userPublic.user.username}</div>
                 </Link>
 
-                <div className="name">{Fullname}</div>
+                <div className="name font-weight-light">{Fullname}</div>
               </div>
             </div>
             {/* <div className="follow-button-group">

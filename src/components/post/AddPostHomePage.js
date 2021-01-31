@@ -180,7 +180,10 @@ class AddPostHomePage extends Component {
                 value={postText.textContent}
                 onChange={(e) => this.onChange(e)}
                 as="textarea"
-                style={{ minHeight: "40px" }}
+                style={{
+                  minHeight: "40px !important",
+                  height: "40px !important",
+                }}
                 className="f-12"
                 rows={3}
                 placeholder={
