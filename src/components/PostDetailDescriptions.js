@@ -89,7 +89,7 @@ const PostDetailsDescription = ({
                 />
               </div>
             </div>
-            <div className="bio-desc pl-4">
+            <div className="bio-desc pl-3 f-12 pt-2">
               <Link to={"/" + postdetails.user.username} />
               <Link to="#" style={{ textDecoration: "none" }}>
                 <div className="username">{postdetails.user.username}</div>
