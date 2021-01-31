@@ -295,7 +295,7 @@ const PostDetailsDescription = ({
                     </Popover>
                   }
                 >
-                  <button href="#" className="icon-share btn">
+                  <button href="#" className="icon-share btn p-0">
                     <svg
                       width="20"
                       height="20"
@@ -332,7 +332,10 @@ const PostDetailsDescription = ({
                 {/* <form>
                 <input type="input" hidden />
               </form> */}
-                <button onClick={handleSubmit} className="icon-love-btn btn">
+                <button
+                  onClick={handleSubmit}
+                  className="icon-love-btn btn p-0"
+                >
                   <svg
                     width="24"
                     height="24"

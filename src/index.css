@@ -58,6 +58,18 @@ body {
 }
 
 /**--botstrap overider--**/
+.text-muted {
+  color: #8e8e8e !important;
+}
+
+.p-absolute-storage-nav-clicked {
+  top: 16px !important;
+}
+
+.p-absolute-storage-nav {
+  top: 17px !important;
+}
+
 .modal-content {
   margin-top: 0rem !important;
 }
@@ -110,7 +122,7 @@ body {
 
 .popover {
   position: absolute;
-  transform: translate3d(209px, 456px, 0px) !important;
+  transform: translate3d(174px, 362px, 0px) !important;
   z-index: 1060;
   display: block;
   max-width: 1000px;
@@ -190,11 +202,13 @@ body {
 }
 
 .dropdown-menu.show {
-  transform: translate3d(-41px, 48px, 0px) !important;
+  transform: translate3d(-58px, 45px, 0px) !important;
+  z-index: 3;
 }
 
 .storage .dropdown-menu.show {
   transform: translate3d(-76px, 43px, 0px) !important;
+  z-index: 3;
 }
 
 .dropdown-menu {
@@ -278,7 +292,18 @@ body {
 
 /**--feed wrapper--**/
 .section-main {
-  margin-top: 60px;
+  padding-top: 60px;
+}
+
+.storage-page {
+  padding-top: 50px !important;
+}
+
+.stor-page-first-row {
+  padding-bottom: 60px;
+}
+.stor-page-first-row {
+  padding-bottom: auto;
 }
 
 .feeds-wrapper {
@@ -399,17 +424,16 @@ body {
 }
 
 .suggested-account-item .username {
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .suggested-account-item .name {
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .username-follow-wrapper {
   width: 100%;
   display: inline-flex;
-  padding-top: 4px;
 }
 
 .suggested-user-link {
@@ -495,6 +519,9 @@ body {
   border: unset;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  width: 76px;
+  margin: auto;
+  display: -webkit-box;
 }
 
 .nav-tabs .nav-item {
@@ -691,6 +718,10 @@ body {
   color: #757575;
 }
 
+.testcccc .nav-link {
+  position: relative;
+  z-index: 90;
+}
 .testcccc.show img {
   border: 2px solid #7f37a0;
   padding: 2px;

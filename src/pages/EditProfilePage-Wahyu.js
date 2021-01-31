@@ -76,7 +76,7 @@ class EditProfileByWahyu extends Component {
       address: this.state.userProfile.address,
       avatar: this.state.userProfile.avatar,
       bio: this.state.userProfile.bio,
-      birthdate: this.userProfile.birthdate,
+      birthdate: this.state.userProfile.birthdate,
       cloudinary_id: this.state.userProfile.cloudinary_id,
       email: this.state.userProfile.email,
       firstname: this.state.userProfile.firstname,
@@ -135,9 +135,9 @@ class EditProfileByWahyu extends Component {
     return (
       <>
         <Navbar />
-        <div className="container mt-5">
+        <div className="section-main container">
           <div className="row mt-5">
-            <Col lg={8} className="pr-5">
+            <Col lg={8} className="feeds-wrapper pr-5">
               <div className="edit-profile-details-wrapper container mx-4">
                 <h3 className="pb-5">
                   <strong>Edit Profile</strong>
@@ -287,7 +287,7 @@ class EditProfileByWahyu extends Component {
                 </div>
               </div>
             </Col>
-            <Col md={4} style={{ marginTop: "5rem" }}>
+            <Col md={4} className="sidebar-wrapper">
               <div className="sticky-wrapper-aside">
                 <SidebarProfileOverview whoami={whoami} auth={auth} />
                 <Nav defaultActiveKey="#" className="flex-column mt-4">

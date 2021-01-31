@@ -109,9 +109,8 @@ class PostDetails extends Component {
         <Navbar />
         <Container className="section-main">
           <Row>
-            <Col lg={8} className="feeds-wrapper pr-5">
+            <Col lg={8} className="feeds-wrapper pl-0 pr-5">
               <div className="heading-profile-page-wrapper">{}</div>
-              <br></br>
               <div className="feeds-whoami-page">
                 <div className="feeds-whoami-page-wrapper">
                   <div className="feeds-whoami-page-overflow">

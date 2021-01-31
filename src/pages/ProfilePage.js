@@ -85,20 +85,19 @@ class LatestPost extends Component {
           <Row>
             <Col lg={8} className="feeds-wrapper pr-5">
               <div className="heading-profile-page-wrapper">
-                <div className="row justify-content-between mb-5">
+                <div className="row justify-content-between mb-3">
                   <Col lg={4}>
                     <h3 className="font-weight-bold">YourPosts</h3>
                   </Col>
                   <Button
                     onClick={this.handleShow}
-                    className="post-btn btn btn-purple"
+                    className="post-btn btn btn-purple f-12 font-weight-bold px-2 py-1"
                   >
                     New Post
                   </Button>
                   {/* <button onClick={this.handleShow}  className="follow-btn btn block" block>Post</button> */}
                 </div>
               </div>
-              <br></br>
               <div className="feeds-whoami-page">
                 <div className="feeds-whoami-page-wrapper">
                   <div className="feeds-whoami-page-overflow">

@@ -25,7 +25,7 @@ class SuggestedPage extends Component {
             <div className="section-main container">
               <div className="row justify-content-center">
                 <div className="col-4">
-                  <div className="mb-4 mt-5">
+                  <div className="mb-4">
                     <h3 className="h5 font-weight-bold">Suggested Users</h3>
                   </div>
                   <div className="suggested-wrapper">
