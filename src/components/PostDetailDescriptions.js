@@ -7,6 +7,7 @@ import moment from "moment";
 import AddComment from "./modals/CommentModal";
 import UsersServices from "../services/usersService";
 import { fetchPostLovesStart } from "../redux/actions/publicPostLovesAction";
+import ReactHtmlParser from "react-html-parser";
 
 const PostDetailsDescription = ({
   postdetails,
@@ -105,7 +106,7 @@ const PostDetailsDescription = ({
         </div>
         <div className="second-text">
           <div className="col" style={{ marginLeft: "82px" }}>
-            <p className="row">{postdetails.content}</p>
+            <p className="row">{ReactHtmlParser(postdetails.content)}</p>
             <div className="row">
               {!postdetails.image ? null : (
                 <img
