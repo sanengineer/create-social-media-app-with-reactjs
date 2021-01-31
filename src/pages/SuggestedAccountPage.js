@@ -19,7 +19,7 @@ class SuggestedPage extends Component {
 
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <Container className="section-main">
           <div className="suggested-page">
             <div className="section-main container">

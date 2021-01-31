@@ -49,7 +49,7 @@ class PdfRender extends Component {
   render() {
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <div
           className="container-box"
           style={{

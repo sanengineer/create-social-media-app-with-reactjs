@@ -106,7 +106,7 @@ class PostDetails extends Component {
 
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <Container className="section-main">
           <Row>
             <Col lg={8} className="feeds-wrapper pl-0 pr-5">

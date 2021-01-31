@@ -69,7 +69,7 @@ class Landing extends Component {
     console.log("window:", window.clientInformation.platform);
     return (
       <div className="landing-page">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="section-main container">
           <div className="row">
             <div className="feeds-wrapper col-8 pr-5">

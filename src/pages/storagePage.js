@@ -115,7 +115,7 @@ class StoragePage extends Component {
             : "storage-page"
         }
       >
-        <Navbar />
+        {/* <Navbar /> */}
         <Router>
           <Container className="section-main storage-page p-0">
             <Row className="justify-content-center stor-page-first-row">

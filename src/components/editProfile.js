@@ -6,7 +6,7 @@ import axios, { put, post } from "axios";
 import userNoPict from "../assets/images/user_no-pict.jpg";
 import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
 import UsersService from "../services/usersService";
-import ChangeAvaFormModal from "../components/modals/ChangeAvaModal";
+import ChangeAvaFormModal from "../components/modals/changeAvaModal;
 
 class EditProfile extends Component {
   constructor(props) {

@@ -80,7 +80,7 @@ class LatestPost extends Component {
 
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <Container className="section-main">
           <Row>
             <Col lg={8} className="feeds-wrapper pr-5">

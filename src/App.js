@@ -22,6 +22,7 @@ import SuggestedPage from "./pages/SuggestedAccountPage";
 import PostDetails from "./pages/postDetail";
 import StoragePage from "./pages/storagePage";
 import PdfRender from "./pages/journalsPage";
+import Navbar from "./components/navbar";
 
 //Importing stylesheet
 import "sanstrap/dist/css/sanstrap.css";
@@ -96,6 +97,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <Navbar />
           <Route exact path="/home" component={Landing}></Route>
           <Route exact path="/" component={Landing}></Route>
           <Route exact path="/login" component={Login}></Route>

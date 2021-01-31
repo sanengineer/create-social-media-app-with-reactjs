@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import userNoPict from "../assets/images/user_no-pict.jpg";
 import SidebarProfileOverview from "../components/sidebar/sidebarProfileOverview";
 import UsersService from "../services/usersService";
-import ChangeAvaFormModal from "../components/modals/ChangeAvaModal";
+import ChangeAvaFormModal from "../components/modals/changeAvaModal";
 
 // import DatePicker from "react-datepicker";
 import Navbar from "../components/navbar";
@@ -134,7 +134,7 @@ class EditProfileByWahyu extends Component {
 
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="section-main container">
           <div className="row mt-5">
             <Col lg={8} className="feeds-wrapper pr-5">
